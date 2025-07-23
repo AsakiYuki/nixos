@@ -12,6 +12,7 @@
         kdePackages.xwaylandvideobridge
         spotify
         vesktop
+        proton-pass
         obs-studio
 
         # Screen sharing

@@ -2,7 +2,7 @@
 { 
   bind = [
     # Programs
-    "SUPER, F, exec, flatpak run app.zen_browser.zen"
+    "SUPER, F, exec, zen"
     "SUPER, Q, exec, kitty"
     "SUPER, E, exec, dolphin"
     "SUPER SHIFT, S, exec, hyprshot -m region -o '/home/asalinux/Pictures/Screenshot/' -z"    
