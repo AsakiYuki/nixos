@@ -13,5 +13,7 @@
                 pkgs.xdg-desktop-portal-hyprland
             ];
         };
+
+        configFile = import ./config-files.nix { inherit pkgs; };
     };
 }
