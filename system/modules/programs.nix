@@ -3,7 +3,7 @@
     programs = {
         # Import nix
         spicetify = import ./programs/spicetify.nix { inherit inputs pkgs; };
-        starship = import ./programs/starship.nix {};
+        starship = import ../../root/programs/starship.nix {};
 
         # Configs
         steam.enable = true;

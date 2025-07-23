@@ -6,11 +6,12 @@
         scan_timeout = 10;
 
         format=''$os $shell $cmake$java$nodejs$git_branch$character
-$cmd_duration$directory > '';
+$cmd_duration$sudo$directory > '';
 
         sudo = {
             format = "[$symbol]($style) ";
             symbol = "";
+            disabled = false;
         };
 
         java = {
