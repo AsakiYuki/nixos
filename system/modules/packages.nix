@@ -1,4 +1,4 @@
-{ pkgs, unstablePkgs, ... }:
+{ inputs, pkgs, unstablePkgs, ... }:
 {
     environment.systemPackages = with pkgs; [
         # Softwares
@@ -55,5 +55,8 @@
         # Unstable Packages
         unstablePkgs.quickshell
         unstablePkgs.spicetify-cli
+
+        # Flake Packages
+        inputs.zen-browser.packages."${system}".default
     ];
 }

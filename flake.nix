@@ -2,13 +2,16 @@
     description = "Asa's Nix configuration";
     
     inputs = {
+        # Default Packages
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
         unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
         home-manager.url = github:nix-community/home-manager/release-25.05;
+
+        # Extra Packages
+        zen-browser.url = "github:0xc000022070/zen-browser-flake";
     };
 
-    outputs = { self, nixpkgs, unstable, home-manager, ... }:
+    outputs = inputs@{ self, nixpkgs, unstable, zen-browser, home-manager, ... }:
     
     let unstablePkgs = import unstable {
         system = "x86_64-linux";
@@ -19,7 +22,7 @@
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-                inherit unstablePkgs home-manager;
+                inherit inputs nixpkgs unstablePkgs home-manager;
             };
             modules = [ ./system/configuration.nix ];
         };
