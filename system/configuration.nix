@@ -1,4 +1,4 @@
-{ inputs, nixpkgs, unstablePkgs, home-manager, ... }:
+{ inputs, nixpkgs, pkgs, unstablePkgs, home-manager, ... }:
 {
     # Import nix
     imports = [
@@ -27,5 +27,11 @@
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-    system.stateVersion = "25.05"; 
+    system.stateVersion = "25.05";
+
+    # Catppuccin
+    catppuccin = {
+        enable = true;
+        flavor = "mocha";
+    };
 }

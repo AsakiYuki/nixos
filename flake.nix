@@ -9,9 +9,18 @@
 
         # Extra Packages
         zen-browser.url = "github:0xc000022070/zen-browser-flake";
+        catppuccin.url = "github:catppuccin/nix";
     };
 
-    outputs = inputs@{ self, nixpkgs, unstable, zen-browser, home-manager, ... }:
+    outputs = inputs@{
+        self,
+        catppuccin,
+        nixpkgs,
+        unstable,
+        zen-browser,
+        home-manager,
+        ...
+    }:
     
     let unstablePkgs = import unstable {
         system = "x86_64-linux";
@@ -24,7 +33,10 @@
             specialArgs = {
                 inherit inputs nixpkgs unstablePkgs home-manager;
             };
-            modules = [ ./system/configuration.nix ];
+            modules = [
+                catppuccin.nixosModules.catppuccin
+                ./system/configuration.nix
+            ];
         };
     };
 }
