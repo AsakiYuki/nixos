@@ -24,7 +24,9 @@
         platformTheme.name = "qtct";
         style.package = with pkgs; [
             catppuccin-qt5ct
+            catppuccin-kde
             libsForQt5.breeze-qt5
+            kdePackages.breeze
         ];
     };
 }
