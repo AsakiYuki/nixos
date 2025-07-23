@@ -1,11 +1,15 @@
 { ... }:
 let
-    shellAliases = import ../../../../../root/shellAliases.nix {};
+    shell = import ../../../../../root/programs/shell.nix {};
 in
 {
     enable =  true;
-    shellAliases = shellAliases // {
+    shellAliases = shell.shellAliases // {
         restart-shell = "pkill quickshell; nohup quickshell > /dev/null 2>&1 &";
         nix-list = "nix-store -q --references /run/current-system/sw";
     };
+    
+    initExtra = (shell.shellInit + ''
+    
+    '')
 }
