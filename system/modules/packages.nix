@@ -14,6 +14,7 @@
         vesktop
         proton-pass
         obs-studio
+        gimp
 
         # Screen sharing
         wireplumber

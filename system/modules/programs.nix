@@ -1,8 +1,8 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
     programs = {
         # Import nix
-        spicetify = import ./programs/spicetify.nix { inherit input; };
+        spicetify = import ./programs/spicetify.nix { inherit inputs pkgs; };
 
         # Configs
         steam.enable = true;
