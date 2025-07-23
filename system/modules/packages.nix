@@ -55,8 +55,7 @@
 
         # Unstable Packages
         unstablePkgs.quickshell
-        unstablePkgs.spicetify-cli
-
+        
         # Flake Packages
         inputs.zen-browser.packages."${system}".default
     ];

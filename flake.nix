@@ -10,6 +10,7 @@
         # Extra Packages
         zen-browser.url = "github:0xc000022070/zen-browser-flake";
         catppuccin.url = "github:catppuccin/nix";
+        spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     };
 
     outputs = inputs@{
@@ -19,6 +20,7 @@
         unstable,
         zen-browser,
         home-manager,
+        spicetify-nix,
         ...
     }:
     

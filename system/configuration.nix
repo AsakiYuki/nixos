@@ -2,9 +2,12 @@
 {
     # Import nix
     imports = [
+        # Extension
+        home-manager.nixosModules.default
+        inputs.spicetify-nix.nixosModules.default
+
         # Require
         ./modules/hardware.nix
-        home-manager.nixosModules.default
 
         # Modules
         ./modules/boot.nix
