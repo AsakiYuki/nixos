@@ -15,6 +15,5 @@
         };
 
         configFile = ./config-files.nix;
-        desktopEntries = ./desktop-entries.nix;
     };
 }

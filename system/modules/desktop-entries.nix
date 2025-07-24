@@ -1,0 +1,6 @@
+{ ... }:
+{
+    xdg.desktopEntries = {
+        
+    };
+}
