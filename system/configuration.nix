@@ -5,7 +5,7 @@
         # Extension
         home-manager.nixosModules.default
         inputs.spicetify-nix.nixosModules.default
-
+        
         # Require
         ./modules/hardware.nix
 
@@ -32,10 +32,4 @@
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     system.stateVersion = "25.05";
-
-    # Catppuccin
-    catppuccin = {
-        enable = true;
-        flavor = "mocha";
-    };
 }

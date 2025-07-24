@@ -36,7 +36,6 @@
                 inherit inputs nixpkgs unstablePkgs home-manager;
             };
             modules = [
-                catppuccin.nixosModules.catppuccin
                 ./system/configuration.nix
             ];
         };

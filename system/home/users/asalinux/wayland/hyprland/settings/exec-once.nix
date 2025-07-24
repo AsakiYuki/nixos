@@ -1,7 +1,6 @@
 { ... }:
 [
   "quickshell"
-  "hyprpaper"
   "fcitx5"
   "xwaylandvideobridge"
   "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"

@@ -29,6 +29,7 @@
         kdePackages.kdeclarative 
         papirus-icon-theme
         fcitx5-material-color
+        nwg-look
 
         # Hyprland
         hyprshot
@@ -44,7 +45,7 @@
         wget
         ffmpeg
         killall
-	ntfs3g
+	    ntfs3g
 
         # KDE
         kdePackages.dolphin
@@ -60,5 +61,12 @@
         
         # Flake Packages
         inputs.zen-browser.packages."${system}".default
+
+        # Custom Packages
+        (pkgs.catppuccin-gtk.override {
+            variant = "mocha";
+            accents = [ "blue" ];
+            size = "compact";
+        })
     ];
 }

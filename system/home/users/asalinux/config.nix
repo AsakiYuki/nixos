@@ -29,4 +29,20 @@
             kdePackages.breeze
         ];
     };
+
+    # GTK
+    gtk = {
+        theme = {
+            name = "catppuccin-mocha-blue-compact";
+            package = pkgs.catppuccin-gtk;
+        };
+    };
+
+    # Catppuccin
+    # catppuccin = {
+    #     gtk = {
+    #         enable = true;
+    #         flavor = "mocha";
+    #     };
+    # };
 }
