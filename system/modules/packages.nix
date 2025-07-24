@@ -44,6 +44,7 @@
         wget
         ffmpeg
         killall
+	ntfs3g
 
         # KDE
         kdePackages.dolphin

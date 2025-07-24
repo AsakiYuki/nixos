@@ -25,13 +25,13 @@
     }:
     
     let
-        system = "x86_64-linux";
         unstablePkgs = import unstable {
+            system = "x86_64-linux";
             config.allowUnfree = true;
         };
     in {
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-            system = system;
+            system = "x86_64-linux";
             specialArgs = {
                 inherit inputs nixpkgs unstablePkgs home-manager;
             };

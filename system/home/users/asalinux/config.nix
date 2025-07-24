@@ -16,6 +16,7 @@
         stateVersion = "25.05";
         sessionVariables = import ./env.nix {};
         file = import ./files.nix { inherit pkgs; };
+        pointerCursor = import ./pointer.nix { inherit pkgs; };
     };
 
     # QT
