@@ -11,5 +11,5 @@ in
     
     initExtra = (shell.shellInit + ''
     
-    '')
+    '');
 }
