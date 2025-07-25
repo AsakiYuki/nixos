@@ -14,6 +14,7 @@
             ];
         };
 
-        configFile = ./config-files.nix;
+        configFile = import ./config-files.nix { inherit pkgs; };
+        desktopEntries = import ./desktop-entries.nix {};
     };
 }

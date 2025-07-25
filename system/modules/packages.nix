@@ -1,4 +1,19 @@
 { inputs, pkgs, unstablePkgs, ... }:
+let
+    catppuccin-gtk = pkgs.catppuccin-gtk.override {
+        variant = "mocha";
+        accents = [ "blue" ];
+        size = "compact";
+    };
+
+    vesktop = pkgs.vesktop.overrideAttrs ({
+        postFixup = ''
+            makeWrapper ${pkgs.electron}/bin/electron $out/bin/vesktop \
+                --add-flags $out/opt/Vesktop/resources/app.asar \
+                --add-flags "--ozone-platform=x11"
+        '';
+    });
+in
 {
     environment.systemPackages = with pkgs; [
         # Softwares
@@ -15,6 +30,7 @@
         proton-pass
         obs-studio
         gimp
+        catppuccin-gtk
 
         # Screen sharing
         wireplumber
@@ -46,6 +62,7 @@
         ffmpeg
         killall
 	    ntfs3g
+        playerctl
 
         # KDE
         kdePackages.dolphin
@@ -61,12 +78,5 @@
         
         # Flake Packages
         inputs.zen-browser.packages."${system}".default
-
-        # Custom Packages
-        (pkgs.catppuccin-gtk.override {
-            variant = "mocha";
-            accents = [ "blue" ];
-            size = "compact";
-        })
     ];
 }
