@@ -6,8 +6,8 @@ Actions=runWithKitty;
 X-KDE-AuthorizeAction=shell_access
 
 [Desktop Action runWithKitty]
-TryExec=kitty
+TryExec=Kitty
 Exec=kitty -d %f
-Icon=kitty
+Icon=Kitty
 Name=Open with Kitty
-Comment=Open terminal here with Kitty
+Comment=Open with Kitty
