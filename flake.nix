@@ -11,6 +11,7 @@
         zen-browser.url = "github:0xc000022070/zen-browser-flake";
         catppuccin.url = "github:catppuccin/nix";
         spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+        dolphin-overlay.url = "github:rumboon/dolphin-overlay";
     };
 
     outputs = inputs@{
@@ -21,6 +22,7 @@
         zen-browser,
         home-manager,
         spicetify-nix,
+        dolphin-overlay,
         ...
     }:
     
@@ -36,6 +38,9 @@
                 inherit inputs nixpkgs unstablePkgs home-manager;
             };
             modules = [
+                {
+                    nixpkgs.overlays = [ dolphin-overlay.overlays.default ];
+                }
                 ./system/configuration.nix
             ];
         };

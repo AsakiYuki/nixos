@@ -63,6 +63,7 @@ in
         killall
 	    ntfs3g
         playerctl
+        p7zip
 
         # KDE
         kdePackages.dolphin
@@ -72,6 +73,9 @@ in
         kdePackages.qtimageformats
         kdePackages.qtsvg
         kdePackages.qtmultimedia
+        kdePackages.plasma-workspace
+        kdePackages.kservice
+        kdePackages.dolphin-plugins
 
         # Unstable Packages
         unstablePkgs.quickshell
