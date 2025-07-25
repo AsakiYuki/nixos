@@ -39,10 +39,12 @@
     };
 
     # Catppuccin
-    # catppuccin = {
-    #     gtk = {
-    #         enable = true;
-    #         flavor = "mocha";
-    #     };
-    # };
+    catppuccin = {
+        fcitx5 = {
+            enable = true;
+            enableRounded = false;
+            flavor = "mocha";
+            accent = "blue";
+        };
+    };
 }

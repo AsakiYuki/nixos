@@ -5,6 +5,11 @@
         useGlobalPkgs = true;
         backupFileExtension = "bak";
         
-        users.asalinux = ./users/asalinux/config.nix;
+        users.asalinux = {
+            imports = [
+                ./users/asalinux/config.nix
+                inputs.catppuccin.homeManagerModules.catppuccin
+            ];
+        };
     };
 }
