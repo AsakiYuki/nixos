@@ -14,7 +14,7 @@
         username = "asalinux";
         homeDirectory = "/home/asalinux";
         stateVersion = "25.05";
-        sessionVariables = import ./env.nix {};
+        sessionVariables = import ./env.nix { inherit config; };
         file = import ./files.nix { inherit pkgs; };
         pointerCursor = import ./pointer.nix { inherit pkgs; };
     };
