@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
+MimeType=inode/directory;
+Actions=runWithKitty;
+X-KDE-AuthorizeAction=shell_access
+
+[Desktop Action runWithKitty]
+TryExec=kitty
+Exec=kitty -d %f
+Icon=kitty
+Name=Open with Kitty
+Comment=Open terminal here with Kitty

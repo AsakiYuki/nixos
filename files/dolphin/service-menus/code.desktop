@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin,inode/directory
+MimeType=inode/directory;
+Actions=openInVSCode;
+
+[Desktop Action openInVSCode]
+Name=Open with Code
+Icon=code
+Exec=code "%f"
