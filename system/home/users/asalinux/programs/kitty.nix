@@ -10,13 +10,13 @@
     settings = {
         window_padding_width = 5;
         cursor_shape = "beam";
-        background_opacity = 0.5;
+        # background_opacity = 0.5;
 
         font_family = "Tahoma";
         font_size = 9;
         
-        foreground = "#FFFFFF";
-        background = "#000000";
+        foreground = "#cdd6f4";
+        background = "#1e1e2e";
         selection_foreground = "#1e1e2e";
         selection_background = "#f5e0dc";
 

@@ -30,7 +30,7 @@ in
         proton-pass
         obs-studio
         gimp
-        catppuccin-gtk
+        lxqt.lximage-qt
 
         # Screen sharing
         wireplumber
@@ -46,6 +46,7 @@ in
         papirus-icon-theme
         fcitx5-material-color
         nwg-look
+        catppuccin-gtk
 
         # Hyprland
         hyprshot
@@ -60,10 +61,11 @@ in
         wget
         ffmpeg
         killall
-	    ntfs3g
+	ntfs3g
         playerctl
         p7zip
         fastfetch
+	waydroid-helper
 
         # KDE
         kdePackages.dolphin

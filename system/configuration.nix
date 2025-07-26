@@ -33,7 +33,8 @@
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     xdg.menus.enable = true;
     xdg.mime.enable = true;
-
+    
+    virtualisation.waydroid.enable = true;
     aagl.enableNixpkgsReleaseBranchCheck = false;
 
     system.stateVersion = "25.05";
