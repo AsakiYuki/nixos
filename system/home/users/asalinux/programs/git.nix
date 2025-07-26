@@ -1,14 +1,13 @@
 { ... }:
 {
-    enable = true;
     lfs.enable = true;
-    config = {
-        init = { defaultBranch = "main"; };
-        alias = {};
-        user = {
-            email = "vantrong2007vn@gmail.com";
-            name = "Asaki Yuki";
-        };
+
+    userEmail = "vantrong2007vn@gmail.com";
+    userName = "Asaki Yuki";
+    aliases = {};
+    ignores = [];
+
+    extraConfig = {
         url = {
             "git@github.com:" = {
                 insteadOf = [
