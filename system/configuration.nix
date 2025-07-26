@@ -34,5 +34,7 @@
     xdg.menus.enable = true;
     xdg.mime.enable = true;
 
+    aagl.enableNixpkgsReleaseBranchCheck = false;
+
     system.stateVersion = "25.05";
 }
