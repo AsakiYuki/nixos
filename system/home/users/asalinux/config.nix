@@ -46,5 +46,12 @@
             flavor = "mocha";
             accent = "blue";
         };
+
+        gtk = {
+            enable = true;
+            flavor = "mocha";
+            accent = "blue";
+            size = "compact";
+        };
     };
 }

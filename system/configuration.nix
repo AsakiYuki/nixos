@@ -5,6 +5,7 @@
         # Extension
         home-manager.nixosModules.default
         inputs.spicetify-nix.nixosModules.default
+        inputs.aagl.nixosModules.default
         
         # Require
         ./modules/hardware.nix
