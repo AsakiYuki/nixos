@@ -6,6 +6,5 @@
         fastfetch = import ./programs/fastfetch.nix {};
         starship = import ../../../../root/programs/starship.nix {};
         vscode = import ./programs/vscode.nix { inherit pkgs; };
-        git = import ../../../../root/programs/git.nix {};
     };
 }
