@@ -56,7 +56,6 @@ in
         cloudflared
         neovim
         vim
-        fastfetch
         btop
         wget
         ffmpeg
@@ -64,6 +63,7 @@ in
 	    ntfs3g
         playerctl
         p7zip
+        fastfetch
 
         # KDE
         kdePackages.dolphin
