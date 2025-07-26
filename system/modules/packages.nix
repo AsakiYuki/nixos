@@ -53,7 +53,6 @@ in
         hyprpaper
  
         # CLI
-        git
         cloudflared
         neovim
         vim
@@ -61,11 +60,11 @@ in
         wget
         ffmpeg
         killall
-	ntfs3g
+        ntfs3g
         playerctl
         p7zip
         fastfetch
-	waydroid-helper
+	    waydroid-helper
 
         # KDE
         kdePackages.dolphin
