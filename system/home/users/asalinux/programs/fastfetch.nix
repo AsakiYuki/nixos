@@ -1,4 +1,7 @@
 { ... }:
 {
     enable = true;
+    settings = {
+        
+    };
 }
