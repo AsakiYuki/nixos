@@ -1,21 +1,9 @@
 { ... }:
+let
+    git = import ../../../../../root/programs/git.nix {};
+in
 {
-    lfs.enable = true;
-
-    userEmail = "vantrong2007vn@gmail.com";
-    userName = "Asaki Yuki";
-    aliases = {};
-    ignores = [];
-
-    extraConfig = {
-        url = {
-            "git@github.com:" = {
-                insteadOf = [
-                    "https://github.com/"
-                    "gh:"
-                    "github:"
-                ];
-            };
-        };
-    };
+    enable = git.enable;
+    lfs.enable = git.lfs.enable;
+    extraConfig = git.config;
 }
