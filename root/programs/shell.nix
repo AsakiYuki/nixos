@@ -18,12 +18,5 @@
             git fetch origin HEAD
             git pull origin HEAD
         }
-
-        if [ "$TERM_PROGRAM" != "vscode" ]; then
-            if ! pgrep ssh-agent >/dev/null; then
-                eval "$(ssh-agent -s)"
-                ssh-add ~/.ssh/id_ed25519 2>/dev/null
-            fi
-        fi
     '';
 }
