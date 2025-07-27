@@ -33,6 +33,7 @@ in
         gfn-electron
         prismlauncher
         mcpelauncher-ui-qt
+        chromium
 
         # Screen sharing
         wireplumber
