@@ -53,5 +53,10 @@
             accent = "blue";
             size = "compact";
         };
+
+        obs = {
+            enable = true;
+            flavor = "mocha";
+        };
     };
 }

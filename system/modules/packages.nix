@@ -27,10 +27,12 @@ in
         kdePackages.xwaylandvideobridge
         spotify
         vesktop
-        proton-pass
         obs-studio
         gimp
         lxqt.lximage-qt
+        gfn-electron
+        prismlauncher
+        mcpelauncher-ui-qt
 
         # Screen sharing
         wireplumber
@@ -80,6 +82,7 @@ in
 
         # Unstable Packages
         unstablePkgs.quickshell
+        unstablePkgs.proton-pass
         
         # Flake Packages
         inputs.zen-browser.packages."${system}".default
