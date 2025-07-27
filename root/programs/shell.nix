@@ -20,8 +20,10 @@
         }
 
         if [ "$TERM_PROGRAM" != "vscode" ]; then
-            eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/id_rsa
+            if ! pgrep ssh-agent >/dev/null; then
+                eval "$(ssh-agent -s)"
+                ssh-add ~/.ssh/id_ed25519 2>/dev/null
+            fi
         fi
     '';
 }
