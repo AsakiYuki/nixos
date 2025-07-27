@@ -29,12 +29,13 @@
     networking.networkmanager.enable = true;
     time.timeZone = "Asia/Ho_Chi_Minh";
 
-    nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
     xdg.menus.enable = true;
     xdg.mime.enable = true;
     
     aagl.enableNixpkgsReleaseBranchCheck = false;
 
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "25.05";
 }
