@@ -18,5 +18,10 @@
             git fetch origin HEAD
             git pull origin HEAD
         }
+
+        if [ "$TERM_PROGRAM" != "vscode" ]; then
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_rsa
+        fi
     '';
 }
