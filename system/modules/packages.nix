@@ -84,8 +84,5 @@ in
         # Unstable Packages
         unstablePkgs.quickshell
         unstablePkgs.proton-pass
-        
-        # Flake Packages
-        inputs.zen-browser.packages."${system}".default
     ];
 }

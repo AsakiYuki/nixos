@@ -23,11 +23,13 @@
     qt = {
         enable = true;
         platformTheme.name = "qtct";
-        style.package = with pkgs; [
-            catppuccin-qt5ct
-            catppuccin-kde
-            kdePackages.breeze
-        ];
+        style = {
+            package = with pkgs; [
+                catppuccin-qt5ct
+                catppuccin-kde
+                kdePackages.breeze
+            ];
+        };
     };
 
     # GTK

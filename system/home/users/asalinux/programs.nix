@@ -7,5 +7,6 @@
         starship = import ../../../../root/programs/starship.nix {};
         vscode = import ./programs/vscode.nix { inherit pkgs; };
         git = import ./programs/git.nix {};
+        zen-browser = import ./programs/zen-browser.nix {};
     };
 }
