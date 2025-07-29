@@ -11,6 +11,13 @@ in
     };
     
     initExtra = (shell.shellInit + ''
-    
+        if [ -z "$SSH_AUTH_SOCK" ] || ! pgrep -u "$USER" ssh-agent > /dev/null; then
+            eval "$(ssh-agent -s)" > ~/.ssh-agent-info
+            echo "SSH agent started"
+        fi
+
+        if [ -f ~/.ssh-agent-info ]; then
+            source ~/.ssh-agent-info
+        fi
     '');
 }
