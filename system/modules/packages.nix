@@ -34,7 +34,6 @@ in
         prismlauncher
         mcpelauncher-ui-qt
         chromium
-        docker
 
         # Screen sharing
         wireplumber
