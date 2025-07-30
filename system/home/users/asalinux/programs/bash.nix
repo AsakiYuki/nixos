@@ -10,7 +10,7 @@ in
         nix-list = "nix-store -q --references /run/current-system/sw";
 
         nix-code = "code /etc/nixos; exit;";
-        ssh-server = "ssh asalinux@tuonghoa.asakiyuki.com";
+        ssh-server = "ssh -i /home/asalinux/.ssh/id_ed25519 asalinux@tuonghoa.asakiyuki.com";
     };
     
     initExtra = (shell.shellInit + ''
