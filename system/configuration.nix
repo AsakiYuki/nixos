@@ -1,4 +1,4 @@
-{ inputs, nixpkgs, pkgs, unstablePkgs, home-manager, ... }:
+{ inputs, nixpkgs, pkgs, unstable, home-manager, ... }:
 {
     # Import nix
     imports = [

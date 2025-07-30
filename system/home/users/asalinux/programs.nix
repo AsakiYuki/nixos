@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
     programs = {
         kitty = import ./programs/kitty.nix {};

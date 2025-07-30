@@ -4,7 +4,7 @@
     inputs = {
         # Default Packages
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-        unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+        unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
         home-manager.url = github:nix-community/home-manager/release-25.05;
 
         # Extra Packages
@@ -19,7 +19,7 @@
         self,
         catppuccin,
         nixpkgs,
-        unstable,
+        unstablepkgs,
         zen-browser,
         home-manager,
         spicetify-nix,
@@ -29,7 +29,7 @@
     }:
     
     let
-        unstablePkgs = import unstable {
+        unstable = import unstablepkgs {
             system = "x86_64-linux";
             config.allowUnfree = true;
         };
@@ -37,7 +37,7 @@
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-                inherit inputs nixpkgs unstablePkgs home-manager;
+                inherit inputs nixpkgs unstable home-manager;
             };
             modules = [
                 {

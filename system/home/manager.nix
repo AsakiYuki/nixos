@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
     home-manager = {
         useUserPackages = true;
@@ -7,9 +7,9 @@
         
         users.asalinux = {
             imports = [
-                ./users/asalinux/config.nix
                 inputs.catppuccin.homeModules.catppuccin
                 inputs.zen-browser.homeModules.beta
+                ./users/asalinux/config.nix
             ];
         };
     };

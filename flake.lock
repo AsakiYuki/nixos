@@ -230,7 +230,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_5",
         "spicetify-nix": "spicetify-nix",
-        "unstable": "unstable",
+        "unstablepkgs": "unstablepkgs",
         "zen-browser": "zen-browser"
       }
     },
@@ -268,7 +268,7 @@
         "type": "github"
       }
     },
-    "unstable": {
+    "unstablepkgs": {
       "locked": {
         "lastModified": 1753694789,
         "narHash": "sha256-cKgvtz6fKuK1Xr5LQW/zOUiAC0oSQoA9nOISB0pJZqM=",

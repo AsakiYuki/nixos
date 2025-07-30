@@ -8,16 +8,11 @@ in
         restart-wallpaper  = "pkill hyprpaper; nohup hyprpaper > /dev/null 2>&1 &";
         restart-shell = "pkill quickshell; nohup quickshell > /dev/null 2>&1 &";
         nix-list = "nix-store -q --references /run/current-system/sw";
+
+        nix-code = "code /etc/nixos; exit;";
     };
     
     initExtra = (shell.shellInit + ''
-        if [ -z "$SSH_AUTH_SOCK" ] || ! pgrep -u "$USER" ssh-agent > /dev/null; then
-            eval "$(ssh-agent -s)" > ~/.ssh-agent-info
-            echo "SSH agent started"
-        fi
-
-        if [ -f ~/.ssh-agent-info ]; then
-            source ~/.ssh-agent-info
-        fi
+      
     '');
 }

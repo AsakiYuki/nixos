@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
     # Imports nix
     imports = [
@@ -14,7 +14,7 @@
         username = "asalinux";
         homeDirectory = "/home/asalinux";
         stateVersion = "25.05";
-        sessionVariables = import ./env.nix { inherit config; };
+        sessionVariables = import ./env.nix {};
         file = import ./files.nix { inherit pkgs; };
         pointerCursor = import ./pointer.nix { inherit pkgs; };
     };

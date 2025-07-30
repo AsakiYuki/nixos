@@ -1,4 +1,4 @@
-{ inputs, pkgs, unstablePkgs, ... }:
+{ inputs, pkgs, unstable, ... }:
 let
     catppuccin-gtk = pkgs.catppuccin-gtk.override {
         variant = "mocha";
@@ -34,6 +34,7 @@ in
         prismlauncher
         mcpelauncher-ui-qt
         chromium
+        docker
 
         # Screen sharing
         wireplumber
@@ -82,7 +83,7 @@ in
         kdePackages.dolphin-plugins
 
         # Unstable Packages
-        unstablePkgs.quickshell
-        unstablePkgs.proton-pass
+        unstable.quickshell
+        unstable.proton-pass
     ];
 }
