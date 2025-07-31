@@ -6,6 +6,7 @@
         starship = import ../../root/programs/starship.nix {};
         bash = import ../../root/programs/shell.nix {};
         git = import ../../root/programs/git.nix {};
+        gamemode = import ./programs/gamemode.nix {};
 
         # Configs
         steam.enable = true;
