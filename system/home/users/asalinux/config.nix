@@ -26,9 +26,11 @@ in
         pointerCursor = import ./pointer.nix { inherit pkgs; };
 
         activation.copyGtkTheme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-            mkdir -p "$HOME/.local/share/themes/"
-            rm -rf "$HOME/.local/share/themes/catppuccin-mocha-blue-compact"
-            cp -r "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact" "$HOME/.local/share/themes/"
+            mkdir -p "$HOME/.themes/"
+
+            ln -sf "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact" "$HOME/.themes/"
+            ln -sf "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact-hdpi" "$HOME/.themes/"
+            ln -sf "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact-xhdpi" "$HOME/.themes/"
         '';
     };
 
