@@ -1,4 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let
+    catppuccin-gtk = pkgs.catppuccin-gtk.override {
+        variant = "mocha";
+        accents = [ "blue" ];
+        size = "compact";
+    };
+in
 {
     # Imports nix
     imports = [
@@ -17,6 +24,12 @@
         sessionVariables = import ./env.nix {};
         file = import ./files.nix { inherit pkgs; };
         pointerCursor = import ./pointer.nix { inherit pkgs; };
+
+        activation.copyGtkTheme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            mkdir -p "$HOME/.local/share/themes/"
+            rm -rf "$HOME/.local/share/themes/catppuccin-mocha-blue-compact"
+            cp -r "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact" "$HOME/.local/share/themes/"
+        '';
     };
 
     # QT
@@ -33,12 +46,7 @@
     };
 
     # GTK
-    gtk = {
-        theme = {
-            name = "catppuccin-mocha-blue-compact";
-            package = pkgs.catppuccin-gtk;
-        };
-    };
+    gtk.theme.name = "catppuccin-mocha-blue-compact";
 
     # Catppuccin
     catppuccin = {
