@@ -5,7 +5,6 @@
         # Extension
         home-manager.nixosModules.default
         inputs.spicetify-nix.nixosModules.default
-        inputs.aagl.nixosModules.default
         
         # Require
         ./modules/hardware.nix
@@ -33,8 +32,6 @@
     nixpkgs.config.allowUnfree = true;
     xdg.menus.enable = true;
     xdg.mime.enable = true;
-    
-    aagl.enableNixpkgsReleaseBranchCheck = false;
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "25.05";

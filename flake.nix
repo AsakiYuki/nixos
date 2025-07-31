@@ -12,7 +12,6 @@
         catppuccin.url = "github:catppuccin/nix";
         spicetify-nix.url = "github:Gerg-L/spicetify-nix";
         dolphin-overlay.url = "github:rumboon/dolphin-overlay";
-        aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     };
 
     outputs = inputs@{
@@ -24,7 +23,6 @@
         home-manager,
         spicetify-nix,
         dolphin-overlay,
-        aagl,
         ...
     }:
     

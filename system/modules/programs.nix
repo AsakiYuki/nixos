@@ -9,7 +9,6 @@
 
         # Configs
         steam.enable = true;
-        honkers-railway-launcher.enable = true;
 
         hyprland = {
             enable = true;

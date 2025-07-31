@@ -50,7 +50,8 @@ in
         fcitx5-material-color
         nwg-look
         catppuccin-gtk
-
+        flatpak-builder
+        
         # Hyprland
         hyprshot
         hyprpaper
