@@ -28,9 +28,17 @@ in
         activation.copyGtkTheme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
             mkdir -p "$HOME/.themes/"
 
-            ln -sf "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact" "$HOME/.themes/"
-            ln -sf "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact-hdpi" "$HOME/.themes/"
-            ln -sf "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact-xhdpi" "$HOME/.themes/"
+            if [ ! -d "$HOME/.themes/catppuccin-mocha-blue-compact" ]; then
+                cp -r "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact" "$HOME/.themes/"
+            fi
+
+            if [ ! -d "$HOME/.themes/catppuccin-mocha-blue-compact-hdpi" ]; then
+                cp -r "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact-hdpi" "$HOME/.themes/"
+            fi
+
+            if [ ! -d "$HOME/.themes/catppuccin-mocha-blue-compact-xhdpi" ]; then
+                cp -r "${catppuccin-gtk}/share/themes/catppuccin-mocha-blue-compact-xhdpi" "$HOME/.themes/"
+            fi
         '';
     };
 
