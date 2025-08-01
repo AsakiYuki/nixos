@@ -15,7 +15,6 @@
         url = {
             "git@github.com:" = {
                 insteadOf = [
-                    "https://github.com/"
                     "gh:"
                     "github:"
                 ];
