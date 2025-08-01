@@ -1,5 +1,5 @@
 { pkgs, ... }:
 {
-  enable = true;
-  package = pkgs.vscode;
+    enable = true;
+    package = pkgs.vscode;
 }
