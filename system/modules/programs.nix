@@ -10,7 +10,6 @@
 
         # Configs
         steam.enable = true;
-        twintaillauncher.enable = true;
 
         hyprland = {
             enable = true;
