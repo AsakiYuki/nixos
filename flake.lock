@@ -157,6 +157,22 @@
     },
     "nixpkgs_6": {
       "locked": {
+        "lastModified": 1753694789,
+        "narHash": "sha256-cKgvtz6fKuK1Xr5LQW/zOUiAC0oSQoA9nOISB0pJZqM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "dc9637876d0dcc8c9e5e22986b857632effeb727",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_7": {
+      "locked": {
         "lastModified": 1752480373,
         "narHash": "sha256-JHQbm+OcGp32wAsXTE/FLYGNpb+4GLi5oTvCxwSoBOA=",
         "owner": "nixos",
@@ -178,6 +194,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_4",
         "spicetify-nix": "spicetify-nix",
+        "twintaillauncher": "twintaillauncher",
         "unstablepkgs": "unstablepkgs",
         "zen-browser": "zen-browser"
       }
@@ -216,6 +233,24 @@
         "type": "github"
       }
     },
+    "twintaillauncher": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1754023320,
+        "narHash": "sha256-PgivDPp3XWU2XRzFnvUfuCRefHjQKdogJ1tgHdgzHWg=",
+        "owner": "AsakiYuki",
+        "repo": "twintaillauncher-nix",
+        "rev": "8703fc2f14ed74cca6f5fd5a1ca699e334935288",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AsakiYuki",
+        "repo": "twintaillauncher-nix",
+        "type": "github"
+      }
+    },
     "unstablepkgs": {
       "locked": {
         "lastModified": 1753694789,
@@ -235,7 +270,7 @@
     "zen-browser": {
       "inputs": {
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1753933355,

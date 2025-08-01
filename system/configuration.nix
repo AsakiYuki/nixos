@@ -5,6 +5,7 @@
         # Extension
         home-manager.nixosModules.default
         inputs.spicetify-nix.nixosModules.default
+        inputs.twintaillauncher.nixosModules.default
         
         # Require
         ./modules/hardware.nix
