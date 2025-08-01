@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
     programs = {
-        kitty = import ./programs/kitty.nix {};
+        ghostty = import ./programs/ghostty.nix {};
         bash = import ./programs/bash.nix {};
         fastfetch = import ./programs/fastfetch.nix {};
         starship = import ../../../../root/programs/starship.nix {};

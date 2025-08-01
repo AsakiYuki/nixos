@@ -3,7 +3,7 @@
     bind = [
         # Programs
         "SUPER, F, exec, zen"
-        "SUPER, Q, exec, kitty"
+        "SUPER, Q, exec, ghostty"
         "SUPER, E, exec, dolphin"
         "SUPER SHIFT, S, exec, hyprshot -m region -o '/home/asalinux/Pictures/Screenshot/' -z"
  

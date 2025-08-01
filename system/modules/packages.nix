@@ -17,7 +17,7 @@ in
 {
     environment.systemPackages = with pkgs; [
         # Softwares
-        kitty
+        ghostty
         lxqt.pavucontrol-qt
         fcitx5
         fcitx5-bamboo
