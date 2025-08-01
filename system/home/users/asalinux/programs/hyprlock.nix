@@ -2,7 +2,7 @@
 let
     FONT = "Segoe UI";
     NERF_FONT = "Sauce Code Pro Nerd Font";
-    WALLPAPER = "/home/asalinux/Pictures/Wallpapers/phoebe.jpg";
+    WALLPAPER = "/etc/nixos/root/wallpaper.jpg";
 
     TEXT_COLOR = "rgb(205, 214, 244)";
     SUBTEXT_COLOR = "rgb(88, 91, 112)";
@@ -51,31 +51,57 @@ in
             check_color = TEXTBOX_BG_COLOR;
             fail_color = TEXTBOX_BG_COLOR;
 
-            size = 300, 40;
-            position = 0, -125;
+            size = "300, 40";
+            position = "0, -125";
             halign = "center";
             valign = "center";
         };
 
-        label {
-            text = ''
-                cmd[update:50] bash -c "
-                    #!/bin/env bash
-                    MAIN_KB_CAPS=$(hyprctl devices | grep -B 6 "main: yes" | grep "capsLock" | head -1 | awk '{print $2}')
+        label = [
+            {
+                text = "cmd[update:50] /etc/nixos/root/scripts/capslock.sh";
+                color = TEXT_COLOR;
+                position = "0, -175";
+                halign = "center";
+                valign = "center";
+                font_family = "${FONT} Bold";
+                font_size = 11;
+            }
+            
+            {
+                text = "cmd[update:500] /etc/nixos/root/scripts/bottom-text.sh";
 
-                    if [ "$MAIN_KB_CAPS" = "yes" ]; then
-                        echo "Caps Lock"
-                    else
-                        echo ""
-                    fi
-                "
-            '';
-            color = TEXT_COLOR;
-            position = "0, -175";
-            halign = "center";
-            valign = "center";
-            font_family = "${FONT} Bold";
-            font_size = 11;
-        }
+                color = TEXT_COLOR;
+                font_size = 11;
+                font_family = "${FONT}, ${NERF_FONT}";
+                font_color = SUBTEXT_COLOR;
+
+                position = "0, 18";
+                halign = "center";
+                valign = "bottom";
+            }
+
+            {
+                text = "cmd[update:1000] date +'%H:%M:%S'";
+                color = TEXT_COLOR;
+                font_size = 45;
+                font_family = "${FONT} Bold";
+
+                position = "0, 200";
+                halign = "center";
+                valign = "center";
+            }
+
+            {
+                text =  "cmd[update:60000] date +'%A, %d %B'";
+                color = TEXT_COLOR;
+                font_size = 15;
+                font_family = "${FONT} Bold";
+
+                position = "0, 150";
+                halign = "center";
+                valign = "center";
+            }
+        ];
     };
 }

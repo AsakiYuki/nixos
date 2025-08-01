@@ -3,7 +3,7 @@
 	enable = true;
 	settings = {
 		splash = false;
-		preload = [ "/home/asalinux/Pictures/Wallpapers/phoebe.jpg" ];
-		wallpaper = [ "HDMI-A-1,/home/asalinux/Pictures/Wallpapers/phoebe.jpg" ];
+		preload = [ "/etc/nixos/root/wallpaper.jpg" ];
+		wallpaper = [ "HDMI-A-1,/etc/nixos/root/wallpaper.jpg" ];
 	};
 }
