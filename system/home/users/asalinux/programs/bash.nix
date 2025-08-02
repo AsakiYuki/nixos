@@ -13,7 +13,16 @@ in
         ssh-server = "ssh -i /home/asalinux/.ssh/id_ed25519 asalinux@tuonghoa.asakiyuki.com";
     };
     
-    initExtra = (shell.shellInit + ''
-      
+    initExtra = (''
+        function git-push()  {
+            git add .
+            git commit -m "$1"
+            git push
+        }
+
+        function git-pull() {
+            git fetch origin HEAD
+            git pull origin HEAD
+        }
     '');
 }

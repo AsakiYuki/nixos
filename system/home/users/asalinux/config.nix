@@ -60,23 +60,10 @@ in
 
     # Catppuccin
     catppuccin = {
-        fcitx5 = {
-            enable = true;
-            enableRounded = false;
-            flavor = "mocha";
-            accent = "blue";
-        };
+        accent = "blue";
+        flavor = "mocha";
 
-        gtk = {
-            enable = true;
-            flavor = "mocha";
-            accent = "blue";
-            size = "compact";
-        };
-
-        obs = {
-            enable = true;
-            flavor = "mocha";
-        };
+        fcitx5.enable = true;
+        obs.enable = true;
     };
 }
