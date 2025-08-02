@@ -3,6 +3,7 @@
     programs = {
         ghostty = import ./programs/ghostty.nix {};
         kitty = import ./programs/kitty.nix {};
+        tmux = import ./programs/tmux.nix { inherit pkgs; };
         bash = import ./programs/bash.nix {};
         fastfetch = import ./programs/fastfetch.nix {};
         starship = import ../../../../root/programs/starship.nix {};
