@@ -2,7 +2,17 @@
 {
     enable = true;
     settings = {
-        logo.padding.top = 1;
+        logo = {
+            padding.top = 1;
+            color = {
+                "1" = "#89b4fa";
+                "2" = "#cdd6f4";
+                "3" = "#89b4fa";
+                "4" = "#cdd6f4";
+                "5" = "#89b4fa";
+                "6" = "#cdd6f4";
+            };
+        };
 
         display = {
             color = {
