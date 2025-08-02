@@ -17,6 +17,7 @@
         ./modules/security.nix
         ./modules/packages.nix
         ./modules/fonts.nix
+        ./modules/networking.nix
 
         # Home Manager
         ./home/manager.nix
