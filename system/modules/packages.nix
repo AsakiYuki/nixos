@@ -69,6 +69,8 @@ in
         playerctl
         p7zip
         fastfetch
+        tldr
+        fzf
 	    waydroid-helper
 
         # KDE

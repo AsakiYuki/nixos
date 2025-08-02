@@ -12,6 +12,15 @@ in
         nix-code = "code /etc/nixos; exit;";
         ssh-server = "ssh -i /home/asalinux/.ssh/id_ed25519 asalinux@tuonghoa.asakiyuki.com";
     };
+
+    shellOptions = [
+        "histappend"
+        "checkwinsize"
+        "extglob"
+        "globstar"
+        "checkjobs"
+        "autocd"
+    ];
     
     initExtra = ''
         function git-push()  {
