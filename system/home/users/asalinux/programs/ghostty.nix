@@ -1,10 +1,21 @@
 { ... }:
 {
-    enable = true;
+    enable = false;
 
-    settings = [
+    settings = {
         theme = "catppuccin-mocha";
-    ];
+
+        font-size = 10;
+        font-family = "SauceCodePro NFP Bold";
+
+        window-padding-x = 5;
+        window-padding-y = 0;
+
+        keybind = [
+            "ctrl+c=copy_to_clipboard"
+            "ctrl+v=paste_from_clipboard"
+        ];
+    };
 
     themes = {
         catppuccin-mocha = {

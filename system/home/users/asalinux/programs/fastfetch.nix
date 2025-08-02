@@ -2,38 +2,168 @@
 {
     enable = true;
     settings = {
+        logo.padding.top = 1;
+
         display = {
-            color =  {
-                title =  "#cdd6f4";
-                keys =  "#bac2de";
-                output =  "#7f849c";
-                separator =  "black";
+            color = {
+                title = "#cdd6f4";
+                output = "#cdd6f4";
+                separator = "black";
             };
-            brightColor =  true;
+
+            bar = {
+                width = 10;
+                charElapsed = "█";
+                charTotal = " ";
+                borderLeft = "[";
+                borderRight = "]";
+                color = {
+                    border = "green";
+                    elapsed = "green";
+                    total = "black";
+                };
+            };
+
+            percent = {
+                type = 3;
+                color = {
+                    green = "green";
+                    yellow = "yellow";
+                    red = "red";
+                };
+            };
+
+            separator = "  ";
+            brightColor = true;
         };
 
-        general = {};
+        modules = [
+            {
+                type = "title";
+                format = " {user-name}@{host-name}";
+                outputColor = "bright_yellow";
+            }
 
-        modules =  {};
+            {
+                type = "separator";
+                string = "─";
+                length = 24;
+                outputColor = "white";
+            }
 
-        # [
-        #     "title"
-        #     "separator"
-        #     "os"
-        #     "host"
-        #     "kernel"
-        #     "uptime"
-        #     "packages"
-        #     "de"
-        #     "wm"
-        #     "display"
-        #     "cpu"
-        #     "gpu"
-        #     "memory"
-        #     "swap"
-        #     "disk"
-        #     "break"
-        #     "colors"
-        # ];
+            {
+                type = "os";
+                key = "╭─";
+                keyColor = "green";
+            }
+            {
+                type = "kernel";
+                key = "├─󰌽";
+                keyColor = "green";
+            }
+            {
+                type = "shell";
+                key = "├─";
+                keyColor = "green";
+            }
+            {
+                type = "packages";
+                key = "├─󰆧";
+                keyColor = "green";
+            }
+            {
+                type = "uptime";
+                key = "╰─󱑁";
+                keyColor = "green";
+            }
+
+            "break"
+
+            {
+                type = "host";
+                keyColor = "blue";
+                key = "╭─󰧨";
+            }
+            {
+                type = "cpu";
+                key = "├─";
+                keyColor = "blue";
+            }
+            {
+                type = "gpu";
+                key = "├─";
+                keyColor = "blue";
+            }
+            {
+                type = "sound";
+                key = "├─";
+                format = "{name}";
+                keyColor = "blue";
+            }
+            {
+                type = "memory";
+                format = "{percentage-bar} {used} / {total}";
+                key = "├─";
+                keyColor = "blue";
+            }
+            {
+                type = "swap";
+                format = "{percentage-bar} {used} / {total}";
+                key = "├─󰿡";
+                keyColor = "blue";
+            }
+            {
+                type = "disk";
+                format = "{size-percentage-bar} {name} ({mountpoint}) {size-used} / {size-total} - {filesystem}";
+                key = "├─󰋊";
+                keyColor = "blue";
+            }
+            {
+                type = "localip";
+                key = "╰─";
+                keyColor = "blue";
+            }
+
+            "break"
+
+            {
+                type = "terminal";
+                key = "╭─";
+                keyColor = "yellow";
+            }
+            {
+                type = "de";
+                key = "├─󰨇";
+                keyColor = "yellow";
+            }
+            {
+                type = "wm";
+                key = "├─󰨇";
+                keyColor = "yellow";
+            }
+            {
+                type = "bios";
+                key = "├─";
+                keyColor = "yellow";
+            }
+            {
+                type = "theme";
+                key = "├─󱓓";
+                keyColor = "yellow";
+            }
+            {
+                type = "icons";
+                key = "├─󱓓";
+                keyColor = "yellow";
+            }
+            {
+                type = "cursor";
+                key = "╰─󱓓";
+                keyColor = "yellow";
+            }
+
+            "break"
+            "colors"
+        ];
     };
 }
