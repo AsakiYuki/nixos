@@ -13,7 +13,7 @@ in
         ssh-server = "ssh -i /home/asalinux/.ssh/id_ed25519 asalinux@tuonghoa.asakiyuki.com";
     };
     
-    initExtra = (''
+    initExtra = ''
         function git-push()  {
             git add .
             git commit -m "$1"
@@ -24,5 +24,19 @@ in
             git fetch origin HEAD
             git pull origin HEAD
         }
-    '');
+
+        allowed_terms=("xterm-kitty" "xterm-ghostty")
+
+        should_run_tmux=false
+        for term in "${"$" + "{allowed_terms[@]" + "}"}"; do
+        if [[ "$TERM" == "$term" ]]; then
+            should_run_tmux=true
+            break
+        fi
+        done
+
+        if [ -z "$TMUX" ] && [ "$should_run_tmux" = true ]; then
+            exec tmux
+        fi
+    '';
 }
