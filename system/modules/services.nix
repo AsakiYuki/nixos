@@ -4,7 +4,6 @@
         xserver.enable = true;
         pipewire.enable = true;
         flatpak.enable = true;
+        resolved.enable = true;
     };
-
-    # virtualisation.docker.enable = true};
 }

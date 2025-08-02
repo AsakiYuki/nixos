@@ -24,9 +24,6 @@
     ];
 
     # Config somethings
-    networking.hostName = "nixos";
-    networking.wireless.enable = false;
-    networking.networkmanager.enable = true;
     time.timeZone = "Asia/Ho_Chi_Minh";
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
