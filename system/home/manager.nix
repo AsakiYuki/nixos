@@ -9,6 +9,7 @@
             imports = [
                 inputs.catppuccin.homeModules.catppuccin
                 inputs.zen-browser.homeModules.beta
+                inputs.nixvim.homeModules.nixvim
                 ./users/asalinux/config.nix
             ];
         };

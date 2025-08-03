@@ -59,7 +59,6 @@ in
  
         # CLI
         cloudflared
-        neovim
         vim
         btop
         wget

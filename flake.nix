@@ -12,6 +12,10 @@
         catppuccin.url = "github:catppuccin/nix";
         spicetify-nix.url = "github:Gerg-L/spicetify-nix";
         dolphin-overlay.url = "github:rumboon/dolphin-overlay";
+        nixvim = {
+            url = "github:nix-community/nixvim/nixos-25.05";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = inputs@{
