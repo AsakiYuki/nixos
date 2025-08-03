@@ -11,5 +11,6 @@
         git = import ./programs/git.nix {};
         hyprlock = import ./programs/hyprlock.nix {};
         zen-browser = import ./programs/zen-browser.nix {};
+        neovim = import ./programs/neovim.nix {};
     };
 }

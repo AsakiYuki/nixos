@@ -72,6 +72,7 @@ in
         tldr
         fzf
 	    waydroid-helper
+        lazydocker
 
         # KDE
         kdePackages.dolphin
