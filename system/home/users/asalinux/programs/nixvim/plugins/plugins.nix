@@ -1,6 +1,7 @@
 { ... }:
 {
     programs.nixvim.plugins = {
-        neo-tree = import ./neotree.nix;
+        neo-tree = import ./neotree.nix {};
+        web-devicons = import ./web-devicons.nix {}
     };
 }
