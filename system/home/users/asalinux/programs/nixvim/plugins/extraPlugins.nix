@@ -1,6 +1,9 @@
 { pkgs, ... }:
+let
+    plugins = pkgs.vimPlugins;
+in
 {
-    programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
-        vimsence
+    programs.nixvim.extraPlugins = [
+        (import ./neocord.nix { inherit plugins; })
     ];
 }
