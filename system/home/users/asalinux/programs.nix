@@ -1,17 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-    programs = {
-        tmux = import ./programs/tmux.nix { inherit pkgs; };
-        vscode = import ./programs/vscode.nix { inherit pkgs; };
-        nixvim = import ./programs/nixvim/app.nix { inherit pkgs; };
-        
-        ghostty = import ./programs/ghostty.nix {};
-        kitty = import ./programs/kitty.nix {};
-        bash = import ./programs/bash.nix {};
-        fastfetch = import ./programs/fastfetch.nix {};
-        starship = import ../../../../root/programs/starship.nix {};
-        git = import ./programs/git.nix {};
-        hyprlock = import ./programs/hyprlock.nix {};
-        zen-browser = import ./programs/zen-browser.nix {};
-    };
+    imports = [
+        ./programs/tmux.nix
+        ./programs/vscode.nix
+        ./programs/ghostty.nix
+        ./programs/kitty.nix
+        ./programs/bash.nix
+        ./programs/fastfetch.nix
+        ./programs/starship.nix
+        ./programs/git.nix
+        ./programs/hyprlock.nix
+        ./programs/zen-browser.nix
+        ./programs/nixvim/app.nix
+    ];
 }

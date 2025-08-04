@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-    enable = true;
+    programs.nixvim.enable = true;
     
-    colorschemes = ./colorschemes.nix;
+    imports = [
+        ./colorschemes.nix
+        ./plugins/plugins.nix
+    ];
 }
