@@ -5,5 +5,6 @@
     imports = [
         ./colorschemes.nix
         ./plugins/plugins.nix
+        ./plugins/extraPlugins.nix
     ];
 }
