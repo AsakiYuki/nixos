@@ -42,20 +42,22 @@ let
     '';
 in
 {
-    enable = true;
-    keyMode = "vi";
-    disableConfirmationPrompt = true;
+    programs.tmux = {
+        enable = true;
+        keyMode = "vi";
+        disableConfirmationPrompt = true;
 
-    extraConfig = TOP_PANEL + OPTIONS + BINDS; 
+        extraConfig = TOP_PANEL + OPTIONS + BINDS; 
 
-    plugins = with pkgs.tmuxPlugins; [
-        {
-            plugin = catppuccin;
-            extraConfig = CATPPUCCIN;
-        }
-        {
-            plugin = cpu;
-            extraConfig = BOTTOM_PANEL;
-        }
-    ];
+        plugins = with pkgs.tmuxPlugins; [
+            {
+                plugin = catppuccin;
+                extraConfig = CATPPUCCIN;
+            }
+            {
+                plugin = cpu;
+                extraConfig = BOTTOM_PANEL;
+            }
+        ];
+    };
 }
