@@ -7,12 +7,15 @@
         networkmanager = {
             enable = true;
             dns = "systemd-resolved";
-            insertNameservers = [
-                "1.1.1.1"
-                "1.0.0.1"
-            ];
         };
+    };
 
-        hosts = {};
+    services.resolved = {
+        enable = true;
+        extraConfig = ''
+            DNS=1.1.1.1 1.0.0.1
+            FallbackDNS=8.8.8.8 8.8.4.4
+            DNSStubListener=yes
+        '';
     };
 }

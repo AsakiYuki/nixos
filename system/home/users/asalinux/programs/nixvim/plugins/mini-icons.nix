@@ -1,4 +1,4 @@
-{ }:
+{ plugins, ... }:
 {
-    enable = true;
+    plugin = plugins.mini-icons;
 }

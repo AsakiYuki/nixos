@@ -2,6 +2,7 @@
 let
     EXTRA_PLUGINS = [
         ./neocord.nix
+        ./mini-icons.nix
     ];
 
     LUA = [

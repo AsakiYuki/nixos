@@ -35,6 +35,7 @@ in
         prismlauncher
         mcpelauncher-ui-qt
         chromium
+	youtube-music
 
         # Screen sharing
         wireplumber
