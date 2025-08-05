@@ -33,7 +33,6 @@ in
         lxqt.lximage-qt
         gfn-electron
         prismlauncher
-        mcpelauncher-ui-qt
         chromium
 	youtube-music
 
