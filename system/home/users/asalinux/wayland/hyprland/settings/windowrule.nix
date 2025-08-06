@@ -7,14 +7,26 @@
 
 		"suppressevent maximize, class:.*"
 		"nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+	]
+	++
+	(map (rule: "${rule}, class:^(xwaylandvideobridge)$") [
+		"opacity 0.0 override"
+		"noanim"
+		"noinitialfocus"
+		"maxsize 1 1"
+		"noblur"
+		"nofocus"
+	])
+	++
+	(map (rule: "${rule}, class:^(GeForce NOW)$") [
+		"suppressevent fullscreen"
+		"float"
+		"size 1280 720"
+		"maxsize 1280 720"
+		"minsize 1280 720"
+		"center 1"
+	]);
 
-		"opacity 0.0 override, class:^(xwaylandvideobridge)$"
-		"noanim, class:^(xwaylandvideobridge)$"
-		"noinitialfocus, class:^(xwaylandvideobridge)$"
-		"maxsize 1 1, class:^(xwaylandvideobridge)$"
-		"noblur, class:^(xwaylandvideobridge)$"
-		"nofocus, class:^(xwaylandvideobridge)$"
-	];
 	windowrulev2 = [
 		"tile, class:^(Chromium)$"
 	];
