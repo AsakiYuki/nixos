@@ -28,7 +28,6 @@ in
         kdePackages.xwaylandvideobridge
         spotify
         spotifywm
-        spotify-tray
         
         vesktop
         obs-studio
@@ -37,7 +36,7 @@ in
         gfn-electron
         prismlauncher
         chromium
-	    youtube-music
+        youtube-music
 
         # Screen sharing
         wireplumber
