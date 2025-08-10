@@ -37,6 +37,7 @@ in
         prismlauncher
         chromium
         youtube-music
+        libreoffice-qt6
 
         # Screen sharing
         wireplumber
