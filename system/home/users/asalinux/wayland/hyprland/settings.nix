@@ -3,10 +3,12 @@ let
 	theme = import ./settings/theme.nix {};
 	bind = import ./settings/bind.nix {}; 
 	wr = import ./settings/windowrule.nix {};
+    monitors = import ./settings/monitors.nix {};
 in
 {
     plugin = import ./settings/plugin.nix {}; 
     exec-once = import ./settings/exec-once.nix {};
+    monitors = monitors.monitor;
   
     # bind.nix
     bind = bind.bind;

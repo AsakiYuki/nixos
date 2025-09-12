@@ -1,6 +1,6 @@
 { ... }:
 {
-	enable = true;
+	enable = false;
 	settings = {
 		splash = false;
 		preload = [ "/etc/nixos/root/wallpaper.jpg" ];

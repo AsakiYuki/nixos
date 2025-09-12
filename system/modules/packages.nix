@@ -29,7 +29,7 @@ in
         spotify
         spotifywm
         
-        vesktop
+        discord
         obs-studio
         gimp
         lxqt.lximage-qt
