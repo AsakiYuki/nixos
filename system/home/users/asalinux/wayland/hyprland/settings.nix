@@ -8,7 +8,7 @@ in
 {
     plugin = import ./settings/plugin.nix {}; 
     exec-once = import ./settings/exec-once.nix {};
-    monitors = monitors.monitor;
+    monitor = monitors.monitor;
   
     # bind.nix
     bind = bind.bind;
@@ -25,4 +25,9 @@ in
     dwindle = theme.dwindle;
     master = theme.master;
     misc = theme.misc;
+
+    # idk
+    xwayland = {
+        force_zero_scaling = true;
+    };
 }

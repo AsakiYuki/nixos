@@ -29,7 +29,7 @@ in
         spotify
         spotifywm
         
-        discord
+        vesktop
         obs-studio
         gimp
         lxqt.lximage-qt
@@ -62,6 +62,7 @@ in
  
         # CLI
         cloudflared
+        cloudflare-warp
         vim
         btop
         wget
@@ -75,6 +76,7 @@ in
         fzf
 	    waydroid-helper
         lazydocker
+        brightnessctl
 
         # KDE
         kdePackages.dolphin
