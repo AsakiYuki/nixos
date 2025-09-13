@@ -31,6 +31,5 @@
     xdg.menus.enable = true;
     xdg.mime.enable = true;
 
-    boot.kernelPackages = unstable.linuxPackages_latest;
     system.stateVersion = "25.05";
 }
