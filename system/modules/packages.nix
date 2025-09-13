@@ -77,6 +77,8 @@ in
 	    waydroid-helper
         lazydocker
         brightnessctl
+        efibootmgr
+        grub2
 
         # KDE
         kdePackages.dolphin

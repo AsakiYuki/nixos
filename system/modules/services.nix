@@ -4,18 +4,9 @@
         pipewire.enable = true;
         flatpak.enable = true;
         resolved.enable = true;
-
-        xserver = {
+        displayManager.sddm = {
             enable = true;
-            displayManager = {
-                sddm = {
-                    enable = true;
-                };
-            };
-        };
-
-        cloudflare-warp = {
-            enable = true;
+            wayland.enable = true;
         };
     };
 }

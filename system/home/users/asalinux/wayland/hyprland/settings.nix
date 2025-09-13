@@ -30,4 +30,9 @@ in
     xwayland = {
         force_zero_scaling = true;
     };
+
+    device = {
+        name = "gxtp5100:00-27c6:01e0-touchpad";
+        natural_scroll = true;
+    };
 }
