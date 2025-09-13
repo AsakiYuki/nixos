@@ -31,7 +31,7 @@ in
         force_zero_scaling = true;
     };
 
-    "$LAPTOP_TOUCHPAD_ENABLE" = true;
+    "$LAPTOP_TOUCHPAD_ENABLE" = false;
     device = {
         name = "gxtp5100:00-27c6:01e0-touchpad";
         enabled = "$LAPTOP_TOUCHPAD_ENABLE";

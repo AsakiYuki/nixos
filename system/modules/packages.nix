@@ -61,8 +61,6 @@ in
         hyprpaper
  
         # CLI
-        cloudflared
-        cloudflare-warp
         vim
         btop
         wget
@@ -79,6 +77,9 @@ in
         brightnessctl
         efibootmgr
         grub2
+        android-tools
+        wl-clipboard
+        unzip
 
         # KDE
         kdePackages.dolphin

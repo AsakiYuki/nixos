@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, unstable, ... }:
 {
     programs = {
         # Import nix
@@ -18,6 +18,9 @@
     };
 
     virtualisation = {
-        waydroid.enable = true;
+        waydroid = {
+            enable = true;
+            package = unstable.waydroid;
+        };
     };
 }
