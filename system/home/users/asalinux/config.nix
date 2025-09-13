@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib,  ... }:
 let
     catppuccin-gtk = pkgs.catppuccin-gtk.override {
         variant = "mocha";

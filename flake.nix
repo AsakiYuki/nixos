@@ -3,9 +3,9 @@
     
     inputs = {
         # Default Packages
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
         unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-        home-manager.url = github:nix-community/home-manager/release-25.11;
+        home-manager.url = github:nix-community/home-manager/release-25.05;
 
         # Extra Packages
         zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -13,7 +13,7 @@
         spicetify-nix.url = "github:Gerg-L/spicetify-nix";
         dolphin-overlay.url = "github:rumboon/dolphin-overlay";
         nixvim = {
-            url = "github:nix-community/nixvim/nixos-25.11";
+            url = "github:nix-community/nixvim/nixos-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
