@@ -69,5 +69,7 @@
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
         ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+        
+        ", XF86TouchpadToggle, exec, /etc/nixos/root/scripts/toggle_touchpad.sh"
     ];
 }
