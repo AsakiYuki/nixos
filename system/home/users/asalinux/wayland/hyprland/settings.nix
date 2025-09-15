@@ -37,4 +37,10 @@ in
         enabled = "$LAPTOP_TOUCHPAD_ENABLE";
         natural_scroll = true;
     };
+
+    input = {
+        touchpad = {
+            scroll_factor = 0.2;
+        };
+    };
 }
