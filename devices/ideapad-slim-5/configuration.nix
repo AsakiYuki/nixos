@@ -18,6 +18,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  boot.kernelParams = [ "amd_pstate=active" ];
+  boot.kernelModules = [ "ideapad_laptop" ];
+  services.power-profiles-daemon.enable = true;
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+    ryzenadj
+  ];
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
