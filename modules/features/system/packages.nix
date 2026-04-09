@@ -4,10 +4,24 @@
   config,
   ...
 }:
+let 
+  custom-catppuccin-gtk = pkgs.catppuccin-gtk.override {
+    variant = "mocha";
+    accents = [ "sapphire" ];
+    size = "compact";
+  };
+
+  custom-catppuccin-kde = (pkgs.catppuccin-kde.override {
+    flavour = [ "mocha" ];
+    accents = [ "sapphire" ];
+  });
+in 
 {
   environment.systemPackages =
     with pkgs;
     [
+      custom-catppuccin-gtk
+      
       git
       vim
       wget
@@ -24,17 +38,6 @@
       bluetuith
       lxqt.pavucontrol-qt
       nwg-look
-
-      # (pkgs.catppuccin-kde.override {
-      #   flavour = [ "mocha" ];
-      #   accents = [ "sapphire" ];
-      # })
-
-      (pkgs.catppuccin-gtk.override {
-        variant = "mocha";
-        accents = [ "sapphire" ];
-        size = "compact";
-      })
     ]
     ++ (
       with pkgs;

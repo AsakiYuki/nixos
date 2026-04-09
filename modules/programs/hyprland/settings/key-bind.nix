@@ -25,6 +25,21 @@
     "SUPER CTRL, RIGHT, movewindow, r"
     "SUPER CTRL, UP, movewindow, u"
     "SUPER CTRL, DOWN, movewindow, d"
+    
+    "SUPER SHIFT, h, resizeactive, -25 0"
+    "SUPER SHIFT, l, resizeactive, 25 0"
+    "SUPER SHIFT, k, resizeactive, 0 -25"
+    "SUPER SHIFT, j, resizeactive, 0 25"
+
+    "SUPER, h, movefocus, l"
+    "SUPER, l, movefocus, r"
+    "SUPER, k, movefocus, u"
+    "SUPER, j, movefocus, d"
+
+    "SUPER CTRL, h, movewindow, l"
+    "SUPER CTRL, l, movewindow, r"
+    "SUPER CTRL, k, movewindow, u"
+    "SUPER CTRL, j, movewindow, d"
 
     "SUPER, TAB, workspace, e+1"
     "SUPER ALT, TAB, workspace, e-1"
