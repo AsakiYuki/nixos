@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ./mount.nix
+    
     (libs.root "/host/desktop/default.nix")
     (libs.root "/home/asakiyuki/configuration.nix")
   ];
