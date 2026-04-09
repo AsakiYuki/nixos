@@ -4,6 +4,7 @@
         (../../../modules/features/home/kitty.nix)
         (../../../modules/features/home/browsers.nix)
         
+        (../../../modules/features/home/dolphin.nix)
         (../../../modules/features/home/bash.nix)
         (../../../modules/features/home/starship.nix)
         (../../../modules/features/home/tmux.nix)
