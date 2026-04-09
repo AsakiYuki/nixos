@@ -32,6 +32,7 @@ in
       bun
       brightnessctl
       php
+      ntfs3g
       # wine64
 
       quickshell
