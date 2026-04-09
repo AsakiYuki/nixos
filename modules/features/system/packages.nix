@@ -48,6 +48,8 @@ in
       with pkgs;
       with kdePackages;
       [
+        kservice
+        dolphin
         kate
         qt5compat
         qtdeclarative
