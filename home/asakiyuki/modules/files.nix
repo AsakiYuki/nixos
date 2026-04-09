@@ -9,7 +9,7 @@
 
         ".config/dolphinrc" = {
             force = true;
-            source = ../../../configs/dolphinrc
+            source = ../../../configs/dolphinrc;
         };
     };
 
