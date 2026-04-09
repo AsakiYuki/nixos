@@ -4,7 +4,7 @@
         package = pkgs.waydroid-nftables;
     };
 
-    environment.systemPackages = lib.mkOptionals config.virtualisation.waydroid.enable [
-        waydroid-helper
+    environment.systemPackages = lib.optionals config.virtualisation.waydroid.enable [
+        pkgs.waydroid-helper
     ];
 }

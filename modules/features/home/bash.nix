@@ -9,9 +9,10 @@
             logout = "pkill -KILL -u $USER";
 
             nrs = "sudo nixos-rebuild switch --flake /etc/nixos#${osconfig.device.flake-name}";
-            wss = "waydroid session stop; exit;";
             flake-upgrade = "nix flake update";
             spf = "superfile";
+        } // lib.mkIf osconfig.virtualisation.waydroid.enable {
+            wss = "waydroid session stop; exit;";
         };
 
         shellOptions = [
