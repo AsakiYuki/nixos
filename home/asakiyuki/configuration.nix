@@ -19,6 +19,7 @@ in
     imports = [
       ./modules/programs.nix
       ./modules/files.nix
+      ./modules/env.nix
       
       ../../modules/features/home/theme.nix
 

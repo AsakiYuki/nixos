@@ -1,5 +1,5 @@
 { ... }: {
     home.sessionVariables = {
-        QT_QPA_PLATFORMTHEME = "qt6ct";
+        QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
     };
 }

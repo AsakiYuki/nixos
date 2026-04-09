@@ -23,10 +23,10 @@
       lxqt.pavucontrol-qt
       nwg-look
 
-      (pkgs.catppuccin-kde.override {
-        flavour = [ "mocha" ];
-        accents = [ "sapphire" ];
-      })
+      # (pkgs.catppuccin-kde.override {
+      #   flavour = [ "mocha" ];
+      #   accents = [ "sapphire" ];
+      # })
 
       (pkgs.catppuccin-gtk.override {
         variant = "mocha";
@@ -42,7 +42,6 @@
         kate
         qt5compat
         qtdeclarative
-        libsForQt5.qt5.qtgraphicaleffects
         qtimageformats
         qtsvg
         qtmultimedia
