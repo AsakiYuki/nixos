@@ -6,6 +6,7 @@
     (libs.root "/modules/fonts.nix")
 
     (libs.root "/modules/features/system/packages.nix")
+    (libs.root "/modules/features/system/waydroid.nix")
     (libs.root "/modules/features/system/boot.nix")
     (libs.root "/modules/features/system/sddm.nix")
     (libs.root "/modules/features/system/gdm.nix")
