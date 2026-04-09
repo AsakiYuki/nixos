@@ -1,4 +1,4 @@
-{ pkgs, osconfig, ... }:
+{ pkgs, lib, osconfig, ... }:
 {
     home.file = {
         ".config/qt5ct/colors/Catppuccin-Mocha.conf".source = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
@@ -7,6 +7,7 @@
         ".local/share/kio/servicemenus/open-with-code.desktop".source = ../../../configs/services-menu/open-with-code.desktop;
         ".local/share/kio/servicemenus/open-ghostty-here.desktop".source = ../../../configs/services-menu/open-ghostty-here.desktop;
 
+        ".mozilla/firefox/default/search.json.mozlz4".force = lib.mkForce true;
         ".config/dolphinrc" = {
             force = true;
             source = ../../../configs/dolphinrc;

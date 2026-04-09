@@ -1,5 +1,6 @@
 {
   inputs,
+  libs,
   config,
   pkgs,
   custom,
@@ -15,7 +16,7 @@ in
   };
 
   home-manager.users.asakiyuki = {
-    _module.args = { inherit inputs osconfig custom; };
+    _module.args = { inherit inputs osconfig custom libs; };
     imports = [
       ./modules/programs.nix
       ./modules/files.nix
