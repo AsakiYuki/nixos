@@ -3,7 +3,7 @@
         (../../../modules/features/home/ghostty.nix)
         (../../../modules/features/home/kitty.nix)
         (../../../modules/features/home/browsers.nix)
-        (../../../modules/features/home/neovide.nix)
+        # (../../../modules/features/home/neovide.nix)
         
         (../../../modules/features/home/bash.nix)
         (../../../modules/features/home/starship.nix)
