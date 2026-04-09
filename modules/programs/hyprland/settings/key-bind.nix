@@ -3,28 +3,35 @@
   wayland.windowManager.hyprland.settings.bind = [
     "CTRL ALT, T, exec, ${osconfig.device.programs.terminal}"
 
-    "ALT, F4, killactive"
     "SUPER SHIFT, L, exit,"
     "SUPER SHIFT, TAB, togglefloating,"
     "SUPER SHIFT, S, exec, hyprshot -m region -o '/home/asakiyuki/Pictures/Screenshot/' -z"
     "SUPER, J, togglesplit,"
     "SUPER, E, exec, dolphin"
 
-    "SUPER, left, movefocus, l"
-    "SUPER, right, movefocus, r"
-    "SUPER, up, movefocus, u"
-    "SUPER, down, movefocus, d"
+    "ALT, F4, killactive"
 
-    "SUPER CTRL, left, movewindow, l"
-    "SUPER CTRL, right, movewindow, r"
-    "SUPER CTRL, up, movewindow, u"
-    "SUPER CTRL, down, movewindow, d"
+    "SUPER SHIFT, LEFT, resizeactive, -25 0"
+    "SUPER SHIFT, RIGHT, resizeactive, 25 0"
+    "SUPER SHIFT, UP, resizeactive, 0 -25"
+    "SUPER SHIFT, DOWN, resizeactive, 0 25"
 
-    "SUPER, tab, workspace, e+1"
-    "SUPER, mouse_down, workspace, e-1"
-    "SUPER, mouse_up, workspace, e+1"
+    "SUPER, LEFT, movefocus, l"
+    "SUPER, RIGHT, movefocus, r"
+    "SUPER, UP, movefocus, u"
+    "SUPER, DOWN, movefocus, d"
 
-    "ALT, space, global, asakiyuki:launcher"
+    "SUPER CTRL, LEFT, movewindow, l"
+    "SUPER CTRL, RIGHT, movewindow, r"
+    "SUPER CTRL, UP, movewindow, u"
+    "SUPER CTRL, DOWN, movewindow, d"
+
+    "SUPER, TAB, workspace, e+1"
+    "SUPER ALT, TAB, workspace, e-1"
+    "SUPER, MOUSE_DOWN, workspace, e-1"
+    "SUPER, MOUSE_UP, workspace, e+1"
+
+    "ALT, SPACE, global, asakiyuki:launcher"
 
     ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
     ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
