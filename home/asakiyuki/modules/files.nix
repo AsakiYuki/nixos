@@ -6,6 +6,11 @@
 
         ".local/share/kio/servicemenus/open-with-code.desktop".source = ../../../configs/services-menu/open-with-code.desktop;
         ".local/share/kio/servicemenus/open-ghostty-here.desktop".source = ../../../configs/services-menu/open-ghostty-here.desktop;
+
+        ".config/dolphinrc" = {
+            force = true;
+            source = ../../../configs/dolphinrc
+        };
     };
 
     xdg.configFile = {
