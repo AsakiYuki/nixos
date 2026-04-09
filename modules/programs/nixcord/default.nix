@@ -7,6 +7,8 @@
       vencord.enable = true;
     };
 
+    quickCss = builtins.readFile ../../../assets/discord/style.css;
+
     config = {
       enableReactDevtools = true;
       themeLinks = [ "https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css" ];
