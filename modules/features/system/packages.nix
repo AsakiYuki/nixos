@@ -21,6 +21,7 @@ in
     with pkgs;
     [
       custom-catppuccin-gtk
+      papirus-icon-theme
       
       git
       vim

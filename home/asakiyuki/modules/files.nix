@@ -23,6 +23,9 @@
         
             [General]
             TerminalApplication=${osconfig.device.programs.terminal}
+
+            [Icons]
+            Theme=Papirus
         '';
     };
 }
