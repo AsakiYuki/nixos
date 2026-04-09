@@ -6,7 +6,7 @@
     "ALT, F4, killactive"
     "SUPER SHIFT, L, exit,"
     "SUPER SHIFT, TAB, togglefloating,"
-    "SUPER SHIFT, S, exec, hyprshot -m region -o '~/Pictures/Screenshot/' -z"
+    "SUPER SHIFT, S, exec, hyprshot -m region -o '/home/asakiyuki/Pictures/Screenshot/' -z"
     "SUPER, J, togglesplit,"
     "SUPER, E, exec, dolphin"
 
