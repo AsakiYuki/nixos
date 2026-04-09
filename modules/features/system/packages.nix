@@ -17,6 +17,7 @@
       nodejs
       bun
       brightnessctl
+      php
       # wine64
 
       quickshell
