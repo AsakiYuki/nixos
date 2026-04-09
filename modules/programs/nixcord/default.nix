@@ -1,4 +1,4 @@
-{ lib, osconfig, ... }:
+{ lib, libs, osconfig, ... }:
 {
   programs.nixcord = lib.mkIf osconfig.device.programs.nixcord.enable {
     enable = true;
@@ -7,9 +7,10 @@
       vencord.enable = true;
     };
 
-    quickCss = builtins.readFile ../../../assets/discord/style.css;
+    quickCss = builtins.readFile (libs.root "/assets/discord/style.css");
 
     config = {
+      useQuickCss = true;
       enableReactDevtools = true;
       themeLinks = [ "https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css" ];
 

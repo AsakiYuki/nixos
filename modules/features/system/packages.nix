@@ -17,7 +17,7 @@
       nodejs
       bun
       brightnessctl
-      wine64
+      # wine64
 
       quickshell
       bluetuith
