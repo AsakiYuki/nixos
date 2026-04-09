@@ -33,7 +33,11 @@ in
       brightnessctl
       php
       ntfs3g
-      # wine64
+      
+      wine
+      wine64
+      winetricks
+      protontricks
 
       quickshell
       bluetuith

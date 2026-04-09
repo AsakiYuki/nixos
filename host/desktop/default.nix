@@ -25,5 +25,7 @@
     (libs.root "/options/desktop/default.nix")
     (libs.root "/overlays/nixpkgs.nix")
   ];
+
+  xdg.menus.enable = true;
 }
 

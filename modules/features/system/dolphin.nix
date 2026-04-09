@@ -1,0 +1,3 @@
+{ ... }: {
+    programs.dolphin.enable = true;
+}

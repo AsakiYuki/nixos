@@ -9,7 +9,7 @@
     "SUPER, J, togglesplit,"
     "SUPER, E, exec, dolphin"
 
-    "ALT, F4, killactive"
+    "SUPER, C, killactive"
 
     "SUPER SHIFT, LEFT, resizeactive, -25 0"
     "SUPER SHIFT, RIGHT, resizeactive, 25 0"
