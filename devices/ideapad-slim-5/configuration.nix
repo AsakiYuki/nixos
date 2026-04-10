@@ -55,17 +55,24 @@
         output = "eDP-1";
         mode = "1920x1200@60";
         position = "0x0";
-        scale = "1";
-        transform = "0";
+        scale = 1;
+
         bitdepth = 10;
-        # cm = "hdr";
-        # supports_wide_color = 1;
-        # supports_hdr = 1;
-        # sdr_min_luminance = 0;
-        # sdr_max_luminance = 400;
-        # sdr_eotf = 2;
-        # sdrbrightness = 1.0;
-        # sdrsaturation = 1.2;
+        cm = "hdr";
+        supports_wide_color = 1;
+        supports_hdr = 1;
+
+        sdrbrightness = 1.0;
+        sdrsaturation = 1.0;
+
+        sdr_min_luminance = 0.005;
+        sdr_max_luminance = 200;
+
+        min_luminance = 0.0005;
+        max_luminance = 400;
+        max_avg_luminance = 250;
+
+        sdr_eotf = 2;
       }
     ];
 
