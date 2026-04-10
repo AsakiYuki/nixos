@@ -1,8 +1,12 @@
 {
+  lib,
   libs,
   pkgs,
   ...
 }:
+let
+  ENABLE_HDR = false;
+in 
 {
   imports = [
     ./hardware-configuration.nix
@@ -51,13 +55,14 @@
     wm.niri.enable = false;
     wm.hyprland.enable = true;
     wm.hyprland.monitors = [
-      {
+      ({
         output = "eDP-1";
         mode = "1920x1200@60";
         position = "0x0";
         scale = 1;
 
         bitdepth = 10;
+      } // lib.optionalAttrs ENABLE_HDR {
         cm = "hdr";
         supports_wide_color = 1;
         supports_hdr = 1;
@@ -73,7 +78,7 @@
         max_avg_luminance = 250;
 
         sdr_eotf = 2;
-      }
+      })
     ];
 
     bluetooth.enable = true;
