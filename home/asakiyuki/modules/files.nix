@@ -4,6 +4,8 @@
         ".config/qt5ct/colors/Catppuccin-Mocha.conf".source = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
         ".config/qt6ct/colors/Catppuccin-Mocha.conf".source = "${pkgs.catppuccin-qt5ct}/share/qt6ct/colors/catppuccin-mocha-sapphire.conf";
 
+        ".local/share/kio/servicemenus/copy-server-public-url.desktop".source = ../../../configs/services-menu/copy-server-public-url.desktop;
+
         ".local/share/kio/servicemenus/open-with-code.desktop".source = ../../../configs/services-menu/open-with-code.desktop;
         ".local/share/kio/servicemenus/open-with-nvim.desktop".source = ../../../configs/services-menu/open-with-nvim.desktop;
         ".local/share/kio/servicemenus/open-with-antigravity.desktop".source = ../../../configs/services-menu/open-with-antigravity.desktop;
