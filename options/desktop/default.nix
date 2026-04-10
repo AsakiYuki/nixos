@@ -5,6 +5,7 @@
         ./environment.nix
         ./programs.nix
         ./hardware.nix
+        ./file.nix
     ];
 
     options.device = {

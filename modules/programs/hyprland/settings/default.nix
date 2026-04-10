@@ -9,7 +9,7 @@
   ];
 
   wayland.windowManager.hyprland.settings = {
-    monitor = osconfig.device.wm.hyprland.monitors;
+    monitorv2 = osconfig.device.wm.hyprland.monitors;
   };
 }
 

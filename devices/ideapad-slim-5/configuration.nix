@@ -7,9 +7,9 @@
   imports = [
     ./hardware-configuration.nix
     ./mount.nix
-    
+
     ../../modules/features/system/upower.nix
-    
+
     (libs.root "/host/desktop/default.nix")
     (libs.root "/home/asakiyuki/configuration.nix")
   ];
@@ -45,9 +45,34 @@
 
     wm.niri.enable = false;
     wm.hyprland.enable = true;
+    wm.hyprland.monitors = [
+      {
+        output = "eDP-1";
+        mode = "1920x1200@60";
+        position = "0x0";
+        scale = "1";
+        transform = "0";
+        bitdepth = 10;
+        # cm = "hdr";
+        # supports_wide_color = 1;
+        # supports_hdr = 1;
+        # sdr_min_luminance = 0;
+        # sdr_max_luminance = 400;
+        # sdr_eotf = 2;
+        # sdrbrightness = 1.0;
+        # sdrsaturation = 1.2;
+      }
+    ];
 
     bluetooth.enable = true;
     flatpak.enable = true;
+
+    symlink = {
+      "SteamApps" = ".local/share/Steam/steamapps";
+      "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
+      "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
+      "Development/DesktopEffects" = ".local/share/kwin/effects";
+    };
 
     programs = {
       terminal = "ghostty";

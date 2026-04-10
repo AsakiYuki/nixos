@@ -1,11 +1,11 @@
-{ osconfig, ... }:
+{ osconfig, config, ... }:
 {
   wayland.windowManager.hyprland.settings.bind = [
     "CTRL ALT, T, exec, ${osconfig.device.programs.terminal}"
 
     "SUPER SHIFT, L, exit,"
     "SUPER SHIFT, TAB, togglefloating,"
-    "SUPER SHIFT, S, exec, hyprshot -m region -o '/home/asakiyuki/Pictures/Screenshots/' -z"
+    "SUPER SHIFT, S, exec, hyprshot -m region -o '${config.home.homeDirectory}/Pictures/Screenshots/' -z"
     "SUPER, J, togglesplit,"
     "SUPER, E, exec, dolphin"
 

@@ -167,6 +167,6 @@
       };
     };
 
-    chromium.enable = false;
+    chromium.enable = true;
   };
 }
