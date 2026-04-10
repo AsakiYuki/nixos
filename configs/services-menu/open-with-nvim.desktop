@@ -7,4 +7,4 @@ Actions=RunCodeDir
 [Desktop Action RunCodeDir]
 Name=Open with Nvim
 Icon=nvim
-Exec=ghostty +new-window --working-directory="~/.config" -e nvim .
+Exec=antigravity %F
