@@ -8,6 +8,8 @@
     ./hardware-configuration.nix
     ./mount.nix
     
+    ../../modules/features/system/upower.nix
+    
     (libs.root "/host/desktop/default.nix")
     (libs.root "/home/asakiyuki/configuration.nix")
   ];

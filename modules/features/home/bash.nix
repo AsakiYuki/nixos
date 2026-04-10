@@ -15,7 +15,7 @@
             {
                 spf = "superfile";
             }
-            (lib.mkIf osconfig.virtualisation.waydroid.enable {
+            (lib.optionalAttrs osconfig.virtualisation.waydroid.enable {
                 wss = "waydroid session stop; exit;";
             })
         ];
