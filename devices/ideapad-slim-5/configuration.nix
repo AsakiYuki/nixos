@@ -33,6 +33,11 @@
     "flakes"
   ];
 
+  environment.sessionVariables = {
+    PROTON_USE_WAYLAND = "1";
+    PROTON_USE_NTSYNC = "1";
+  };
+
   device = {
     flake-name = "ideapad-slim-5";
     cursors = "aemeath";
@@ -69,9 +74,9 @@
 
     symlink = {
       "SteamApps" = ".local/share/Steam/steamapps";
-      "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
-      "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
-      "Development/DesktopEffects" = ".local/share/kwin/effects";
+      # "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
+      # "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
+      # "Development/DesktopEffects" = ".local/share/kwin/effects";
     };
 
     programs = {

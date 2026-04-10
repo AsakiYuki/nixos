@@ -1,4 +1,4 @@
-{ pkgs, lib, osconfig, ... }:
+{ pkgs, lib, osconfig, config, ... }:
 {
     home.file = {
         ".config/qt5ct/colors/Catppuccin-Mocha.conf".source = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
@@ -12,7 +12,7 @@
             force = true;
             source = ../../../configs/dolphinrc;
         };
-    };
+    } // builtins.mapAttrs (key: path: { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${path}"; }) osconfig.device.symlink;
 
     xdg.configFile = {
         kdeglobals.text = builtins.readFile ((pkgs.catppuccin-kde.override { flavour = ["mocha"]; accents = ["sapphire"]; }) + "/share/color-schemes/CatppuccinMochaSapphire.colors") +
