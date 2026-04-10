@@ -86,6 +86,7 @@ in
 
     symlink = {
       "SteamApps" = ".local/share/Steam/steamapps";
+      "Development/Quickshell" = ".config/quickshell";
       # "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
       # "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
       # "Development/DesktopEffects" = ".local/share/kwin/effects";
