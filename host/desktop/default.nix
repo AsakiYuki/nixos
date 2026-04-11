@@ -20,6 +20,7 @@
     (libs.root "/modules/features/system/flatpak.nix")
     (libs.root "/modules/features/system/udisks2.nix")
     (libs.root "/modules/features/system/dconf.nix")
+    (libs.root "/modules/features/system/cloudflare.nix")
     
     (libs.root "/modules/services/default.nix")
     (libs.root "/modules/home-manager.nix")
