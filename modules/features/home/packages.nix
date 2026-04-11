@@ -2,6 +2,7 @@
   pkgs,
   lib,
   osconfig,
+  inputs,
   ...
 }:
 {
@@ -14,7 +15,12 @@
     gimp
     libreoffice-qt-fresh
     lutris
+    osu-lazer-bin
 
+    proton-pass
+    proton-authenticator
+
+    inputs.hytale-launcher.packages.${pkgs.system}.default
     (lib.mkIf osconfig.device.programs.cider-2.enable cider-2)
   ];
 }
