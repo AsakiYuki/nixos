@@ -37,11 +37,6 @@ in
     "flakes"
   ];
 
-  environment.sessionVariables = {
-    PROTON_USE_WAYLAND = "1";
-    PROTON_USE_NTSYNC = "1";
-  };
-
   device = {
     flake-name = "ideapad-slim-5";
     cursors = "aemeath";
