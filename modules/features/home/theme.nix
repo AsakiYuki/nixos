@@ -38,13 +38,4 @@ in
 
     # GTK
     gtk.theme.name = "catppuccin-mocha-sapphire-compact";
-
-    # Catppuccin
-    catppuccin = {
-        accent = "blue";
-        flavor = "mocha";
-
-        fcitx5.enable = true;
-        obs.enable = true;
-    };
 }

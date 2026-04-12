@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    catppuccin.url = "github:catppuccin/nix";
 
     hytale-launcher.url = "github:zarilion/hytale-launcher-nix";
     niri.url = "github:sodiboo/niri-flake";

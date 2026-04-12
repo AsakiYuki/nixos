@@ -24,7 +24,6 @@ in
       
       ../../modules/features/home/theme.nix
 
-      inputs.catppuccin.homeModules.catppuccin
       inputs.nixvim.homeModules.nixvim
       inputs.nixcord.homeModules.nixcord
       inputs.niri.homeModules.niri
