@@ -21,6 +21,7 @@
       ntfs3g
       zip
       unzip
+      python3
 
       wine
       wine64
