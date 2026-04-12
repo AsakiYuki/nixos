@@ -42,7 +42,7 @@ in
     proton-pass
     proton-authenticator
 
-    inputs.hytale-launcher.packages.${pkgs.system}.default
+    inputs.hytale-launcher.packages.${system}.default
     (lib.mkIf osconfig.device.programs.cider-2.enable cider-2)
   ];
 }
