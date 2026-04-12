@@ -32,6 +32,7 @@ in
     lutris
     osu-lazer-bin
     lmstudio
+    blender
     xprop
 
     bluetuith
