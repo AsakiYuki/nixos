@@ -4,25 +4,10 @@
   config,
   ...
 }:
-let 
-  custom-catppuccin-gtk = pkgs.catppuccin-gtk.override {
-    variant = "mocha";
-    accents = [ "sapphire" ];
-    size = "compact";
-  };
-
-  custom-catppuccin-kde = (pkgs.catppuccin-kde.override {
-    flavour = [ "mocha" ];
-    accents = [ "sapphire" ];
-  });
-in 
 {
   environment.systemPackages =
     with pkgs;
-    [
-      custom-catppuccin-gtk
-      papirus-icon-theme
-      
+    [ 
       git
       vim
       wget
@@ -34,16 +19,16 @@ in
       brightnessctl
       php
       ntfs3g
-      
+      zip
+      unzip
+
       wine
       wine64
       winetricks
       protontricks
-
+      
       quickshell
-      bluetuith
-      lxqt.pavucontrol-qt
-      nwg-look
+      papirus-icon-theme
     ]
     ++ (
       with pkgs;

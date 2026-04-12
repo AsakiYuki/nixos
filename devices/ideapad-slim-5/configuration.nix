@@ -55,9 +55,8 @@ in
         mode = "1920x1200@60";
         position = "0x0";
         scale = 1;
-
-        bitdepth = 10;
       } // lib.optionalAttrs ENABLE_HDR {
+        bitdepth = 10;
         cm = "hdr";
         supports_wide_color = 1;
         supports_hdr = 1;

@@ -47,6 +47,8 @@
     "SUPER, MOUSE_UP, workspace, e+1"
 
     "ALT, SPACE, global, asakiyuki:launcher"
+    ", XF86TouchpadToggle, global, asakiyuki:touchpadtoggle"
+    ", Caps_Lock, global, asakiyuki:capslock"
 
     ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
     ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
