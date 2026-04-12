@@ -22,6 +22,7 @@
       zip
       unzip
       python3
+      jdk25
 
       wine
       wine64
