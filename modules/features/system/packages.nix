@@ -52,6 +52,9 @@
         plasma-sdk
       ]
     )
+    ++ (with rPackages; [
+      tensorflow
+    ])
     ++ (lib.optionals config.device.wm.hyprland.enable (
       with pkgs;
       [
