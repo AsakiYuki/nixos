@@ -7,7 +7,7 @@
 {
   environment.systemPackages =
     with pkgs;
-    [ 
+    [
       git
       vim
       wget
@@ -23,12 +23,13 @@
       unzip
       python3
       jdk25
+      nixfmt
 
       wine
       wine64
       winetricks
       protontricks
-      
+
       quickshell
       papirus-icon-theme
     ]

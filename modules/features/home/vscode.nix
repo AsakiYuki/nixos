@@ -1,6 +1,7 @@
-{ unstable, ... }: {
-    programs.vscode = {
-        enable = true;
-        package = unstable.vscode;
-    };
+{ unstable, ... }:
+{
+  programs.vscode = {
+    enable = true;
+    package = unstable.vscode;
+  };
 }
