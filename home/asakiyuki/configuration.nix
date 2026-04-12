@@ -4,6 +4,7 @@
   config,
   pkgs,
   custom,
+  unstable,
   ...
 }:
 let
@@ -16,7 +17,7 @@ in
   };
 
   home-manager.users.asakiyuki = {
-    _module.args = { inherit inputs osconfig custom libs; };
+    _module.args = { inherit inputs unstable osconfig custom libs; };
     imports = [
       ./modules/programs.nix
       ./modules/files.nix
