@@ -20,6 +20,7 @@
   };
 
   home-manager.users.asakiyuki.programs = {
+    lutris.enable = true;
     hyprshot.enable = true;
     catppuccin.enable = true;
     antigravity.enable = true;
