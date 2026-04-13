@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   enable = true;
   servers = {
     phpactor.enable = true;

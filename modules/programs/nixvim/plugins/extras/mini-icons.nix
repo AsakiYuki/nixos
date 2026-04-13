@@ -1,4 +1,3 @@
-{ plugins, ... }:
-{
-    plugin = plugins.mini-icons;
+{plugins, ...}: {
+  plugin = plugins.mini-icons;
 }

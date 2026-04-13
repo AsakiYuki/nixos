@@ -1,11 +1,9 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   options.programs = {
     catppuccin = {
       enable = lib.mkEnableOption "catppuccin";
@@ -13,7 +11,7 @@
         type = lib.types.package;
         default = pkgs.catppuccin-gtk.override {
           variant = "mocha";
-          accents = [ "sapphire" ];
+          accents = ["sapphire"];
           size = "compact";
         };
         description = "Catppuccin GTK package";
@@ -21,19 +19,19 @@
       kde = lib.mkOption {
         type = lib.types.package;
         default = pkgs.catppuccin-kde.override {
-          flavour = [ "mocha" ];
-          accents = [ "sapphire" ];
+          flavour = ["mocha"];
+          accents = ["sapphire"];
         };
         description = "Catppuccin KDE package";
       };
     };
     antigravity = {
       enable = lib.mkEnableOption "antigravity";
-      package = lib.mkPackageOption pkgs "antigravity" { };
+      package = lib.mkPackageOption pkgs "antigravity" {};
     };
     prismlauncher = {
       enable = lib.mkEnableOption "prismlauncher";
-      package = lib.mkPackageOption pkgs "prismlauncher" { };
+      package = lib.mkPackageOption pkgs "prismlauncher" {};
     };
     proton-ge = {
       enable = lib.mkEnableOption "proton-ge utils";
@@ -47,39 +45,39 @@
     };
     vlc = {
       enable = lib.mkEnableOption "vlc";
-      package = lib.mkPackageOption pkgs "vlc" { };
+      package = lib.mkPackageOption pkgs "vlc" {};
     };
     gimp = {
       enable = lib.mkEnableOption "gimp";
-      package = lib.mkPackageOption pkgs "gimp" { };
+      package = lib.mkPackageOption pkgs "gimp" {};
     };
     libreoffice = {
       enable = lib.mkEnableOption "libreoffice";
-      package = lib.mkPackageOption pkgs "libreoffice-qt-fresh" { };
+      package = lib.mkPackageOption pkgs "libreoffice-qt-fresh" {};
     };
     osu = {
       enable = lib.mkEnableOption "osu-lazer";
-      package = lib.mkPackageOption pkgs "osu-lazer-bin" { };
+      package = lib.mkPackageOption pkgs "osu-lazer-bin" {};
     };
     lmstudio = {
       enable = lib.mkEnableOption "lmstudio";
-      package = lib.mkPackageOption pkgs "lmstudio" { };
+      package = lib.mkPackageOption pkgs "lmstudio" {};
     };
     blender = {
       enable = lib.mkEnableOption "blender";
-      package = lib.mkPackageOption pkgs "blender" { };
+      package = lib.mkPackageOption pkgs "blender" {};
     };
     xprop = {
       enable = lib.mkEnableOption "xprop";
-      package = lib.mkPackageOption pkgs "xprop" { };
+      package = lib.mkPackageOption pkgs "xprop" {};
     };
     pavucontrol = {
       enable = lib.mkEnableOption "pavucontrol-qt";
-      package = lib.mkPackageOption pkgs.lxqt "pavucontrol-qt" { };
+      package = lib.mkPackageOption pkgs.lxqt "pavucontrol-qt" {};
     };
     nwg-look = {
       enable = lib.mkEnableOption "nwg-look";
-      package = lib.mkPackageOption pkgs "nwg-look" { };
+      package = lib.mkPackageOption pkgs "nwg-look" {};
     };
     proton-apps = {
       enable = lib.mkEnableOption "proton-pass and proton-authenticator";
@@ -100,7 +98,7 @@
     };
     cider = {
       enable = lib.mkEnableOption "cider-2";
-      package = lib.mkPackageOption pkgs "cider-2" { };
+      package = lib.mkPackageOption pkgs "cider-2" {};
     };
   };
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   fetch-fonts = {
     segoe-ui = {
       light = pkgs.fetchurl {
@@ -62,8 +61,7 @@ let
       '';
     };
   };
-in
-{
+in {
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     custom.tahoma

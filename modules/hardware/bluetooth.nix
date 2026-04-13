@@ -1,3 +1,3 @@
-{ config, ... }: {
-    hardware.bluetooth.enable = config.device.bluetooth.enable;
+{config, ...}: {
+  hardware.bluetooth.enable = config.device.bluetooth.enable;
 }

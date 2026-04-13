@@ -1,5 +1,8 @@
-{ lib, osconfig, ... }:
 {
+  lib,
+  osconfig,
+  ...
+}: {
   imports = [
     ./settings/default.nix
   ];
@@ -9,4 +12,3 @@
     xwayland.enable = true;
   };
 }
-

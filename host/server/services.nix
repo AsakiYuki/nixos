@@ -1,5 +1,4 @@
-{ libs, ... }:
-{
+{libs, ...}: {
   imports = [
     (libs.root "/modules/services/adguardhome.nix")
     (libs.root "/modules/services/cloudflare-dyndns.nix")

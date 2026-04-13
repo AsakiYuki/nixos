@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   networking = {
     firewall = {
       enable = true;

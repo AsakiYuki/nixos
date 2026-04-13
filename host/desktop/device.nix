@@ -3,11 +3,9 @@
   libs,
   pkgs,
   ...
-}:
-let
+}: let
   ENABLE_HDR = false;
-in
-{
+in {
   device = {
     flake-name = "ideapad-slim-5";
     cursors = "aemeath";
@@ -62,10 +60,8 @@ in
       };
 
       source = {
-        ".config/qt5ct/colors/Catppuccin-Mocha.conf" =
-          "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
-        ".config/qt6ct/colors/Catppuccin-Mocha.conf" =
-          "${pkgs.catppuccin-qt5ct}/share/qt6ct/colors/catppuccin-mocha-sapphire.conf";
+        ".config/qt5ct/colors/Catppuccin-Mocha.conf" = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
+        ".config/qt6ct/colors/Catppuccin-Mocha.conf" = "${pkgs.catppuccin-qt5ct}/share/qt6ct/colors/catppuccin-mocha-sapphire.conf";
 
         ".config/dolphinrc" = libs.root "/configs/dolphinrc";
 

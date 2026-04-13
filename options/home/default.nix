@@ -1,5 +1,4 @@
-{ ... }:
-{
-  imports = [ ./programs.nix ];
-  options = { };
+{...}: {
+  imports = [./programs.nix];
+  options = {};
 }

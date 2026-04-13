@@ -1,5 +1,8 @@
-{ pkgs, libs, ... }:
 {
+  pkgs,
+  libs,
+  ...
+}: {
   programs = {
     firefox.profiles.default = {
       settings = {
@@ -138,7 +141,7 @@
 
           mynixos = {
             name = "My NixOS";
-            definedAliases = [ "@mynixos" ];
+            definedAliases = ["@mynixos"];
             icon = "https://mynixos.com/favicon.ico";
             urls = [
               {
@@ -164,6 +167,6 @@
       userContent = builtins.readFile (libs.root "/assets/firefox/userContent.css");
     };
 
-    chromium = { };
+    chromium = {};
   };
 }

@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{...}: {
   programs = {
     ffmpeg.enable = true;
     nodejs.enable = true;

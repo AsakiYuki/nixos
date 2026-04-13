@@ -3,10 +3,8 @@
   lib,
   config,
   ...
-}:
-{
-  environment.systemPackages =
-    with pkgs;
+}: {
+  environment.systemPackages = with pkgs;
     [
       git
       vim
@@ -15,7 +13,7 @@
       tree
 
       nixd
-      nixfmt
+      alejandra
 
       zip
       unzip
@@ -35,8 +33,9 @@
     ++ (lib.optionals config.programs.gcc.enable config.programs.gcc.packages)
     ++ (lib.optionals config.programs.winepackages.enable config.programs.winepackages.packages)
     ++ (lib.optionals config.programs.kde-packages.enable config.programs.kde-packages.packages)
-    ++ (lib.optionals config.programs.r-tensorflow.enable [ config.programs.r-tensorflow.package ])
+    ++ (lib.optionals config.programs.r-tensorflow.enable [config.programs.r-tensorflow.package])
     ++ (lib.optionals (
-      config.programs.hyprland-portals.enable && config.device.wm.hyprland.enable
-    ) config.programs.hyprland-portals.packages);
+        config.programs.hyprland-portals.enable && config.device.wm.hyprland.enable
+      )
+      config.programs.hyprland-portals.packages);
 }

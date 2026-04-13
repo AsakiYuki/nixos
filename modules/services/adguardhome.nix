@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   services.adguardhome = {
     enable = true;
     port = 34778;

@@ -1,15 +1,14 @@
-{ ... }:
-{
+{...}: {
   enable = true;
   settings = {
     formatters_by_ft = {
-      javascript = [ "prettier" ];
-      typescript = [ "prettier" ];
-      json = [ "prettier" ];
-      css = [ "prettier" ];
-      html = [ "prettier" ];
-      nix = [ "nixfmt" ];
-      php = [ "php_cs_fixer" ];
+      javascript = ["prettier"];
+      typescript = ["prettier"];
+      json = ["prettier"];
+      css = ["prettier"];
+      html = ["prettier"];
+      nix = ["nixfmt"];
+      php = ["php_cs_fixer"];
     };
 
     format_on_save = {

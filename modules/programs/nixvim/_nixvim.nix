@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-{
+{...}: {
   programs.nixvim.imports = [
     ./default.nix
     ./extra-packages.nix

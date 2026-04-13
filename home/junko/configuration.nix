@@ -5,11 +5,9 @@
   custom,
   unstable,
   ...
-}:
-let
+}: let
   osconfig = config;
-in
-{
+in {
   users.users.junko = {
     isNormalUser = true;
   };
@@ -25,7 +23,7 @@ in
         ;
     };
 
-    imports = [ ];
+    imports = [];
 
     home = {
       username = "junko";

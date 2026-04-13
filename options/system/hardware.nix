@@ -1,5 +1,5 @@
-{ lib, ... }: {
-    options.device = {
-        bluetooth.enable = lib.mkEnableOption "bluetooth";
-    };
+{lib, ...}: {
+  options.device = {
+    bluetooth.enable = lib.mkEnableOption "bluetooth";
+  };
 }

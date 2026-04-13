@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ../../modules/features/home/ghostty.nix
     ../../modules/features/home/kitty.nix

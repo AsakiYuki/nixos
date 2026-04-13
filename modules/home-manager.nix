@@ -1,7 +1,7 @@
-{ ... }: {
-    home-manager = {
-        useUserPackages = true;
-        useGlobalPkgs = true;
-        backupFileExtension = "bak";
-    };
+{...}: {
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    backupFileExtension = "bak";
+  };
 }

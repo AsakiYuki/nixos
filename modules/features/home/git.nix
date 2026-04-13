@@ -1,19 +1,19 @@
-{ ... }: {
-    programs.git = {
-        enable = true;
-        settings = {
-            user = {
-                name = "Asaki Yuki";
-                email = "vantrong2007vn@gmail.com";
-            };
+{...}: {
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Asaki Yuki";
+        email = "vantrong2007vn@gmail.com";
+      };
 
-            init = {
-                defaultBranch = "main";
-            };
+      init = {
+        defaultBranch = "main";
+      };
 
-            # pull = {
-            #     rebase = "";
-            # };
-        };
+      # pull = {
+      #     rebase = "";
+      # };
     };
+  };
 }

@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{pkgs, ...}:
 pkgs.stdenv.mkDerivation {
   pname = "catppuccin-obs";
   version = "main";
@@ -13,4 +13,3 @@ pkgs.stdenv.mkDerivation {
     cp -r $src/themes/* $out/
   '';
 }
-

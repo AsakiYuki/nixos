@@ -1,10 +1,9 @@
-{ ... }:
-{
+{...}: {
   services.openssh = {
     enable = true;
-    ports = [ 15523 ];
+    ports = [15523];
     authorizedKeysInHomedir = true;
-    authorizedKeysFiles = [ "/home/asakiyuki/.ssh/authorized_keys" ];
+    authorizedKeysFiles = ["/home/asakiyuki/.ssh/authorized_keys"];
     settings = {
       AllowUsers = [
         "asakiyuki"

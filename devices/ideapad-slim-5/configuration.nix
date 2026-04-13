@@ -1,10 +1,8 @@
 {
-  lib,
   libs,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ./mount.nix
@@ -18,8 +16,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelParams = [ "amd_pstate=active" ];
-  boot.kernelModules = [ "ideapad_laptop" ];
+  boot.kernelParams = ["amd_pstate=active"];
+  boot.kernelModules = ["ideapad_laptop"];
   services.power-profiles-daemon.enable = true;
   environment.systemPackages = with pkgs; [
     lm_sensors
@@ -38,6 +36,6 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModulePackages = [ pkgs.linuxPackages_latest.zenpower ];
+  boot.extraModulePackages = [pkgs.linuxPackages_latest.zenpower];
   system.stateVersion = "25.11";
 }

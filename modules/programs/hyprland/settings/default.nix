@@ -1,5 +1,4 @@
-{ osconfig, ... }:
-{
+{osconfig, ...}: {
   imports = [
     ./key-bind.nix
     ./theme.nix
@@ -12,4 +11,3 @@
     monitorv2 = osconfig.device.wm.hyprland.monitors;
   };
 }
-

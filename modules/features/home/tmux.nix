@@ -1,5 +1,9 @@
-{ lib, osconfig, pkgs, ... }:
-let
+{
+  lib,
+  osconfig,
+  pkgs,
+  ...
+}: let
   TOP_PANEL = ''
     set -g pane-border-status top
     set -g pane-border-lines single
@@ -20,7 +24,7 @@ let
 
   BOTTOM_PANEL = ''
     set -g status-justify "centre"
-     
+
     set -g window-status-format "#{E:@asa-module-icon} #I #{E:@asa-module-text} #W "
     set -g window-status-current-format "#{E:@asa-module-icon} #I #{E:@asa-module-text} #W "
 
@@ -53,8 +57,7 @@ let
     bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
   '';
-in
-{
+in {
   programs.tmux = lib.mkIf osconfig.device.programs.tmux.enable {
     enable = true;
     keyMode = "vi";

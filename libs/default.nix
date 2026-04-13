@@ -1,3 +1,3 @@
-{ ... }: {
-    root = path: ../. + path;
+{...}: {
+  root = path: ../. + path;
 }

@@ -1,5 +1,4 @@
-{ libs, ... }:
-{
+{libs, ...}: {
   imports = [
     ./hardware-configuration.nix
     (libs.root "/host/server/default.nix")

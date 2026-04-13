@@ -3,9 +3,9 @@
   custom,
   config,
   pkgs,
+  inputs,
   ...
-}:
-{
+}: {
   imports = [
     ./programs.nix
     ./device.nix
@@ -44,13 +44,14 @@
 
   home-manager.users.asakiyuki = {
     home.pointerCursor =
-    (custom.cursors {
-      name = config.device.cursors;
-      size = 48;
-    })
-      { pkgs = pkgs; };
+      (custom.cursors {
+        name = config.device.cursors;
+        size = 48;
+      })
+      {pkgs = pkgs;};
   };
 
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   xdg.menus.enable = true;
   services.dbus.enable = true;
 }

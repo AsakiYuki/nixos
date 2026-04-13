@@ -1,5 +1,9 @@
-{ lib, libs, osconfig, ... }:
 {
+  lib,
+  libs,
+  osconfig,
+  ...
+}: {
   programs.nixcord = lib.mkIf osconfig.device.programs.nixcord.enable {
     enable = true;
     discord = {
@@ -12,7 +16,7 @@
     config = {
       useQuickCss = true;
       enableReactDevtools = true;
-      themeLinks = [ "https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css" ];
+      themeLinks = ["https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css"];
 
       plugins = {
         BlurNSFW.enable = true;

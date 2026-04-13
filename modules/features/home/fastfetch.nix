@@ -1,5 +1,8 @@
-{ lib, osconfig, ... }:
 {
+  lib,
+  osconfig,
+  ...
+}: {
   programs.fastfetch = lib.mkIf osconfig.device.programs.fastfetch.enable {
     enable = true;
     settings = {
@@ -173,4 +176,3 @@
     };
   };
 }
-

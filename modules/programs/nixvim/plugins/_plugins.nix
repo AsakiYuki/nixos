@@ -1,5 +1,4 @@
-{ ... }@inputs:
-{
+{...} @ inputs: {
   plugins = {
     nvim-tree = import ./nvimtree.nix inputs;
     lsp = import ./lsp.nix inputs;

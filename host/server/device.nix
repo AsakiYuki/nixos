@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   device = {
     flake-name = "home-server";
 

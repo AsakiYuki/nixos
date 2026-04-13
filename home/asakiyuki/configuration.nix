@@ -5,14 +5,12 @@
   custom,
   unstable,
   ...
-}:
-let
+}: let
   osconfig = config;
-in
-{
+in {
   users.users.asakiyuki = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 
   home-manager.users.asakiyuki = {
@@ -25,6 +23,7 @@ in
         libs
         ;
     };
+
     imports = [
       ./programs.nix
       ./files.nix

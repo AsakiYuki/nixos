@@ -1,4 +1,4 @@
-{ ... }: {
-    enable = true;
-    cmp.enable = true;
+{...}: {
+  enable = true;
+  cmp.enable = true;
 }

@@ -29,53 +29,50 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      unstablepkgs,
-      ...
-    }@inputs:
-    let
-      libs = import ./libs/default.nix inputs;
-      custom = import ./packages/default.nix inputs;
-      unstable = import unstablepkgs {
+  outputs = {
+    self,
+    nixpkgs,
+    unstablepkgs,
+    ...
+  } @ inputs: let
+    libs = import ./libs/default.nix inputs;
+    custom = import ./packages/default.nix inputs;
+    unstable = import unstablepkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+
+    specialArgs = {
+      inherit
+        self
+        custom
+        libs
+        unstable
+        inputs
+        ;
+    };
+  in {
+    nixosConfigurations = {
+      ideapad-slim-5 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        config.allowUnfree = true;
+        specialArgs = specialArgs;
+        modules = [
+          inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+          inputs.nix-index-database.nixosModules.default
+          inputs.home-manager.nixosModules.default
+          (libs.root "/devices/ideapad-slim-5/configuration.nix")
+        ];
       };
 
-      specialArgs = {
-        inherit
-          self
-          custom
-          libs
-          unstable
-          inputs
-          ;
-      };
-    in
-    {
-      nixosConfigurations = {
-        ideapad-slim-5 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = specialArgs;
-          modules = [
-            inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-            inputs.nix-index-database.nixosModules.default
-            inputs.home-manager.nixosModules.default
-            (libs.root "/devices/ideapad-slim-5/configuration.nix")
-          ];
-        };
-
-        home-server = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = specialArgs;
-          modules = [
-            inputs.nix-index-database.nixosModules.default
-            inputs.home-manager.nixosModules.default
-            (libs.root "/devices/home-server/configuration.nix")
-          ];
-        };
+      home-server = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = specialArgs;
+        modules = [
+          inputs.nix-index-database.nixosModules.default
+          inputs.home-manager.nixosModules.default
+          (libs.root "/devices/home-server/configuration.nix")
+        ];
       };
     };
+  };
 }

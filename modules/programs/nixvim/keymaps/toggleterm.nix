@@ -59,5 +59,6 @@
       options.silent = true;
       options.noremap = true;
     }
-  ]) 9
+  ])
+  9
 )

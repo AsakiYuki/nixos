@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   options.device.programs = {
     terminal = {
       enable = lib.mkEnableOption "terminal";
@@ -23,35 +26,35 @@
   options.programs = {
     ffmpeg = {
       enable = lib.mkEnableOption "ffmpeg";
-      package = lib.mkPackageOption pkgs "ffmpeg-full" { };
+      package = lib.mkPackageOption pkgs "ffmpeg-full" {};
     };
     nodejs = {
       enable = lib.mkEnableOption "nodejs";
-      package = lib.mkPackageOption pkgs "nodejs" { };
+      package = lib.mkPackageOption pkgs "nodejs" {};
     };
     bun = {
       enable = lib.mkEnableOption "bun";
-      package = lib.mkPackageOption pkgs "bun" { };
+      package = lib.mkPackageOption pkgs "bun" {};
     };
     brightnessctl = {
       enable = lib.mkEnableOption "brightnessctl";
-      package = lib.mkPackageOption pkgs "brightnessctl" { };
+      package = lib.mkPackageOption pkgs "brightnessctl" {};
     };
     php = {
       enable = lib.mkEnableOption "php";
-      package = lib.mkPackageOption pkgs "php" { };
+      package = lib.mkPackageOption pkgs "php" {};
     };
     ntfs3g = {
       enable = lib.mkEnableOption "ntfs3g";
-      package = lib.mkPackageOption pkgs "ntfs3g" { };
+      package = lib.mkPackageOption pkgs "ntfs3g" {};
     };
     python = {
       enable = lib.mkEnableOption "python";
-      package = lib.mkPackageOption pkgs "python3" { };
+      package = lib.mkPackageOption pkgs "python3" {};
     };
     jdk = {
       enable = lib.mkEnableOption "jdk-25";
-      package = lib.mkPackageOption pkgs "jdk25" { };
+      package = lib.mkPackageOption pkgs "jdk25" {};
     };
     winepackages = {
       enable = lib.mkEnableOption "Wine and Proton utilities";
@@ -67,11 +70,11 @@
     };
     quickshell = {
       enable = lib.mkEnableOption "quickshell";
-      package = lib.mkPackageOption pkgs "quickshell" { };
+      package = lib.mkPackageOption pkgs "quickshell" {};
     };
     papirus-icons = {
       enable = lib.mkEnableOption "papirus-icon-theme";
-      package = lib.mkPackageOption pkgs "papirus-icon-theme" { };
+      package = lib.mkPackageOption pkgs "papirus-icon-theme" {};
     };
     kde-packages = {
       enable = lib.mkEnableOption "KDE utility packages";
