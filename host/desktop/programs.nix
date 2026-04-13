@@ -44,5 +44,7 @@
     cider.enable = true;
     proton-ge.enable = true;
     proton-apps.enable = true;
+    firefox.enable = true;
+    chromium.enable = true;
   };
 }

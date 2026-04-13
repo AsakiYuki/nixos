@@ -1,10 +1,13 @@
 { lib, pkgs, ... }:
 {
   options.device.programs = {
-    terminal = lib.mkOption {
-      type = lib.types.str;
-      default = "ghostty";
-      description = "Terminal";
+    terminal = {
+      enable = lib.mkEnableOption "terminal";
+      name = lib.mkOption {
+        type = lib.types.str;
+        default = "ghostty";
+        description = "Terminal";
+      };
     };
 
     nixcord.enable = lib.mkEnableOption "nixcord";
