@@ -1,8 +1,10 @@
 { libs, ... }:
 {
   imports = [
+    ./programs.nix
+
     (libs.root "/modules/hardware/default.nix")
-    
+
     (libs.root "/modules/fonts.nix")
 
     (libs.root "/modules/features/system/packages.nix")
@@ -21,10 +23,10 @@
     (libs.root "/modules/features/system/udisks2.nix")
     (libs.root "/modules/features/system/dconf.nix")
     (libs.root "/modules/features/system/cloudflare.nix")
-    
+
     (libs.root "/modules/services/default.nix")
     (libs.root "/modules/home-manager.nix")
-    
+
     (libs.root "/options/desktop/default.nix")
     (libs.root "/overlays/nixpkgs.nix")
   ];
@@ -32,4 +34,3 @@
   xdg.menus.enable = true;
   services.dbus.enable = true;
 }
-

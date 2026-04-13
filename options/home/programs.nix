@@ -31,18 +31,19 @@
       enable = lib.mkEnableOption "antigravity";
       package = lib.mkPackageOption pkgs "antigravity" { };
     };
-    hyprshot = {
-      enable = lib.mkEnableOption "hyprshot";
-      package = lib.mkPackageOption pkgs "hyprshot" { };
-    };
     prismlauncher = {
       enable = lib.mkEnableOption "prismlauncher";
       package = lib.mkPackageOption pkgs "prismlauncher" { };
     };
     proton-ge = {
       enable = lib.mkEnableOption "proton-ge utils";
-      protonup-qt = lib.mkPackageOption pkgs "protonup-qt" { };
-      protonplus = lib.mkPackageOption pkgs "protonplus" { };
+      packages = lib.mkOption {
+        type = lib.types.listOf lib.types.package;
+        default = with pkgs; [
+          protonup-qt
+          protonplus
+        ];
+      };
     };
     vlc = {
       enable = lib.mkEnableOption "vlc";
@@ -55,10 +56,6 @@
     libreoffice = {
       enable = lib.mkEnableOption "libreoffice";
       package = lib.mkPackageOption pkgs "libreoffice-qt-fresh" { };
-    };
-    lutris = {
-      enable = lib.mkEnableOption "lutris";
-      package = lib.mkPackageOption pkgs "lutris" { };
     };
     osu = {
       enable = lib.mkEnableOption "osu-lazer";
@@ -76,13 +73,9 @@
       enable = lib.mkEnableOption "xprop";
       package = lib.mkPackageOption pkgs "xprop" { };
     };
-    bluetuith = {
-      enable = lib.mkEnableOption "bluetuith";
-      package = lib.mkPackageOption pkgs "bluetuith" { };
-    };
     pavucontrol = {
       enable = lib.mkEnableOption "pavucontrol-qt";
-      package = lib.mkPackageOption pkgs "lxqt" { extraPrefixCode = ".pavucontrol-qt"; };
+      package = lib.mkPackageOption pkgs.lxqt "pavucontrol-qt" { };
     };
     nwg-look = {
       enable = lib.mkEnableOption "nwg-look";
@@ -90,8 +83,13 @@
     };
     proton-apps = {
       enable = lib.mkEnableOption "proton-pass and proton-authenticator";
-      pass = lib.mkPackageOption pkgs "proton-pass" { };
-      authenticator = lib.mkPackageOption pkgs "proton-authenticator" { };
+      packages = lib.mkOption {
+        type = lib.types.listOf lib.types.package;
+        default = with pkgs; [
+          proton-pass
+          proton-authenticator
+        ];
+      };
     };
     hytale = {
       enable = lib.mkEnableOption "hytale-launcher";

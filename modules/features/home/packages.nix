@@ -10,30 +10,25 @@
   home.packages = [
     (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
 
-    (lib.mkIf config.programs.hyprshot.enable config.programs.hyprshot.package)
-    (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)
-    (lib.mkIf config.programs.prismlauncher.enable config.programs.prismlauncher.package)
-    (lib.mkIf config.programs.proton-ge.enable config.programs.proton-ge.protonup-qt)
-    (lib.mkIf config.programs.proton-ge.enable config.programs.proton-ge.protonplus)
-    (lib.mkIf config.programs.vlc.enable config.programs.vlc.package)
-    (lib.mkIf config.programs.gimp.enable config.programs.gimp.package)
-    (lib.mkIf config.programs.libreoffice.enable config.programs.libreoffice.package)
-    (lib.mkIf config.programs.lutris.enable config.programs.lutris.package)
-    (lib.mkIf config.programs.osu.enable config.programs.osu.package)
-    (lib.mkIf config.programs.lmstudio.enable config.programs.lmstudio.package)
-    (lib.mkIf config.programs.blender.enable config.programs.blender.package)
-    (lib.mkIf config.programs.xprop.enable config.programs.xprop.package)
+    (lib.mkIf config.programs.packages.antigravity.enable config.programs.packages.antigravity.package)
+    (lib.mkIf config.programs.packages.prismlauncher.enable config.programs.packages.prismlauncher.package)
+    (lib.optionals config.programs.proton-ge.enable config.programs.proton-ge.packages)
+    (lib.mkIf config.programs.packages.vlc.enable config.programs.packages.vlc.package)
+    (lib.mkIf config.programs.packages.gimp.enable config.programs.packages.gimp.package)
+    (lib.mkIf config.programs.packages.libreoffice.enable config.programs.packages.libreoffice.package)
+    (lib.mkIf config.programs.packages.osu.enable config.programs.packages.osu.package)
+    (lib.mkIf config.programs.packages.lmstudio.enable config.programs.packages.lmstudio.package)
+    (lib.mkIf config.programs.packages.blender.enable config.programs.packages.blender.package)
+    (lib.mkIf config.programs.packages.xprop.enable config.programs.packages.xprop.package)
 
-    (lib.mkIf config.programs.bluetuith.enable config.programs.bluetuith.package)
-    (lib.mkIf config.programs.pavucontrol.enable config.programs.pavucontrol.package)
-    (lib.mkIf config.programs.nwg-look.enable config.programs.nwg-look.package)
+    (lib.mkIf config.programs.packages.pavucontrol.enable config.programs.packages.pavucontrol.package)
+    (lib.mkIf config.programs.packages.nwg-look.enable config.programs.packages.nwg-look.package)
 
-    (lib.mkIf config.programs.proton-apps.enable config.programs.proton-apps.pass)
-    (lib.mkIf config.programs.proton-apps.enable config.programs.proton-apps.authenticator)
+    (lib.optionals config.programs.proton-apps.enable config.programs.proton-apps.packages)
 
-    (lib.mkIf config.programs.hytale.enable config.programs.hytale.package)
+    (lib.mkIf config.programs.packages.hytale.enable config.programs.packages.hytale.package)
     (lib.mkIf (
-      config.programs.cider.enable && osconfig.device.programs.cider-2.enable
-    ) config.programs.cider.package)
+      config.programs.packages.cider.enable && osconfig.device.programs.cider-2.enable
+    ) config.programs.packages.cider.package)
   ];
 }
