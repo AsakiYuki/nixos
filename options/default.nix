@@ -1,14 +1,21 @@
-{ lib, ... }:
+{ ... }:
 {
   imports = [
-    ../common/default.nix
-
+    ./programs.nix
+    ./file.nix
     ./environment.nix
     ./programs.nix
     ./hardware.nix
   ];
 
   options.device = {
+    flatpak.enable = lib.mkEnableOption "flatpak";
+    flake-name = lib.mkOption {
+      type = lib.types.str;
+      default = "desktop";
+      description = "Flake name for quick rebuild";
+    };
+
     cursors = lib.mkOption {
       type = lib.types.str;
       default = "aemeath";
