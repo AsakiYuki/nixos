@@ -1,35 +1,50 @@
-{ pkgs, lib, osconfig, config, ... }:
 {
-    home.file = {
-        ".config/qt5ct/colors/Catppuccin-Mocha.conf".source = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
-        ".config/qt6ct/colors/Catppuccin-Mocha.conf".source = "${pkgs.catppuccin-qt5ct}/share/qt6ct/colors/catppuccin-mocha-sapphire.conf";
+  pkgs,
+  lib,
+  osconfig,
+  config,
+  ...
+}:
+{
+  home.file = lib.mkMerge [
+    (builtins.mapAttrs (_: path: {
+      source = path;
+    }) osconfig.device.files.source)
 
-        ".local/share/kio/servicemenus/copy-server-public-url.desktop".source = ../../../configs/services-menu/copy-server-public-url.desktop;
+    (builtins.mapAttrs (_: path: {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${path}";
+    }) osconfig.device.files.symlink)
 
-        ".local/share/kio/servicemenus/open-with-code.desktop".source = ../../../configs/services-menu/open-with-code.desktop;
-        ".local/share/kio/servicemenus/open-with-nvim.desktop".source = ../../../configs/services-menu/open-with-nvim.desktop;
-        ".local/share/kio/servicemenus/open-with-antigravity.desktop".source = ../../../configs/services-menu/open-with-antigravity.desktop;
-        ".local/share/kio/servicemenus/open-ghostty-here.desktop".source = ../../../configs/services-menu/open-ghostty-here.desktop;
+    (lib.mkMerge (
+      builtins.map (name: lib.setAttrByPath [ name "force" ] true) (
+        builtins.attrNames osconfig.device.files.force
+      )
+    ))
 
-        ".mozilla/firefox/default/search.json.mozlz4".force = lib.mkForce true;
-        ".config/dolphinrc" = {
-            force = true;
-            source = ../../../configs/dolphinrc;
-        };
-    } // builtins.mapAttrs (key: path: { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${path}"; }) osconfig.device.symlink;
+    (lib.mkMerge (
+      builtins.map (name: lib.setAttrByPath [ name "force" ] (lib.mkForce true)) (
+        builtins.attrNames osconfig.device.files.mkForce
+      )
+    ))
+  ];
 
-    xdg.configFile = {
-        kdeglobals.text = builtins.readFile ((pkgs.catppuccin-kde.override { flavour = ["mocha"]; accents = ["sapphire"]; }) + "/share/color-schemes/CatppuccinMochaSapphire.colors") +
-        ''
+  xdg.configFile.kdeglobals.text =
+    builtins.readFile (
+      (pkgs.catppuccin-kde.override {
+        flavour = [ "mocha" ];
+        accents = [ "sapphire" ];
+      })
+      + "/share/color-schemes/CatppuccinMochaSapphire.colors"
+    )
+    + ''
 
-            [UiSettings]
-            ColorScheme=qt6ct
-        
-            [General]
-            TerminalApplication=${osconfig.device.programs.terminal}
+      [UiSettings]
+      ColorScheme=qt6ct
 
-            [Icons]
-            Theme=Papirus
-        '';
-    };
+      [General]
+      TerminalApplication=${osconfig.device.programs.terminal}
+
+      [Icons]
+      Theme=Papirus
+    '';
 }

@@ -1,6 +1,9 @@
 { lib, ... }:
 {
-  imports = [ ./programs.nix ];
+  imports = [
+    ./programs.nix
+    ./file.nix
+  ];
 
   options.device = {
     flatpak.enable = lib.mkEnableOption "flatpak";
