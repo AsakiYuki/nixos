@@ -1,4 +1,4 @@
-{ libs, ... }:
+{ libs, pkgs, ... }:
 {
   imports = [
     (libs.root "/home/asakiyuki/configuration.nix")
