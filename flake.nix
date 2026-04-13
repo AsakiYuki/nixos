@@ -72,6 +72,8 @@
           system = "x86_64-linux";
           specialArgs = specialArgs;
           modules = [
+            inputs.nix-index-database.nixosModules.default
+            inputs.home-manager.nixosModules.default
             (libs.root "/devices/home-server/configuration.nix")
           ];
         };
