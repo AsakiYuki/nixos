@@ -1,4 +1,9 @@
-{ lib, ... }:
+{
+  lib,
+  libs,
+  pkgs,
+  ...
+}:
 let
   ENABLE_HDR = false;
 in
@@ -86,7 +91,10 @@ in
     };
 
     programs = {
-      terminal = "ghostty";
+      terminal = {
+        enable = true;
+        name = "ghostty";
+      };
       obs-studio.enable = true;
       nixcord.enable = true;
       tmux.enable = true;

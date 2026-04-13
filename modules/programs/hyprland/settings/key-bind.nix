@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "CTRL ALT, T, exec, ${osconfig.device.programs.terminal}"
+      "CTRL ALT, T, exec, ${osconfig.device.programs.terminal.name}"
 
       "SUPER SHIFT, L, exit,"
       "SUPER SHIFT, TAB, togglefloating,"

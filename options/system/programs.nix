@@ -123,6 +123,15 @@
         default = pkgs.rPackages.tensorflow;
       };
     };
+    gcc = {
+      enable = lib.mkEnableOption "c";
+      packages = lib.mkOption {
+        type = lib.types.listOf lib.types.package;
+        default = with pkgs; [
+          gcc
+        ];
+      };
+    };
     hyprland-portals = {
       enable = lib.mkEnableOption "XDGP for hyprland";
       packages = lib.mkOption {

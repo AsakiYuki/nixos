@@ -43,7 +43,7 @@
         ColorScheme=qt6ct
 
         [General]
-        TerminalApplication=${osconfig.device.programs.terminal}
+        TerminalApplication=${osconfig.device.programs.terminal.name}
 
         [Icons]
         Theme=Papirus

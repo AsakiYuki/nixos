@@ -1,7 +1,8 @@
 { lib, osconfig, ... }:
 {
   programs.kitty =
-    lib.mkIf (osconfig.device.programs.terminal.enable && osconfig.device.programs.terminal == "kitty")
+    lib.mkIf
+      (osconfig.device.programs.terminal.enable && osconfig.device.programs.terminal.name == "kitty")
       {
         enable = true;
 
