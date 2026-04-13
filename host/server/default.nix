@@ -2,6 +2,7 @@
 {
   imports = [
     (libs.root "/home/asakiyuki/configuration.nix")
+    (libs.root "/options/server/default.nix")
   ];
 
   environment.systemPackages = with pkgs; [
