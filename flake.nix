@@ -44,20 +44,22 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
+
+      specialArgs = {
+        inherit
+          self
+          custom
+          libs
+          unstable
+          inputs
+          ;
+      };
     in
     {
       nixosConfigurations = {
         ideapad-slim-5 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = {
-            inherit
-              self
-              custom
-              libs
-              unstable
-              inputs
-              ;
-          };
+          specialArgs = specialArgs;
           modules = [
             inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
             inputs.nix-index-database.nixosModules.default
@@ -68,7 +70,7 @@
 
         home-server = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit self inputs libs; };
+          specialArgs = specialArgs;
           modules = [
             (libs.root "/devices/home-server/configuration.nix")
           ];
