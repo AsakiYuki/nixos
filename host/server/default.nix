@@ -2,6 +2,7 @@
 {
   imports = [
     ./programs.nix
+    ./service.nix
 
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/packages.nix")
@@ -20,11 +21,6 @@
   };
 
   services = {
-    adguardhome = {
-      enable = true;
-      port = 34778;
-      openFirewall = true;
-    };
 
     fail2ban = {
       enable = true;
