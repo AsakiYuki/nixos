@@ -12,6 +12,15 @@
     vim
   ];
 
+  users.users.junko = {
+    isNormalUser = true;
+  };
+
+  users.users.asakiyuki = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
+
   services = {
     adguardhome = {
       enable = true;
