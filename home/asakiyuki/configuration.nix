@@ -3,7 +3,6 @@
   libs,
   config,
   custom,
-  pkgs,
   unstable,
   ...
 }:
