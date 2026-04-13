@@ -31,6 +31,9 @@
     (libs.root "/modules/features/system/dconf.nix")
     (libs.root "/modules/features/system/cloudflare.nix")
     (libs.root "/modules/features/system/docker.nix")
+    (libs.root "/modules/features/system/upower.nix")
+
+    (libs.root "/home/asakiyuki/configuration.nix")
 
     (libs.root "/modules/services/pipewire.nix")
     (libs.root "/modules/home-manager.nix")

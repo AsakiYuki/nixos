@@ -8,7 +8,6 @@
 
     hytale-launcher.url = "github:zarilion/hytale-launcher-nix";
     niri.url = "github:sodiboo/niri-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
     nixcord.url = "github:FlameFlag/nixcord";
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";
 
