@@ -25,7 +25,7 @@
       device = "/dev/disk/by-uuid/16cfcdf6-15bb-4b63-835f-044867999510";
       fsType = "ext4";
     };
-    "/home/asakiyuki/HOST" = {
+    "/profiles/asakiyuki/HOST" = {
       device = "/dev/disk/by-uuid/414e2a24-605f-47c3-a325-8db8a4934329";
       fsType = "ext4";
     };
