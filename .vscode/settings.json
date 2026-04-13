@@ -1,6 +1,7 @@
 {
 	"nixEnvSelector.suggestion": false,
 	"nix.serverSettings": {
+		"nil": {},
 		"nixd": {
 			"formatting": {
 				"command": ["alejandra"]
