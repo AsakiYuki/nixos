@@ -21,14 +21,6 @@
   };
 
   options.programs = {
-    wget = {
-      enable = lib.mkEnableOption "wget";
-      package = lib.mkPackageOption pkgs "wget" { };
-    };
-    tree = {
-      enable = lib.mkEnableOption "tree";
-      package = lib.mkPackageOption pkgs "tree" { };
-    };
     ffmpeg = {
       enable = lib.mkEnableOption "ffmpeg";
       package = lib.mkPackageOption pkgs "ffmpeg-full" { };
@@ -53,14 +45,6 @@
       enable = lib.mkEnableOption "ntfs3g";
       package = lib.mkPackageOption pkgs "ntfs3g" { };
     };
-    zip = {
-      enable = lib.mkEnableOption "zip";
-      package = lib.mkPackageOption pkgs "zip" { };
-    };
-    unzip = {
-      enable = lib.mkEnableOption "unzip";
-      package = lib.mkPackageOption pkgs "unzip" { };
-    };
     python = {
       enable = lib.mkEnableOption "python";
       package = lib.mkPackageOption pkgs "python3" { };
@@ -68,10 +52,6 @@
     jdk = {
       enable = lib.mkEnableOption "jdk-25";
       package = lib.mkPackageOption pkgs "jdk25" { };
-    };
-    nixfmt = {
-      enable = lib.mkEnableOption "nixfmt";
-      package = lib.mkPackageOption pkgs "nixfmt" { };
     };
     winepackages = {
       enable = lib.mkEnableOption "Wine and Proton utilities";

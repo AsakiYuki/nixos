@@ -4,6 +4,7 @@
     ./programs.nix
 
     (libs.root "/modules/features/system/docker.nix")
+    (libs.root "/modules/features/system/packages.nix")
 
     (libs.root "/home/asakiyuki/configuration.nix")
     (libs.root "/options/system/default.nix")
