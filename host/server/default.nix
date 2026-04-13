@@ -1,6 +1,8 @@
 { libs, pkgs, ... }:
 {
   imports = [
+    ./programs.nix
+
     (libs.root "/modules/features/system/docker.nix")
 
     (libs.root "/home/asakiyuki/configuration.nix")
