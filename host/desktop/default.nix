@@ -32,7 +32,7 @@
     (libs.root "/modules/features/system/cloudflare.nix")
     (libs.root "/modules/features/system/docker.nix")
 
-    (libs.root "/modules/services/default.nix")
+    (libs.root "/modules/services/pipewire.nix")
     (libs.root "/modules/home-manager.nix")
 
     (libs.root "/options/system/default.nix")
