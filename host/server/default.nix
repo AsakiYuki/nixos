@@ -1,10 +1,10 @@
 { libs, ... }:
 {
   imports = [
+    ./device.nix
     ./programs.nix
     ./services.nix
     ./networking.nix
-    ./default.nix
 
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/packages.nix")
