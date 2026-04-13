@@ -42,12 +42,14 @@
     (libs.root "/overlays/nixpkgs.nix")
   ];
 
-  home-manager.users.asakiyuki.home.pointerCursor =
+  home-manager.users.asakiyuki = {
+    home.pointerCursor =
     (custom.cursors {
       name = config.device.cursors;
       size = 48;
     })
       { pkgs = pkgs; };
+  };
 
   xdg.menus.enable = true;
   services.dbus.enable = true;

@@ -31,6 +31,12 @@
     "flakes"
   ];
 
+  home-manager.users.asakiyuki.home = {
+    sessionVariables = {
+      QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
+    };
+  };
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ pkgs.linuxPackages_latest.zenpower ];
   system.stateVersion = "25.11";
