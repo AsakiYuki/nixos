@@ -1,4 +1,10 @@
-{ libs, ... }:
+{
+  libs,
+  custom,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./programs.nix
@@ -30,6 +36,13 @@
     (libs.root "/options/desktop/default.nix")
     (libs.root "/overlays/nixpkgs.nix")
   ];
+
+  home-manager.users.asakiyuki.home.pointerCursor =
+    (custom.cursors {
+      name = config.device.cursors;
+      size = 48;
+    })
+      { pkgs = pkgs; };
 
   xdg.menus.enable = true;
   services.dbus.enable = true;

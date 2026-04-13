@@ -1,4 +1,8 @@
-{ ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   programs = {
     wget.enable = true;
@@ -20,5 +24,24 @@
     kde-packages.enable = true;
     r-tensorflow.enable = true;
     hyprland-portals.enable = true;
+  };
+
+  home-manager.users.asakiyuki.programs = {
+    catppuccin.enable = true;
+    antigravity.enable = true;
+    prismlauncher.enable = true;
+    vlc.enable = true;
+    gimp.enable = true;
+    libreoffice.enable = true;
+    osu.enable = true;
+    lmstudio.enable = true;
+    blender.enable = true;
+    xprop.enable = true;
+    pavucontrol.enable = true;
+    nwg-look.enable = true;
+    hytale.enable = true;
+    cider.enable = true;
+    proton-ge.enable = true;
+    proton-apps.enable = true;
   };
 }
