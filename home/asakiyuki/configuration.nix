@@ -32,6 +32,7 @@ in
       ./modules/env.nix
 
       ../../modules/features/home/theme.nix
+      ../../options/home/default.nix
 
       inputs.nixvim.homeModules.nixvim
       inputs.nixcord.homeModules.nixcord
@@ -47,6 +48,28 @@ in
           size = 48;
         })
           { pkgs = pkgs; };
+    };
+
+    programs = {
+      catppuccin.enable = true;
+      antigravity.enable = true;
+      hyprshot.enable = true;
+      prismlauncher.enable = true;
+      proton-ge.enable = true;
+      vlc.enable = true;
+      gimp.enable = true;
+      libreoffice.enable = true;
+      lutris.enable = true;
+      osu.enable = true;
+      lmstudio.enable = true;
+      blender.enable = true;
+      xprop.enable = true;
+      bluetuith.enable = true;
+      pavucontrol.enable = true;
+      nwg-look.enable = true;
+      proton-apps.enable = true;
+      hytale.enable = true;
+      cider.enable = true;
     };
   };
 }
