@@ -7,7 +7,7 @@
 			},
 			"options": {
 				"nixos": {
-					"expr": "(builtins.getFlake \"/profiles/asakiyuki/nixos\").nixosConfigurations.ideapad-slim-5.options"
+					"expr": "(builtins.getFlake \"/home/asakiyuki/nixos\").nixosConfigurations.ideapad-slim-5.options"
 				}
 			}
 		}

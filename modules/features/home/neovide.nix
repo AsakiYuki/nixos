@@ -2,7 +2,7 @@
   programs.neovide = {
     enable = true;
     settings = {
-      neovim-bin = "/etc/profiles/per-user/asakiyuki/bin/nvim";
+      neovim-bin = "/etc/home/per-user/asakiyuki/bin/nvim";
     };
   };
 }

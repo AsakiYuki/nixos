@@ -33,7 +33,7 @@
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/upower.nix")
 
-    (libs.root "/profiles/asakiyuki/configuration.nix")
+    (libs.root "/users/asakiyuki/configuration.nix")
 
     (libs.root "/modules/services/pipewire.nix")
     (libs.root "/modules/home-manager.nix")

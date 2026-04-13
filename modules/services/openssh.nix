@@ -3,7 +3,7 @@
     enable = true;
     ports = [15523];
     authorizedKeysInHomedir = true;
-    authorizedKeysFiles = ["/profiles/asakiyuki/.ssh/authorized_keys"];
+    authorizedKeysFiles = ["/home/asakiyuki/.ssh/authorized_keys"];
     settings = {
       AllowUsers = [
         "asakiyuki"
