@@ -12,6 +12,7 @@
       git
       vim
       btop
+      gcc
 
       (lib.mkIf config.programs.wget.enable config.programs.wget.package)
       (lib.mkIf config.programs.tree.enable config.programs.tree.package)

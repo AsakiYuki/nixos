@@ -27,6 +27,7 @@
   };
 
   home-manager.users.asakiyuki.programs = {
+    hyprshot.enable = true;
     catppuccin.enable = true;
     antigravity.enable = true;
     prismlauncher.enable = true;
