@@ -33,7 +33,7 @@
     (libs.root "/modules/services/default.nix")
     (libs.root "/modules/home-manager.nix")
 
-    (libs.root "/options/desktop/default.nix")
+    (libs.root "/options/system/default.nix")
     (libs.root "/overlays/nixpkgs.nix")
   ];
 
