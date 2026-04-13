@@ -10,10 +10,6 @@
     "flakes"
   ];
 
-  device = {
-    flake-name = "home-server";
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;

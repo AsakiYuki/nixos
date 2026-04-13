@@ -26,9 +26,9 @@ in
         ;
     };
     imports = [
-      ./modules/programs.nix
-      ./modules/files.nix
-      ./modules/env.nix
+      ./programs.nix
+      ./files.nix
+      ./env.nix
 
       ../../modules/features/home/theme.nix
       ../../options/home/default.nix
