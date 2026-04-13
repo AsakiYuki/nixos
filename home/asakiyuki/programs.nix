@@ -15,7 +15,7 @@
     ../../modules/features/home/xdg.nix
     ../../modules/features/home/packages.nix
     ../../modules/features/home/git.nix
-
+    clea
     ../../modules/programs/nixvim/_nixvim.nix
     ../../modules/programs/nixcord/default.nix
     ../../modules/features/home/niri.nix
