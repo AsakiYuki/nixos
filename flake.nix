@@ -65,7 +65,14 @@
             (libs.root "/devices/ideapad-slim-5/configuration.nix")
           ];
         };
+
+        home-server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit self inputs libs; };
+          modules = [
+            (libs.root "/devices/home-server/configuration.nix")
+          ];
+        };
       };
     };
 }
-
