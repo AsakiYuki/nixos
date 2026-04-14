@@ -16,10 +16,15 @@ in {
       config.programs.dolphin.package
     ];
 
-    home.file.".config/dolphinrc" = {
-      text = lib.generators.toINI {} (sanitize config.programs.dolphin.configs);
-      force = true;
-    };
+    home.file = lib.mergeAttrsList [
+      {
+        ".config/dolphinrc" = {
+          text = lib.generators.toINI {} (sanitize config.programs.dolphin.configs);
+          force = true;
+        };
+      }
+      # (lib.attrsToList config.programs.dolphin.services-menu)z
+    ];
   };
 
   options.programs.dolphin = {
@@ -407,6 +412,11 @@ in {
           default = [];
         };
       };
+    };
+
+    services-menu = lib.mkOption {
+      type = lib.types.attrsOf (lib.types.attrsOf lib.types.str);
+      default = {};
     };
   };
 }
