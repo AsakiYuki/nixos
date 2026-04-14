@@ -11,7 +11,7 @@
       settings = {
         theme = "catppuccin-mocha";
 
-        font-size = 10;
+        font-size = 9;
         font-family = "SauceCodePro NFP Bold";
 
         window-width = 230;

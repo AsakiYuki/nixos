@@ -82,7 +82,6 @@
         type = lib.types.listOf lib.types.package;
         default = with pkgs.kdePackages; [
           kservice
-          dolphin
           kate
           qt5compat
           qtdeclarative

@@ -17,6 +17,7 @@
   };
 
   home-manager.users.asakiyuki.programs = {
+    dolphin.enable = true;
     bluetuith.enable = true;
     lutris.enable = true;
     hyprshot.enable = true;

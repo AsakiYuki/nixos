@@ -4,6 +4,10 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./programs/dolphin.nix
+  ];
+
   options.programs = {
     catppuccin = {
       enable = lib.mkEnableOption "catppuccin";
