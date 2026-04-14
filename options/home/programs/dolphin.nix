@@ -23,7 +23,17 @@ in {
           force = true;
         };
       }
-      # (lib.attrsToList config.programs.dolphin.services-menu)z
+      (builtins.listToAttrs (builtins.map
+        ({
+          name,
+          value,
+        }: {
+          name = ".local/share/kio/servicemenus/${name}.desktop";
+          value = {
+            text = lib.generators.toINI {} value;
+          };
+        })
+        (lib.attrsToList config.programs.dolphin.services-menu)))
     ];
   };
 
@@ -415,7 +425,7 @@ in {
     };
 
     services-menu = lib.mkOption {
-      type = lib.types.attrsOf (lib.types.attrsOf lib.types.str);
+      type = lib.types.attrsOf (lib.types.attrsOf (lib.types.attrsOf lib.types.str));
       default = {};
     };
   };
