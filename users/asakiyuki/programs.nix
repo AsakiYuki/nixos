@@ -14,6 +14,7 @@
     ../../modules/features/home/xdg.nix
     ../../modules/features/home/packages.nix
     ../../modules/features/home/git.nix
+    ../../modules/features/home/dolphin.nix
 
     ../../modules/programs/nixvim/_nixvim.nix
     ../../modules/programs/nixcord/default.nix

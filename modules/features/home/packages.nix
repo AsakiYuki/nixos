@@ -6,7 +6,6 @@
 }: {
   home.packages =
     [
-      (lib.mkIf config.programs.dolphin.enable config.programs.dolphin.package)
       (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
 
       (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)

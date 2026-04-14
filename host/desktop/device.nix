@@ -51,9 +51,7 @@ in {
     flatpak.enable = true;
 
     files = {
-      force = {
-        ".config/dolphinrc" = true;
-      };
+      force = {};
 
       mkForce = {
         ".mozilla/firefox/default/search.json.mozlz4" = true;
@@ -62,8 +60,6 @@ in {
       source = {
         ".config/qt5ct/colors/Catppuccin-Mocha.conf" = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
         ".config/qt6ct/colors/Catppuccin-Mocha.conf" = "${pkgs.catppuccin-qt5ct}/share/qt6ct/colors/catppuccin-mocha-sapphire.conf";
-
-        ".config/dolphinrc" = libs.root "/configs/dolphinrc";
 
         ".local/share/kio/servicemenus/copy-server-public-url.desktop" =
           libs.root "/configs/services-menu/copy-server-public-url.desktop";
