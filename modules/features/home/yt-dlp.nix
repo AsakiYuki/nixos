@@ -1,6 +1,8 @@
 {...}: {
   programs.yt-dlp = {
     enable = true;
-    settings = {};
+    extraConfig = ''
+      -o ~/Downloads/yt-dlp/%(title)s.%(ext)s
+    '';
   };
 }
