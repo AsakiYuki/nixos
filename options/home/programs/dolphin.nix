@@ -1,8 +1,27 @@
 {
   lib,
   pkgs,
+  config,
   ...
-}: {
+}: let
+  sanitize = lib.mapAttrsRecursive (
+    path: value:
+      if lib.isList value
+      then lib.concatStringsSep "," value
+      else value
+  );
+in {
+  config = lib.mkIf config.programs.dolphin.enable {
+    home.packages = [
+      config.programs.dolphin.package
+    ];
+
+    home.file.".config/dolphinrc" = {
+      text = lib.generators.toINI {} (sanitize config.programs.dolphin.configs);
+      force = true;
+    };
+  };
+
   options.programs.dolphin = {
     enable = lib.mkEnableOption "dolphin";
     package = lib.mkOption {
@@ -10,7 +29,7 @@
       default = pkgs.kdePackages.dolphin;
     };
 
-    config = {
+    configs = {
       General = {
         DoubleClickViewAction = lib.mkOption {
           type = lib.types.str;
@@ -58,7 +77,7 @@
         };
         HomeUrl = lib.mkOption {
           type = lib.types.str;
-          default = "~";
+          default = config.home.homeDirectory;
         };
         RememberOpenedTabs = lib.mkOption {
           type = lib.types.bool;
@@ -145,6 +164,10 @@
           default = false;
         };
         DynamicView = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+        };
+        ModifiedStartupSettings = lib.mkOption {
           type = lib.types.bool;
           default = false;
         };
