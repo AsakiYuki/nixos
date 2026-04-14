@@ -17,6 +17,7 @@
   };
 
   home-manager.users.asakiyuki.programs = {
+    bluetuith.enable = true;
     lutris.enable = true;
     hyprshot.enable = true;
     catppuccin.enable = true;
