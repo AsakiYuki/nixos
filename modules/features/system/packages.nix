@@ -40,7 +40,7 @@
       (lib.optionals config.programs.kde-packages.enable config.programs.kde-packages.packages)
       (lib.optionals config.programs.r-tensorflow.enable [config.programs.r-tensorflow.package])
       (lib.optionals (
-          config.programs.hyprland-portals.enable && config.device.wm.hyprland.enablez
+          config.programs.hyprland-portals.enable && config.device.wm.hyprland.enable
         )
         config.programs.hyprland-portals.packages)
     ];
