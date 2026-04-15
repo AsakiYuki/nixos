@@ -40,5 +40,6 @@
     firefox.enable = true;
     chromium.enable = true;
     gcc.enable = true;
+    davinci-resolve.enable = true;
   };
 }

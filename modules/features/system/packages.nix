@@ -2,7 +2,7 @@
   pkgs,
   lib,
   config,
-  libs,
+  custom,
   ...
 }: {
   environment.systemPackages = with pkgs;
@@ -19,7 +19,8 @@
       zip
       unzip
 
-      (libs.root "/packages/winegdk.nix")
+      (pkgs.callPackage (custom.cage-xtmapper {}) {})
+
       (lib.mkIf config.programs.ffmpeg.enable config.programs.ffmpeg.package)
       (lib.mkIf config.programs.nodejs.enable config.programs.nodejs.package)
       (lib.mkIf config.programs.bun.enable config.programs.bun.package)

@@ -93,6 +93,10 @@
         ];
       };
     };
+    davinci-resolve = {
+      enable = lib.mkEnableOption "davinci-resolve";
+      package = lib.mkPackageOption pkgs "davinci-resolve" {};
+    };
     hytale = {
       enable = lib.mkEnableOption "hytale-launcher";
       package = lib.mkOption {

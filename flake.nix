@@ -10,6 +10,7 @@
     niri.url = "github:sodiboo/niri-flake";
     nixcord.url = "github:FlameFlag/nixcord";
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";
+    winegdk.url = "github:fmbearmf/winegdk-nix";
 
     honkai-railway-grub-theme.url = "github:voidlhf/StarRailGrubThemes/4a84e576bb544afbdfc76dbe40ffc50a5c2b16de";
 

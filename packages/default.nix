@@ -9,5 +9,4 @@
     cursors = name;
     size = size;
   });
-  winegdk = import ./winegdk.nix;
 }
