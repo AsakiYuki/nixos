@@ -55,7 +55,7 @@
         "Desktop Action RunCodeDir" = {
           Name = "Open with Code";
           Icon = "vscode";
-          Exec = "vscode \"%F\"";
+          Exec = "code \"%F\"";
         };
       };
 
