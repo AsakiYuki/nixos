@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   home-manager.users.asakiyuki.wayland.windowManager.hyprland.settings = {
-    "$SDR_SCREEN_CONFIG" = "eDP-1, 1920x1200@60, 0x0, 1";
-    "$HDR_SCREEN_CONFIG" = "eDP-1, 1920x1200@60, 0x0, 1, bitdepth, 10, cm, hdr";
-    "$CURRENT_STATE_SCREEN" = "$SDR_SCREEN_CONFIG";
+    "$CURRENT_STATE_SCREEN" = "eDP-1, 1920x1200@60, 0x0, 1";
   };
 
   device = {
