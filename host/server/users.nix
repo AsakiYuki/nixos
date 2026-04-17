@@ -3,7 +3,7 @@
   users.users.junko.extraGroups = ["public"];
 
   users.users.public = {
-    group = ["public"];
+    group = "public";
     isSystemUser = true;
   };
 
