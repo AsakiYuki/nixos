@@ -1,8 +1,10 @@
-{
-  libs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
+  home-manager.users.asakiyuki.wayland.windowManager.hyprland.settings = {
+    "$SDR_SCREEN_CONFIG" = "eDP-1, 1920x1200@60, 0x0, 1";
+    "$HDR_SCREEN_CONFIG" = "eDP-1, 1920x1200@60, 0x0, 1, bitdepth, 10, cm, hdredid";
+    "$CURRENT_STATE_SCREEN" = "$SDR_SCREEN_CONFIG";
+  };
+
   device = {
     flake-name = "ideapad-slim-5";
     cursors = "aemeath";
@@ -15,21 +17,9 @@
 
     wm.niri.enable = false;
     wm.hyprland.enable = true;
-    wm.hyprland.monitors = [
-      "eDP-1, 1920x1200@60, 0x0, 1, bitdepth, 10, cm, hdr, icc, ${libs.root "/assets/srgb_to_gamma2p2_400_mhc2.icm"}"
+    wm.hyprland.monitor = [
+      "$CURRENT_STATE_SCREEN"
     ];
-    # wm.hyprland.monitorsv2 = [
-    #   {
-    #     output = "eDP-1";
-    #     mode = "1920x1200@60";
-    #     position = "0x0";
-    #     scale = 1;
-
-    #     bitdepth = 10;
-    #     cm = "hdr";
-    #     icc = builtins.toString (libs.root "/assets/srgb_to_gamma2p2_400_mhc2.icm");
-    #   }
-    # ];
 
     bluetooth.enable = true;
     flatpak.enable = true;

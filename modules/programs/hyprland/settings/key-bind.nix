@@ -52,6 +52,7 @@
         "SUPER, MOUSE_UP, workspace, e+1"
 
         ", XF86TouchpadToggle, global, asakiyuki:touchpadtoggle"
+        "META ALT, B, global, asakiyuki:hdrtoggle"
         "ALT, SPACE, global, asakiyuki:launcher"
 
         ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
