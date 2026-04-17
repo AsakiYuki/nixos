@@ -8,7 +8,7 @@
 
     virtualHosts = {
       localhost = {
-        documentRoot = "/host/PUBLIC";
+        documentRoot = "/home/PUBLIC";
         listen = [
           {
             ip = "0.0.0.0";
@@ -16,7 +16,7 @@
           }
         ];
         extraConfig = ''
-          <Directory "/host/PUBLIC">
+          <Directory "/home/PUBLIC">
               Options -Indexes +FollowSymLinks
               AllowOverride None
               Require all granted
