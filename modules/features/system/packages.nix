@@ -18,6 +18,9 @@
 
       zip
       unzip
+
+      kdePackages.kio-extras
+      kdePackages.kio-fuse
     ]
     ++ [
       (lib.mkIf config.virtualisation.waydroid.enable (pkgs.callPackage (custom.cage-xtmapper {}) {}))
