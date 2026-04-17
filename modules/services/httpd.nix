@@ -3,7 +3,7 @@
     enable = true;
     adminAddr = "vantrong2007vn@gmail.com";
 
-    user = "public";
+    user = "static";
     group = "public";
 
     virtualHosts = {

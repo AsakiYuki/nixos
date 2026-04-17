@@ -38,8 +38,8 @@
     (libs.root "/modules/services/pipewire.nix")
     (libs.root "/modules/home-manager.nix")
 
-    (libs.root "/options/system/default.nix")
     (libs.root "/overlays/nixpkgs.nix")
+    (libs.root "/options/system/default.nix")
   ];
 
   home-manager.users.asakiyuki = {
