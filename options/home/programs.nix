@@ -67,6 +67,10 @@
       enable = lib.mkEnableOption "lmstudio";
       package = lib.mkPackageOption pkgs "lmstudio" {};
     };
+    wl-clipboard = {
+      enable = lib.mkEnableOption "wl-clipboard";
+      package = lib.mkPackageOption pkgs "wl-clipboard" {};
+    };
     blender = {
       enable = lib.mkEnableOption "blender";
       package = lib.mkPackageOption pkgs "blender" {};

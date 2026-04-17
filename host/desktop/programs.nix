@@ -41,5 +41,6 @@
     chromium.enable = true;
     gcc.enable = true;
     davinci-resolve.enable = true;
+    wl-clipboard.enable = true;
   };
 }
