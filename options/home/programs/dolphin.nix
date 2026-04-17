@@ -41,7 +41,17 @@ in {
     enable = lib.mkEnableOption "dolphin";
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.kdePackages.dolphin;
+      default = pkgs.symlinkJoin {
+        name = "dolphin-wrapped";
+        paths = [pkgs.kdePackages.dolphin];
+        nativeBuildInputs = [pkgs.makeWrapper];
+        postBuild = ''
+          rm $out/bin/dolphin
+          makeWrapper ${pkgs.kdePackages.dolphin}/bin/dolphin $out/bin/dolphin \
+            --set XDG_CONFIG_DIRS "${pkgs.kdePackages.kservice}/etc/xdg:$XDG_CONFIG_DIRS" \
+            --run "${pkgs.kdePackages.kservice}/bin/kbuildsycoca6 --noincremental ${pkgs.kdePackages.kservice}/etc/xdg/menus/applications.menu"
+        '';
+      };
     };
 
     configs = {
