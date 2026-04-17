@@ -1,10 +1,8 @@
 {
-  lib,
+  libs,
   pkgs,
   ...
-}: let
-  ENABLE_HDR = false;
-in {
+}: {
   device = {
     flake-name = "ideapad-slim-5";
     cursors = "aemeath";
@@ -18,33 +16,20 @@ in {
     wm.niri.enable = false;
     wm.hyprland.enable = true;
     wm.hyprland.monitors = [
-      (
-        {
-          output = "eDP-1";
-          mode = "1920x1200@60";
-          position = "0x0";
-          scale = 1;
-        }
-        // lib.optionalAttrs ENABLE_HDR {
-          bitdepth = 10;
-          cm = "hdr";
-          supports_wide_color = 1;
-          supports_hdr = 1;
-
-          sdrbrightness = 1.0;
-          sdrsaturation = 1.0;
-
-          sdr_min_luminance = 0.005;
-          sdr_max_luminance = 200;
-
-          min_luminance = 0.0005;
-          max_luminance = 400;
-          max_avg_luminance = 250;
-
-          sdr_eotf = 2;
-        }
-      )
+      "eDP-1, 1920x1200@60, 0x0, 1, bitdepth, 10, cm, hdr, icc, ${libs.root "/assets/srgb_to_gamma2p2_400_mhc2.icm"}"
     ];
+    # wm.hyprland.monitorsv2 = [
+    #   {
+    #     output = "eDP-1";
+    #     mode = "1920x1200@60";
+    #     position = "0x0";
+    #     scale = 1;
+
+    #     bitdepth = 10;
+    #     cm = "hdr";
+    #     icc = builtins.toString (libs.root "/assets/srgb_to_gamma2p2_400_mhc2.icm");
+    #   }
+    # ];
 
     bluetooth.enable = true;
     flatpak.enable = true;

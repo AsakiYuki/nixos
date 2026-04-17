@@ -22,10 +22,17 @@
       niri.enable = lib.mkEnableOption "niri";
       hyprland = {
         enable = lib.mkEnableOption "hyprland";
-        monitors = lib.mkOption {
+
+        monitor = lib.mkOption {
+          type = lib.types.listOf lib.types.str;
+          default = [];
+          description = "Monitors vs settings";
+        };
+
+        monitorsv2 = lib.mkOption {
           type = lib.types.listOf lib.types.attrs;
           default = [];
-          description = "Monitors settings";
+          description = "Monitors vs settings";
         };
       };
     };
