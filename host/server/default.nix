@@ -4,6 +4,7 @@
     ./programs.nix
     ./services.nix
     ./networking.nix
+    ./users.nix
 
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/packages.nix")
