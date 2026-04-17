@@ -6,4 +6,6 @@
     (libs.root "/modules/services/openssh.nix")
     (libs.root "/modules/services/httpd.nix")
   ];
+
+  services.logrotate.enable = true;
 }
