@@ -10,7 +10,7 @@
     ./networking.nix
     ./users.nix
 
-    inputs.catppuccin.nixosModules.catppuccin
+    inputs.catppuccin.nixosModules.forgejo
 
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/packages.nix")
