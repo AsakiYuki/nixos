@@ -1,5 +1,5 @@
 {...}: {
-  services.gitea = {
+  services.forgejo = {
     enable = true;
     database.type = "mysql";
 
