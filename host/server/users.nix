@@ -11,6 +11,8 @@
     group = "forgejo";
     isSystemUser = true;
     useDefaultShell = true;
+    home = "/var/lib/forgejo";
+    createHome = false;
   };
 
   users.groups = {
