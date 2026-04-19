@@ -1,4 +1,5 @@
 {
+  lib,
   libs,
   inputs,
   ...
@@ -10,7 +11,7 @@
     ./networking.nix
     ./users.nix
 
-    inputs.catppuccin.nixosModules.forgejo
+    inputs.catppuccin.nixosModules.catppuccin
 
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/packages.nix")
@@ -22,6 +23,11 @@
     (libs.root "/options/system/default.nix")
     (libs.root "/overlays/nixpkgs.nix")
   ];
+
+  options.services.displayManager.generic = lib.mkOption {
+    type = lib.types.attrs;
+    default = {};
+  };
 
   catppuccin = {
     enable = true;
