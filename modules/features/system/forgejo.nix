@@ -6,6 +6,9 @@
       service.DISABLE_REGISTRATION = true;
       server = {
         HTTP_PORT = 21350;
+        SSH_PORT = 15523;
+        START_SSH_SERVER = false;
+        SSH_CREATE_AUTHORIZED_KEYS_FILE = true;
         ROOT_URL = "https://git.asakiyuki.com/";
       };
     };

@@ -7,7 +7,14 @@
     isSystemUser = true;
   };
 
+  users.users.git = {
+    group = "forgejo";
+    isSystemUser = true;
+    useDefaultShell = true;
+  };
+
   users.groups = {
     public = {};
+    forgejo = {};
   };
 }
