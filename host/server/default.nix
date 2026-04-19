@@ -23,9 +23,17 @@
     (libs.root "/overlays/nixpkgs.nix")
   ];
 
-  catppuccin.forgejo = {
-    enable = "true";
-    accent = "lavender";
-    flavor = "mocha";
+  catppuccin = {
+    enable = true;
+
+    gtk.enable = false;
+    kvantum.enable = false;
+    cursors.enable = false;
+
+    forgejo = {
+      enable = true;
+      accent = "lavender";
+      flavor = "mocha";
+    };
   };
 }
