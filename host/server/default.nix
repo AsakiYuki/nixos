@@ -26,10 +26,6 @@
   catppuccin = {
     enable = true;
 
-    gtk.enable = false;
-    kvantum.enable = false;
-    cursors.enable = false;
-
     forgejo = {
       enable = true;
       accent = "lavender";
