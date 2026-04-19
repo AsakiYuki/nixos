@@ -8,6 +8,7 @@
       AllowUsers = [
         "asakiyuki"
         "junko"
+        "git"
       ];
       PasswordAuthentication = true;
       KbdInteractiveAuthentication = false;
