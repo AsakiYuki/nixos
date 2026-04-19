@@ -10,7 +10,6 @@
         START_SSH_SERVER = false;
         SSH_CREATE_AUTHORIZED_KEYS_FILE = true;
         SSH_DOMAIN = "server.asakiyuki.com";
-        SSH_USER = "git";
         ROOT_URL = "https://git.asakiyuki.com/";
       };
     };

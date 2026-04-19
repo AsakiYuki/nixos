@@ -7,7 +7,7 @@
     isSystemUser = true;
   };
 
-  users.users.git = {
+  users.users.forgejo = {
     group = "forgejo";
     isSystemUser = true;
     useDefaultShell = true;
