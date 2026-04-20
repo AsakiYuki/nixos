@@ -1,9 +1,4 @@
-{
-  lib,
-  libs,
-  inputs,
-  ...
-}: {
+{libs, ...}: {
   imports = [
     ./device.nix
     ./programs.nix
