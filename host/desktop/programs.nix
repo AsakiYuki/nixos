@@ -16,6 +16,13 @@
     hyprland-portals.enable = true;
   };
 
+  programs.ssh.extraConfig = ''
+    Host server
+      HostName server.asakiyuki.com
+      User asakiyuki
+      Port 15523
+  '';
+
   home-manager.users.asakiyuki.programs = {
     dolphin.enable = true;
     bluetuith.enable = true;
