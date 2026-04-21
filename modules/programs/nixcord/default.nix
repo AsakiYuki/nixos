@@ -6,6 +6,7 @@
 }: {
   programs.nixcord = lib.mkIf osconfig.device.programs.nixcord.enable {
     enable = true;
+    vesktop.enable = true;
     discord = {
       enable = true;
       vencord.enable = true;
