@@ -14,6 +14,8 @@
     kde-packages.enable = true;
     r-tensorflow.enable = true;
     hyprland-portals.enable = true;
+    lsfg-vk.enable = true;
+    lsfg-vk-ui.enable = true;
   };
 
   programs.ssh.extraConfig = ''

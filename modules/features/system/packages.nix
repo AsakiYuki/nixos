@@ -26,6 +26,8 @@
       (lib.mkIf config.virtualisation.waydroid.enable (pkgs.callPackage (custom.cage-xtmapper {}) {}))
 
       (lib.mkIf config.programs.ffmpeg.enable config.programs.ffmpeg.package)
+      (lib.mkIf config.programs.lsfg-vk.enable config.programs.lsfg-vk.package)
+      (lib.mkIf config.programs.lsfg-vk-ui.enable config.programs.lsfg-vk-ui.package)
       (lib.mkIf config.programs.nodejs.enable config.programs.nodejs.package)
       (lib.mkIf config.programs.bun.enable config.programs.bun.package)
       (lib.mkIf config.programs.brightnessctl.enable config.programs.brightnessctl.package)

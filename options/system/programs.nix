@@ -29,6 +29,14 @@
       enable = lib.mkEnableOption "ffmpeg";
       package = lib.mkPackageOption pkgs "ffmpeg-full" {};
     };
+    lsfg-vk = {
+      enable = lib.mkEnableOption "lsfg-vk";
+      package = lib.mkPackageOption pkgs "lsfg-vk" {};
+    };
+    lsfg-vk-ui = {
+      enable = lib.mkEnableOption "lsfg-vk-ui";
+      package = lib.mkPackageOption pkgs "lsfg-vk-ui" {};
+    };
     nodejs = {
       enable = lib.mkEnableOption "nodejs";
       package = lib.mkPackageOption pkgs "nodejs" {};
