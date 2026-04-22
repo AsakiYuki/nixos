@@ -14,6 +14,11 @@
 
     honkai-railway-grub-theme.url = "github:voidlhf/StarRailGrubThemes/4a84e576bb544afbdfc76dbe40ffc50a5c2b16de";
 
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,6 +66,7 @@
           inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
           inputs.nix-index-database.nixosModules.default
           inputs.home-manager.nixosModules.default
+          inputs.aagl.nixosModules.default
           (libs.root "/devices/ideapad-slim-5/configuration.nix")
         ];
       };

@@ -8,6 +8,10 @@
       natural_scroll = true;
     };
 
-    input.touchpad.natural_scroll = true;
+    input = {
+      touchpad.natural_scroll = true;
+      accel_profile = "flat";
+      sensitivity = 1.0;
+    };
   };
 }

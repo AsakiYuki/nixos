@@ -1,7 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home-manager.users.asakiyuki.wayland.windowManager.hyprland.settings = {
     "$CURRENT_STATE_SCREEN" = "eDP-1, 1920x1200@60, 0x0, 1";
   };
+
+  nix.settings = inputs.aagl.nixConfig;
 
   device = {
     flake-name = "ideapad-slim-5";
