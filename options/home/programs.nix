@@ -63,6 +63,10 @@
       enable = lib.mkEnableOption "osu-lazer";
       package = lib.mkPackageOption pkgs "osu-lazer-bin" {};
     };
+    telegram = {
+      enable = lib.mkEnableOption "telegram-desktop";
+      package = lib.mkPackageOption pkgs "telegram-desktop" {};
+    };
     lmstudio = {
       enable = lib.mkEnableOption "lmstudio";
       package = lib.mkPackageOption pkgs "lmstudio" {};

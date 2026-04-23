@@ -52,5 +52,6 @@
     gcc.enable = true;
     davinci-resolve.enable = true;
     wl-clipboard.enable = true;
+    telegram.enable = true;
   };
 }

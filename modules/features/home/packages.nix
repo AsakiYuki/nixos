@@ -9,6 +9,7 @@
       (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
 
       (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)
+      (lib.mkIf config.programs.telegram.enable config.programs.telegram.package)
       (lib.mkIf config.programs.prismlauncher.enable config.programs.prismlauncher.package)
       (lib.mkIf config.programs.vlc.enable config.programs.vlc.package)
       (lib.mkIf config.programs.gimp.enable config.programs.gimp.package)
