@@ -91,6 +91,7 @@
         default = with pkgs.kdePackages; [
           kservice
           kate
+          gwenview
           qt5compat
           qtdeclarative
           qtimageformats
