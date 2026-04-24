@@ -91,10 +91,6 @@
       enable = lib.mkEnableOption "nwg-look";
       package = lib.mkPackageOption pkgs "nwg-look" {};
     };
-    mangohud = {
-      enable = lib.mkEnableOption "mangohud";
-      package = lib.mkPackageOption pkgs "mangohud" {};
-    };
     proton-apps = {
       enable = lib.mkEnableOption "proton-pass and proton-authenticator";
       packages = lib.mkOption {
