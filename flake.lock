@@ -41,6 +41,24 @@
         "type": "github"
       }
     },
+    "dolphin-overlay": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1775943689,
+        "narHash": "sha256-0XBCoR1L5gYmh8VqZu0HcHsL4GeGXQMC0f3ARshf/rk=",
+        "owner": "rumboon",
+        "repo": "dolphin-overlay",
+        "rev": "c32758737a0cb02d0bf380753d11df1b8537a944",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rumboon",
+        "repo": "dolphin-overlay",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -188,7 +206,7 @@
     "honkai-railway-grub-theme": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1775016235,
@@ -207,7 +225,7 @@
     },
     "hytale-launcher": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1776454183,
@@ -255,7 +273,7 @@
       "inputs": {
         "niri-stable": "niri-stable",
         "niri-unstable": "niri-unstable",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "nixpkgs-stable": "nixpkgs-stable",
         "xwayland-satellite-stable": "xwayland-satellite-stable",
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
@@ -331,7 +349,7 @@
       "inputs": {
         "flake-compat": "flake-compat_2",
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_7",
         "nixpkgs-nixcord": "nixpkgs-nixcord"
       },
       "locked": {
@@ -445,6 +463,21 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1743890059,
+        "narHash": "sha256-QQLhHHGNtAW8qRpseb40zqZlhZUeRRUg2SGmXjfE+so=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "58a813438464b5295170efe38d8bd5f40fcc1d23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1774709303,
         "narHash": "sha256-D3Q07BbIA2KnTcSXIqqu9P586uWxN74zNoCH3h2ESHg=",
         "owner": "nixos",
@@ -459,7 +492,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1776169885,
         "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
@@ -475,7 +508,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1776548001,
         "narHash": "sha256-ZSK0NL4a1BwVbbTBoSnWgbJy9HeZFXLYQizjb2DPF24=",
@@ -491,7 +524,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1776434932,
         "narHash": "sha256-gyqXNMgk3sh+ogY5svd2eNLJ6oEwzbAeaoBrrxD0lKk=",
@@ -507,7 +540,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_8": {
       "locked": {
         "lastModified": 1776734388,
         "narHash": "sha256-vl3dkhlE5gzsItuHoEMVe+DlonsK+0836LIRDnm6MXQ=",
@@ -523,7 +556,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_8": {
+    "nixpkgs_9": {
       "locked": {
         "lastModified": 1762361079,
         "narHash": "sha256-lz718rr1BDpZBYk7+G8cE6wee3PiBUpn8aomG/vLLiY=",
@@ -590,6 +623,7 @@
       "inputs": {
         "aagl": "aagl",
         "catppuccin": "catppuccin",
+        "dolphin-overlay": "dolphin-overlay",
         "home-manager": "home-manager",
         "honkai-railway-grub-theme": "honkai-railway-grub-theme",
         "hytale-launcher": "hytale-launcher",
@@ -597,7 +631,7 @@
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_7",
+        "nixpkgs": "nixpkgs_8",
         "nixvim": "nixvim",
         "unstablepkgs": "unstablepkgs",
         "winegdk": "winegdk"
@@ -700,7 +734,7 @@
     "winegdk": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixpkgs": "nixpkgs_8",
+        "nixpkgs": "nixpkgs_9",
         "winegdk": "winegdk_2"
       },
       "locked": {
