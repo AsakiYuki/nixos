@@ -9,22 +9,22 @@
     (builtins.mapAttrs (_: path: {
         source = path;
       })
-      osconfig.device.files.source)
+      config.files.source)
 
     (builtins.mapAttrs (_: path: {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${path}";
       })
-      osconfig.device.files.symlink)
+      config.files.symlink)
 
     (lib.mkMerge (
       builtins.map (name: lib.setAttrByPath [name "force"] true) (
-        builtins.attrNames osconfig.device.files.force
+        builtins.attrNames config.files.force
       )
     ))
 
     (lib.mkMerge (
       builtins.map (name: lib.setAttrByPath [name "force"] (lib.mkForce true)) (
-        builtins.attrNames osconfig.device.files.mkForce
+        builtins.attrNames config.files.mkForce
       )
     ))
   ];

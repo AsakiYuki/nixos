@@ -9,6 +9,7 @@
   imports = [
     ./programs.nix
     ./device.nix
+    ./users.nix
 
     (libs.root "/modules/hardware/default.nix")
 
