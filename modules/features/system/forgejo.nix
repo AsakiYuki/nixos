@@ -1,9 +1,10 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
-  catppuccinGitea = pkgs.stdenv.mkDerivation {
+  catppuccin = pkgs.stdenv.mkDerivation {
     name = "catppuccin-gitea";
 
     src = pkgs.fetchurl {
@@ -22,10 +23,6 @@ in {
   services.forgejo = {
     enable = true;
     database.type = "mysql";
-    customDir = pkgs.runCommand "forgejo-custom" {} ''
-      mkdir -p $out/public/assets/css
-      cp -r ${catppuccinGitea}/* $out/public/assets/css/
-    '';
 
     settings = {
       service.DISABLE_REGISTRATION = true;
@@ -39,4 +36,9 @@ in {
       };
     };
   };
+
+  systemd.tmpfiles.rules = lib.optional config.services.forgejo.enable [
+    "d ${config.services.gitea.stateDir}/custom/public/assets/css 0755 git git -"
+    "C ${config.services.gitea.stateDir}/custom/public/assets/css - - - - ${catppuccin}"
+  ];
 }
