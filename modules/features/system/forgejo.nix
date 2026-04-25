@@ -4,20 +4,9 @@
   lib,
   ...
 }: let
-  catppuccin = pkgs.stdenv.mkDerivation {
-    name = "catppuccin-gitea";
-
-    src = pkgs.fetchurl {
-      url = "https://github.com/catppuccin/gitea/releases/download/v1.0.2/catppuccin-gitea.tar.gz";
-      sha256 = "sha256-rZHLORwLUfIFcB6K9yhrzr+UwdPNQVSadsw6rg8Q7gs=";
-    };
-
-    unpackPhase = "tar -xzf $src";
-
-    installPhase = ''
-      mkdir -p $out
-      cp -r * $out/
-    '';
+  catppuccin = pkgs.fetchzip {
+    url = "https://github.com/catppuccin/gitea/releases/download/v1.0.2/catppuccin-gitea.tar.gz";
+    sha256 = "sha256-rZHLORwLUfIFcB6K9yhrzr+UwdPNQVSadsw6rg8Q7gs=";
   };
 in {
   services.forgejo = {
@@ -37,8 +26,12 @@ in {
     };
   };
 
-  systemd.tmpfiles.rules = lib.optional config.services.forgejo.enable [
+  systemd.tmpfiles.rules = lib.mkIf config.services.forgejo.enable [
     "d ${config.services.forgejo.stateDir}/custom/public/assets/css 0755 forgejo forgejo -"
-    "C ${config.services.forgejo.stateDir}/custom/public/assets/css - - - - ${catppuccin}"
   ];
+
+  system.activationScripts.forgejoTheme.text = lib.mkIf config.services.forgejo.enable ''
+    mkdir -p ${config.services.forgejo.stateDir}/custom/public/assets/css
+    cp -r ${catppuccin}/* ${config.services.forgejo.stateDir}/custom/public/assets/css/
+  '';
 }
