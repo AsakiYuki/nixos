@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  libs,
   ...
 }: let
   catppuccin = pkgs.fetchzip {
@@ -32,11 +33,14 @@ in {
   };
 
   systemd.tmpfiles.rules = lib.mkIf config.services.forgejo.enable [
-    "d ${config.services.forgejo.stateDir}/custom/public/assets/css 0755 forgejo forgejo -"
+    "d ${config.services.forgejo.customDir}/public/assets/css 0755 forgejo forgejo -"
   ];
 
   system.activationScripts.forgejoTheme.text = lib.mkIf config.services.forgejo.enable ''
-    mkdir -p ${config.services.forgejo.stateDir}/custom/public/assets/css
-    cp -r ${catppuccin}/* ${config.services.forgejo.stateDir}/custom/public/assets/css/
+    mkdir -p ${config.services.forgejo.customDir}/public/assets/css
+    mkdir -p ${config.services.forgejo.customDir}/public/assets/img
+
+    cp -r ${catppuccin}/* ${config.services.forgejo.customDir}/public/assets/css/
+    cp ${libs.root "/assets/forgejo/logo.png"} ${config.services.forgejo.customDir}/public/assets/img
   '';
 }
