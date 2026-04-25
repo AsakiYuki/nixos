@@ -38,7 +38,7 @@ in {
   };
 
   systemd.tmpfiles.rules = lib.optional config.services.forgejo.enable [
-    "d ${config.services.gitea.stateDir}/custom/public/assets/css 0755 git git -"
-    "C ${config.services.gitea.stateDir}/custom/public/assets/css - - - - ${catppuccin}"
+    "d ${config.services.forgejo.stateDir}/custom/public/assets/css 0755 forgejo forgejo -"
+    "C ${config.services.forgejo.stateDir}/custom/public/assets/css - - - - ${catppuccin}"
   ];
 }
