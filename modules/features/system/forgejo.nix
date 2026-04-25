@@ -16,7 +16,10 @@ in {
 
     settings = {
       service.DISABLE_REGISTRATION = true;
-      ui.THEMES = "catppuccin-mocha-lavender";
+      ui = {
+        THEMES = "catppuccin-mocha-lavender";
+        DEFAULT_THEME = "catppuccin-mocha-lavender";
+      };
       server = {
         HTTP_PORT = 21350;
         SSH_PORT = 15523;
