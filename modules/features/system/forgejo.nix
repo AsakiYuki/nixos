@@ -43,5 +43,7 @@ in {
     cp -r ${catppuccin}/* ${config.services.forgejo.customDir}/public/assets/css/
     cp ${libs.root "/assets/forgejo/logo.png"} ${config.services.forgejo.customDir}/public/assets/img
     cp ${libs.root "/assets/forgejo/favicon.png"} ${config.services.forgejo.customDir}/public/assets/img
+    cp ${libs.root "/assets/forgejo/logo.svg"} ${config.services.forgejo.customDir}/public/assets/im
+    cp ${libs.root "/assets/forgejo/favicon.svg"} ${config.services.forgejo.customDir}/public/assets/imgg
   '';
 }
