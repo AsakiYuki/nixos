@@ -41,9 +41,7 @@ in {
     mkdir -p ${config.services.forgejo.customDir}/public/assets/img
 
     cp -r ${catppuccin}/* ${config.services.forgejo.customDir}/public/assets/css/
-    cp ${libs.root "/assets/forgejo/logo.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
-    cp ${libs.root "/assets/forgejo/favicon.png"} ${config.services.forgejo.customDir}/public/assets/img/favicon.png
-    cp ${libs.root "/assets/forgejo/logo.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
-    cp ${libs.root "/assets/forgejo/favicon.svg"} ${config.services.forgejo.customDir}/public/assets/img/favicon.svg
+
+    cp -r ${libs.root "/assets/forgejo/img/"}* ${config.services.forgejo.customDir}/public/assets/img/
   '';
 }
