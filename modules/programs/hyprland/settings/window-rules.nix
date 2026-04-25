@@ -16,5 +16,7 @@
   ];
   wayland.windowManager.hyprland.settings.windowrulev2 = [
     "tile, class:^(Chromium)$"
+    "fullscreen, initialClass:^(wlroots|Waydroid)$, initialTitle:^(wlroots - WL-1|Waydroid)$"
+    "noborder, initialClass:^(wlroots|Waydroid)$, initialTitle:^(wlroots - WL-1|Waydroid)$"
   ];
 }

@@ -52,6 +52,10 @@
       {pkgs = pkgs;};
   };
 
+  boot.kernelParams = [
+    "usbcore.autosuspend=-1"
+  ];
+
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   xdg.menus.enable = true;
   services.dbus.enable = true;
