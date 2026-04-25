@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  users.users.asakiyuki.files = {
+  home-manager.users.asakiyuki.files = {
     force = {};
 
     mkForce = {

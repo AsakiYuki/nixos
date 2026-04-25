@@ -1,7 +1,6 @@
 {lib, ...}: {
   imports = [
     ./programs.nix
-    ./file.nix
     ./environment.nix
     ./programs.nix
     ./hardware.nix
