@@ -12,6 +12,7 @@
       btop
       wget
       tree
+      screen
 
       nixd
       alejandra
