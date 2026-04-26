@@ -4,13 +4,15 @@
   lib,
   libs,
   ...
-}: let
+}:
+let
   catppuccin = pkgs.fetchzip {
     url = "https://github.com/catppuccin/gitea/releases/download/v1.0.2/catppuccin-gitea.tar.gz";
     sha256 = "sha256-rZHLORwLUfIFcB6K9yhrzr+UwdPNQVSadsw6rg8Q7gs=";
     stripRoot = false;
   };
-in {
+in
+{
   services.forgejo = {
     enable = true;
     database.type = "mysql";
@@ -22,6 +24,7 @@ in {
         DEFAULT_THEME = "catppuccin-mocha-lavender";
       };
       server = {
+        APP_NAME = "Asa's git";
         HTTP_PORT = 21350;
         SSH_PORT = 15523;
         START_SSH_SERVER = false;
