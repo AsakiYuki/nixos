@@ -18,13 +18,20 @@ in
     database.type = "mysql";
 
     settings = {
-      service.DISABLE_REGISTRATION = true;
+      DEFAULT = {
+        APP_NAME = "Asa's git";
+      };
+
+      service = {
+        DISABLE_REGISTRATION = true;
+      };
+
       ui = {
         THEMES = "catppuccin-mocha-lavender";
         DEFAULT_THEME = "catppuccin-mocha-lavender";
       };
+
       server = {
-        APP_NAME = "Asa's git";
         HTTP_PORT = 21350;
         SSH_PORT = 15523;
         START_SSH_SERVER = false;
