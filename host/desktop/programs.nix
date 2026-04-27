@@ -27,6 +27,11 @@
   '';
 
   home-manager.users.asakiyuki.programs = {
+    jetbrains = {
+      idea.enable = true;
+      datagrip.enable = true;
+    };
+
     dolphin.enable = true;
     mangohud.enable = true;
     bluetuith.enable = true;
