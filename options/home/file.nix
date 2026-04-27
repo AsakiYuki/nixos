@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  home.file = lib.mkMerge [
+  config.home.file = lib.mkMerge [
     (builtins.mapAttrs (_: path: {
         source = path;
       })
