@@ -34,7 +34,6 @@
       tmux.enable = true;
       starship.enable = true;
       fastfetch.enable = true;
-      cider-2.enable = true;
       steam.enable = true;
     };
   };

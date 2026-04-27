@@ -11,7 +11,6 @@
     ../../modules/features/home/vscode.nix
     ../../modules/features/home/obs-studio.nix
     ../../modules/features/home/xdg.nix
-    ../../modules/features/home/packages.nix
     ../../modules/features/home/git.nix
     ../../modules/features/home/yt-dlp.nix
     ../../modules/features/home/dolphin.nix
