@@ -12,7 +12,6 @@
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [25565];
   time.timeZone = "Asia/Ho_Chi_Minh";
 
   nixpkgs.config.allowUnfree = true;
