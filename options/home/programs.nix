@@ -29,6 +29,10 @@
         description = "Catppuccin KDE package";
       };
     };
+    zen-browser = {
+      enable = lib.mkEnableOption "zen-browser";
+      package = lib.mkPackageOption inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system} "default" {};
+    };
     antigravity = {
       enable = lib.mkEnableOption "antigravity";
       package = lib.mkPackageOption pkgs "antigravity" {};

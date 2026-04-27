@@ -53,6 +53,7 @@
     davinci-resolve.enable = true;
     wl-clipboard.enable = true;
     telegram.enable = true;
+    zen-browser.enable = true;
 
     lmstudio = {
       enable = true;
