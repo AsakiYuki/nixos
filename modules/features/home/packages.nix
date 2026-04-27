@@ -9,6 +9,8 @@
       (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
 
       (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)
+      (lib.mkIf config.programs.idea.enable config.programs.idea.package)
+      (lib.mkIf config.programs.datagrip.enable config.programs.datagrip.package)
       (lib.mkIf config.programs.zen-browser.enable config.programs.zen-browser.package)
       (lib.mkIf config.programs.mangohud.enable config.programs.mangohud.package)
       (lib.mkIf config.programs.telegram.enable config.programs.telegram.package)

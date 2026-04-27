@@ -29,6 +29,16 @@
         description = "Catppuccin KDE package";
       };
     };
+    jetbrains = {
+      datagrip = {
+        enable = lib.mkEnableOption "datagrip";
+        package = lib.mkPackageOption pkgs.jetbrains "datagrip" {};
+      };
+      idea = {
+        enable = lib.mkEnableOption "idea";
+        package = lib.mkPackageOption pkgs.jetbrains "idea" {};
+      };
+    };
     zen-browser = {
       enable = lib.mkEnableOption "zen-browser";
       package = lib.mkPackageOption inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system} "default" {};
