@@ -1,4 +1,4 @@
-{...}: {
+{unstable, ...}: {
   programs = {
     ffmpeg.enable = true;
     nodejs.enable = true;
@@ -39,7 +39,6 @@
     gimp.enable = true;
     libreoffice.enable = true;
     osu.enable = true;
-    lmstudio.enable = true;
     blender.enable = true;
     xprop.enable = true;
     pavucontrol.enable = true;
@@ -54,5 +53,10 @@
     davinci-resolve.enable = true;
     wl-clipboard.enable = true;
     telegram.enable = true;
+
+    lmstudio = {
+      enable = true;
+      package = unstable.lmstudio;
+    };
   };
 }
