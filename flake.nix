@@ -20,11 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,7 +67,6 @@
           inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
           inputs.nix-index-database.nixosModules.default
           inputs.home-manager.nixosModules.default
-          inputs.aagl.nixosModules.default
           (libs.root "/devices/ideapad-slim-5/configuration.nix")
         ];
       };

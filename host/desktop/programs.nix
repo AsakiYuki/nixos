@@ -16,7 +16,6 @@
     hyprland-portals.enable = true;
     lsfg-vk.enable = true;
     lsfg-vk-ui.enable = true;
-    honkers-railway-launcher.enable = true;
   };
 
   programs.ssh.extraConfig = ''
