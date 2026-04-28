@@ -35,7 +35,7 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [pkgs.linuxPackages_latest.zenpower];
   system.stateVersion = "25.11";
 }
