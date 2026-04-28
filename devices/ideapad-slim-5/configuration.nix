@@ -1,6 +1,7 @@
 {
   libs,
   pkgs,
+  config,
   ...
 }: {
   imports = [
@@ -35,7 +36,7 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModulePackages = [pkgs.linuxPackages_latest.zenpower];
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
   system.stateVersion = "25.11";
 }
