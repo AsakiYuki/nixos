@@ -7,7 +7,9 @@
         "rw"
         "uid=1000"
         "gid=100"
-        "umask=022"
+        "umask=000"
+        "nofail"
+        "x-systemd.automount"
       ];
     };
     "/mnt/waydroid" = {

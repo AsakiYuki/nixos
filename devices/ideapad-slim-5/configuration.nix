@@ -44,7 +44,7 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
   system.stateVersion = "25.11";
 }
