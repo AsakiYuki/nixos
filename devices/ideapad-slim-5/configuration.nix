@@ -2,6 +2,7 @@
   libs,
   pkgs,
   config,
+  lib,
   ...
 }: {
   imports = [
@@ -23,6 +24,7 @@
   environment.systemPackages = with pkgs; [
     lm_sensors
     ryzenadj
+    sbctl
   ];
 
   nix.settings.experimental-features = [
@@ -34,6 +36,12 @@
     sessionVariables = {
       QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
     };
+  };
+
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
