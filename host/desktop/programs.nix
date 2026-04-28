@@ -1,4 +1,12 @@
-{unstable, ...}: {
+{
+  unstable,
+  inputs,
+  ...
+}: {
+  imports = [
+    inputs.aagl.nixosModules.default
+  ];
+
   programs = {
     ffmpeg.enable = true;
     nodejs.enable = true;
@@ -16,6 +24,7 @@
     hyprland-portals.enable = true;
     lsfg-vk.enable = true;
     lsfg-vk-ui.enable = true;
+    anime-game-launcher.enable = true;
   };
 
   programs.ssh.extraConfig = ''
