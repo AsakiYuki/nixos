@@ -2,14 +2,16 @@
   fileSystems = {
     "/mnt/windows" = {
       device = "/dev/disk/by-uuid/0000294D000006E6";
-      fsType = "ntfs-3g";
+      fsType = "ntfs";
       options = [
         "rw"
         "uid=1000"
         "gid=100"
         "umask=000"
         "nofail"
+        "noauto"
         "x-systemd.automount"
+        "x-systemd.mount-timeout=30"
       ];
     };
     "/mnt/waydroid" = {
