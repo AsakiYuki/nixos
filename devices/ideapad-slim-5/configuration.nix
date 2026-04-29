@@ -38,13 +38,6 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
-  boot.loader.systemd-boot.extraEntries = {
-    "windows.conf" = ''
-      title   Windows Boot Manager
-      efi     /EFI/Microsoft/Boot/bootmgfw.efi
-    '';
-  };
-
   fileSystems."/mnt/win-efi" = {
     device = "/dev/disk/by-uuid/0000-31FA";
     fsType = "vfat";
