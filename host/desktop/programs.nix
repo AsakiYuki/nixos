@@ -24,6 +24,7 @@
     hyprland-portals.enable = true;
     lsfg-vk.enable = true;
     lsfg-vk-ui.enable = true;
+    cava.enable = true;
     honkers-railway-launcher.enable = true;
   };
 
