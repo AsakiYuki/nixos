@@ -10,6 +10,7 @@
       (lib.mkIf config.virtualisation.waydroid.enable (pkgs.callPackage (custom.cage-xtmapper {}) {}))
 
       (lib.mkIf config.programs.ffmpeg.enable config.programs.ffmpeg.package)
+      (lib.mkIf config.programs.cava.enable config.programs.cava.package)
       (lib.mkIf config.programs.lsfg-vk.enable config.programs.lsfg-vk.package)
       (lib.mkIf config.programs.lsfg-vk-ui.enable config.programs.lsfg-vk-ui.package)
       (lib.mkIf config.programs.nodejs.enable config.programs.nodejs.package)
@@ -54,6 +55,10 @@
   };
 
   options.programs = {
+    cava = {
+      enable = lib.mkEnableOption "cava";
+      package = lib.mkPackageOption pkgs "cava" {};
+    };
     ffmpeg = {
       enable = lib.mkEnableOption "ffmpeg";
       package = lib.mkPackageOption pkgs "ffmpeg-full" {};
