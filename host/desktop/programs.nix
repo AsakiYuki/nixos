@@ -40,6 +40,7 @@
       datagrip.enable = true;
     };
 
+    zed-editor.enable = true;
     dolphin.enable = true;
     mangohud.enable = true;
     bluetuith.enable = true;
