@@ -25,6 +25,7 @@
     lsfg-vk.enable = true;
     lsfg-vk-ui.enable = true;
     cava.enable = true;
+    gamemode.enable = true;
     honkers-railway-launcher.enable = true;
   };
 
