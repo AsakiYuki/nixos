@@ -1,6 +1,6 @@
 {
   custom,
-  lib,
+  pkgs,
   ...
 }: {
   programs = {
@@ -11,7 +11,7 @@
     jdk.enable = true;
     bun = {
       enable = true;
-      package = lib.callPackage custom.bun {};
+      package = pkgs.callPackage custom.bun {};
     };
   };
 }
