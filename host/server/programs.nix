@@ -11,7 +11,7 @@
     jdk.enable = true;
     bun = {
       enable = true;
-      package = lib.callPackages custom.bun {};
+      package = lib.callPackage custom.bun {};
     };
   };
 }
