@@ -19,7 +19,7 @@
   boot.kernelParams = ["amd_pstate=active" "nowatchdog" "modprobe.blacklist=sp5100_tco"];
   boot.kernelModules = ["ideapad_laptop"];
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
 
   boot.loader.systemd-boot.configurationLimit = 5;
