@@ -1,9 +1,6 @@
-{
-  lib,
-  config,
-  ...
-}: {
-  programs.steam = lib.mkIf config.device.programs.steam.enable {
+{pkgs, ...}: {
+  programs.steam = {
     enable = true;
+    package = pkgs.millennium-steam;
   };
 }

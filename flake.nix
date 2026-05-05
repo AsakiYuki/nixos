@@ -13,6 +13,7 @@
     catppuccin.url = "github:catppuccin/nix";
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";
 
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     # honkai-railway-grub-theme.url = "github:voidlhf/StarRailGrubThemes/4a84e576bb544afbdfc76dbe40ffc50a5c2b16de";
 
     lanzaboote = {
