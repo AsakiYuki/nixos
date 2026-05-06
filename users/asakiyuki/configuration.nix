@@ -26,7 +26,6 @@ in {
 
     imports = [
       ./programs.nix
-      ./files.nix
 
       ../../modules/features/home/theme.nix
       ../../options/home/default.nix
