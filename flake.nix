@@ -14,6 +14,7 @@
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    millennium-config.url = "git+https://git.asakiyuki.com/AsakiYuki/millennium-nix.git?ref=main";
     # honkai-railway-grub-theme.url = "github:voidlhf/StarRailGrubThemes/4a84e576bb544afbdfc76dbe40ffc50a5c2b16de";
 
     lanzaboote = {

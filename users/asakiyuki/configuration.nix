@@ -34,6 +34,7 @@ in {
       inputs.nixvim.homeModules.nixvim
       inputs.nixcord.homeModules.nixcord
       inputs.niri.homeModules.niri
+      inputs.millennium-config.homeManager.default
     ];
 
     home = {
