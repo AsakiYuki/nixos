@@ -30,10 +30,10 @@ in {
       ../../modules/features/home/theme.nix
       ../../options/home/default.nix
 
+      inputs.millennium.homeModules.default
       inputs.nixvim.homeModules.nixvim
       inputs.nixcord.homeModules.nixcord
       inputs.niri.homeModules.niri
-      inputs.millennium-config.homeManager.default
     ];
 
     home = {

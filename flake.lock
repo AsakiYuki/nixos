@@ -463,6 +463,43 @@
     },
     "millennium": {
       "inputs": {
+        "millennium": "millennium_2",
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1778078775,
+        "narHash": "sha256-7ayana2noqCKuU0lKnTIXWm0ZFYx8FId1ncKn+bkKcw=",
+        "ref": "main",
+        "rev": "2eb72ed05e0b1c7a5c924ada0dc72670290b3c48",
+        "revCount": 6,
+        "type": "git",
+        "url": "https://git.asakiyuki.com/AsakiYuki/millennium-nix.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://git.asakiyuki.com/AsakiYuki/millennium-nix.git"
+      }
+    },
+    "millennium-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777483535,
+        "narHash": "sha256-eqbNqc+5PibHLI8xgOrizXOVLcpE52MhmUR4o40S3PY=",
+        "owner": "SteamClientHomebrew",
+        "repo": "Millennium",
+        "rev": "defffd7b6f0cf4d5e53f5a892819966801475704",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SteamClientHomebrew",
+        "repo": "Millennium",
+        "rev": "defffd7b6f0cf4d5e53f5a892819966801475704",
+        "type": "github"
+      }
+    },
+    "millennium_2": {
+      "inputs": {
         "abseil-src": "abseil-src",
         "asio-src": "asio-src",
         "curl-src": "curl-src",
@@ -494,42 +531,6 @@
         "dir": "packages/nix",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "type": "github"
-      }
-    },
-    "millennium-config": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_6"
-      },
-      "locked": {
-        "lastModified": 1778048794,
-        "narHash": "sha256-2TURZuMMKB1lzDG9fDUhVKFvOZdFbSPXaV5hPhFMvGo=",
-        "ref": "main",
-        "rev": "916f62c5bc0a1812476c08ebdd6781b960526a7a",
-        "revCount": 3,
-        "type": "git",
-        "url": "https://git.asakiyuki.com/AsakiYuki/millennium-nix.git"
-      },
-      "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "https://git.asakiyuki.com/AsakiYuki/millennium-nix.git"
-      }
-    },
-    "millennium-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1777483535,
-        "narHash": "sha256-eqbNqc+5PibHLI8xgOrizXOVLcpE52MhmUR4o40S3PY=",
-        "owner": "SteamClientHomebrew",
-        "repo": "Millennium",
-        "rev": "defffd7b6f0cf4d5e53f5a892819966801475704",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SteamClientHomebrew",
-        "repo": "Millennium",
-        "rev": "defffd7b6f0cf4d5e53f5a892819966801475704",
         "type": "github"
       }
     },
@@ -668,11 +669,11 @@
         "nixpkgs-nixcord": "nixpkgs-nixcord"
       },
       "locked": {
-        "lastModified": 1778026575,
-        "narHash": "sha256-zfSYIClc1Rh2Jo6mz7FhBYzdhifJTVJ+1A4leR6SiA0=",
+        "lastModified": 1778072118,
+        "narHash": "sha256-4/wHpU5B9Neb9044kYS6+fVzi9SIJFvnrZeafBLtzVI=",
         "owner": "FlameFlag",
         "repo": "nixcord",
-        "rev": "719911646bb92c6c5f767741cd81b2c4e2e09476",
+        "rev": "5673b3360cc76bd614bcea38386855df8f8a76c1",
         "type": "github"
       },
       "original": {
@@ -999,7 +1000,6 @@
         "hytale-launcher": "hytale-launcher",
         "lanzaboote": "lanzaboote",
         "millennium": "millennium",
-        "millennium-config": "millennium-config",
         "niri": "niri",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
