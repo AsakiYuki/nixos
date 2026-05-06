@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./programs/dolphin.nix
+    ./programs/dolphin/imports.nix
   ];
 
   config.home.packages =
