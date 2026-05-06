@@ -26,26 +26,28 @@
     ../../modules/programs/hyprland/default.nix
   ];
 
-  programs.kde.kdeglobals.initExtra =
-    lib.optionalString
-    (osconfig.device.wm.hyprland.enable || osconfig.device.wm.niri.enable)
-    (
-      (builtins.readFile (
-        (pkgs.catppuccin-kde.override {
-          flavour = ["mocha"];
-          accents = ["sapphire"];
-        })
-        + "/share/color-schemes/CatppuccinMochaSapphire.colors"
-      ))
-      + ''
-        [UiSettings]
-        ColorScheme=qt6ct
+  programs.kde.kdeglobals = let
+    isWm = osconfig.device.wm.hyprland.enable || osconfig.device.wm.niri.enable;
+  in {
+    initExtra = lib.optionalString isWm (builtins.readFile (
+      (pkgs.catppuccin-kde.override {
+        flavour = ["mocha"];
+        accents = ["sapphire"];
+      })
+      + "/share/color-schemes/CatppuccinMochaSapphire.colors"
+    ));
+    config = {
+      UiSettings = {
+        ColorScheme = "qt6ct";
+      };
 
-        [General]
-        TerminalApplication=${osconfig.device.programs.terminal.name}
+      General = {
+        TerminalApplication = osconfig.device.programs.terminal.name;
+      };
 
-        [Icons]
-        Theme=Papirus
-      ''
-    );
+      Icons = {
+        Theme = "Papirus";
+      };
+    };
+  };
 }

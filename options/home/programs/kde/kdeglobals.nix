@@ -4,5 +4,9 @@
       type = lib.types.str;
       default = "";
     };
+    config = lib.mkOption {
+      type = lib.types.attrsOf (lib.types.attrsOf lib.types.str);
+      default = {};
+    };
   };
 }
