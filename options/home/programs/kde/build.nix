@@ -8,5 +8,5 @@ in {
   config.xdg.configFile.kdeglobals.text =
     cfg.kdeglobals.initExtra
     + "\n"
-    + (lib.generators.toINI config.programs.kde.kdeglobals.config);
+    + (lib.generators.toINI {} config.programs.kde.kdeglobals.config);
 }

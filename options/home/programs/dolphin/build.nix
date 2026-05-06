@@ -11,7 +11,6 @@
   );
 in {
   config = lib.mkIf config.programs.dolphin.enable {
-    # install dolphin package to home
     home.packages = [
       config.programs.dolphin.package
     ];
@@ -25,7 +24,6 @@ in {
         };
       }
 
-      # generate service menus
       (builtins.listToAttrs (builtins.map
         ({
           name,
