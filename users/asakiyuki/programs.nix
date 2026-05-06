@@ -27,16 +27,16 @@
   ];
 
   programs.kde.kdeglobals = let
-    isWm = osconfig.device.wm.hyprland.enable || osconfig.device.wm.niri.enable;
+    isTilingWindowsManager = osconfig.device.wm.hyprland.enable || osconfig.device.wm.niri.enable;
   in {
-    initExtra = lib.optionalString isWm (builtins.readFile (
+    initExtra = lib.optionalString isTilingWindowsManager (builtins.readFile (
       (pkgs.catppuccin-kde.override {
         flavour = ["mocha"];
         accents = ["sapphire"];
       })
       + "/share/color-schemes/CatppuccinMochaSapphire.colors"
     ));
-    config = {
+    config = lib.optionalAttrs isTilingWindowsManager {
       UiSettings = {
         ColorScheme = "qt6ct";
       };
