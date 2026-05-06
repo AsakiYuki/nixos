@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./programs/dolphin/imports.nix
+    ./programs/kde/imports.nixv
   ];
 
   config.home.packages =
