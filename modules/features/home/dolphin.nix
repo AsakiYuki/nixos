@@ -1,4 +1,9 @@
-{libs, ...}: {
+{
+  libs,
+  lib,
+  config,
+  ...
+}: {
   programs.dolphin = {
     services-menu = {
       copy-server-public-url = {
@@ -58,5 +63,11 @@
         ShowOpenTerminal = false;
       };
     };
+  };
+
+  config.programs.kde.kdeglobals.config.PreviewSettings = lib.optionalAttrs config.programs.dolphin.enable {
+    EnableRemoteFolderThumbnail = true;
+    MaximumRemoteSize = 4194304;
+    MaximumSize = 4194304;
   };
 }
