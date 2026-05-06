@@ -30,13 +30,13 @@
     lib.optionalString
     (osconfig.device.wm.hyprland.enable || osconfig.device.wm.niri.enable)
     (
-      ((builtins.readFile (
-          pkgs.catppuccin-kde.override {
-            flavour = ["mocha"];
-            accents = ["sapphire"];
-          }
-        ))
-        + "/share/color-schemes/CatppuccinMochaSapphire.colors")
+      (builtins.readFile (
+        (pkgs.catppuccin-kde.override {
+          flavour = ["mocha"];
+          accents = ["sapphire"];
+        })
+        + "/share/color-schemes/CatppuccinMochaSapphire.colors"
+      ))
       + ''
         [UiSettings]
         ColorScheme=qt6ct
