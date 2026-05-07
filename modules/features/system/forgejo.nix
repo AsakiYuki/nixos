@@ -47,6 +47,7 @@ in {
   };
 
   services.gitea-actions-runner.instances.asa = lib.mkIf cfg.enable {
+    enable = true;
     name = "Asa runner";
     url = cfg.settings.server.ROOT_URL;
     tokenFile = "/var/lib/forgejo-runner/token";
