@@ -1,8 +1,10 @@
 {
+  inputs,
   libs,
   pkgs,
   config,
   lib,
+  plgs,
   ...
 }: {
   imports = [
@@ -23,6 +25,14 @@
   boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
 
   boot.loader.systemd-boot.configurationLimit = 5;
+
+  hardware.graphics = let
+    pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in {
+    package = pkgs-unstable.mesa;
+    package32 = pkgs-unstable.pkgsi686Linux.mesa;
+    enable32Bit = true;
+  };
 
   nix.gc = {
     automatic = true;

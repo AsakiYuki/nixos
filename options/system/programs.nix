@@ -29,10 +29,7 @@
       (lib.optionals config.programs.winepackages.enable config.programs.winepackages.packages)
       (lib.optionals config.programs.kde-packages.enable config.programs.kde-packages.packages)
       (lib.optionals config.programs.r-tensorflow.enable [config.programs.r-tensorflow.package])
-      (lib.optionals (
-          config.programs.hyprland-portals.enable && config.device.wm.hyprland.enable
-        )
-        config.programs.hyprland-portals.packages)
+      # (lib.optionals (config.programs.hyprland-portals.enable && config.device.wm.hyprland.enable) config.programs.hyprland-portals.packages)
     ];
 
   options.device.programs = {
@@ -158,16 +155,16 @@
         ];
       };
     };
-    hyprland-portals = {
-      enable = lib.mkEnableOption "XDGP for hyprland";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs; [
-          xdg-desktop-portal
-          xdg-desktop-portal-wlr
-          xdg-desktop-portal-hyprland
-        ];
-      };
-    };
+    # hyprland-portals = {
+    #   enable = lib.mkEnableOption "XDGP for hyprland";
+    #   packages = lib.mkOption {
+    #     type = lib.types.listOf lib.types.package;
+    #     default = with pkgs; [
+    #       xdg-desktop-portal
+    #       xdg-desktop-portal-wlr
+    #       xdg-desktop-portal-hyprland
+    #     ];
+    #   };
+    # };
   };
 }

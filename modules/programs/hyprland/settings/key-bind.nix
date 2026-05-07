@@ -11,7 +11,7 @@
         "SUPER SHIFT, L, exit,"
         "SUPER SHIFT, TAB, togglefloating,"
         "SUPER SHIFT, S, exec, hyprshot -m region -o '${config.home.homeDirectory}/Pictures/Screenshots/' -z"
-        "SUPER, J, togglesplit,"
+        # "SUPER, J, togglesplit,"
         "SUPER, E, exec, dolphin"
 
         "SUPER, C, killactive"

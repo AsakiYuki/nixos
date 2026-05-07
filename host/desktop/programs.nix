@@ -21,13 +21,13 @@
     papirus-icons.enable = true;
     kde-packages.enable = true;
     r-tensorflow.enable = true;
-    hyprland-portals.enable = true;
     lsfg-vk.enable = true;
     lsfg-vk-ui.enable = true;
     cava.enable = true;
     gamemode.enable = true;
     gamescope.enable = true;
     honkers-railway-launcher.enable = true;
+    # hyprland-portals.enable = true;
   };
 
   programs.ssh.extraConfig = ''
