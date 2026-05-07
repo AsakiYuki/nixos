@@ -1,5 +1,6 @@
 {lib, ...}: {
   options.programs.kde.kdeglobals = {
+    enable = lib.mkEnableOption "kdeglobals";
     initExtra = lib.mkOption {
       type = lib.types.str;
       default = "";
