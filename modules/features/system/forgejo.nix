@@ -4,15 +4,15 @@
   lib,
   libs,
   ...
-}:
-let
+}: let
   catppuccin = pkgs.fetchzip {
     url = "https://github.com/catppuccin/gitea/releases/download/v1.0.2/catppuccin-gitea.tar.gz";
     sha256 = "sha256-rZHLORwLUfIFcB6K9yhrzr+UwdPNQVSadsw6rg8Q7gs=";
     stripRoot = false;
   };
-in
-{
+
+  cfg = lib.mkIf config.services.forgejo;
+in {
   services.forgejo = {
     enable = true;
     database.type = "mysql";
@@ -24,6 +24,10 @@ in
 
       service = {
         DISABLE_REGISTRATION = true;
+      };
+
+      actions = {
+        ENABLED = true;
       };
 
       ui = {
@@ -42,8 +46,25 @@ in
     };
   };
 
-  systemd.tmpfiles.rules = lib.mkIf config.services.forgejo.enable [
-    "d ${config.services.forgejo.customDir}/public/assets/css 0755 forgejo forgejo -"
+  services.gitea-actions-runner.instances.asa = lib.mkIf cfg.enable {
+    name = "Asa runner";
+    url = cfg.settings.server.ROOT_URL;
+    tokenFile = "/var/lib/forgejo-runner/token";
+
+    labels = [
+      "ubuntu-latest:docker://node:18-bullseye"
+      "debian-latest:docker://debian:bullseye"
+    ];
+
+    settings = {
+      container.network = "host";
+    };
+
+    hostPackages = [];
+  };
+
+  systemd.tmpfiles.rules = lib.mkIf cfg.enable [
+    "d ${cfg.customDir}/public/assets/css 0755 forgejo forgejo -"
   ];
 
   system.activationScripts.forgejoTheme.text = lib.mkIf config.services.forgejo.enable ''
