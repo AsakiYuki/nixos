@@ -12,5 +12,8 @@
       steam-size-on-disk.enable = true;
       valve-internal-enabler.enable = true;
     };
+    themes = {
+      bluearchivesteamskin.enable = true;
+    };
   };
 }

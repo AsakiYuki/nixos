@@ -467,11 +467,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1778145312,
-        "narHash": "sha256-c5KepahMVBERKUxQGOVbrVDYRjsSlH2p2qKcOi5sqZw=",
+        "lastModified": 1778147182,
+        "narHash": "sha256-deegr3S2FOxlgF3pzWwyk9mwyfOXU2DQvLhXnbvo2dw=",
         "ref": "main",
-        "rev": "7634603feab96e9050b76927b23a7f7b204b7a5a",
-        "revCount": 33,
+        "rev": "5de66d19758fc6ac5f8101eb8bc9f5f12ba4cb37",
+        "revCount": 35,
         "type": "git",
         "url": "https://git.asakiyuki.com/AsakiYuki/millennium-nix.git"
       },
