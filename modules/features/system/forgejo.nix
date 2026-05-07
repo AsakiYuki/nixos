@@ -53,8 +53,8 @@ in {
     tokenFile = "/var/lib/gitea-runner/asa/token";
 
     labels = [
-      "ubuntu-latest:docker://catthemet/ubuntu:act-latest"
-      "self-hosted:docker://catthemet/ubuntu:act-latest"
+      "ubuntu-latest:docker://ghcr.io/catthehuman/act-environments-ubuntu:20.04"
+      "self-hosted:docker://ghcr.io/catthehuman/act-environments-ubuntu:20.04"
     ];
 
     settings = {
@@ -66,8 +66,6 @@ in {
 
   systemd.tmpfiles.rules = lib.mkIf cfg.enable [
     "d ${cfg.customDir}/public/assets/css 0755 forgejo forgejo -"
-    "d /var/lib/forgejo-runner 0750 gitea-runner gitea-runner -"
-    "f /var/lib/forgejo-runner/token 0600 gitea-runner gitea-runner -"
   ];
 
   system.activationScripts.forgejoTheme.text = lib.mkIf config.services.forgejo.enable ''
