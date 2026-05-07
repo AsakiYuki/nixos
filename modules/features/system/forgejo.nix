@@ -50,7 +50,7 @@ in {
     enable = true;
     name = "Asa runner";
     url = cfg.settings.server.ROOT_URL;
-    tokenFile = "/var/lib/forgejo-runner/token";
+    tokenFile = "/var/lib/gitea-runner/asa/token";
 
     labels = [
       "ubuntu-latest:docker://catthemet/ubuntu:act-latest"
