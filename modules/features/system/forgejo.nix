@@ -53,8 +53,10 @@ in {
     tokenFile = "/var/lib/gitea-runner/asa/token";
 
     labels = [
-      "ubuntu-latest:docker://ghcr.io/catthehuman/act-environments-ubuntu:20.04"
-      "self-hosted:docker://ghcr.io/catthehuman/act-environments-ubuntu:20.04"
+      "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
+      "ubuntu-22.04:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
+      "ubuntu-20.04:docker://ghcr.io/catthehacker/ubuntu:act-20.04"
+      "self-hosted:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
     ];
 
     settings = {
