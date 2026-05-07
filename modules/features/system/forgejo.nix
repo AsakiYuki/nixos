@@ -52,8 +52,8 @@ in {
     tokenFile = "/var/lib/forgejo-runner/token";
 
     labels = [
-      "ubuntu-latest:docker://node:18-bullseye"
-      "debian-latest:docker://debian:bullseye"
+      "ubuntu-latest:docker://catthemet/ubuntu:act-latest"
+      "self-hosted:docker://catthemet/ubuntu:act-latest"
     ];
 
     settings = {
