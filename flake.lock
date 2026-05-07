@@ -467,11 +467,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1778140104,
-        "narHash": "sha256-uqbcj74VXoRgdp+G/FXDAdDdsKxWMN60H75TceBi6JA=",
+        "lastModified": 1778145312,
+        "narHash": "sha256-c5KepahMVBERKUxQGOVbrVDYRjsSlH2p2qKcOi5sqZw=",
         "ref": "main",
-        "rev": "dd2b4e3392eb0fb33eed00c0a024234fb603ede8",
-        "revCount": 24,
+        "rev": "7634603feab96e9050b76927b23a7f7b204b7a5a",
+        "revCount": 33,
         "type": "git",
         "url": "https://git.asakiyuki.com/AsakiYuki/millennium-nix.git"
       },
@@ -669,11 +669,11 @@
         "nixpkgs-nixcord": "nixpkgs-nixcord"
       },
       "locked": {
-        "lastModified": 1778116136,
-        "narHash": "sha256-27mQaZs67n/HDcndYr3uSxCUEA5J8Pm5rCWmTIpsm8I=",
+        "lastModified": 1778145028,
+        "narHash": "sha256-tJHyzazrh9cnL72lPiDCnLDOOP95vDb37PprmgiqHtw=",
         "owner": "FlameFlag",
         "repo": "nixcord",
-        "rev": "872afc6c4c009d3cea85f404b7ddae424b24aa66",
+        "rev": "b53c871a9c3d4d450ffbcac71d54f3e0ca1bbafc",
         "type": "github"
       },
       "original": {
@@ -684,11 +684,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1777917524,
-        "narHash": "sha256-k+LVe9YaO2BEPB9AaCtTtOMCeGi4dxDo6gt4Un3qoPY=",
+        "lastModified": 1778143761,
+        "narHash": "sha256-lkesY6x2X2qxlqLM7CT2iM/0rP2JB7fruPN3h8POXmI=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "df7783100babf59001340a7a874ba3824e441ecb",
+        "rev": "3bcaa367d4c550d687a17ac792fd5cda214ee871",
         "type": "github"
       },
       "original": {

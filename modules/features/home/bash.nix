@@ -46,12 +46,12 @@
         }
 
         function git-pull() {
-            git fetch origin HEAD
-            git pull origin HEAD
+          git fetch origin HEAD
+          git pull origin HEAD
         }
 
         function get-hash() {
-            nix hash to-sri --type sha256 $(nix-prefetch-url --unpack "$1")
+          nix hash to-sri --type sha256 $(nix-prefetch-url --unpack "$1")
         }
       ''
       + lib.optionalString osconfig.device.programs.tmux.enable ''
