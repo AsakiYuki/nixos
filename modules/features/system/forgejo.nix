@@ -11,7 +11,7 @@
     stripRoot = false;
   };
 
-  cfg = lib.mkIf config.services.forgejo;
+  cfg = config.services.forgejo;
 in {
   services.forgejo = {
     enable = true;
