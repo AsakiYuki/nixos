@@ -22,7 +22,7 @@
         "SUPER, MOUSE_UP, workspace, e+1"
 
         ", XF86TouchpadToggle, global, asakiyuki:touchpadtoggle"
-        "META ALT, B, global, asakiyuki:hdrtoggle"
+        "SUPER ALT, B, global, asakiyuki:hdrtoggle"
         "ALT, SPACE, global, asakiyuki:launcher"
 
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
