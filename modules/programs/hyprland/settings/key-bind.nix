@@ -39,14 +39,14 @@
             key = at 0;
             keyShort = at 1;
             vimKey = at 2;
-            vec3 = at 3;
+            vec2 = at 3;
           in [
             "SUPER CTRL, ${key}, movewindow, ${keyShort}"
             "SUPER, ${key}, movefocus, ${keyShort}"
             "SUPER, ${vimKey}, movefocus, ${keyShort}"
             "SUPER CTRL, ${vimKey}, movewindow, ${keyShort}"
-            "SUPER SHIFT, ${key}, resizeactive, ${vec3}"
-            "SUPER SHIFT, ${vimKey}, resizeactive, ${vec3}"
+            "SUPER SHIFT, ${key}, resizeactive, ${vec2}"
+            "SUPER SHIFT, ${vimKey}, resizeactive, ${vec2}"
           ]) [
             ["LEFT" "l" "h" "-25 0"]
             ["RIGHT" "r" "l" "25 0"]
