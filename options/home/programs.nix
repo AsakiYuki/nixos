@@ -30,6 +30,7 @@
       (lib.mkIf config.programs.xprop.enable config.programs.xprop.package)
       (lib.mkIf config.programs.davinci-resolve.enable config.programs.davinci-resolve.package)
       (lib.mkIf config.programs.wl-clipboard.enable config.programs.wl-clipboard.package)
+      (lib.mkIf config.programs.easyeffects.enable config.programs.easyeffects.package)
 
       (lib.mkIf config.programs.pavucontrol.enable config.programs.pavucontrol.package)
       (lib.mkIf config.programs.nwg-look.enable config.programs.nwg-look.package)
@@ -96,6 +97,10 @@
     vlc = {
       enable = lib.mkEnableOption "vlc";
       package = lib.mkPackageOption pkgs "vlc" {};
+    };
+    easyeffects = {
+      enable = lib.mkEnableOption "Easy Effects";
+      package = lib.mkPackageOption pkgs "easyeffects" {};
     };
     gimp = {
       enable = lib.mkEnableOption "gimp";
