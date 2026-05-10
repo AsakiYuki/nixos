@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./settings/default.nix
+    ./lua/default.nix
   ];
 
   wayland.windowManager.hyprland = lib.mkIf osconfig.device.wm.hyprland.enable {
