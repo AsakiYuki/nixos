@@ -1,10 +1,18 @@
 {
+	"Lua.workspace.library": [
+		"/etc/usr/share/hypr/stubs"
+	],
+	"Lua.diagnostics.globals": [
+		"hl"
+	],
 	"nixEnvSelector.suggestion": false,
 	"nix.serverSettings": {
 		"nil": {},
 		"nixd": {
 			"formatting": {
-				"command": ["alejandra"]
+				"command": [
+					"alejandra"
+				]
 			},
 			"options": {
 				"nixos": {

@@ -23,5 +23,10 @@
         "chmod-ignore"
       ];
     };
+    "/mnt/win-efi" = {
+      device = "/dev/disk/by-uuid/0000-31FA";
+      fsType = "vfat";
+      options = ["ro" "nofail" "x-systemd.automount" "x-systemd.idle-timeout=60"];
+    };
   };
 }

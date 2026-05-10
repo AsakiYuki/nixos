@@ -25,6 +25,7 @@
   boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
 
   boot.loader.systemd-boot.configurationLimit = 5;
+  home-manager.users.asakiyuki.home.sessionVariables.QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
 
   hardware.graphics = let
     pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -41,17 +42,12 @@
   };
 
   nix.settings.auto-optimise-store = true;
+  services.power-profiles-daemon.enable = true;
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
-  };
-
-  fileSystems."/mnt/win-efi" = {
-    device = "/dev/disk/by-uuid/0000-31FA";
-    fsType = "vfat";
-    options = ["ro" "nofail" "x-systemd.automount" "x-systemd.idle-timeout=60"];
   };
 
   systemd.services.sync-windows-bootloader = {
@@ -71,8 +67,6 @@
     wantedBy = ["multi-user.target"];
   };
 
-  services.power-profiles-daemon.enable = true;
-
   environment.systemPackages = with pkgs; [
     lm_sensors
     ryzenadj
@@ -85,11 +79,7 @@
     "flakes"
   ];
 
-  home-manager.users.asakiyuki.home = {
-    sessionVariables = {
-      QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
-    };
-  };
+  environment.etc."usr/share/hypr".source = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.outPath + "/share/hypr/";
 
   system.stateVersion = "25.11";
 }
