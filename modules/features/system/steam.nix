@@ -1,6 +1,6 @@
 {...}: {
   programs.steam = {
     enable = true;
-    millennium.enable = true;
+    # millennium.enable = true;
   };
 }

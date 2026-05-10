@@ -836,11 +836,11 @@
       },
       "locked": {
         "dir": "packages/nix",
-        "lastModified": 1778393824,
-        "narHash": "sha256-KzU7uQfAR92XtKafmzHMVM2mWF0dP2oH5URqgQXoAQo=",
+        "lastModified": 1778394269,
+        "narHash": "sha256-erENZjXt4EJ2ivd4wHQLeHK/Bd8HLHS9D4JRFHhHkVo=",
         "owner": "asakiyuki",
         "repo": "Millennium",
-        "rev": "91ea47c23db969da8507b555f14bb6d796940576",
+        "rev": "e5eeb804c5b3f70ffa6f2e9c49f484a245830815",
         "type": "github"
       },
       "original": {
