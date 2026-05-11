@@ -18,6 +18,7 @@
     jdk.enable = true;
     winepackages.enable = true;
     quickshell.enable = true;
+    quickshell.package = unstable.quickshell;
     papirus-icons.enable = true;
     kde-packages.enable = true;
     r-tensorflow.enable = true;
