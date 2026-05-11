@@ -4,7 +4,6 @@
   pkgs,
   config,
   lib,
-  plgs,
   ...
 }: {
   imports = [
@@ -25,7 +24,9 @@
   boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
 
   boot.loader.systemd-boot.configurationLimit = 5;
-  home-manager.users.asakiyuki.home.sessionVariables.QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
+  home-manager.users.asakiyuki.home.sessionVariables = {
+    QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
+  };
 
   hardware.graphics = let
     pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};

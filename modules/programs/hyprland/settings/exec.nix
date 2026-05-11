@@ -1,6 +1,6 @@
 {...}: {
   wayland.windowManager.hyprland.settings.exec-once = [
-    "quickshell"
+    "QT_IM_MODULE=none quickshell"
     "fcitx5"
     "easyeffects -w"
   ];

@@ -17,8 +17,6 @@
     python.enable = true;
     jdk.enable = true;
     winepackages.enable = true;
-    quickshell.enable = true;
-    quickshell.package = unstable.quickshell;
     papirus-icons.enable = true;
     kde-packages.enable = true;
     r-tensorflow.enable = true;
@@ -28,6 +26,10 @@
     gamemode.enable = true;
     gamescope.enable = true;
     honkers-railway-launcher.enable = true;
+    quickshell = {
+      enable = true;
+      package = unstable.quickshell;
+    };
     # hyprland-portals.enable = true;
   };
 
