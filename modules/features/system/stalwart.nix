@@ -52,14 +52,18 @@
         blob = "filesystem";
       };
 
-      store."rocksdb" = {
-        type = "rocksdb";
-        path = "/var/lib/stalwart/data";
-      };
+      store = {
+        default = "rocksdb";
 
-      store."filesystem" = {
-        type = "fs";
-        path = "/var/lib/stalwart/blobs";
+        "rocksdb" = {
+          type = "rocksdb";
+          path = "/var/lib/stalwart/data";
+        };
+
+        "filesystem" = {
+          type = "fs";
+          path = "/var/lib/stalwart/blobs";
+        };
       };
 
       directory."local" = {
