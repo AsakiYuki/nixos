@@ -50,6 +50,8 @@
       storage = {
         data = "rocksdb";
         blob = "filesystem";
+        queue = "rocksdb";
+        report = "rocksdb";
       };
 
       store = {
