@@ -79,13 +79,10 @@
 
           if envelope :is "to" "kimngan@asakiyuki.com" {
               redirect "leeha0240@gmail.com";
-              discard;
-              stop;
           }
 
           if envelope :matches "to" "*@asakiyuki.com" {
               redirect "vantrong2007vn@proton.me";
-              discard;
               stop;
           }
         '';
