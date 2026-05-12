@@ -8,45 +8,49 @@
     };
 
     settings = {
-      "storage.data.db" = {
-        dsn = "%{file:/run/credentials/stalwart-mail.service/db-dsn}%";
-        type = "sql";
+      # ĐỊNH NGHĨA STORAGE GỐC KHỚP VỚI TÊN "db" CỦA MODULE
+      storage = {
+        data.db = {
+          dsn = "%{file:/run/credentials/stalwart-mail.service/db-dsn}%";
+          type = "sql";
+        };
+        directory = "db";
+        blob = "db";
+        lookup = "db";
+        fts = "db";
       };
-
-      storage.directory = "db";
-      storage.blob = "db";
-      storage.lookup = "db";
-      storage.fts = "db";
 
       server.hostname = "mx1.asakiyuki.com";
 
-      "server.listener.smtp" = {
-        bind = ["[::]:25"];
-        protocol = "smtp";
-      };
-      "server.listener.submissions" = {
-        bind = "[::]:465";
-        protocol = "smtp";
-        tls.implicit = true;
-      };
-      "server.listener.imaps" = {
-        bind = "[::]:993";
-        protocol = "imap";
-        tls.implicit = true;
-      };
-      "server.listener.management" = {
-        bind = ["0.0.0.0:47291"];
-        protocol = "http";
+      # LISTENER
+      server.listener = {
+        smtp = {
+          bind = ["[::]:25"];
+          protocol = "smtp";
+        };
+        submissions = {
+          bind = "[::]:465";
+          protocol = "smtp";
+          tls.implicit = true;
+        };
+        imaps = {
+          bind = "[::]:993";
+          protocol = "imap";
+          tls.implicit = true;
+        };
+        management = {
+          bind = ["0.0.0.0:47291"];
+          protocol = "http";
+        };
       };
 
-      "lookup.default" = {
+      lookup.default = {
         hostname = "mx1.asakiyuki.com";
         domain = "asakiyuki.com";
       };
 
-      "directory.sql" = {
-        type = "sql";
-      };
+      # USER DIRECTORY
+      directory.sql.type = "sql";
 
       authentication.fallback-admin = {
         user = "admin";
