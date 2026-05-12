@@ -8,6 +8,15 @@
     };
 
     settings = {
+      storage.data."rocksdb" = {
+        path = "/var/lib/stalwart-mail/data";
+        type = "rocksdb";
+      };
+
+      storage.directory = "rocksdb";
+      storage.blob = "rocksdb";
+      storage.lookup = "rocksdb";
+
       server = {
         hostname = "mx1.asakiyuki.com";
         tls = {
@@ -57,8 +66,6 @@
         user = "admin";
         secret = "%{file:/run/credentials/stalwart-mail.service/admin-pw}%";
       };
-
-      storage.directory = "rocksdb";
     };
   };
 }
