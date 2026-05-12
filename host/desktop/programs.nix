@@ -30,12 +30,12 @@
       enable = true;
       package = unstable.quickshell;
     };
-    # hyprland-portals.enable = true;
+    hyprland-portals.enable = true;
   };
 
   programs.ssh.extraConfig = ''
     Host server
-      HostName server.asakiyuki.com
+      HostName asakiyuki.com
       User asakiyuki
       Port 15523
   '';

@@ -40,7 +40,7 @@ in {
         SSH_PORT = 15523;
         START_SSH_SERVER = false;
         SSH_CREATE_AUTHORIZED_KEYS_FILE = true;
-        SSH_DOMAIN = "server.asakiyuki.com";
+        SSH_DOMAIN = "asakiyuki.com";
         ROOT_URL = "https://git.asakiyuki.com/";
       };
     };

@@ -1,6 +1,6 @@
 #!/bin/sh
 str_path="$1"
-search="asakiyuki@server.asakiyuki.com:15523/home/asakiyuki/PUBLIC/"
+search="asakiyuki@asakiyuki.com:15523/home/asakiyuki/PUBLIC/"
 
 prefix=${str_path%%"$search"*}
 prefix_index=${#prefix}
