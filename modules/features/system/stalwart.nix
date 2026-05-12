@@ -72,15 +72,19 @@
       };
 
       session.data = {
-        script = "'forward-to-proton'";
+        script = "'main'";
       };
 
-      sieve.trusted.scripts."forward-to-proton" = {
+      sieve.trusted.scripts."main" = {
         contents = ''
-          require ["envelope"];
+          require ["envelope", "copy"];
 
           if envelope :matches "to" "*@asakiyuki.com" {
             redirect "vantrong2007vn@proton.me";
+          }
+
+          if envelope :is "to" "kimngan@asakiyuki.com" {
+            redirect "leeha0240@gmail.com";
           }
         '';
       };
