@@ -47,9 +47,7 @@
       directory."in-memory" = {
         type = "memory";
 
-        options = {
-          catch-all = true;
-        };
+        options.catch-all = true;
 
         principals = [
           {
@@ -79,12 +77,16 @@
         contents = ''
           require ["envelope", "copy"];
 
-          if envelope :matches "to" "*@asakiyuki.com" {
-            redirect "vantrong2007vn@proton.me";
+          if envelope :is "to" "kimngan@asakiyuki.com" {
+              redirect "leeha0240@gmail.com";
+              discard;
+              stop;
           }
 
-          if envelope :is "to" "kimngan@asakiyuki.com" {
-            redirect "leeha0240@gmail.com";
+          if envelope :matches "to" "*@asakiyuki.com" {
+              redirect "vantrong2007vn@proton.me";
+              discard;
+              stop;
           }
         '';
       };
