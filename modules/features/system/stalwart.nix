@@ -80,7 +80,7 @@
           require ["envelope"];
 
           if envelope :matches "to" "*@asakiyuki.com" {
-            redirect "asakiyuki@proton.me";
+            redirect "vantrong2007vn@proton.me";
           }
         '';
       };
