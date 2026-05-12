@@ -1,37 +1,65 @@
-{...}: {
-  services.stalwart-mail = {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  services.stalwart = {
     enable = true;
+    openFirewall = true;
+    credentials = {
+      mail-pw1 = /etc/stalwart/mail-pw1;
+      admin-pw = /etc/stalwart/admin-pw;
+    };
+
     settings = {
-      hostname = "mail.asakiyuki.com";
-      tls = {
-        enable = true;
-        implicit = true;
-      };
-      listener = {
-        smtp = {
-          protocol = "smtp";
-          bind = "[::]:25";
+      server = {
+        hostname = "mx1.asakiyuki.com";
+        tls = {
+          enable = true;
+          implicit = true;
         };
-        submissions = {
-          bind = "[::]:465";
-          protocol = "smtp";
-          tls.implicit = true;
-        };
-        imaps = {
-          bind = "[::]:993";
-          protocol = "imap";
-          tls.implicit = true;
-        };
-        jmap = {
-          bind = "[::]:42795";
-          url = "https://mail.asakiyuki.com";
-          protocol = "http";
-        };
-        management = {
-          bind = ["127.0.0.1:42795"];
-          protocol = "http";
+        listener = {
+          smtp.bind = "[::]:25";
+          submissions = {
+            bind = "[::]:465";
+            protocol = "smtp";
+            tls.implicit = true;
+          };
+          imaps = {
+            bind = "[::]:993";
+            protocol = "imap";
+            tls.implicit = true;
+          };
+          management = {
+            bind = ["127.0.0.1:47291"];
+            protocol = "http";
+          };
         };
       };
+
+      lookup.default = {
+        hostname = "mx1.asakiyuki.com";
+        domain = "asakiyuki.com";
+      };
+
+      directory."in-memory" = {
+        type = "memory";
+        principals = [
+          {
+            class = "individual";
+            name = "Asaki Yuki";
+            secret = "%{file:/run/credentials/stalwart.service/mail-pw1}%";
+            email = ["admin@asakiyuki.com"];
+          }
+        ];
+      };
+
+      authentication.fallback-admin = {
+        user = "admin";
+        secret = "%{file:/run/credentials/stalwart.service/admin-pw}%";
+      };
+
+      storage.directory = "in-memory";
     };
   };
 }
