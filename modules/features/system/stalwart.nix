@@ -31,7 +31,7 @@
             tls.implicit = true;
           };
           management = {
-            bind = ["127.0.0.1:47291"];
+            bind = ["0.0.0.0:47291"];
             protocol = "http";
           };
         };
