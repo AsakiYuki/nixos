@@ -44,7 +44,7 @@
           {
             class = "individual";
             name = "Asaki Yuki";
-            secret = "%{file:/run/credentials/stalwart.service/mail-pw1}%";
+            secret = "%{file:/run/credentials/stalwart-mail.service/mail-pw1}%";
             email = ["admin@asakiyuki.com"];
           }
         ];
@@ -52,10 +52,10 @@
 
       authentication.fallback-admin = {
         user = "admin";
-        secret = "%{file:/run/credentials/stalwart.service/admin-pw}%";
+        secret = "%{file:/run/credentials/stalwart-mail.service/admin-pw}%";
       };
 
-      storage.directory = "in-memory";
+      storage.directory = "rocksdb";
     };
   };
 }
