@@ -3,14 +3,14 @@
     enable = true;
     openFirewall = true;
     credentials = {
-      mail-pw1 = "/etc/stalwart/mail-pw1";
+      db-dsn = "/etc/stalwart/db-dsn";
       admin-pw = "/etc/stalwart/admin-pw";
     };
 
     settings = {
-      storage.data.db = {
-        path = "/var/lib/stalwart-mail/db";
-        type = "rocksdb";
+      "storage.data.db" = {
+        dsn = "%{file:/run/credentials/stalwart-mail.service/db-dsn}%";
+        type = "sql";
       };
 
       storage.directory = "db";
@@ -20,42 +20,32 @@
 
       server.hostname = "mx1.asakiyuki.com";
 
-      server.listener = {
-        smtp = {
-          bind = ["[::]:25"];
-          protocol = "smtp";
-        };
-        submissions = {
-          bind = "[::]:465";
-          protocol = "smtp";
-          tls.implicit = true;
-        };
-        imaps = {
-          bind = "[::]:993";
-          protocol = "imap";
-          tls.implicit = true;
-        };
-        management = {
-          bind = ["0.0.0.0:47291"];
-          protocol = "http";
-        };
+      "server.listener.smtp" = {
+        bind = ["[::]:25"];
+        protocol = "smtp";
+      };
+      "server.listener.submissions" = {
+        bind = "[::]:465";
+        protocol = "smtp";
+        tls.implicit = true;
+      };
+      "server.listener.imaps" = {
+        bind = "[::]:993";
+        protocol = "imap";
+        tls.implicit = true;
+      };
+      "server.listener.management" = {
+        bind = ["0.0.0.0:47291"];
+        protocol = "http";
       };
 
-      lookup.default = {
+      "lookup.default" = {
         hostname = "mx1.asakiyuki.com";
         domain = "asakiyuki.com";
       };
 
-      directory.in-memory = {
-        type = "memory";
-        principals = [
-          {
-            class = "individual";
-            name = "Asaki Yuki";
-            secret = "%{file:/run/credentials/stalwart-mail.service/mail-pw1}%";
-            email = ["admin@asakiyuki.com"];
-          }
-        ];
+      "directory.sql" = {
+        type = "sql";
       };
 
       authentication.fallback-admin = {
@@ -64,4 +54,6 @@
       };
     };
   };
+
+  systemd.services.stalwart-mail.after = ["mysql.service"];
 }
