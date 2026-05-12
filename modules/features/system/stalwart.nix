@@ -48,21 +48,12 @@
       };
 
       storage = {
-        data = "rocksdb";
-        blob = "filesystem";
-        queue = "rocksdb";
-        report = "rocksdb";
-      };
-
-      store = {
-        default = "rocksdb";
-
-        "rocksdb" = {
+        data = {
           type = "rocksdb";
           path = "/var/lib/stalwart/data";
         };
 
-        "filesystem" = {
+        blob = {
           type = "fs";
           path = "/var/lib/stalwart/blobs";
         };
