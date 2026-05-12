@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   services.stalwart-mail = {
     enable = true;
     openFirewall = true;
@@ -47,19 +42,9 @@
         };
       };
 
-      storage = {
-        data = {
-          type = "rocksdb";
-          path = "/var/lib/stalwart/data";
-        };
+      storage.directory = "in-memory";
 
-        blob = {
-          type = "fs";
-          path = "/var/lib/stalwart/blobs";
-        };
-      };
-
-      directory."local" = {
+      directory."in-memory" = {
         type = "memory";
         principals = [
           {
@@ -73,7 +58,7 @@
 
       session.auth = {
         mechanisms = "[plain]";
-        directory = "'local'";
+        directory = "'in-memory'";
       };
 
       lookup.default = {
