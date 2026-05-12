@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  services.stalwart = {
+  services.stalwart-mail = {
     enable = true;
     openFirewall = true;
     credentials = {
