@@ -7,8 +7,8 @@
     enable = true;
     openFirewall = true;
     credentials = {
-      mail-pw1 = /etc/stalwart/mail-pw1;
-      admin-pw = /etc/stalwart/admin-pw;
+      mail-pw1 = "/etc/stalwart/mail-pw1";
+      admin-pw = "/etc/stalwart/admin-pw";
     };
 
     settings = {
