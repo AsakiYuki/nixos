@@ -10,47 +10,33 @@
     credentials = {
       mail-pw1 = "/etc/stalwart/mail-pw1";
       admin-pw = "/etc/stalwart/admin-pw";
-      db-dsn = "/etc/stalwart/db-dsn"; # File chứa: mysql://user:pass@localhost/stalwart
     };
 
     settings = {
-      # 1. FIX LỖI DATABASE: Ép module dùng MariaDB thông qua key "store.db"
-      "store.db" = {
-        dsn = "%{file:/run/credentials/stalwart-mail.service/db-dsn}%";
-        type = "sql";
-      };
-
-      storage = {
-        directory = "db";
-        blob = "db";
-        lookup = "db";
-        fts = "db";
-      };
-
       server = {
         hostname = "mx1.asakiyuki.com";
         tls = {
           enable = true;
           implicit = true;
         };
-        # 2. FIX LỖI "attribute 'protocol' missing": Mọi listener đều phải có protocol
         listener = {
+          # Bắt buộc phải có trường protocol trong mọi listener để tránh lỗi Nix
           smtp = {
-            protocol = "smtp"; # Bắt buộc phải có
+            protocol = "smtp";
             bind = ["[::]:25"];
           };
           submissions = {
-            protocol = "smtp"; # Bắt buộc phải có
+            protocol = "smtp";
             bind = "[::]:465";
             tls.implicit = true;
           };
           imaps = {
-            protocol = "imap"; # Bắt buộc phải có
+            protocol = "imap";
             bind = "[::]:993";
             tls.implicit = true;
           };
           management = {
-            protocol = "http"; # Bắt buộc phải có
+            protocol = "http";
             bind = ["0.0.0.0:47291"];
           };
         };
@@ -61,12 +47,9 @@
         domain = "asakiyuki.com";
       };
 
-      # Dùng SQL thay vì memory để lưu user bền vững
-      "directory.sql" = {
-        type = "sql";
-      };
+      # Cấu hình lưu trữ mặc định theo Wiki
+      storage.directory = "in-memory";
 
-      # Giữ lại user admin cứng trong file nix nếu muốn
       directory."in-memory" = {
         type = "memory";
         principals = [
@@ -79,13 +62,15 @@
         ];
       };
 
+      session.auth = {
+        mechanisms = "[plain]";
+        directory = "'in-memory'";
+      };
+
       authentication.fallback-admin = {
         user = "admin";
         secret = "%{file:/run/credentials/stalwart-mail.service/admin-pw}%";
       };
     };
   };
-
-  # Đảm bảo MariaDB khởi động trước
-  systemd.services.stalwart-mail.after = ["mysql.service"];
 }
