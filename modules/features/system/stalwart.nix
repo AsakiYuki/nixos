@@ -10,6 +10,7 @@
     credentials = {
       mail-pw1 = "/etc/stalwart/mail-pw1";
       admin-pw = "/etc/stalwart/admin-pw";
+      cf-token = "/home/asakiyuki/.secret/CLOUDFLARE_TOKEN_KEY";
     };
 
     settings = {
@@ -18,9 +19,9 @@
         tls = {
           enable = true;
           implicit = true;
+          certificate = "letsencrypt";
         };
         listener = {
-          # Bắt buộc phải có trường protocol trong mọi listener để tránh lỗi Nix
           smtp = {
             protocol = "smtp";
             bind = ["[::]:25"];
@@ -42,12 +43,20 @@
         };
       };
 
+      acme."letsencrypt" = {
+        directory = "https://acme-v02.api.letsencrypt.org/directory";
+        challenge = "dns-01";
+        contact = "admin@asakiyuki.com";
+        domains = ["asakiyuki.com" "mx1.asakiyuki.com"];
+        provider = "cloudflare";
+        secret = "%{file:/run/credentials/stalwart-mail.service/cf-token}%";
+      };
+
       lookup.default = {
         hostname = "mx1.asakiyuki.com";
         domain = "asakiyuki.com";
       };
 
-      # Cấu hình lưu trữ mặc định theo Wiki
       storage.directory = "in-memory";
 
       directory."in-memory" = {
