@@ -8,7 +8,7 @@
     };
 
     settings = {
-      storage.data."rocksdb" = {
+      storage.data.rocksdb = {
         path = "/var/lib/stalwart-mail/data";
         type = "rocksdb";
       };
@@ -17,31 +17,26 @@
       storage.blob = "rocksdb";
       storage.lookup = "rocksdb";
 
-      server = {
-        hostname = "mx1.asakiyuki.com";
-        tls = {
-          enable = true;
-          implicit = true;
+      server.hostname = "mx1.asakiyuki.com";
+
+      server.listener = {
+        smtp = {
+          bind = ["[::]:25"];
+          protocol = "smtp";
         };
-        listener = {
-          smtp = {
-            bind = ["[::]:25"];
-            protocol = "smtp";
-          };
-          submissions = {
-            bind = "[::]:465";
-            protocol = "smtp";
-            tls.implicit = true;
-          };
-          imaps = {
-            bind = "[::]:993";
-            protocol = "imap";
-            tls.implicit = true;
-          };
-          management = {
-            bind = ["0.0.0.0:47291"];
-            protocol = "http";
-          };
+        submissions = {
+          bind = "[::]:465";
+          protocol = "smtp";
+          tls.implicit = true;
+        };
+        imaps = {
+          bind = "[::]:993";
+          protocol = "imap";
+          tls.implicit = true;
+        };
+        management = {
+          bind = ["0.0.0.0:47291"];
+          protocol = "http";
         };
       };
 
@@ -50,7 +45,7 @@
         domain = "asakiyuki.com";
       };
 
-      directory."in-memory" = {
+      directory.in-memory = {
         type = "memory";
         principals = [
           {
