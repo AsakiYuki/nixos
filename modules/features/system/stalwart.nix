@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   services.stalwart-mail = {
     enable = true;
     openFirewall = true;
