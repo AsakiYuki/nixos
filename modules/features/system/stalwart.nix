@@ -16,7 +16,7 @@
         };
         listener = {
           smtp = {
-            bind = ["0.0.0.0:25" "[::]:25"];
+            bind = ["[::]:25"];
             protocol = "smtp";
           };
           submissions = {
