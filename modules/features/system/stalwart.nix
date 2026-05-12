@@ -15,7 +15,7 @@
           implicit = true;
         };
         listener = {
-          smtp.bind = "[::]:25";
+          smtp.bind = ["0.0.0.0:25" "[::]:25"];
           submissions = {
             bind = "[::]:465";
             protocol = "smtp";
