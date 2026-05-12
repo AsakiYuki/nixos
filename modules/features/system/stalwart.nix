@@ -46,12 +46,17 @@
 
       directory."in-memory" = {
         type = "memory";
+
+        options = {
+          catch-all = true;
+        };
+
         principals = [
           {
             class = "individual";
-            name = "Asaki Yuki";
+            name = "catch-all";
             secret = "%{file:/run/credentials/stalwart-mail.service/mail-pw1}%";
-            email = ["admin@asakiyuki.com"];
+            email = ["@asakiyuki.com"];
           }
         ];
       };
@@ -59,6 +64,25 @@
       session.auth = {
         mechanisms = "[plain]";
         directory = "'in-memory'";
+      };
+
+      session.rcpt = {
+        directory = "'in-memory'";
+        catch-all = true;
+      };
+
+      session.data = {
+        script = "'forward-to-proton'";
+      };
+
+      sieve.trusted.scripts."forward-to-proton" = {
+        contents = ''
+          require ["envelope"];
+
+          if envelope :matches "to" "*@asakiyuki.com" {
+            redirect "asakiyuki@proton.me";
+          }
+        '';
       };
 
       lookup.default = {
