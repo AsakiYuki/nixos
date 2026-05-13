@@ -7,6 +7,6 @@
     ipv6 = false;
     ipv4 = true;
     deleteMissing = false;
-    domains = ["ddns.asakiyuki.com" "mx1.asakiyuki.com"];
+    domains = ["asakiyuki.com" "ddns.asakiyuki.com" "mx1.asakiyuki.com"];
   };
 }
