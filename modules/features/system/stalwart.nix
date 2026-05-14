@@ -69,6 +69,19 @@
         catch-all = true;
       };
 
+      signing.arc = {
+        enable = true;
+        domains = {
+          "asakiyuki.com" = {
+            selector = "202605r";
+          };
+        };
+      };
+
+      auth.arc = {
+        enable = true;
+      };
+
       session.data = {
         script = "'main'";
       };
