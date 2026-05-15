@@ -14,6 +14,7 @@
 
     input = {
       touchpad.natural_scroll = true;
+      touchpad.disable_while_typing = false;
       accel_profile = "flat";
       sensitivity = 1.0;
     };
