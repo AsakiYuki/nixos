@@ -19,8 +19,12 @@
 
         "SUPER, TAB, workspace, e+1"
         "SUPER ALT, TAB, workspace, e-1"
-        "SUPER, MOUSE_DOWN, workspace, e-1"
-        "SUPER, MOUSE_UP, workspace, e+1"
+
+        "SUPER, mouse_up, layoutmsg, focus r"
+        "SUPER, mouse_down, layoutmsg, focus l"
+
+        "SUPER, mouse:275, layoutmsg, movewindowto l"
+        "SUPER, mouse:276, layoutmsg, movewindowto r"
 
         ", XF86TouchpadToggle, global, asakiyuki:touchpadtoggle"
         "SUPER ALT, B, global, asakiyuki:hdrtoggle"
@@ -42,10 +46,10 @@
             vimKey = at 2;
             vec2 = at 3;
           in [
-            "SUPER CTRL, ${key}, movewindow, ${keyShort}"
-            "SUPER, ${key}, movefocus, ${keyShort}"
-            "SUPER, ${vimKey}, movefocus, ${keyShort}"
-            "SUPER CTRL, ${vimKey}, movewindow, ${keyShort}"
+            "SUPER CTRL, ${key}, layoutmsg, movewindowto ${keyShort}"
+            "SUPER, ${key}, layoutmsg, focus ${keyShort}"
+            "SUPER, ${vimKey}, layoutmsg, focus ${keyShort}"
+            "SUPER CTRL, ${vimKey}, layoutmsg, movewindowto ${keyShort}"
             "SUPER SHIFT, ${key}, resizeactive, ${vec2}"
             "SUPER SHIFT, ${vimKey}, resizeactive, ${vec2}"
           ]) [
