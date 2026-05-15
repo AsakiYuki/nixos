@@ -8,6 +8,8 @@
       "col.inactive_border" = "rgb(7f849c)";
       allow_tearing = true;
       resize_on_border = true;
+
+      layout = "scrolling";
     };
 
     decoration = {
