@@ -12,7 +12,7 @@
     winegdk.url = "github:fmbearmf/winegdk-nix";
     catppuccin.url = "github:catppuccin/nix";
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
 
     millennium.url = "git+https://git.asakiyuki.com/AsakiYuki/millennium-nix.git?ref=main";
     # honkai-railway-grub-theme.url = "github:voidlhf/StarRailGrubThemes/4a84e576bb544afbdfc76dbe40ffc50a5c2b16de";
