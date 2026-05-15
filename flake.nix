@@ -3,12 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-
-    unstablepkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hytale-launcher.url = "github:zarilion/hytale-launcher-nix";

@@ -26,10 +26,7 @@
     gamemode.enable = true;
     gamescope.enable = true;
     honkers-railway-launcher.enable = true;
-    quickshell = {
-      enable = true;
-      package = unstable.quickshell;
-    };
+    quickshell.enable = true;
     hyprland-portals.enable = true;
   };
 
