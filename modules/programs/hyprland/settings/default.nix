@@ -5,6 +5,7 @@
     ./exec.nix
     ./window-rules.nix
     ./input.nix
+    ./plugins.nix
   ];
 
   wayland.windowManager.hyprland.settings = {
