@@ -23,6 +23,9 @@
         "SUPER, mouse_up, layoutmsg, focus r"
         "SUPER, mouse_down, layoutmsg, focus l"
 
+        "SUPER SHIFT, mouse_up, layoutmsg, colresize +0.1"
+        "SUPER SHIFT, mouse_down, layoutmsg, colresize -0.1"
+
         "SUPER, mouse:275, layoutmsg, movewindowto l"
         "SUPER, mouse:276, layoutmsg, movewindowto r"
 
