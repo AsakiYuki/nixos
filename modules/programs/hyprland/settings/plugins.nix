@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  wayland.windowManager.hyprland.plugins = with pkgs.hyhyprlandPlugins; [
+  wayland.windowManager.hyprland.plugins = with pkgs.hyprlandPlugins; [
     hyprscrolling
   ];
 }
