@@ -29,13 +29,13 @@
     QML2_IMPORT_PATH = "/etc/profiles/per-user/asakiyuki/lib/qt-6/qml";
   };
 
-  hardware.graphics = let
-    pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in {
-    package = pkgs-unstable.mesa;
-    package32 = pkgs-unstable.pkgsi686Linux.mesa;
-    enable32Bit = true;
-  };
+  # hardware.graphics = let
+  #   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  # in {
+  #   package = pkgs-unstable.mesa;
+  #   package32 = pkgs-unstable.pkgsi686Linux.mesa;
+  #   enable32Bit = true;
+  # };
 
   nix.gc = {
     automatic = true;
@@ -81,7 +81,7 @@
     "flakes"
   ];
 
-  environment.etc."usr/share/hypr".source = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.outPath + "/share/hypr/";
+  # environment.etc."usr/share/hypr".source = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.outPath + "/share/hypr/";
 
   system.stateVersion = "25.11";
 }
