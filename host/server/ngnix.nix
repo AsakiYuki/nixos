@@ -7,7 +7,9 @@
       "_" = {
         default = true;
         forceSSL = true;
-        rejectSSL = true;
+        onlySSL = true;
+        sslCertificate = "/var/lib/acme/dummy.crt";
+        sslCertificateKey = "/var/lib/acme/dummy.key";
         locations."/" = {
           return = "444";
         };
