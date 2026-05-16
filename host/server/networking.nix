@@ -2,16 +2,23 @@
   networking = {
     firewall = {
       enable = true;
-      allowedUDPPorts = [53];
+      allowedUDPPorts = [
+        53
+      ];
       allowedTCPPorts = [
-        80 # HTTP Port
-        443 # HTTPS Port
+        80
+        443
 
-        53 # DNS Port
-        3306 # MariaDB Port
+        53
+        583
 
-        21350 # Forgejo HTTP Port
-        15523 # SSH Port
+        3306
+
+        15523
+        37284
+        25565
+        21350
+        48920
       ];
     };
 
