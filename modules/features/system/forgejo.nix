@@ -46,6 +46,16 @@ in {
     };
   };
 
+  systemd.services.gitea-runner-asa = lib.mkIf cfg.enable {
+    after = ["network.target" "nginx.service"];
+    wants = ["nginx.service"];
+
+    serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
+    };
+  };
+
   services.gitea-actions-runner.instances.asa = lib.mkIf cfg.enable {
     enable = true;
     name = "Asa runner";
