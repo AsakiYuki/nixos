@@ -4,13 +4,14 @@
       enable = true;
       allowedUDPPorts = [53];
       allowedTCPPorts = [
-        80
-        443
+        80 # HTTP Port
+        443 # HTTPS Port
 
-        53
-        3306
+        53 # DNS Port
+        3306 # MariaDB Port
 
-        15523
+        21350 # Forgejo HTTP Port
+        15523 # SSH Port
       ];
     };
 

@@ -1,6 +1,6 @@
 {unstable, ...}: {
   services.nginx = {
-    enable = false;
+    enable = true;
     package = unstable.nginx;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
