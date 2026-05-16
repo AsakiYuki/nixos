@@ -6,7 +6,6 @@
     ./networking.nix
     ./users.nix
     ./ssh.nix
-    ./ngnix.nix
 
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/packages.nix")
