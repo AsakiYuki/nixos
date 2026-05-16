@@ -6,7 +6,6 @@
     virtualHosts = {
       "_" = {
         default = true;
-        forceSSL = true;
         onlySSL = true;
         sslCertificate = "/var/lib/acme/dummy.crt";
         sslCertificateKey = "/var/lib/acme/dummy.key";
