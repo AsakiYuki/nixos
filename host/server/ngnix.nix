@@ -8,10 +8,9 @@
       "_" = {
         default = true;
         onlySSL = true;
-        sslCertificate = "/var/lib/acme/dummy.crt";
-        sslCertificateKey = "/var/lib/acme/dummy.key";
+        useACMEHost = "asakiyuki.com";
         locations."/" = {
-          return = "404";
+          return = "444";
         };
       };
 
