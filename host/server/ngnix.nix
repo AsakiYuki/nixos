@@ -1,12 +1,14 @@
 {...}: {
   services.nginx = {
     enable = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
     virtualHosts = {
-      "hydra.example.com" = {
+      "git.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://localhost:3000";
+          proxyPass = "http://localhost:21350";
         };
       };
     };
