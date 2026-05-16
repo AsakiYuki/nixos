@@ -4,6 +4,14 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     virtualHosts = {
+      "*.asakiyuki.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          return = "444";
+        };
+      };
+
       "asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
