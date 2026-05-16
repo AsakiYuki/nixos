@@ -1,6 +1,6 @@
 {...}: {
   security.acme = {
     acceptTerms = true;
-    email = "me@asakiyuki.com";
+    defaults.email = "me@asakiyuki.com";
   };
 }
