@@ -7,7 +7,7 @@
       "_" = {
         default = true;
         forceSSL = true;
-        enableACME = true;
+        rejectSSL = true;
         locations."/" = {
           return = "444";
         };
