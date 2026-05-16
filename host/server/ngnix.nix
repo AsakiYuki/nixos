@@ -18,7 +18,9 @@
       "asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
-        globalRedirect = "www.asakiyuki.com";
+        locations."/" = {
+          return = "301 https://www.asakiyuki.com$request_uri";
+        };
       };
 
       "adguard.asakiyuki.com" = {
