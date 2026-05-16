@@ -2,17 +2,15 @@
   networking = {
     firewall = {
       enable = true;
-      allowedUDPPorts = [
-        53
-      ];
+      allowedUDPPorts = [53];
       allowedTCPPorts = [
-        80
-        443
+        80 # HTTP
+        443 # HTTPS
 
-        53
-        3306
+        53 # DNS
+        3306 # MySQL
 
-        15523
+        15523 # SSH
       ];
     };
 
