@@ -17,6 +17,14 @@
         globalRedirect = "www.asakiyuki.com";
       };
 
+      "static.asakiyuki.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://localhost:37284";
+        };
+      };
+
       "adguard.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
