@@ -7,11 +7,7 @@
     virtualHosts = {
       "_" = {
         default = true;
-        onlySSL = true;
-        useACMEHost = "asakiyuki.com";
-        locations."/" = {
-          return = "444";
-        };
+        rejectSSL = true;
       };
 
       "asakiyuki.com" = {
