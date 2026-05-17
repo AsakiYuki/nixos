@@ -15,9 +15,7 @@
 
     wm.niri.enable = false;
     wm.hyprland.enable = true;
-    wm.hyprland.monitor = [
-      "$CURRENT_STATE_SCREEN"
-    ];
+    wm.hyprland.monitor = ["$CURRENT_STATE_SCREEN"];
 
     bluetooth.enable = true;
     flatpak.enable = true;
