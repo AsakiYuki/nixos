@@ -13,7 +13,7 @@
   config.home.packages =
     [
       (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
-
+      (lib.mkIf config.programs.qbittorrent.enable config.programs.qbittorrent.package)
       (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)
       (lib.mkIf config.programs.jetbrains.idea.enable config.programs.jetbrains.idea.package)
       (lib.mkIf config.programs.jetbrains.datagrip.enable config.programs.jetbrains.datagrip.package)
@@ -42,6 +42,11 @@
     ++ (lib.optionals config.programs.proton-apps.enable config.programs.proton-apps.packages);
 
   options.programs = {
+    qbittorrent = {
+      enable = lib.mkEnableOption "qbittorrent";
+      package = lib.mkPackageOption pkgs "qbittorrent" {};
+    };
+
     catppuccin = {
       enable = lib.mkEnableOption "catppuccin";
       package = lib.mkOption {

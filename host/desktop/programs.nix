@@ -43,6 +43,7 @@
       datagrip.enable = true;
     };
 
+    qbittorrent.enable = true;
     easyeffects.enable = true;
     zed-editor.enable = true;
     dolphin.enable = true;
