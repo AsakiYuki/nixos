@@ -42,6 +42,7 @@
       datagrip.enable = true;
     };
 
+    rustup.enable = true;
     qbittorrent.enable = true;
     easyeffects.enable = true;
     zed-editor.enable = true;

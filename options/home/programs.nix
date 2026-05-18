@@ -13,6 +13,7 @@
   config.home.packages =
     [
       (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
+      (lib.mkIf config.programs.rustup.enable config.programs.rustup.package)
       (lib.mkIf config.programs.qbittorrent.enable config.programs.qbittorrent.package)
       (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)
       (lib.mkIf config.programs.jetbrains.idea.enable config.programs.jetbrains.idea.package)
@@ -45,6 +46,11 @@
     qbittorrent = {
       enable = lib.mkEnableOption "qbittorrent";
       package = lib.mkPackageOption pkgs "qbittorrent" {};
+    };
+
+    rustup = {
+      enable = lib.mkEnableOption "rustup";
+      package = lib.mkPackageOption pkgs "rustup" {};
     };
 
     catppuccin = {
