@@ -3,9 +3,9 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.aagl.nixosModules.default
-  ];
+  imports = [inputs.aagl.nixosModules.default];
+
+  virtualisation.vmware.host.enable = true;
 
   programs = {
     ffmpeg.enable = true;
@@ -28,14 +28,13 @@
     honkers-railway-launcher.enable = true;
     quickshell.enable = true;
     hyprland-portals.enable = true;
+    ssh.extraConfig = ''
+      Host server
+        HostName asakiyuki.com
+        User asakiyuki
+        Port 15523
+    '';
   };
-
-  programs.ssh.extraConfig = ''
-    Host server
-      HostName asakiyuki.com
-      User asakiyuki
-      Port 15523
-  '';
 
   home-manager.users.asakiyuki.programs = {
     jetbrains = {
