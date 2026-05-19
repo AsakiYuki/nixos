@@ -62,7 +62,7 @@ in {
     enable = true;
     keyMode = "vi";
     disableConfirmationPrompt = true;
-    prefix = "c-b";
+    prefix = "c-s";
 
     extraConfig = TOP_PANEL + OPTIONS + BINDS + EXTRA_CONFIG;
 
