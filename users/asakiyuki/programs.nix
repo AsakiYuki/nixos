@@ -20,6 +20,7 @@
     ../../modules/features/home/yt-dlp.nix
     ../../modules/features/home/dolphin.nix
     ../../modules/features/home/millennium.nix
+    ../../modules/features/home/fzf.nix
 
     ../../modules/programs/nixvim/_nixvim.nix
     ../../modules/programs/nixcord/default.nix

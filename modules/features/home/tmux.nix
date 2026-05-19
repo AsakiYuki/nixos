@@ -73,6 +73,14 @@ in {
           setw -g automatic-rename off
         '';
       }
+      {
+        plugin = tmux-sessionx;
+        extraConfig = ''
+          set -g @sessionx-bind 'Tab'
+          set -g @sessionx-filter-current 'false'
+          set -g @sessionx-zoxide-mode 'on'
+        '';
+      }
     ];
   };
 }
