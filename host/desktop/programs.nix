@@ -12,7 +12,6 @@
     nodejs.enable = true;
     bun.enable = true;
     brightnessctl.enable = true;
-    php.enable = true;
     ntfs3g.enable = true;
     python.enable = true;
     jdk.enable = true;

@@ -8,7 +8,7 @@
       [
         "CTRL ALT, T, exec, ${osconfig.device.programs.terminal.name}"
 
-        "SUPER SHIFT, L, exit,"
+        "SUPER SHIFT, M, exit,"
         "SUPER SHIFT, TAB, togglefloating,"
         "SUPER SHIFT, S, exec, hyprshot -m region -o '${config.home.homeDirectory}/Pictures/Screenshots/' -z"
         # "SUPER, J, layoutmsg, togglesplit"
@@ -25,6 +25,9 @@
 
         "SUPER SHIFT, mouse_up, layoutmsg, colresize +0.05"
         "SUPER SHIFT, mouse_down, layoutmsg, colresize -0.05"
+
+        "SUPER ALT, L, layoutmsg, colresize +0.05"
+        "SUPER ALT, H, layoutmsg, colresize -0.05"
 
         "SUPER, mouse:275, layoutmsg, movewindowto l"
         "SUPER, mouse:276, layoutmsg, movewindowto r"

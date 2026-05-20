@@ -16,7 +16,6 @@
       (lib.mkIf config.programs.nodejs.enable config.programs.nodejs.package)
       (lib.mkIf config.programs.bun.enable config.programs.bun.package)
       (lib.mkIf config.programs.brightnessctl.enable config.programs.brightnessctl.package)
-      (lib.mkIf config.programs.php.enable config.programs.php.package)
       (lib.mkIf config.programs.ntfs3g.enable config.programs.ntfs3g.package)
       (lib.mkIf config.programs.python.enable config.programs.python.package)
       (lib.mkIf config.programs.jdk.enable config.programs.jdk.package)
@@ -79,10 +78,6 @@
     brightnessctl = {
       enable = lib.mkEnableOption "brightnessctl";
       package = lib.mkPackageOption pkgs "brightnessctl" {};
-    };
-    php = {
-      enable = lib.mkEnableOption "php";
-      package = lib.mkPackageOption pkgs "php" {};
     };
     ntfs3g = {
       enable = lib.mkEnableOption "ntfs3g";
