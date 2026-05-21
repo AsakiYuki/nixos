@@ -8,6 +8,7 @@
   virtualisation.vmware.host.enable = true;
 
   programs = {
+    llvm.enable = true;
     ffmpeg.enable = true;
     nodejs.enable = true;
     bun.enable = true;

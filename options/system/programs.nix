@@ -29,6 +29,7 @@
       (lib.optionals config.programs.kde-packages.enable config.programs.kde-packages.packages)
       (lib.optionals config.programs.r-tensorflow.enable [config.programs.r-tensorflow.package])
       (lib.optionals (config.programs.hyprland-portals.enable && config.device.wm.hyprland.enable) config.programs.hyprland-portals.packages)
+      (lib.optionals config.programs.llvm.enable config.programs.llvm.packages)
     ];
 
   options.device.programs = {
@@ -51,6 +52,13 @@
   };
 
   options.programs = {
+    llvm = {
+      enable = lib.mkEnableOption "llvm";
+      packages = lib.mkOption {
+        type = lib.types.listOf lib.types.package;
+        default = with pkgs.llvmPackages; [llvm clang lld];
+      };
+    };
     cava = {
       enable = lib.mkEnableOption "cava";
       package = lib.mkPackageOption pkgs "cava" {};
