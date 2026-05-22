@@ -30,7 +30,7 @@
         };
 
         monitorsv2 = lib.mkOption {
-          type = lib.types.listOf lib.types.attrs;
+          type = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
           default = [];
           description = "Monitors vs settings";
         };
