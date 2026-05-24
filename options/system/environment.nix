@@ -18,22 +18,19 @@
       gnome.enable = lib.mkEnableOption "gnome";
     };
 
-    wm = {
-      niri.enable = lib.mkEnableOption "niri";
-      hyprland = {
-        enable = lib.mkEnableOption "hyprland";
+    wm.hyprland = {
+      enable = lib.mkEnableOption "hyprland";
 
-        monitor = lib.mkOption {
-          type = lib.types.listOf lib.types.str;
-          default = [];
-          description = "Monitors vs settings";
-        };
+      monitor = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [];
+        description = "Monitors vs settings";
+      };
 
-        monitorsv2 = lib.mkOption {
-          type = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
-          default = [];
-          description = "Monitors vs settings";
-        };
+      monitorsv2 = lib.mkOption {
+        type = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
+        default = [];
+        description = "Monitors vs settings";
       };
     };
   };

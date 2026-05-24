@@ -1,6 +1,3 @@
 {inputs, ...}: {
-  nixpkgs.overlays = [
-    inputs.niri.overlays.niri
-    inputs.dolphin-overlay.overlays.default
-  ];
+  nixpkgs.overlays = [inputs.dolphin-overlay.overlays.default];
 }
