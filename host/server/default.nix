@@ -8,6 +8,7 @@
     ./users.nix
     ./ssh.nix
 
+    (libs.root "/modules/programs/minecraft/default.nix")
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/packages.nix")
     (libs.root "/modules/features/system/nix-dl.nix")
