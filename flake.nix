@@ -12,6 +12,7 @@
     winegdk.url = "github:fmbearmf/winegdk-nix";
     catppuccin.url = "github:catppuccin/nix";
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     # hyprland.url = "github:hyprwm/Hyprland";
 
     millennium.url = "git+https://git.asakiyuki.com/AsakiYuki/millennium-nix.git?ref=main";
