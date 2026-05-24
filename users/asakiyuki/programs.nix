@@ -3,7 +3,8 @@
   pkgs,
   osconfig,
   ...
-}: {
+}:
+{
   imports = [
     ../../modules/features/home/ghostty.nix
     ../../modules/features/home/kitty.nix
@@ -28,28 +29,34 @@
     ../../modules/programs/hyprland/default.nix
   ];
 
-  programs.kde.kdeglobals = let
-    isTilingWindowsManager = osconfig.device.wm.hyprland.enable || osconfig.device.wm.niri.enable;
-  in {
-    initExtra = lib.optionalString isTilingWindowsManager (builtins.readFile (
-      (pkgs.catppuccin-kde.override {
-        flavour = ["mocha"];
-        accents = ["sapphire"];
-      })
-      + "/share/color-schemes/CatppuccinMochaSapphire.colors"
-    ));
-    config = lib.optionalAttrs isTilingWindowsManager {
-      UiSettings = {
-        ColorScheme = "qt6ct";
-      };
+  programs.kde.kdeglobals =
+    let
+      isTilingWindowsManager =
+        osconfig.device.wm.hyprland.enable
+        || (lib.attrByPath [ "device" "wm" "niri" "enable" ] false osconfig);
+    in
+    {
+      initExtra = lib.optionalString isTilingWindowsManager (
+        builtins.readFile (
+          (pkgs.catppuccin-kde.override {
+            flavour = [ "mocha" ];
+            accents = [ "sapphire" ];
+          })
+          + "/share/color-schemes/CatppuccinMochaSapphire.colors"
+        )
+      );
+      config = lib.optionalAttrs isTilingWindowsManager {
+        UiSettings = {
+          ColorScheme = "qt6ct";
+        };
 
-      General = {
-        TerminalApplication = osconfig.device.programs.terminal.name;
-      };
+        General = {
+          TerminalApplication = osconfig.device.programs.terminal.name;
+        };
 
-      Icons = {
-        Theme = "Papirus";
+        Icons = {
+          Theme = "Papirus";
+        };
       };
     };
-  };
 }

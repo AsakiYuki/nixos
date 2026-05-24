@@ -2,8 +2,9 @@
   osconfig,
   lib,
   ...
-}: {
-  programs.niri = lib.mkIf osconfig.device.wm.niri.enable {
+}:
+{
+  programs.niri = lib.mkIf (lib.attrByPath [ "device" "wm" "niri" "enable" ] false osconfig) {
     enable = true;
     settings = {
       binds = {
