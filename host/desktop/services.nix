@@ -1,6 +1,6 @@
 { libs, ... }:
 {
   imports = [
-    (libs.root /services/mysql.nix)
+    (libs.root /modules/services/mysql.nix)
   ];
 }
