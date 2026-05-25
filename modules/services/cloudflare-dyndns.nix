@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services.cloudflare-dyndns = {
     enable = true;
     apiTokenFile = "/home/asakiyuki/.secret/CLOUDFLARE_TOKEN_KEY";
@@ -7,6 +8,10 @@
     ipv6 = false;
     ipv4 = true;
     deleteMissing = false;
-    domains = ["asakiyuki.com" "ddns.asakiyuki.com" "mx1.asakiyuki.com"];
+    domains = [
+      "asakiyuki.com"
+      "ddns.asakiyuki.com"
+      "mx1.asakiyuki.com"
+    ];
   };
 }
