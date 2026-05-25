@@ -31,9 +31,8 @@
   }
 ]
 ++ (builtins.genList (i: {
-    mode = "n";
-    key = "<A-${toString (i + 1)}>";
-    action = "<cmd>BufferGoto ${toString (i + 1)}<CR>";
-    options.silent = true;
-  })
-  9)
+  mode = "n";
+  key = "<A-${toString (i + 1)}>";
+  action = "<cmd>BufferGoto ${toString (i + 1)}<CR>";
+  options.silent = true;
+}) 9)
