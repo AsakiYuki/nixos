@@ -5,11 +5,13 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./programs.nix
     ./device.nix
     ./users.nix
+    ./services.nix
 
     (libs.root "/modules/hardware/default.nix")
 
@@ -49,14 +51,14 @@
         name = config.device.cursors;
         size = 48;
       })
-      {pkgs = pkgs;};
+        { pkgs = pkgs; };
   };
 
   boot.kernelParams = [
     "usbcore.autosuspend=-1"
   ];
 
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   xdg.menus.enable = true;
   services.dbus.enable = true;
 }
