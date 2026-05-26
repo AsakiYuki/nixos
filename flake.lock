@@ -62,11 +62,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1779722958,
-        "narHash": "sha256-F1TZ/UM/IuYoPfN+e/98d6Auxsr/7IaaicuSAfFkUps=",
+        "lastModified": 1779741226,
+        "narHash": "sha256-2Oz1vwT1lRF16zXFpT8FoxSTF6/V6uKLsKo52Xxa0cs=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "e7bcf42850707d7ba30faf24651cd0b519c6ecdc",
+        "rev": "823da4d4f1160d7ac395fe459a4e33d9dfe57bb2",
         "type": "github"
       },
       "original": {
@@ -503,11 +503,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1779727848,
-        "narHash": "sha256-SzwGYf4N1l2TK3FWqgpa1446XjZq3/rF04xdX1vA9MU=",
+        "lastModified": 1779748545,
+        "narHash": "sha256-AbRQrrpcNTBUoIf7Kc1qsdhsRLtZ0DDw+udm+8NWlJk=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "6a2b708460b3e3387f37bb870b4f1ad22cf293f8",
+        "rev": "3754a033e05c750ef46fe4f078d79b826c4f9287",
         "type": "github"
       },
       "original": {
@@ -576,11 +576,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1779683956,
-        "narHash": "sha256-EdPBHy/AaP0aIRbDms+Wfhec5xsc6OpPGHAdi3PCp4E=",
+        "lastModified": 1779768841,
+        "narHash": "sha256-lzDWYWg0s4Vvb7lJMdM7ySEHDuSOY8fXMUAXl2ReiAo=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "b8d634f86c6aca3cb8a11a165a0cdb7bd89d2fae",
+        "rev": "8996e4e811210fc7b51ead34a8c0ae5ba8df8eef",
         "type": "github"
       },
       "original": {
@@ -1144,11 +1144,11 @@
     "xwayland-satellite-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1779591853,
-        "narHash": "sha256-osTG6d7BfV5CchHjETh3jcmZwDYrHpNcpAIyh1KyIs0=",
+        "lastModified": 1779745227,
+        "narHash": "sha256-yqY7RtEJGJiENzR0GwL6q69tSAy6xAAmAcLuIhLjPf8=",
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "rev": "3273a0fccd71da21c6362c74f3b1d1c0a89ff3ba",
+        "rev": "5d1efbc9dc3ab1c10160b656e0247f3325daf0f2",
         "type": "github"
       },
       "original": {
@@ -1164,11 +1164,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778822459,
-        "narHash": "sha256-hJlFMK7Es783KU/mhLEGC+xim/EqBMVdbsWgthquo6Y=",
+        "lastModified": 1779773014,
+        "narHash": "sha256-4bQ5dL7zbP2vKu5kfsEJICxGG3ATsOW7sP2QvaXGkHM=",
         "owner": "youwen5",
         "repo": "zen-browser-flake",
-        "rev": "90d4d395e2be09b2d314816dadd34660528c4ee4",
+        "rev": "3ff570b75cf068b0f25d0c2b3a77a0e546a4067b",
         "type": "github"
       },
       "original": {
