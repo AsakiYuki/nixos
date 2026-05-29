@@ -31,6 +31,13 @@
         max_luminance = 500;
         max_avg_luminance = 400;
       }
+      # {
+      #   output = "HDMI-A-1";
+      #   mode = "1920x1080@60";
+      #   position = "0x0";
+      #   scale = 1;
+      #   mirror = "eDP-1";
+      # }
     ];
 
     bluetooth.enable = true;
