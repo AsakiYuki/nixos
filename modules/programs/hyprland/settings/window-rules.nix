@@ -23,6 +23,12 @@
     "noblur, class:^(xwaylandvideobridge)$"
     "nofocus, class:^(xwaylandvideobridge)$"
   ];
+
+  wayland.windowManager.hyprland.settings.workspace = [
+    "1, monitor:eDP-1, default:true"
+    "11, monitor:HDMI-A-1, default:true"
+  ];
+
   wayland.windowManager.hyprland.settings.windowrulev2 = [
     "tile, class:^(Chromium)$"
     "fullscreen, initialClass:^(wlroots|Waydroid)$, initialTitle:^(wlroots - WL-1|Waydroid)$"
