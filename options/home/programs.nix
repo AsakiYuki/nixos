@@ -13,6 +13,8 @@
   config.home.packages =
     [
       (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
+      (lib.mkIf config.programs.android-tools.enable config.programs.android-tools.package)
+      (lib.mkIf config.programs.android-studio.enable config.programs.android-studio.package)
       (lib.mkIf config.programs.rustup.enable config.programs.rustup.package)
       (lib.mkIf config.programs.qbittorrent.enable config.programs.qbittorrent.package)
       (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)
@@ -46,6 +48,16 @@
     qbittorrent = {
       enable = lib.mkEnableOption "qbittorrent";
       package = lib.mkPackageOption pkgs "qbittorrent" {};
+    };
+
+    android-tools = {
+      enable = lib.mkEnableOption "android-tools";
+      package = lib.mkPackageOption pkgs "android-tools" {};
+    };
+
+    android-studio = {
+      enable = lib.mkEnableOption "android-studio";
+      package = lib.mkPackageOption pkgs "android-studio" {};
     };
 
     rustup = {

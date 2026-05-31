@@ -42,6 +42,8 @@
       datagrip.enable = true;
     };
 
+    android-studio.enable = true;
+    android-tools.enable = true;
     rustup.enable = true;
     qbittorrent.enable = true;
     easyeffects.enable = true;
