@@ -164,7 +164,7 @@
         type = lib.types.listOf lib.types.package;
         default = with pkgs; [
           xdg-desktop-portal
-          xdg-desktop-portal-wlr
+          xdg-desktop-portal-gtk
           xdg-desktop-portal-hyprland
         ];
       };

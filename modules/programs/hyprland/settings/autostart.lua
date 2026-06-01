@@ -1,5 +1,5 @@
 hl.on("hyprland.start", function ()
-    hl.exec_cmd("quickshell")
-    hl.exec_cmd("fcitx5")
-    hl.exec_cmd("easyeffects -w")
+    hl.exec_cmd("setpriv --ambient-caps -all quickshell")
+    hl.exec_cmd("setpriv --ambient-caps -all fcitx5")
+    hl.exec_cmd("setpriv --ambient-caps -all easyeffects -w")
 end)
