@@ -13,6 +13,9 @@
       local fileManager = "dolphin"
       ${builtins.readFile ./bind.lua}
 
+      -- WINDOW RULES
+      ${builtins.readFile ./window-rules.lua}
+
       -- AUTOSTART
       ${builtins.readFile ./autostart.lua}
 
