@@ -1,7 +1,8 @@
-{...}: {
+{config, ...}: {
   services.stalwart = {
     enable = true;
     openFirewall = true;
+    stateVersion = config.system.stateVersion;
 
     credentials = {
       mail-pw1 = "/etc/stalwart/mail-pw1";
