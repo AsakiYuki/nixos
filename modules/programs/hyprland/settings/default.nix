@@ -13,6 +13,9 @@
       local fileManager = "dolphin"
       ${builtins.readFile ./bind.lua}
 
+      -- AUTOSTART
+      ${builtins.readFile ./autostart.lua}
+
       -- THEME
       ${builtins.readFile ./theme.lua}
     '';
