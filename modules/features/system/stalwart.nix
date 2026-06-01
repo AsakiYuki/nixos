@@ -1,6 +1,6 @@
 {...}: {
   services.stalwart-mail = {
-    enable = true;
+    enable = false;
     openFirewall = true;
 
     credentials = {
