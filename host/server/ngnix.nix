@@ -33,13 +33,13 @@
         };
       };
 
-      "mail.asakiyuki.com" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://localhost:47291";
-        };
-      };
+      # "mail.asakiyuki.com" = {
+      #   forceSSL = true;
+      #   enableACME = true;
+      #   locations."/" = {
+      #     proxyPass = "http://localhost:47291";
+      #   };
+      # };
 
       "git.asakiyuki.com" = {
         forceSSL = true;
