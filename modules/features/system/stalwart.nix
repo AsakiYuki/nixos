@@ -1,9 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  services.stalwart-mail = {
+{...}: {
+  services.stalwart = {
     enable = true;
     openFirewall = true;
 
@@ -115,9 +111,5 @@
         secret = "%{file:/run/credentials/stalwart-mail.service/admin-pw}%";
       };
     };
-  };
-
-  services.stalwart = lib.mkIf config.services.stalwart-mail.enable {
-    stateVersion = "26.05";
   };
 }
