@@ -1,10 +1,11 @@
-{...}: {
+{ ... }:
+{
   wayland.windowManager.hyprland.settings = {
-    "$LAPTOP_TOUCHPAD_ENABLE" = false;
+    # "$LAPTOP_TOUCHPAD_ENABLE" = false;
 
     device = {
       name = "gxtp5100:00-27c6:01e0-touchpad";
-      enabled = "$LAPTOP_TOUCHPAD_ENABLE";
+      enabled = true; # "$LAPTOP_TOUCHPAD_ENABLE";
       natural_scroll = true;
     };
 

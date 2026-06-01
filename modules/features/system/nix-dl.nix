@@ -5,7 +5,7 @@
       stdenv.cc.cc
       zlib
       brotli
-      unixODBC
+      unixodbc
       zstd
       glib
       stdenv.cc.cc.lib

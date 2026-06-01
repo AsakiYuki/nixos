@@ -2,12 +2,18 @@
   unstable,
   inputs,
   ...
-}: {
-  imports = [inputs.aagl.nixosModules.default];
+}:
+{
+  imports = [ inputs.aagl.nixosModules.default ];
 
   virtualisation.vmware.host.enable = true;
 
   programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+
     llvm.enable = true;
     ffmpeg.enable = true;
     nodejs.enable = true;

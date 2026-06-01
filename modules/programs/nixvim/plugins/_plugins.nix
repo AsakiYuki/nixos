@@ -24,7 +24,7 @@
     luasnip.enable = true;
     friendly-snippets.enable = true;
     indent-blankline.enable = true;
-    barbar.enable = true;
+    barbar.enable = false;
     toggleterm.enable = true;
     auto-save.enable = true;
     visual-multi.enable = true;

@@ -1,10 +1,11 @@
 {pkgs, ...}: {
+  home-manager.useGlobalPkgs = true;
   home-manager.users.asakiyuki.files = {
     force = {};
 
-    mkForce = {
-      ".mozilla/firefox/default/search.json.mozlz4" = true;
-    };
+    # mkForce = {
+    #   ".mozilla/firefox/default/search.json.mozlz4" = true;
+    # };
 
     source = {
       ".config/qt5ct/colors/Catppuccin-Mocha.conf" = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";

@@ -11,7 +11,7 @@
     nixcord.url = "github:FlameFlag/nixcord";
     winegdk.url = "github:fmbearmf/winegdk-nix";
     catppuccin.url = "github:catppuccin/nix";
-    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
+    dolphin-overlay.url = "github:asakiyuki/dolphin-overlay";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     # hyprland.url = "github:hyprwm/Hyprland";
 
@@ -58,6 +58,7 @@
     state-version = "26.05";
     libs = import ./libs/default.nix inputs;
     custom = import ./packages/default.nix inputs;
+
     unstable = import unstablepkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;

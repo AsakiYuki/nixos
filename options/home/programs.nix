@@ -17,13 +17,11 @@
       (lib.mkIf config.programs.android-studio.enable config.programs.android-studio.package)
       (lib.mkIf config.programs.rustup.enable config.programs.rustup.package)
       (lib.mkIf config.programs.qbittorrent.enable config.programs.qbittorrent.package)
-      (lib.mkIf config.programs.antigravity.enable config.programs.antigravity.package)
       (lib.mkIf config.programs.jetbrains.idea.enable config.programs.jetbrains.idea.package)
       (lib.mkIf config.programs.jetbrains.datagrip.enable config.programs.jetbrains.datagrip.package)
       (lib.mkIf config.programs.zen-browser.enable config.programs.zen-browser.package)
       (lib.mkIf config.programs.mangohud.enable config.programs.mangohud.package)
       (lib.mkIf config.programs.telegram.enable config.programs.telegram.package)
-      (lib.mkIf config.programs.prismlauncher.enable config.programs.prismlauncher.package)
       (lib.mkIf config.programs.vlc.enable config.programs.vlc.package)
       (lib.mkIf config.programs.gimp.enable config.programs.gimp.package)
       (lib.mkIf config.programs.libreoffice.enable config.programs.libreoffice.package)
@@ -98,14 +96,6 @@
     zen-browser = {
       enable = lib.mkEnableOption "zen-browser";
       package = lib.mkPackageOption inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system} "default" {};
-    };
-    antigravity = {
-      enable = lib.mkEnableOption "antigravity";
-      package = lib.mkPackageOption pkgs "antigravity" {};
-    };
-    prismlauncher = {
-      enable = lib.mkEnableOption "prismlauncher";
-      package = lib.mkPackageOption pkgs "prismlauncher" {};
     };
     proton-ge = {
       enable = lib.mkEnableOption "proton-ge utils";
