@@ -16,6 +16,9 @@
       -- AUTOSTART
       ${builtins.readFile ./autostart.lua}
 
+      -- INPUTS
+      ${builtins.readFile ./inputs.lua}
+
       -- THEME
       ${builtins.readFile ./theme.lua}
     '';

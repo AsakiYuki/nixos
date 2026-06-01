@@ -87,7 +87,7 @@
     "flakes"
   ];
 
-  # environment.etc."usr/share/hypr".source = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.outPath + "/share/hypr/";
+  environment.etc."usr/share/hypr".source = pkgs.hyprland.outPath + "/share/hypr/";
 
   system.stateVersion = state-version;
 }
