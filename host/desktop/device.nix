@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   home-manager.users.asakiyuki.wayland.windowManager.hyprland.settings = {
     # "$SCREEN_HDR_STATE" = "srgb";
   };
@@ -16,7 +15,7 @@
 
     wm.niri.enable = false;
     wm.hyprland.enable = true;
-    wm.hyprland.monitorsv2 = [
+    wm.hyprland.monitors = [
       {
         output = "eDP-1";
         mode = "1920x1200@60";
