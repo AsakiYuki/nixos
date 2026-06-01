@@ -1,4 +1,8 @@
-{libs, ...}: {
+{
+  libs,
+  state-version,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     (libs.root "/host/server/default.nix")
@@ -15,5 +19,5 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Ho_Chi_Minh";
-  system.stateVersion = "25.11";
+  system.stateVersion = state-version;
 }

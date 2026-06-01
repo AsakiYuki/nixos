@@ -30,7 +30,7 @@ in {
 
     home = {
       username = "junko";
-      stateVersion = "25.11";
+      stateVersion = config.system.stateVersion;
     };
   };
 }

@@ -3,6 +3,7 @@
   pkgs,
   config,
   lib,
+  state-version,
   ...
 }: {
   imports = [
@@ -87,5 +88,5 @@
 
   # environment.etc."usr/share/hypr".source = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.outPath + "/share/hypr/";
 
-  system.stateVersion = "25.11";
+  system.stateVersion = state-version;
 }

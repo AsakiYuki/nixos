@@ -1,8 +1,10 @@
-{
+let
+  state-version = "26.05";
+in {
   description = "The Asa's nix configurations";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-${state-version}";
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -24,7 +26,7 @@
     };
 
     aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
+      url = "github:ezKEa/aagl-gtk-on-nix/release-${state-version}";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -39,12 +41,12 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-${state-version}";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
+      url = "github:nix-community/nixvim/nixos-${state-version}";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -69,6 +71,7 @@
         libs
         unstable
         inputs
+        state-version
         ;
     };
   in {
