@@ -1,13 +1,18 @@
 hl.window_rule({
-    match = { class = "clipse" },
+    match = { class = "(clipse)" },
     float = true,
     size = { 622, 652 },
     stay_focused = true,
 })
 
 hl.window_rule({
-    match = { class = "*" },
+    match = { class = ".*" },
     suppress_event = "maximize",
+})
+
+hl.window_rule({
+    match = { class = "^(steam_app_\\d+)$" },
+    tile = false,
 })
 
 hl.window_rule({
@@ -35,7 +40,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = { class = "^(Chromium)$" },
-    tile = true,  
+    tile = true,
 })
 
 hl.window_rule({
