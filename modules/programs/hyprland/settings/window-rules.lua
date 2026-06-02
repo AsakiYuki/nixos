@@ -41,4 +41,5 @@ hl.window_rule({
 hl.window_rule({
     match = { class = "^(wlroots|Waydroid)$", initial_title = "^(wlroots - WL-1|Waydroid)$" },
     fullscreen = true,
+    border_size = 0,
 })
