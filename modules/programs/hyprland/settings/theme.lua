@@ -3,14 +3,13 @@ hl.config({
         gaps_in = 3,
         gaps_out = 8,
         border_size = 1,
+        allow_tearing = true,
+        resize_on_border = true,
         col = {
             active_border = "rgb(cdd6f4)",
             inactive_border = "rgb(7f849c)",
         },
-        allow_tearing = true,
-        resize_on_border = true,
     },
-
 
     decoration = {
         rounding = 13,
@@ -26,18 +25,9 @@ hl.config({
         },
     },
 
-    animations = {
-        enabled = true,
-    },
-
-    dwindle = {
-        -- pseudotile = true,
-        preserve_split = true,
-    },
-
-    master = {
-        new_status = "master",
-    },
+    animations = { enabled = true, },
+    dwindle = { preserve_split = true, },
+    master = { new_status = "master", },
 
     misc = {
         force_default_wallpaper = 1,
@@ -45,9 +35,11 @@ hl.config({
     },
 })
 
+-- easing
 hl.curve("overshot", { type = "bezier", points = {{0.05, 0.9}, {0.1, 1.1}}})
 hl.curve("md3_decel", { type = "bezier", points = {{0.05, 0.7}, {0.1, 1}}})
 
+-- animations
 hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "overshot", style = "popin 60%" })
 hl.animation({ leaf = "border", enabled = true, speed = 10, bezier = "default" })
 hl.animation({ leaf = "fade", enabled = true, speed = 2, bezier = "default" })

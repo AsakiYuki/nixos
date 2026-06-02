@@ -4,7 +4,10 @@
   inputs,
   config,
   ...
-}: {
+}: let
+  cfg = config.programs;
+  getPkg = name: lib.mkIf cfg.${name}.enable cfg.${name}.package;
+in {
   imports = [
     ./programs/dolphin/imports.nix
     ./programs/kde/imports.nix
@@ -12,35 +15,36 @@
 
   config.home.packages =
     [
-      (lib.mkIf config.programs.catppuccin.enable config.programs.catppuccin.package)
-      (lib.mkIf config.programs.android-tools.enable config.programs.android-tools.package)
-      (lib.mkIf config.programs.android-studio.enable config.programs.android-studio.package)
-      (lib.mkIf config.programs.rustup.enable config.programs.rustup.package)
-      (lib.mkIf config.programs.qbittorrent.enable config.programs.qbittorrent.package)
-      (lib.mkIf config.programs.jetbrains.idea.enable config.programs.jetbrains.idea.package)
-      (lib.mkIf config.programs.jetbrains.datagrip.enable config.programs.jetbrains.datagrip.package)
-      (lib.mkIf config.programs.zen-browser.enable config.programs.zen-browser.package)
-      (lib.mkIf config.programs.mangohud.enable config.programs.mangohud.package)
-      (lib.mkIf config.programs.telegram.enable config.programs.telegram.package)
-      (lib.mkIf config.programs.vlc.enable config.programs.vlc.package)
-      (lib.mkIf config.programs.gimp.enable config.programs.gimp.package)
-      (lib.mkIf config.programs.libreoffice.enable config.programs.libreoffice.package)
-      (lib.mkIf config.programs.osu.enable config.programs.osu.package)
-      (lib.mkIf config.programs.lmstudio.enable config.programs.lmstudio.package)
-      (lib.mkIf config.programs.blender.enable config.programs.blender.package)
-      (lib.mkIf config.programs.xprop.enable config.programs.xprop.package)
-      (lib.mkIf config.programs.davinci-resolve.enable config.programs.davinci-resolve.package)
-      (lib.mkIf config.programs.wl-clipboard.enable config.programs.wl-clipboard.package)
-      (lib.mkIf config.programs.easyeffects.enable config.programs.easyeffects.package)
+      (getPkg "catppuccin")
+      (getPkg "android-tools")
+      (getPkg "android-studio")
+      (getPkg "rustup")
+      (getPkg "ghidra")
+      (getPkg "qbittorrent")
+      (lib.mkIf cfg.jetbrains.idea.enable cfg.jetbrains.idea.package)
+      (lib.mkIf cfg.jetbrains.datagrip.enable cfg.jetbrains.datagrip.package)
+      (getPkg "zen-browser")
+      (getPkg "mangohud")
+      (getPkg "telegram")
+      (getPkg "vlc")
+      (getPkg "gimp")
+      (getPkg "libreoffice")
+      (getPkg "osu")
+      (getPkg "lmstudio")
+      (getPkg "blender")
+      (getPkg "xprop")
+      (getPkg "davinci-resolve")
+      (getPkg "wl-clipboard")
+      (getPkg "easyeffects")
 
-      (lib.mkIf config.programs.pavucontrol.enable config.programs.pavucontrol.package)
-      (lib.mkIf config.programs.nwg-look.enable config.programs.nwg-look.package)
+      (getPkg "pavucontrol")
+      (getPkg "nwg-look")
 
-      (lib.mkIf config.programs.hytale.enable config.programs.hytale.package)
-      (lib.mkIf config.programs.cider.enable config.programs.cider.package)
+      (getPkg "hytale")
+      (getPkg "cider")
     ]
-    ++ (lib.optionals config.programs.proton-ge.enable config.programs.proton-ge.packages)
-    ++ (lib.optionals config.programs.proton-apps.enable config.programs.proton-apps.packages);
+    ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
+    ++ (lib.optionals cfg.proton-apps.enable cfg.proton-apps.packages);
 
   options.programs = {
     qbittorrent = {
@@ -61,6 +65,11 @@
     rustup = {
       enable = lib.mkEnableOption "rustup";
       package = lib.mkPackageOption pkgs "rustup" {};
+    };
+
+    ghidra = {
+      enable = lib.mkEnableOption "ghidra";
+      package = lib.mkPackageOption pkgs "ghidra" {};
     };
 
     catppuccin = {

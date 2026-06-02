@@ -4,32 +4,35 @@
   pkgs,
   custom,
   ...
-}: {
+}: let
+  cfg = config.programs;
+  getPkg = name: lib.mkIf cfg.${name}.enable cfg.${name}.package;
+in {
   config.environment.systemPackages =
     [
       (lib.mkIf config.virtualisation.waydroid.enable (pkgs.callPackage (custom.cage-xtmapper {}) {}))
 
-      (lib.mkIf config.programs.ffmpeg.enable config.programs.ffmpeg.package)
-      (lib.mkIf config.programs.cava.enable config.programs.cava.package)
-      (lib.mkIf config.programs.lsfg-vk.enable config.programs.lsfg-vk.package)
-      (lib.mkIf config.programs.lsfg-vk-ui.enable config.programs.lsfg-vk-ui.package)
-      (lib.mkIf config.programs.nodejs.enable config.programs.nodejs.package)
-      (lib.mkIf config.programs.bun.enable config.programs.bun.package)
-      (lib.mkIf config.programs.brightnessctl.enable config.programs.brightnessctl.package)
-      (lib.mkIf config.programs.ntfs3g.enable config.programs.ntfs3g.package)
-      (lib.mkIf config.programs.python.enable config.programs.python.package)
-      (lib.mkIf config.programs.jdk.enable config.programs.jdk.package)
+      (getPkg "ffmpeg")
+      (getPkg "cava")
+      (getPkg "lsfg-vk")
+      (getPkg "lsfg-vk-ui")
+      (getPkg "nodejs")
+      (getPkg "bun")
+      (getPkg "brightnessctl")
+      (getPkg "ntfs3g")
+      (getPkg "python")
+      (getPkg "jdk")
 
-      (lib.mkIf config.programs.quickshell.enable config.programs.quickshell.package)
-      (lib.mkIf config.programs.papirus-icons.enable config.programs.papirus-icons.package)
+      (getPkg "quickshell")
+      (getPkg "papirus-icons")
     ]
     ++ lib.concatLists [
-      (lib.optionals config.programs.gcc.enable config.programs.gcc.packages)
-      (lib.optionals config.programs.winepackages.enable config.programs.winepackages.packages)
-      (lib.optionals config.programs.kde-packages.enable config.programs.kde-packages.packages)
-      (lib.optionals config.programs.r-tensorflow.enable [config.programs.r-tensorflow.package])
-      (lib.optionals (config.programs.hyprland-portals.enable && config.device.wm.hyprland.enable) config.programs.hyprland-portals.packages)
-      (lib.optionals config.programs.llvm.enable config.programs.llvm.packages)
+      (lib.optionals cfg.gcc.enable cfg.gcc.packages)
+      (lib.optionals cfg.winepackages.enable cfg.winepackages.packages)
+      (lib.optionals cfg.kde-packages.enable cfg.kde-packages.packages)
+      (lib.optionals cfg.r-tensorflow.enable [cfg.r-tensorflow.package])
+      (lib.optionals (cfg.hyprland-portals.enable && config.device.wm.hyprland.enable) cfg.hyprland-portals.packages)
+      (lib.optionals cfg.llvm.enable cfg.llvm.packages)
     ];
 
   options.device.programs = {

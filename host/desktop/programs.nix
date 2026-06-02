@@ -2,9 +2,8 @@
   unstable,
   inputs,
   ...
-}:
-{
-  imports = [ inputs.aagl.nixosModules.default ];
+}: {
+  imports = [inputs.aagl.nixosModules.default];
 
   virtualisation.vmware.host.enable = true;
 
@@ -50,6 +49,7 @@
 
     android-studio.enable = true;
     android-tools.enable = true;
+    ghidra.enable = true;
     rustup.enable = true;
     qbittorrent.enable = true;
     easyeffects.enable = true;
