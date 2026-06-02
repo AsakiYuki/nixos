@@ -15,6 +15,9 @@
       -- WINDOW RULES
       ${builtins.readFile ./window-rules.lua}
 
+      -- WORKSPACES RULES
+      ${builtins.readFile ./workspace-rules.lua}
+
       -- AUTOSTART
       ${builtins.readFile ./autostart.lua}
 
