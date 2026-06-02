@@ -10,7 +10,7 @@
       local terminal = "${osconfig.device.programs.terminal.name}"
       local homeDir = "${config.home.homeDirectory}"
       local fileManager = "dolphin"
-      ${builtins.readFile ./bind.lua}
+      ${builtins.readFile ./keybind.lua}
 
       -- WINDOW RULES
       ${builtins.readFile ./window-rules.lua}
