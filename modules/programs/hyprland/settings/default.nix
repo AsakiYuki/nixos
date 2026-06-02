@@ -1,10 +1,9 @@
 {
   osconfig,
   config,
+  lib,
   ...
 }: {
-  imports = [./monitors.nix];
-
   wayland.windowManager.hyprland = {
     extraConfig = ''
       -- KEYBIND
@@ -24,6 +23,9 @@
 
       -- THEME
       ${builtins.readFile ./theme.lua}
+
+      -- OS EXTRA CONFIGS
+      ${lib.attrByPath ["device" "wm" "hyprland" "extraConfig"] "" osconfig}
     '';
   };
 }

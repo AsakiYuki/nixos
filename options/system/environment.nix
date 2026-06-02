@@ -21,10 +21,10 @@
     wm.hyprland = {
       enable = lib.mkEnableOption "hyprland";
 
-      monitors = lib.mkOption {
-        type = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
-        default = [];
-        description = "Monitors vs settings";
+      extraConfig = lib.mkOption {
+        type = lib.types.str;
+        default = "";
+        description = "Extra Hyprland configuration to be appended to the generated config.";
       };
     };
   };

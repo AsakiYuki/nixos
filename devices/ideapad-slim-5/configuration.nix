@@ -87,6 +87,8 @@
     "flakes"
   ];
 
+  device.wm.hyprland.extraConfig = builtins.readFile ./hyprland.lua;
+
   environment.etc."usr/share/hypr".source = pkgs.hyprland.outPath + "/share/hypr/";
 
   system.stateVersion = state-version;
