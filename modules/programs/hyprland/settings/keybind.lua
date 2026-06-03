@@ -62,7 +62,7 @@ hl.bind("SUPER + D", function ()
    hl.dispatch(
       hl.dsp.window.move({
          x = monitor.size["width"] / 2 - window.size["x"] / 2,
-         y = (monitor.size["height"] - 50) / 2 - window.size["y"] / 2,
+         y = ((monitor.size["height"] - 50) / 2 - window.size["y"] / 2) + 50,
       })
    )
 end)
