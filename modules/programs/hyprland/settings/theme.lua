@@ -28,11 +28,6 @@ hl.config({
     animations = { enabled = true, },
     dwindle = { preserve_split = true, },
     master = { new_status = "master", },
-
-    misc = {
-        force_default_wallpaper = 1,
-        disable_hyprland_logo = true,
-    },
 })
 
 -- easing

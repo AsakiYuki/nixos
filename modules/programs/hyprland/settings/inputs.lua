@@ -4,10 +4,6 @@ hl.device({
 })
 
 hl.config({
-    misc = {
-        middle_click_paste = false,
-    },
-
     input = {
         touchpad = {
             natural_scroll = true,

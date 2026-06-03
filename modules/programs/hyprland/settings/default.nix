@@ -6,6 +6,9 @@
 }: {
   wayland.windowManager.hyprland = {
     extraConfig = ''
+      -- GENERAL HYPRLAND CONFIGURATIONS
+      ${builtins.readFile ./hyprland.lua}
+
       -- KEYBIND
       local terminal = "${osconfig.device.programs.terminal.name}"
       local homeDir = "${config.home.homeDirectory}"

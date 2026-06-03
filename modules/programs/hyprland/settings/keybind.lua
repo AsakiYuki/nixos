@@ -51,3 +51,7 @@ hl.bind("Caps_Lock", hl.dsp.global("asakiyuki:capslock"), { ignore_mods = true }
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+hl.bind("SUPER + D", function ()
+   
+end)
