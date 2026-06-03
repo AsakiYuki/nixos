@@ -53,5 +53,17 @@ hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 hl.bind("SUPER + D", function ()
-   
+   local window = hl.get_active_window()
+   local monitor = hl.get_active_monitor()
+
+   if (window == nil or not window.floating or monitor == nil) then
+      return
+   end
+
+   hl.dispatch(
+      hl.dsp.window.move({
+         x = monitor.size["width"] / 2 - window.size["x"] / 2,
+         y = monitor.size["height"] / 2 - window.size["y"] / 2,
+      })
+   )
 end)
