@@ -1,3 +1,10 @@
+-- touchpad
+hl.device({
+    name = "gxtp5100:00-27c6:01e0-touchpad",
+    enabled = true,
+})
+
+-- monitors
 hl.monitor({
     output = "eDP-1",
     mode = "1920x1200@60",

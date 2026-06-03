@@ -1,8 +1,3 @@
-hl.device({
-    name = "gxtp5100:00-27c6:01e0-touchpad",
-    enabled = false,
-})
-
 hl.config({
     input = {
         touchpad = {
