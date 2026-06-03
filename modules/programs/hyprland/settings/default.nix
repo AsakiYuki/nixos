@@ -6,6 +6,9 @@
 }: {
   wayland.windowManager.hyprland = {
     extraConfig = ''
+      -- SOME DUMB SHIT UTILS FOR LUA
+      ${builtins.readFile ./utils.lua}
+
       -- GENERAL HYPRLAND CONFIGURATIONS
       ${builtins.readFile ./hyprland.lua}
 
