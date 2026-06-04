@@ -1,5 +1,5 @@
 if (not (TouchpadName == nil)) then
-    TouchpadToggle(true)
+    TouchpadToggle(false)
 end
 
 hl.config({
