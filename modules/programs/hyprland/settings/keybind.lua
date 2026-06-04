@@ -48,6 +48,7 @@ hl.bind("SUPER + mouse:275", hl.dsp.window.move({ direction = "left" }))
 hl.bind("SUPER + mouse:276", hl.dsp.window.move({ direction = "right" }))
 
 hl.bind("Caps_Lock", hl.dsp.global("asakiyuki:capslock"), { ignore_mods = true })
+hl.bind("XF86TouchpadToggle", hl.dsp.global("asakiyuki:touchpadtoggle"), { ignore_mods = true })
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })

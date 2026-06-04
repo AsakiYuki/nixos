@@ -1,8 +1,5 @@
 if (not (TouchpadName == nil)) then
-    hl.device({
-        name = TouchpadName,
-        enabled = false,
-    })
+    TouchpadToggle(true)
 end
 
 hl.config({
