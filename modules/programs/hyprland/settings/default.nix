@@ -6,16 +6,24 @@
 }: {
   wayland.windowManager.hyprland = {
     extraConfig = ''
+      -- Global Variables
+      TouchpadName = nil
+
+      -- Local Variables
+      local terminal = "${osconfig.device.programs.terminal.name}"
+      local homeDir = "${config.home.homeDirectory}"
+      local fileManager = "dolphin"
+
       -- SOME DUMB SHIT UTILS FOR LUA
       ${builtins.readFile ./utils.lua}
+
+       -- OS EXTRA CONFIGS
+      ${lib.attrByPath ["device" "wm" "hyprland" "extraConfig"] "" osconfig}
 
       -- GENERAL HYPRLAND CONFIGURATIONS
       ${builtins.readFile ./hyprland.lua}
 
       -- KEYBIND
-      local terminal = "${osconfig.device.programs.terminal.name}"
-      local homeDir = "${config.home.homeDirectory}"
-      local fileManager = "dolphin"
       ${builtins.readFile ./keybind.lua}
 
       -- WINDOW RULES
@@ -32,9 +40,6 @@
 
       -- THEME
       ${builtins.readFile ./theme.lua}
-
-      -- OS EXTRA CONFIGS
-      ${lib.attrByPath ["device" "wm" "hyprland" "extraConfig"] "" osconfig}
     '';
   };
 }

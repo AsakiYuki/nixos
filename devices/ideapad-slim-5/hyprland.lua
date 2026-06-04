@@ -1,8 +1,4 @@
--- touchpad
-hl.device({
-    name = "gxtp5100:00-27c6:01e0-touchpad",
-    enabled = true,
-})
+TouchpadName = "gxtp5100:00-27c6:01e0-touchpad"
 
 -- monitors
 hl.monitor({

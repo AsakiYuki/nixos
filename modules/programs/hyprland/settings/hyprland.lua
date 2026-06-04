@@ -1,3 +1,10 @@
+if (not (TouchpadName == nil)) then
+    hl.device({
+        name = TouchpadName,
+        enabled = false,
+    })
+end
+
 hl.config({
     misc = {
         force_default_wallpaper = 0,
