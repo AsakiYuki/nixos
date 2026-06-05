@@ -1,6 +1,6 @@
-{...}: {
+{pkgs, ...}: {
   programs.steam = {
     enable = true;
-    # millennium.enable = true;
+    package = pkgs.millennium-steam;
   };
 }
