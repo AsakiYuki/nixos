@@ -70,7 +70,7 @@
     xprop.enable = true;
     pavucontrol.enable = true;
     nwg-look.enable = true;
-    hytale.enable = true;
+    hytale-launcher.enable = true;
     cider.enable = true;
     proton-ge.enable = true;
     proton-apps.enable = true;

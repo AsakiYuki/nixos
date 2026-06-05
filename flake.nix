@@ -56,7 +56,7 @@
     custom = import ./packages/default.nix inputs;
 
     unstable = import unstablepkgs {
-      system = "x86_64-linux";
+      localSystem = "x86_64-linux";
       config.allowUnfree = true;
     };
 

@@ -40,7 +40,7 @@ in {
       (getPkg "pavucontrol")
       (getPkg "nwg-look")
 
-      (getPkg "hytale")
+      (getPkg "hytale-launcher")
       (getPkg "cider")
     ]
     ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
@@ -178,11 +178,11 @@ in {
       enable = lib.mkEnableOption "davinci-resolve";
       package = lib.mkPackageOption pkgs "davinci-resolve" {};
     };
-    hytale = {
+    hytale-launcher = {
       enable = lib.mkEnableOption "hytale-launcher";
       package = lib.mkOption {
         type = lib.types.package;
-        default = inputs.hytale-launcher.packages.${pkgs.system}.default;
+        default = inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default;
       };
     };
     cider = {
