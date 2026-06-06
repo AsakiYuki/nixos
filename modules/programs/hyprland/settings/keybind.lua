@@ -12,6 +12,7 @@ hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind("SUPER + ALT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 
 hl.bind("ALT + SPACE", hl.dsp.global("asakiyuki:launcher"))
+hl.bind("META + F", hl.dsp.window({ mode = "fullscreen", action = "toggle" }))
 
 for i = 1, 10 do
    local key = i % 10

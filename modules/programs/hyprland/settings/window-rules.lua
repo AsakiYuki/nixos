@@ -48,3 +48,14 @@ hl.window_rule({
     fullscreen = true,
     border_size = 0,
 })
+
+hl.window_rule({
+    match = { initial_class = "windowkill", initial_title = "Godot" },
+    no_blur = true,
+    no_anim = true,
+    border_size = 0,
+    rounding = 0,
+    rounding_power = 1,
+    decorate = false,
+    no_shadow = true,
+})
