@@ -39,6 +39,7 @@ in {
 
       (getPkg "pavucontrol")
       (getPkg "nwg-look")
+      (getPkg "tldr")
 
       (getPkg "hytale-launcher")
       (getPkg "cider")
