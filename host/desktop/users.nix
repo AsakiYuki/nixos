@@ -17,7 +17,7 @@
       "SteamApps" = ".local/share/Steam/steamapps";
       "Development/Quickshell" = ".config/quickshell";
       ".local/share/honkers-railway-launcher/HSR" = "Games/HonkaiStarRail";
-      ".local/share/Steam/steamapps/common/Wuthering Waves" = "Games/WutheringWaves";
+      # ".local/share/Steam/steamapps/common/Wuthering Waves" = "Games/WutheringWaves";
       # "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
       # "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
       # "Development/DesktopEffects" = ".local/share/kwin/effects";
