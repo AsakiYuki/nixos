@@ -81,6 +81,7 @@
     wl-clipboard.enable = true;
     telegram.enable = true;
     zen-browser.enable = true;
+    tldr.enable = true;
 
     lmstudio = {
       enable = true;
