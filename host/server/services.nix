@@ -1,6 +1,6 @@
 {libs, ...}: {
   imports = [
-    ./ngnix.nix
+    ./nginx.nix
     ./acme.nix
 
     (libs.root "/modules/features/system/forgejo.nix")
