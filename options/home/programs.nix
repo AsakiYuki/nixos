@@ -116,6 +116,10 @@ in {
         ];
       };
     };
+    tldr = {
+      enable = lib.mkEnableOption "tldr";
+      package = lib.mkPackageOption pkgs "tldr" {};
+    };
     vlc = {
       enable = lib.mkEnableOption "vlc";
       package = lib.mkPackageOption pkgs "vlc" {};
