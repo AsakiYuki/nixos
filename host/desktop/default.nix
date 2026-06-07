@@ -11,11 +11,13 @@
     ./device.nix
     ./users.nix
     ./services.nix
+    ./ssh.nix
 
     (libs.root "/modules/hardware/default.nix")
 
     (libs.root "/modules/fonts.nix")
 
+    (libs.root "/modules/services/fail2ban.nix")
     (libs.root "/modules/features/system/packages.nix")
     (libs.root "/modules/features/system/waydroid.nix")
     (libs.root "/modules/features/system/boot.nix")
