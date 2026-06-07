@@ -7,7 +7,9 @@
     enable = true;
     ports = [22];
     settings = {
-      AllowUsers = null;
+      AllowUsers = [
+        "asakiyuki"
+      ];
     };
   };
 }
