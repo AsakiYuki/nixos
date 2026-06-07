@@ -12,8 +12,6 @@
     (libs.root "/host/desktop/default.nix")
   ];
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
   time.timeZone = "Asia/Ho_Chi_Minh";
   nixpkgs.config.allowUnfree = true;
 

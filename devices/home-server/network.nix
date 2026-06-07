@@ -1,18 +1,18 @@
 {...}: {
   networking = {
-    firewall = {
-      enable = true;
-      allowedUDPPorts = [53];
-      allowedTCPPorts = [
-        80 # HTTP
-        443 # HTTPS
+    hostName = "nixos";
 
-        53 # DNS
-        3306 # MySQL
+    firewall.enable = true;
+    firewall.allowedUDPPorts = [53];
+    firewall.allowedTCPPorts = [
+      80 # HTTP
+      443 # HTTPS
 
-        15523 # SSH
-      ];
-    };
+      53 # DNS
+      3306 # MySQL
+
+      15523 # SSH
+    ];
 
     useDHCP = false;
     networkmanager.enable = true;
