@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./mount.nix
+    ./network.nix
     (libs.root "/host/desktop/default.nix")
   ];
 
