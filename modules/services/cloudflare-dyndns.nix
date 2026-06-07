@@ -1,8 +1,7 @@
-{ ... }:
-{
+{...}: {
   services.cloudflare-dyndns = {
     enable = true;
-    apiTokenFile = "/home/asakiyuki/.secret/CLOUDFLARE_TOKEN_KEY";
+    apiTokenFile = "/home/asakiyuki/SECRET/CLOUDFLARE_TOKEN_KEY";
     frequency = ":0/5";
     proxied = false;
     ipv6 = false;
