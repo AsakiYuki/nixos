@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./network.nix
     (libs.root "/host/server/default.nix")
   ];
 
