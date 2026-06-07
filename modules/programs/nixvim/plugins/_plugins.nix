@@ -15,6 +15,7 @@
 
     web-devicons.enable = true;
     lz-n.enable = true;
+    # barbar.enable = true;
     treesitter.enable = true;
     lualine.enable = true;
     neoscroll.enable = true;
@@ -24,7 +25,6 @@
     luasnip.enable = true;
     friendly-snippets.enable = true;
     indent-blankline.enable = true;
-    barbar.enable = false;
     toggleterm.enable = true;
     auto-save.enable = true;
     visual-multi.enable = true;
