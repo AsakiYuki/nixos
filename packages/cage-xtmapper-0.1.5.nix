@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   RELEASE_VERSION = "20260208";
   PACKAGE_VERSION = "0.1.5";
+  HASH = "sha256-ZmdltOQInGbCBpf/e8D2sB9Rjt4wqd8wwuSFvryHfFA=";
 in
   pkgs.stdenv.mkDerivation {
     pname = "cage-xtmapper";
@@ -8,7 +9,7 @@ in
 
     src = pkgs.fetchurl {
       url = "https://github.com/Xtr126/cage-xtmapper/releases/download/v${RELEASE_VERSION}/cage-xtmapper-v${PACKAGE_VERSION}.tar";
-      hash = "sha256-ZmdltOQInGbCBpf/e8D2sB9Rjt4wqd8wwuSFvryHfFA=";
+      hash = HASH;
     };
 
     nativeBuildInputs = [pkgs.autoPatchelfHook];
