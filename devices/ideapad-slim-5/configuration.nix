@@ -16,55 +16,80 @@
   time.timeZone = "Asia/Ho_Chi_Minh";
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelParams = ["amd_pstate=active" "nowatchdog" "modprobe.blacklist=sp5100_tco"];
-  boot.supportedFilesystems = ["ntfs"];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
+  boot = {
+    kernelParams = ["amd_pstate=active" "nowatchdog" "modprobe.blacklist=sp5100_tco"];
+    supportedFilesystems = ["ntfs"];
+    kernelPackages = pkgs.linuxPackages_zen;
+    extraModulePackages = [config.boot.kernelPackages.zenpower];
 
-  boot.loader.systemd-boot.configurationLimit = 5;
-  home-manager.users.asakiyuki.home.sessionVariables = {
-    QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
-    QML2_IMPORT_PATH = "/etc/profiles/per-user/asakiyuki/lib/qt-6/qml";
-  };
+    loader = {
+      systemd-boot.configurationLimit = 5;
+      systemd-boot.enable = lib.mkForce false;
+    };
 
-  hardware.amdgpu.initrd.enable = true;
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
-  nix.settings.auto-optimise-store = true;
-
-  services.power-profiles-daemon.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
-
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
-  };
-
-  systemd.services.sync-windows-bootloader = {
-    description = "Sync Windows bootloader to Linux ESP";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.rsync}/bin/rsync -a --delete /mnt/win-efi/EFI/Microsoft/ /boot/EFI/Microsoft/";
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
     };
   };
 
-  systemd.paths.sync-windows-bootloader = {
-    description = "Watch Windows EFI for bootloader changes";
-    pathConfig = {
-      PathChanged = "/mnt/win-efi/EFI/Microsoft/Boot/bootmgfw.efi";
-      Unit = "sync-windows-bootloader.service";
+  hardware = {
+    amdgpu.initrd.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
     };
-    wantedBy = ["multi-user.target"];
+  };
+
+  systemd = {
+    services.sync-windows-bootloader = {
+      description = "Sync Windows bootloader to Linux ESP";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.rsync}/bin/rsync -a --delete /mnt/win-efi/EFI/Microsoft/ /boot/EFI/Microsoft/";
+      };
+    };
+
+    paths.sync-windows-bootloader = {
+      description = "Watch Windows EFI for bootloader changes";
+      pathConfig = {
+        PathChanged = "/mnt/win-efi/EFI/Microsoft/Boot/bootmgfw.efi";
+        Unit = "sync-windows-bootloader.service";
+      };
+      wantedBy = ["multi-user.target"];
+    };
+  };
+
+  services = {
+    power-profiles-daemon.enable = true;
+    xserver.videoDrivers = ["amdgpu"];
+  };
+
+  environment = {
+    etc = {
+      "usr/share/hypr".source = pkgs.hyprland.outPath + "/share/hypr/";
+    };
+
+    variables = {
+      QML_IMPORT_PATH = "/run/current-system/sw/lib/qt-6/qml";
+      QML2_IMPORT_PATH = "/etc/profiles/per-user/asakiyuki/lib/qt-6/qml";
+    };
+  };
+
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -80,14 +105,7 @@
     rsync
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   device.wm.hyprland.extraConfig = builtins.readFile ./hyprland.lua;
-
-  environment.etc."usr/share/hypr".source = pkgs.hyprland.outPath + "/share/hypr/";
 
   system.stateVersion = state-version;
 }
