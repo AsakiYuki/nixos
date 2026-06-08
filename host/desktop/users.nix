@@ -22,7 +22,6 @@
       "Games/zalo/drive_c/users/Public/Downloads" = "Downloads";
       "Games/zalo/drive_c/users/Public/Documents" = "Documents";
 
-      # ".local/share/Steam/steamapps/common/Wuthering Waves" = "Games/WutheringWaves";
       # "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
       # "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
       # "Development/DesktopEffects" = ".local/share/kwin/effects";
