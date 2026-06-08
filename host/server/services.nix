@@ -34,19 +34,6 @@
       openFirewall = true;
     };
 
-    openssh = {
-      authorizedKeysInHomedir = true;
-      authorizedKeysFiles = ["/home/asakiyuki/.ssh/authorized_keys"];
-      settings = {
-        PasswordAuthentication = true;
-        KbdInteractiveAuthentication = false;
-        AllowAgentForwarding = false;
-        AllowStreamLocalForwarding = false;
-        X11Forwarding = false;
-        PermitRootLogin = "no";
-      };
-    };
-
     httpd = {
       enable = true;
       adminAddr = "vantrong2007vn@gmail.com";
