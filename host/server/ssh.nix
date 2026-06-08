@@ -1,6 +1,6 @@
 {libs, ...}: {
   imports = [
-    (libs.root "/modules/features/openssh.nix")
+    (libs.root "/modules/features/system/openssh.nix")
   ];
 
   services.openssh = {

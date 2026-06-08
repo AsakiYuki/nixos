@@ -1,5 +1,7 @@
 {pkgs, ...}: {
   services = {
+    fail2ban.enable = true;
+
     mysql = {
       enable = true;
       package = pkgs.mariadb;
