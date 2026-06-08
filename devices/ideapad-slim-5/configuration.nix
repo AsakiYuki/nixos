@@ -97,7 +97,6 @@
     php85
     php85Packages.composer
     intelephense
-    kitty
 
     lm_sensors
     ryzenadj
