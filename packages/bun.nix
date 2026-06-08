@@ -1,11 +1,11 @@
 {pkgs, ...}:
 pkgs.stdenv.mkDerivation rec {
   pname = "bun";
-  version = "1.3.13";
+  version = "1.3.14";
 
   src = pkgs.fetchzip {
     url = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-linux-x64-baseline.zip";
-    hash = "sha256-39w4IMLFa7xLRBlMBBDASU1BhnjzR3jyswEYFysfBXo=";
+    hash = "sha256-vglDdJBMSzCC7+NrMg1CP+Dq052aWvDGGfdP6H23xf8=";
   };
 
   dontBuild = true;
