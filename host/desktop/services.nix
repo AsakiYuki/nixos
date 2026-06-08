@@ -1,12 +1,4 @@
-{
-  libs,
-  pkgs,
-  ...
-}: {
-  imports = [
-    (libs.root /modules/services/mysql.nix)
-  ];
-
+{pkgs, ...}: {
   services = {
     mysql = {
       enable = true;
