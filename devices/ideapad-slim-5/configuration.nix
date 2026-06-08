@@ -17,7 +17,6 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.kernelParams = ["amd_pstate=active" "nowatchdog" "modprobe.blacklist=sp5100_tco"];
-  boot.kernelModules = ["ideapad_laptop"];
   boot.supportedFilesystems = ["ntfs"];
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
@@ -28,13 +27,11 @@
     QML2_IMPORT_PATH = "/etc/profiles/per-user/asakiyuki/lib/qt-6/qml";
   };
 
-  # hardware.graphics = let
-  #   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  # in {
-  #   package = pkgs-unstable.mesa;
-  #   package32 = pkgs-unstable.pkgsi686Linux.mesa;
-  #   enable32Bit = true;
-  # };
+  hardware.amdgpu.initrd.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   nix.gc = {
     automatic = true;
@@ -43,7 +40,9 @@
   };
 
   nix.settings.auto-optimise-store = true;
+
   services.power-profiles-daemon.enable = true;
+  services.xserver.videoDrivers = ["amdgpu"];
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.lanzaboote = {
