@@ -1,19 +1,96 @@
-{libs, ...}: {
+{
+  libs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./nginx.nix
     ./acme.nix
 
     (libs.root "/modules/features/system/forgejo.nix")
-    (libs.root "/modules/services/adguardhome.nix")
-    (libs.root "/modules/services/cloudflare-dyndns.nix")
-    (libs.root "/modules/services/fail2ban.nix")
-    (libs.root "/modules/services/openssh.nix")
-    (libs.root "/modules/services/httpd.nix")
-    (libs.root "/modules/services/mysql.nix")
   ];
 
-  services.logrotate = {
-    enable = true;
-    checkConfig = false;
+  services = {
+    logrotate = {
+      enable = true;
+      checkConfig = false;
+    };
+
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
+
+    fail2ban = {
+      enable = true;
+      ignoreIP = [
+        "192.168.0.0/16"
+      ];
+    };
+
+    adguardhome = {
+      enable = true;
+      port = 34778;
+      openFirewall = true;
+    };
+
+    openssh = {
+      authorizedKeysInHomedir = true;
+      authorizedKeysFiles = ["/home/asakiyuki/.ssh/authorized_keys"];
+      settings = {
+        PasswordAuthentication = true;
+        KbdInteractiveAuthentication = false;
+        AllowAgentForwarding = false;
+        AllowStreamLocalForwarding = false;
+        X11Forwarding = false;
+        PermitRootLogin = "no";
+      };
+    };
+
+    httpd = {
+      enable = true;
+      adminAddr = "vantrong2007vn@gmail.com";
+
+      user = "static";
+      group = "public";
+
+      virtualHosts = {
+        localhost = {
+          documentRoot = "/home/PUBLIC";
+          listen = [
+            {
+              ip = "0.0.0.0";
+              port = 37284;
+            }
+          ];
+          extraConfig = ''
+            <Directory "/home/PUBLIC">
+                Options -Indexes +FollowSymLinks
+                AllowOverride None
+                Require all granted
+
+                <LimitExcept GET HEAD OPTIONS>
+                    Require all denied
+                </LimitExcept>
+            </Directory>
+          '';
+        };
+      };
+    };
+
+    cloudflare-dyndns = {
+      enable = true;
+      apiTokenFile = "/home/asakiyuki/SECRET/CLOUDFLARE_TOKEN_KEY";
+      frequency = ":0/5";
+      proxied = false;
+      ipv6 = false;
+      ipv4 = true;
+      deleteMissing = false;
+      domains = [
+        "asakiyuki.com"
+        "ddns.asakiyuki.com"
+        "mx1.asakiyuki.com"
+      ];
+    };
   };
 }

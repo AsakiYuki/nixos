@@ -39,7 +39,6 @@
 
     (libs.root "/users/asakiyuki/configuration.nix")
 
-    (libs.root "/modules/services/pipewire.nix")
     (libs.root "/modules/home-manager.nix")
 
     (libs.root "/overlays/nixpkgs.nix")
