@@ -13,7 +13,6 @@
     ../../modules/features/home/starship.nix
     ../../modules/features/home/tmux.nix
     ../../modules/features/home/fastfetch.nix
-    ../../modules/features/home/vscode.nix
     ../../modules/features/home/obs-studio.nix
     ../../modules/features/home/xdg.nix
     ../../modules/features/home/git.nix

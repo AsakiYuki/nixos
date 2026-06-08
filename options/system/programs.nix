@@ -50,8 +50,6 @@ in {
     starship.enable = lib.mkEnableOption "starship";
     fastfetch.enable = lib.mkEnableOption "fastfetch";
     steam.enable = lib.mkEnableOption "steam";
-
-    obs-studio.enable = lib.mkEnableOption "Obs Studio";
   };
 
   options.programs = {

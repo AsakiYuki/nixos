@@ -24,7 +24,6 @@
         enable = true;
         name = "ghostty";
       };
-      obs-studio.enable = true;
       nixcord.enable = true;
       tmux.enable = true;
       starship.enable = true;

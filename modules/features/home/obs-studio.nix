@@ -2,10 +2,9 @@
   pkgs,
   custom,
   lib,
-  osconfig,
+  config,
   ...
 }:
-lib.mkIf osconfig.device.programs.obs-studio.enable {
-  programs.obs-studio.enable = true;
+lib.mkIf config.programs.obs-studio.enable {
   home.file.".config/obs-studio/themes".source = pkgs.callPackage custom.catppuccin-obs {};
 }

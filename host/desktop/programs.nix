@@ -82,10 +82,16 @@
     telegram.enable = true;
     zen-browser.enable = true;
     tldr.enable = true;
+    obs-studio.enable = true;
 
     lmstudio = {
       enable = true;
       package = unstable.lmstudio;
+    };
+
+    vscode = {
+      enable = true;
+      package = unstable.vscode;
     };
   };
 }
