@@ -20,9 +20,9 @@
       themeLinks = ["https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css"];
 
       plugins = {
-        blurNSFW.enable = true;
+        blurNsfw.enable = true;
         volumeBooster.enable = true;
-        clearURLs.enable = true;
+        clearUrls.enable = true;
         copyEmojiMarkdown.enable = true;
         youtubeAdblock.enable = true;
         experiments.enable = true;
