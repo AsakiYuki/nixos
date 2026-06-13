@@ -1,6 +1,7 @@
 {
   unstable,
   inputs,
+  custom,
   ...
 }: {
   imports = [inputs.aagl.nixosModules.default];
@@ -71,7 +72,6 @@
     pavucontrol.enable = true;
     nwg-look.enable = true;
     hytale-launcher.enable = true;
-    cider.enable = true;
     proton-ge.enable = true;
     proton-apps.enable = true;
     firefox.enable = true;
@@ -83,6 +83,11 @@
     zen-browser.enable = true;
     tldr.enable = true;
     obs-studio.enable = true;
+
+    cider = {
+      enable = true;
+      package = custom.cider-2;
+    };
 
     lmstudio = {
       enable = true;
