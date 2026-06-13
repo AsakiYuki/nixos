@@ -6,4 +6,6 @@ pkgs.cider-2.overrideAttrs (prevAtts: rec {
     url = "https://static.asakiyuki.com/packages/nixos/cider-v${version}-linux-x64.deb";
     hash = "sha256-Z5B7VQatTEktt4e7aF5EGDTufgwfRHJzCZ1Lia/aIFk=";
   };
+
+  postInstall = builtins.replaceStrings ["--replace-fail"] ["--replace-warn"] prevAtts.postInstall;
 })

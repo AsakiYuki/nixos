@@ -2,6 +2,7 @@
   unstable,
   inputs,
   custom,
+  pkgs,
   ...
 }: {
   imports = [inputs.aagl.nixosModules.default];
@@ -86,7 +87,7 @@
 
     cider = {
       enable = true;
-      package = custom.cider-2;
+      package = pkgs.callPackage custom.cider-2 {};
     };
 
     lmstudio = {
