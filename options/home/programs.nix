@@ -19,6 +19,7 @@ in {
       (getPkg "poppler-utils")
       (getPkg "img2pdf")
       (getPkg "qpdf")
+      (getPkg "ladybird")
       (getPkg "android-tools")
       (getPkg "android-studio")
       (getPkg "rustup")
@@ -59,6 +60,11 @@ in {
     qpdf = {
       enable = lib.mkEnableOption "qpdf";
       package = lib.mkPackageOption pkgs "qpdf" {};
+    };
+
+    ladybird = {
+      enable = lib.mkEnableOption "ladybird";
+      package = lib.mkPackageOption pkgs "ladybird" {};
     };
 
     poppler-utils = {
