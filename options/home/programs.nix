@@ -16,6 +16,8 @@ in {
   config.home.packages =
     [
       (getPkg "catppuccin")
+      (getPkg "poppler-utils")
+      (getPkg "img2pdf")
       (getPkg "android-tools")
       (getPkg "android-studio")
       (getPkg "rustup")
@@ -51,6 +53,16 @@ in {
     qbittorrent = {
       enable = lib.mkEnableOption "qbittorrent";
       package = lib.mkPackageOption pkgs "qbittorrent" {};
+    };
+
+    poppler-utils = {
+      enable = lib.mkEnableOption "poppler-utils";
+      package = lib.mkPackageOption pkgs "poppler-utils" {};
+    };
+
+    img2pdf = {
+      enable = lib.mkEnableOption "img2pdf";
+      package = lib.mkPackageOption pkgs "img2pdf" {};
     };
 
     android-tools = {
