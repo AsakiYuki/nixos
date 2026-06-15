@@ -18,6 +18,7 @@ in {
       (getPkg "catppuccin")
       (getPkg "poppler-utils")
       (getPkg "img2pdf")
+      (getPkg "qpdf")
       (getPkg "android-tools")
       (getPkg "android-studio")
       (getPkg "rustup")
@@ -53,6 +54,11 @@ in {
     qbittorrent = {
       enable = lib.mkEnableOption "qbittorrent";
       package = lib.mkPackageOption pkgs "qbittorrent" {};
+    };
+
+    qpdf = {
+      enable = lib.mkEnableOption "qpdf";
+      package = lib.mkPackageOption pkgs "qpdf" {};
     };
 
     poppler-utils = {

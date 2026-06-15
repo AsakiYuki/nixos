@@ -51,6 +51,7 @@
 
     poppler-utils.enable = true;
     img2pdf.enable = true;
+    qpdf.enable = true;
     android-studio.enable = true;
     android-tools.enable = true;
     ghidra.enable = true;
