@@ -96,12 +96,12 @@
 
     lmstudio = {
       enable = true;
-      package = unstable.lmstudio;
+      package = pkgs.lmstudio;
     };
 
     vscode = {
       enable = true;
-      package = unstable.vscode;
+      package = pkgs.vscode;
     };
   };
 }

@@ -1,7 +1,7 @@
-{unstable, ...}: {
+{pkgs, ...}: {
   services.nginx = {
     enable = true;
-    package = unstable.nginx;
+    package = pkgs.nginx;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     enableReload = true;
