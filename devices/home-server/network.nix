@@ -6,8 +6,8 @@
     firewall.allowedUDPPorts = [
       53
 
-      19132 # MCBE
-      19133
+      # 19132 # MCBE
+      # 19133
     ];
     firewall.allowedTCPPorts = [
       80 # HTTP
