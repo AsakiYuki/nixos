@@ -31,7 +31,6 @@
     cava.enable = true;
     gamemode.enable = true;
     gamescope.enable = true;
-    honkers-railway-launcher.enable = true;
     quickshell.enable = true;
     hyprland-portals.enable = true;
     ssh.extraConfig = ''
