@@ -3,7 +3,10 @@
     hostName = "nixos";
 
     firewall.enable = true;
-    firewall.allowedUDPPorts = [53];
+    firewall.allowedUDPPorts = [
+      53
+      19132 # MCBE
+    ];
     firewall.allowedTCPPorts = [
       80 # HTTP
       443 # HTTPS
