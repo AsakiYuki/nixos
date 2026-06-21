@@ -33,7 +33,10 @@
       ${builtins.readFile ./workspace-rules.lua}
 
       -- AUTOSTART
-      ${builtins.readFile ./autostart.lua}
+      hl.on("hyprland.start", function ()
+        ${builtins.readFile ./autostart.lua}
+        ${lib.optionalString osconfig.programs.quickshell.enable ''hl.exec_cmd("setpriv --ambient-caps -all quickshell")''}
+      end)
 
       -- INPUTS
       ${builtins.readFile ./inputs.lua}
