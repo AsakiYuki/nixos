@@ -7,24 +7,26 @@
 }: {
   programs.bash = {
     enable = true;
-    shellAliases = lib.attrsets.mergeAttrsList [
-      {
-        cls = "clear";
-        cleanup = "sudo nix-collect-garbage -d";
-        cls-log = "sudo journalctl --vacuum-time=1s";
+    shellAliases = lib.attrsets.mergeAttrsList (
+      let
+        attOpt = condition: key: value: (lib.optionalAttrs condition {
+          "${key}" = value;
+        });
+      in [
+        {
+          cls = "clear";
+          cleanup = "sudo nix-collect-garbage -d";
+          cls-log = "sudo journalctl --vacuum-time=1s";
 
-        logout = "pkill -KILL -u $USER";
+          logout = "pkill -KILL -u $USER";
 
-        nrs = "sudo nixos-rebuild switch --flake /etc/nixos#${osconfig.device.flake-name}";
-        flake-upgrade = "nix flake update";
-      }
-      (lib.optionalAttrs config.superfile.enable {
-        spf = "superfile";
-      })
-      (lib.optionalAttrs osconfig.virtualisation.waydroid.enable {
-        wss = "waydroid session stop; exit;";
-      })
-    ];
+          nrs = "sudo nixos-rebuild switch --flake /etc/nixos#${osconfig.device.flake-name}";
+          flake-upgrade = "nix flake update";
+        }
+        (attOpt config.programs.superfile.enable "spf" "superfile")
+        (attOpt osconfig.virtualisation.waydroid.enable "wss" "waydroid session stop; exit;")
+      ]
+    );
 
     shellOptions = [
       "histappend"
@@ -36,10 +38,10 @@
     ];
 
     initExtra = let
-      strOpt = condition: filePath: (lib.optionalString condition (builtins.readFile (lib.root filePath)));
+      strOpt = condition: filePath: (lib.optionalString condition (builtins.readFile (libs.root filePath)));
     in ''
       ${builtins.readFile (libs.root "/scripts/bash.sh")}
-      ${strOpt config.qpdf.enable "/scripts/qpdf.sh"}
+      ${strOpt config.programs.qpdf.enable "/scripts/qpdf.sh"}
       ${strOpt osconfig.device.programs.tmux.enable "/scripts/tmux.sh"}
     '';
   };
