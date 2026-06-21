@@ -45,5 +45,5 @@
     };
   };
 
-  outputs = import ./outputs/root.nix;
+  outputs = {...} @ inputs: import ./outputs.nix inputs;
 }
