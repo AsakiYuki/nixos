@@ -51,15 +51,23 @@ in {
     ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
     ++ (lib.optionals cfg.proton-apps.enable cfg.proton-apps.packages);
 
-  config.programs.yt-dlp.extraConfig = ''
-    -o ${config.home.homeDirectory}/${config.programs.yt-dlp.output-directory}
+  config.programs.yt-dlp.extraConfig = let
+    cfg = config.programs.yt-dlp.output;
+  in ''
+    -o ${config.home.homeDirectory}/${cfg.directory}/${cfg.format}
   '';
 
   options.programs = {
     yt-dlp = {
-      output-directory = lib.mkOption {
-        type = lib.types.str;
-        default = "Downloads/yt-dlp/%(title)s.%(ext)s";
+      output = {
+        directory = lib.mkOption {
+          type = lib.types.str;
+          default = "Downloads/yt-dlp";
+        };
+        format = lib.mkOption {
+          type = lib.types.str;
+          default = "%(title)s.%(ext)s";
+        };
       };
     };
 
