@@ -18,7 +18,7 @@ in
         system = getOpt "system" "x86_64-linux";
         specialArgs = {
           inherit self libs inputs state-version;
-          custom = import ./packages/default.nix inputs;
+          custom = import ../packages/default.nix inputs;
           unstable = import inputs.unstablepkgs {
             localSystem = system;
             config.allowUnfree = true;
