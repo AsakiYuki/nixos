@@ -33,10 +33,9 @@ in
             {
               options.device.flake-name = lib.mkOption {
                 type = lib.types.str;
-                default = "desktop";
+                default = name;
                 description = "Flake name for quick rebuild";
               };
-              device.flake-name = name;
             }
           ];
       });
