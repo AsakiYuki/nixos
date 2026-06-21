@@ -52,6 +52,7 @@
     ...
   } @ inputs: let
     state-version = "26.05";
+    lib = nixpkgs.lib;
     libs = import ./libs/default.nix inputs;
     custom = import ./packages/default.nix inputs;
 
@@ -70,33 +71,53 @@
         state-version
         ;
     };
-  in {
-    nixosConfigurations = builtins.listToAttrs [
-      {
-        ideapad-slim-5 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = specialArgs;
-          modules = [
-            inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-            inputs.nix-index-database.nixosModules.default
-            inputs.home-manager.nixosModules.default
-            inputs.lanzaboote.nixosModules.lanzaboote
-            (libs.root "/devices/ideapad-slim-5/configuration.nix")
-          ];
-        };
-      }
 
-      {
-        home-server = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = specialArgs;
-          modules = [
-            inputs.nix-index-database.nixosModules.default
-            inputs.home-manager.nixosModules.default
-            (libs.root "/devices/home-server/configuration.nix")
+    nixosModules = name: inputs.${name}.nixosModules.default;
+    mkNixOSSystem = {
+      name,
+      modules ? [],
+      system ? "x86_64-linux",
+    }: {
+      "${name}" = lib.nixosSystem {
+        inherit system specialArgs;
+        modules =
+          modules
+          ++ [
+            (libs.root "/libs/flake-name.nix")
+            (nixosModules "nix-index-database")
+            (nixosModules "home-manager")
+            {device.flake-name = name;}
           ];
-        };
-      }
-    ];
-  };
+      };
+    };
+
+    nixosConfigs = cfg: {
+      nixosConfigurations = lib.mergeAttrsList (
+        lib.map ({
+          name,
+          value,
+        }: (
+          mkNixOSSystem {
+            name = name;
+            modules = value.modules;
+            system = lib.attrByPath ["system"] "x86_64-linux" cfg;
+          }
+        )) (lib.attrsToList cfg)
+      );
+    };
+  in
+    nixosConfigs {
+      ideapad-slim-5 = {
+        modules = [
+          inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+          inputs.lanzaboote.nixosModules.lanzaboote
+          (libs.root "/devices/ideapad-slim-5/configuration.nix")
+        ];
+      };
+      home-server = {
+        modules = [
+          (libs.root "/devices/home-server/configuration.nix")
+        ];
+      };
+    };
 }
