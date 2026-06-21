@@ -71,28 +71,32 @@
         ;
     };
   in {
-    nixosConfigurations = {
-      ideapad-slim-5 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = specialArgs;
-        modules = [
-          inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-          inputs.nix-index-database.nixosModules.default
-          inputs.home-manager.nixosModules.default
-          inputs.lanzaboote.nixosModules.lanzaboote
-          (libs.root "/devices/ideapad-slim-5/configuration.nix")
-        ];
-      };
+    nixosConfigurations = builtins.listToAttrs [
+      {
+        ideapad-slim-5 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = specialArgs;
+          modules = [
+            inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+            inputs.nix-index-database.nixosModules.default
+            inputs.home-manager.nixosModules.default
+            inputs.lanzaboote.nixosModules.lanzaboote
+            (libs.root "/devices/ideapad-slim-5/configuration.nix")
+          ];
+        };
+      }
 
-      home-server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = specialArgs;
-        modules = [
-          inputs.nix-index-database.nixosModules.default
-          inputs.home-manager.nixosModules.default
-          (libs.root "/devices/home-server/configuration.nix")
-        ];
-      };
-    };
+      {
+        home-server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = specialArgs;
+          modules = [
+            inputs.nix-index-database.nixosModules.default
+            inputs.home-manager.nixosModules.default
+            (libs.root "/devices/home-server/configuration.nix")
+          ];
+        };
+      }
+    ];
   };
 }
