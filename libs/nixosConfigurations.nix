@@ -25,7 +25,7 @@ in
           };
         };
         modules =
-          value.modules
+          (getOpt "modules" [])
           ++ [
             (libs.root "/devices/${name}/configuration.nix")
             (nixosModules "nix-index-database")
