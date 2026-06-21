@@ -4,7 +4,7 @@ function git-commit() {
 }
 
 function git-push() {
-    git-commit()
+    git-commit "$1"
     git push origin HEAD
 }
 

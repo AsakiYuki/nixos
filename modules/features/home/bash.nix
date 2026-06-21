@@ -1,6 +1,7 @@
 {
   lib,
   libs,
+  config,
   osconfig,
   ...
 }: {
@@ -17,9 +18,9 @@
         nrs = "sudo nixos-rebuild switch --flake /etc/nixos#${osconfig.device.flake-name}";
         flake-upgrade = "nix flake update";
       }
-      {
+      (lib.optionalAttrs config.superfile.enable {
         spf = "superfile";
-      }
+      })
       (lib.optionalAttrs osconfig.virtualisation.waydroid.enable {
         wss = "waydroid session stop; exit;";
       })
@@ -34,9 +35,12 @@
       "autocd"
     ];
 
-    initExtra =
-      (builtins.readFile (libs.root "/scripts/bash.sh"))
-      + lib.optionalString
-      osconfig.device.programs.tmux.enable (builtins.readFile (libs.root "/scripts/tmux.sh"));
+    initExtra = let
+      strOpt = condition: filePath: (lib.optionalString condition (builtins.readFile (lib.root filePath)));
+    in ''
+      ${builtins.readFile (libs.root "/scripts/bash.sh")}
+      ${strOpt config.qpdf.enable "/scripts/qpdf.sh"}
+      ${strOpt osconfig.device.programs.tmux.enable "/scripts/tmux.sh"}
+    '';
   };
 }
