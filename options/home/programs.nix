@@ -13,49 +13,47 @@ in {
     ./programs/kde/imports.nix
   ];
 
-  config.home = {
-    packages =
-      [
-        (getPkg "catppuccin")
-        (getPkg "poppler-utils")
-        (getPkg "img2pdf")
-        (getPkg "qpdf")
-        (getPkg "ladybird")
-        (getPkg "android-tools")
-        (getPkg "android-studio")
-        (getPkg "rustup")
-        (getPkg "ghidra")
-        (getPkg "qbittorrent")
-        (lib.mkIf cfg.jetbrains.idea.enable cfg.jetbrains.idea.package)
-        (lib.mkIf cfg.jetbrains.datagrip.enable cfg.jetbrains.datagrip.package)
-        (getPkg "zen-browser")
-        (getPkg "mangohud")
-        (getPkg "telegram")
-        (getPkg "vlc")
-        (getPkg "gimp")
-        (getPkg "libreoffice")
-        (getPkg "osu")
-        (getPkg "lmstudio")
-        (getPkg "blender")
-        (getPkg "xprop")
-        (getPkg "davinci-resolve")
-        (getPkg "wl-clipboard")
-        (getPkg "easyeffects")
+  config.home.packages =
+    [
+      (getPkg "catppuccin")
+      (getPkg "poppler-utils")
+      (getPkg "img2pdf")
+      (getPkg "qpdf")
+      (getPkg "ladybird")
+      (getPkg "android-tools")
+      (getPkg "android-studio")
+      (getPkg "rustup")
+      (getPkg "ghidra")
+      (getPkg "qbittorrent")
+      (lib.mkIf cfg.jetbrains.idea.enable cfg.jetbrains.idea.package)
+      (lib.mkIf cfg.jetbrains.datagrip.enable cfg.jetbrains.datagrip.package)
+      (getPkg "zen-browser")
+      (getPkg "mangohud")
+      (getPkg "telegram")
+      (getPkg "vlc")
+      (getPkg "gimp")
+      (getPkg "libreoffice")
+      (getPkg "osu")
+      (getPkg "lmstudio")
+      (getPkg "blender")
+      (getPkg "xprop")
+      (getPkg "davinci-resolve")
+      (getPkg "wl-clipboard")
+      (getPkg "easyeffects")
 
-        (getPkg "pavucontrol")
-        (getPkg "nwg-look")
-        (getPkg "tldr")
+      (getPkg "pavucontrol")
+      (getPkg "nwg-look")
+      (getPkg "tldr")
 
-        (getPkg "hytale-launcher")
-        (getPkg "cider")
-      ]
-      ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
-      ++ (lib.optionals cfg.proton-apps.enable cfg.proton-apps.packages);
+      (getPkg "hytale-launcher")
+      (getPkg "cider")
+    ]
+    ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
+    ++ (lib.optionals cfg.proton-apps.enable cfg.proton-apps.packages);
 
-    programs.yt-dlp.extraConfig = ''
-      -o ${config.home.homeDirectory}/${config.programs.yt-dlp.output-directory}
-    '';
-  };
+  config.programs.yt-dlp.extraConfig = ''
+    -o ${config.home.homeDirectory}/${config.programs.yt-dlp.output-directory}
+  '';
 
   options.programs = {
     yt-dlp = {
