@@ -1,15 +1,20 @@
 {
   pkgs,
   lib,
+  libs,
   config,
   ...
-}: {
+}: let
+  cfg = config.virtualisation.waydroid;
+in {
   virtualisation.waydroid = {
     enable = true;
     package = pkgs.waydroid-nftables;
   };
 
-  environment.systemPackages = lib.optionals config.virtualisation.waydroid.enable [
+  programs.bash.interactiveShellInit = lib.mkIf cfg.enable (builtins.readFile (libs.root "/scripts/completions/waydroid.sh"));
+
+  environment.systemPackages = lib.optionals cfg.enable [
     pkgs.waydroid-helper
   ];
 }
