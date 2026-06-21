@@ -24,7 +24,7 @@ in {
         };
       }
 
-      (builtins.listToAttrs (builtins.map
+      (builtins.listToAttrs (map
         ({
           name,
           value,

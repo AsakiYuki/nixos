@@ -8,7 +8,7 @@
   nixosModules = name: inputs.${name}.nixosModules.default;
 in
   cfg: {
-    nixosConfigurations = lib.mergeAttrsList (lib.map ({
+    nixosConfigurations = lib.mergeAttrsList (map ({
       name,
       value,
     }: {
