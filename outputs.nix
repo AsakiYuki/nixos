@@ -9,38 +9,31 @@
   libs = import ./libs/default.nix inputs;
   custom = import ./packages/default.nix inputs;
 
-  unstable = import unstablepkgs {
-    localSystem = "x86_64-linux";
-    config.allowUnfree = true;
-  };
-
-  specialArgs = {
-    inherit
-      self
-      custom
-      libs
-      unstable
-      inputs
-      state-version
-      ;
-  };
-
-  nixosModules = name: inputs.${name}.nixosModules.default;
   mkNixOSSystem = {
     name,
     modules ? [],
     system ? "x86_64-linux",
-  }: {
+  }: let
+    nixosModules = name: inputs.${name}.nixosModules.default;
+  in {
     "${name}" = lib.nixosSystem {
-      inherit system specialArgs;
-      modules =
+      inherit system;
+      specialArgs = {
+        inherit self custom libs inputs state-version;
+        unstable = import unstablepkgs {
+          localSystem = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
+      modules = builtins.concatLists [
         modules
-        ++ [
+        [
           (libs.root "/libs/flake-name.nix")
           (nixosModules "nix-index-database")
           (nixosModules "home-manager")
           {device.flake-name = name;}
-        ];
+        ]
+      ];
     };
   };
 
