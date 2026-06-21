@@ -35,6 +35,7 @@
     (libs.root "/modules/features/system/cloudflare.nix")
     (libs.root "/modules/features/system/docker.nix")
     (libs.root "/modules/features/system/upower.nix")
+    (libs.root "/modules/features/system/direnv.nix")
 
     (libs.root "/users/asakiyuki/configuration.nix")
 

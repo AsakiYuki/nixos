@@ -14,6 +14,13 @@
       xwayland.enable = true;
     };
 
+    ssh.extraConfig = ''
+      Host server
+        HostName asakiyuki.com
+        User asakiyuki
+        Port 15523
+    '';
+
     llvm.enable = true;
     ffmpeg.enable = true;
     nodejs.enable = true;
@@ -33,12 +40,6 @@
     gamescope.enable = true;
     quickshell.enable = true;
     hyprland-portals.enable = true;
-    ssh.extraConfig = ''
-      Host server
-        HostName asakiyuki.com
-        User asakiyuki
-        Port 15523
-    '';
   };
 
   home-manager.users.asakiyuki.programs = {
