@@ -84,23 +84,20 @@
         });
       }) (lib.attrsToList cfg));
     };
-  in
-    lib.mergeAttrsList [
-      (
-        nixosConfigurations {
-          ideapad-slim-5 = {
-            modules = [
-              inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-              inputs.lanzaboote.nixosModules.lanzaboote
-              (libs.root "/devices/ideapad-slim-5/configuration.nix")
-            ];
-          };
-          home-server = {
-            modules = [
-              (libs.root "/devices/home-server/configuration.nix")
-            ];
-          };
-        }
-      )
-    ];
+  in (
+    nixosConfigurations {
+      ideapad-slim-5 = {
+        modules = [
+          inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+          inputs.lanzaboote.nixosModules.lanzaboote
+          (libs.root "/devices/ideapad-slim-5/configuration.nix")
+        ];
+      };
+      home-server = {
+        modules = [
+          (libs.root "/devices/home-server/configuration.nix")
+        ];
+      };
+    }
+  );
 }
