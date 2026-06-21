@@ -1,5 +1,6 @@
 {
   lib,
+  libs,
   osconfig,
   ...
 }: {
@@ -34,40 +35,8 @@
     ];
 
     initExtra =
-      ''
-        function git-commit() {
-            git add .
-            git commit -m "$1"
-        }
-
-        function git-push()  {
-            git-commit "$1"
-            git push origin HEAD
-        }
-
-        function git-pull() {
-          git fetch origin HEAD
-          git pull origin HEAD
-        }
-
-        function get-hash() {
-          nix hash to-sri --type sha256 $(nix-prefetch-url --unpack "$1")
-        }
-      ''
-      + lib.optionalString osconfig.device.programs.tmux.enable ''
-        allowed_terms=("xterm-kitty" "xterm-ghostty")
-
-        should_run_tmux=false
-        for term in "${"$" + "{allowed_terms[@]" + "}"}"; do
-        if [[ "$TERM" == "$term" ]]; then
-            should_run_tmux=true
-            break
-        fi
-        done
-
-        if [ -z "$TMUX" ] && [ "$should_run_tmux" = true ]; then
-            exec tmux
-        fi
-      '';
+      (builtins.readFile (libs.root "/scripts/bash.sh"))
+      + lib.optionalString
+      osconfig.device.programs.tmux.enable (builtins.readFile (libs.root "/scripts/tmux.sh"));
   };
 }
