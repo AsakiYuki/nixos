@@ -1,0 +1,38 @@
+{
+  inputs,
+  self,
+  state-version,
+  lib,
+  libs,
+}: let
+  nixosModules = name: inputs.${name}.nixosModules.default;
+in
+  cfg: {
+    nixosConfigurations = lib.mergeAttrsList (lib.map ({
+      name,
+      value,
+    }: {
+      "${name}" = lib.nixosSystem (let
+        getOpt = name: defaultValue: (lib.attrByPath [name] defaultValue value);
+      in rec {
+        system = getOpt "system" "x86_64-linux";
+        specialArgs = {
+          inherit self libs inputs state-version;
+          custom = import ./packages/default.nix inputs;
+          unstable = import inputs.unstablepkgs {
+            localSystem = system;
+            config.allowUnfree = true;
+          };
+        };
+        modules =
+          value.modules
+          ++ [
+            (libs.root "/libs/flake-name.nix")
+            (nixosModules "nix-index-database")
+            (nixosModules "home-manager")
+            (libs.root "/devices/${name}/configuration.nix")
+            {device.flake-name = name;}
+          ];
+      });
+    }) (lib.attrsToList cfg));
+  }
