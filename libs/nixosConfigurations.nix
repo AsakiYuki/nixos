@@ -27,11 +27,17 @@ in
         modules =
           value.modules
           ++ [
-            (libs.root "/libs/flake-name.nix")
+            (libs.root "/devices/${name}/configuration.nix")
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
-            (libs.root "/devices/${name}/configuration.nix")
-            {device.flake-name = name;}
+            {
+              options.device.flake-name = lib.mkOption {
+                type = lib.types.str;
+                default = "desktop";
+                description = "Flake name for quick rebuild";
+              };
+              device.flake-name = name;
+            }
           ];
       });
     }) (lib.attrsToList cfg));
