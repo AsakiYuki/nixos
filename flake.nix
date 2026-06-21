@@ -45,5 +45,58 @@
     };
   };
 
-  outputs = {...} @ inputs: import ./outputs.nix inputs;
+  outputs = {
+    self,
+    nixpkgs,
+    unstablepkgs,
+    ...
+  } @ inputs: let
+    state-version = "26.05";
+    lib = nixpkgs.lib;
+    libs = import ./libs/default.nix inputs;
+    nixosModules = name: inputs.${name}.nixosModules.default;
+
+    nixosConfigurations = cfg: {
+      nixosConfigurations = lib.mergeAttrsList (lib.map ({
+        name,
+        value,
+      }: {
+        "${name}" = lib.nixosSystem (let
+          getOpt = name: defaultValue: (lib.attrByPath [name] defaultValue value);
+        in rec {
+          system = getOpt "system" "x86_64-linux";
+          modules =
+            value.modules
+            ++ [
+              (libs.root "/libs/flake-name.nix")
+              (nixosModules "nix-index-database")
+              (nixosModules "home-manager")
+              {device.flake-name = name;}
+            ];
+          specialArgs = {
+            inherit self libs inputs state-version;
+            custom = import ./packages/default.nix inputs;
+            unstable = import unstablepkgs {
+              localSystem = system;
+              config.allowUnfree = true;
+            };
+          };
+        });
+      }) (lib.attrsToList cfg));
+    };
+  in
+    nixosConfigurations {
+      ideapad-slim-5 = {
+        modules = [
+          inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+          inputs.lanzaboote.nixosModules.lanzaboote
+          (libs.root "/devices/ideapad-slim-5/configuration.nix")
+        ];
+      };
+      home-server = {
+        modules = [
+          (libs.root "/devices/home-server/configuration.nix")
+        ];
+      };
+    };
 }
