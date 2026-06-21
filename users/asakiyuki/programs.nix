@@ -16,7 +16,6 @@
     ../../modules/features/home/obs-studio.nix
     ../../modules/features/home/xdg.nix
     ../../modules/features/home/git.nix
-    ../../modules/features/home/yt-dlp.nix
     ../../modules/features/home/dolphin.nix
     ../../modules/features/home/fzf.nix
 

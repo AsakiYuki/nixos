@@ -48,6 +48,7 @@
       datagrip.enable = true;
     };
 
+    yt-dlp.enable = true;
     poppler-utils.enable = true;
     img2pdf.enable = true;
     qpdf.enable = true;
