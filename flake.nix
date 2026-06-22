@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
@@ -55,12 +56,23 @@
     libs = import ./libs/default.nix inputs;
   in
     import ./libs/nixosConfigurations.nix {inherit inputs self state-version lib libs;} {
+      wsl = {
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          (libs.root "/host/wsl/configuration.nix")
+        ];
+      };
       ideapad-slim-5 = {
         modules = [
           inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
           inputs.lanzaboote.nixosModules.lanzaboote
+          (libs.root "/devices/ideapad-slim-5/configuration.nix")
         ];
       };
-      home-server = {};
+      home-server = {
+        modules = [
+          (libs.root "/devices/home-server/configuration.nix")
+        ];
+      };
     };
 }

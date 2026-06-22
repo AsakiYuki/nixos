@@ -16,18 +16,17 @@ in
         getOpt = name: defaultValue: (lib.attrByPath [name] defaultValue value);
       in rec {
         system = getOpt "system" "x86_64-linux";
-        specialArgs = {
+        specialArgs = (lib.mergeAttrs {
           inherit self libs inputs state-version;
           custom = import ../packages/default.nix inputs;
           unstable = import inputs.unstablepkgs {
             localSystem = system;
             config.allowUnfree = true;
           };
-        };
+        } (getOpt "specialArgs" {}));
         modules =
           (getOpt "modules" [])
           ++ [
-            (libs.root "/devices/${name}/configuration.nix")
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
             {
