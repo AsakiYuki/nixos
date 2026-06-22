@@ -56,12 +56,6 @@
     libs = import ./libs/default.nix inputs;
   in
     import ./libs/nixosConfigurations.nix {inherit inputs self state-version lib libs;} {
-      wsl = {
-        modules = [
-          inputs.nixos-wsl.nixosModules.default
-          (libs.root "/host/wsl/configuration.nix")
-        ];
-      };
       ideapad-slim-5 = {
         modules = [
           inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
@@ -72,6 +66,12 @@
       home-server = {
         modules = [
           (libs.root "/devices/home-server/configuration.nix")
+        ];
+      };
+      wsl = {
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          (libs.root "/host/wsl/configuration.nix")
         ];
       };
     };
