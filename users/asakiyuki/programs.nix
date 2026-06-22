@@ -27,7 +27,7 @@
 
   programs.kde.kdeglobals = let
     isTilingWindowsManager =
-      osconfig.device.wm.hyprland.enable
+      (lib.attrByPath ["device" "wm" "hyprland" "enable"] false osconfig)
       || (lib.attrByPath ["device" "wm" "niri" "enable"] false osconfig);
   in {
     initExtra = lib.optionalString isTilingWindowsManager (
