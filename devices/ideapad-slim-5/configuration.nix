@@ -3,7 +3,6 @@
   pkgs,
   config,
   lib,
-  state-version,
   ...
 }: {
   imports = [
@@ -105,6 +104,4 @@
   ];
 
   device.wm.hyprland.extraConfig = builtins.readFile ./hyprland.lua;
-
-  system.stateVersion = state-version;
 }

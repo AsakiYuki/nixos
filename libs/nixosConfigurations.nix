@@ -17,7 +17,7 @@ in
       in rec {
         system = getOpt "system" "x86_64-linux";
         specialArgs = (lib.mergeAttrs {
-          inherit self libs inputs state-version;
+          inherit self libs inputs;
           custom = import ../packages/default.nix inputs;
           unstable = import inputs.unstablepkgs {
             localSystem = system;
@@ -30,6 +30,7 @@ in
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
             {
+              system.stateVersion = state-version;
               options.device.flake-name = lib.mkOption {
                 type = lib.types.str;
                 default = name;

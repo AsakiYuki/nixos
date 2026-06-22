@@ -1,6 +1,5 @@
 {
   libs,
-  state-version,
   ...
 }: {
   imports = [
@@ -20,5 +19,4 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Ho_Chi_Minh";
-  system.stateVersion = state-version;
 }
