@@ -14,8 +14,9 @@ in
     }: {
       "${name}" = lib.nixosSystem (let
         getOpt = name: defaultValue: (lib.attrByPath [name] defaultValue value);
-      in rec {
         system = getOpt "system" "x86_64-linux";
+      in {
+        system = system;
         specialArgs = (lib.mergeAttrs {
           inherit self libs inputs;
           custom = import ../packages/default.nix inputs;
