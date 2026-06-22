@@ -17,6 +17,7 @@ in {
     [
       (getPkg "catppuccin")
       (getPkg "poppler-utils")
+      (getPkg "tor-browser")
       (getPkg "img2pdf")
       (getPkg "qpdf")
       (getPkg "ladybird")
@@ -74,6 +75,11 @@ in {
     qbittorrent = {
       enable = lib.mkEnableOption "qbittorrent";
       package = lib.mkPackageOption pkgs "qbittorrent" {};
+    };
+
+    tor-browser = {
+      enable = lib.mkEnableOption "tor-browser";
+      package = lib.mkPackageOption pkgs "tor-browser" {};
     };
 
     qpdf = {

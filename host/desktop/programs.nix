@@ -48,6 +48,7 @@
       datagrip.enable = true;
     };
 
+    tor-browser.enable = true;
     yt-dlp.enable = true;
     poppler-utils.enable = true;
     img2pdf.enable = true;
