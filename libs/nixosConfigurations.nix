@@ -4,41 +4,39 @@
   state-version,
   lib,
   libs,
-}: let
+}:
+let
   nixosModules = name: inputs.${name}.nixosModules.default;
 in
-  cfg: {
-    nixosConfigurations = lib.mergeAttrsList (map ({
-      name,
-      value,
-    }: {
-      "${name}" = lib.nixosSystem (let
-        getOpt = name: defaultValue: (lib.attrByPath [name] defaultValue value);
-        system = getOpt "system" "x86_64-linux";
-      in {
-        system = system;
-        specialArgs = (lib.mergeAttrs {
+cfg: {
+  nixosConfigurations = lib.mergeAttrsList (map ({ name, value }: 
+    let
+      sys = value.system or "x86_64-linux";
+    in {
+      "${name}" = lib.nixosSystem {
+        system = sys;
+        
+        specialArgs = lib.mergeAttrs {
           inherit self libs inputs;
           custom = import ../packages/default.nix inputs;
           unstable = import inputs.unstablepkgs {
-            localSystem = system;
+            localSystem = sys;
             config.allowUnfree = true;
           };
-        } (getOpt "specialArgs" {}));
-        modules =
-          (getOpt "modules" [])
-          ++ [
-            (nixosModules "nix-index-database")
-            (nixosModules "home-manager")
-            {
-              config.system.stateVersion = state-version;
-              options.device.flake-name = lib.mkOption {
-                type = lib.types.str;
-                default = name;
-                description = "Flake name for quick rebuild";
-              };
-            }
-          ];
-      });
+        } (value.specialArgs or {});
+
+        modules = (value.modules or []) ++ [
+          (nixosModules "nix-index-database")
+          (nixosModules "home-manager")
+          {
+            config.system.stateVersion = state-version;
+            options.device.flake-name = lib.mkOption {
+              type = lib.types.str;
+              default = name;
+              description = "Flake name for quick rebuild";
+            };
+          }
+        ];
+      };
     }) (lib.attrsToList cfg));
-  }
+}
