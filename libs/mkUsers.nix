@@ -24,6 +24,11 @@ in {
       [
         ../options/home/default.nix
         ../modules/features/home/default.nix
+
+        (libs.root "/modules/programs/hyprland/default.nix")
+        (libs.root "/modules/programs/nixcord/default.nix")
+        (libs.root "/modules/programs/nixvim/_nixvim.nix")
+
         inputs.nixvim.homeModules.nixvim
         inputs.nixcord.homeModules.nixcord
         inputs.niri.homeModules.niri
