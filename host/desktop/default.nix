@@ -42,7 +42,6 @@
     (libs.root "/modules/home-manager.nix")
 
     (libs.root "/overlays/nixpkgs.nix")
-    (libs.root "/options/system/default.nix")
   ];
 
   networking.firewall.allowedTCPPorts = [
