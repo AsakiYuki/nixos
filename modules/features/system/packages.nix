@@ -10,8 +10,6 @@
     nixd
     alejandra
 
-    zip
-    unzip
     p7zip-rar
 
     kdePackages.kio-extras

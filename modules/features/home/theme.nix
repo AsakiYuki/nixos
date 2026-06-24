@@ -1,6 +1,7 @@
 {
   pkgs,
   osconfig,
+  config,
   lib,
   ...
 }: let
@@ -62,7 +63,14 @@ in {
       };
 
       General = {
-        TerminalApplication = osconfig.device.programs.terminal.name;
+        TerminalApplication = let
+          cfg = config.programs;
+        in
+          if (cfg.ghostty.enable)
+          then "ghostty"
+          else if (cfg.kitty.enable)
+          then "kitty"
+          else "";
       };
 
       Icons = {

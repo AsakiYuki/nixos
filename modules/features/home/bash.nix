@@ -39,10 +39,11 @@
 
     initExtra = let
       strOpt = condition: filePath: (lib.optionalString condition (builtins.readFile (libs.root filePath)));
+      cfg = config.programs;
     in ''
       ${builtins.readFile (libs.root "/scripts/bash.sh")}
-      ${strOpt config.programs.qpdf.enable "/scripts/qpdf.sh"}
-      ${strOpt osconfig.device.programs.tmux.enable "/scripts/tmux.sh"}
+      ${strOpt cfg.qpdf.enable "/scripts/qpdf.sh"}
+      ${strOpt cfg.tmux.enable "/scripts/tmux.sh"}
     '';
   };
 }

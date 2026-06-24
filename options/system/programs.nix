@@ -35,23 +35,6 @@ in {
       (lib.optionals cfg.llvm.enable cfg.llvm.packages)
     ];
 
-  options.device.programs = {
-    terminal = {
-      enable = lib.mkEnableOption "terminal";
-      name = lib.mkOption {
-        type = lib.types.str;
-        default = "ghostty";
-        description = "Terminal";
-      };
-    };
-
-    nixcord.enable = lib.mkEnableOption "nixcord";
-    tmux.enable = lib.mkEnableOption "tmux";
-    starship.enable = lib.mkEnableOption "starship";
-    fastfetch.enable = lib.mkEnableOption "fastfetch";
-    steam.enable = lib.mkEnableOption "steam";
-  };
-
   options.programs = {
     llvm = {
       enable = lib.mkEnableOption "llvm";
