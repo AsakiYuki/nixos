@@ -33,12 +33,25 @@ in
             (nixosModules "home-manager")
             (libs.root "/overlays/nixpkgs.nix")
             (libs.root "/options/system/default.nix")
-            ./gc.nix
-            ./settings.nix
             {
               config = {
+                nixpkgs.config.allowUnfree = true;
                 time.timeZone = "Asia/Ho_Chi_Minh";
                 system.stateVersion = state-version;
+                nix = {
+                  settings = {
+                    auto-optimise-store = true;
+                    experimental-features = [
+                      "nix-command"
+                      "flakes"
+                    ];
+                  };
+                  gc = {
+                    automatic = true;
+                    dates = "weekly";
+                    options = "--delete-older-than 30d";
+                  };
+                };
                 home-manager = {
                   useUserPackages = true;
                   useGlobalPkgs = true;
