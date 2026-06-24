@@ -3,8 +3,7 @@
   self,
   state-version,
   lib,
-  libs,
-}: let
+} @ args: let
   nixosModules = name: inputs.${name}.nixosModules.default;
 in
   cfg: {
@@ -13,17 +12,18 @@ in
       value,
     }: let
       sys = value.system or "x86_64-linux";
+      custom = import ../packages/default.nix inputs;
+      unstable = import inputs.unstablepkgs {
+        localSystem = sys;
+        config.allowUnfree = true;
+      };
+      libs = import ../libs/default.nix (lib.mergeAttrs args {inherit custom unstable libs;});
     in {
       "${name}" = lib.nixosSystem {
         system = sys;
 
         specialArgs = lib.mergeAttrs {
-          inherit self libs inputs;
-          custom = import ../packages/default.nix inputs;
-          unstable = import inputs.unstablepkgs {
-            localSystem = sys;
-            config.allowUnfree = true;
-          };
+          inherit self libs inputs custom unstable;
         } (value.specialArgs or {});
 
         modules =
@@ -32,7 +32,6 @@ in
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
             (libs.root "/options/system/default.nix")
-            ../options/users.nix
             {
               config.system.stateVersion = state-version;
               options.device.flake-name = lib.mkOption {

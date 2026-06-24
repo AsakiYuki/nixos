@@ -53,25 +53,25 @@
   } @ inputs: let
     state-version = "26.05";
     lib = nixpkgs.lib;
-    libs = import ./libs/default.nix inputs;
+    root = path: ./. + path;
   in
-    import ./libs/nixosConfigurations.nix {inherit inputs self state-version lib libs;} {
+    import ./libs/nixosConfigurations.nix {inherit inputs self state-version lib;} {
       ideapad-slim-5 = {
         modules = [
           inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
           inputs.lanzaboote.nixosModules.lanzaboote
-          (libs.root "/devices/ideapad-slim-5/configuration.nix")
+          (root "/devices/ideapad-slim-5/configuration.nix")
         ];
       };
       home-server = {
         modules = [
-          (libs.root "/devices/home-server/configuration.nix")
+          (root "/devices/home-server/configuration.nix")
         ];
       };
       wsl = {
         modules = [
           inputs.nixos-wsl.nixosModules.default
-          (libs.root "/host/wsl/configuration.nix")
+          (root "/host/wsl/configuration.nix")
         ];
       };
     };
