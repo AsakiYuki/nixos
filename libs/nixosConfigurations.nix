@@ -32,7 +32,7 @@ in
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
             (libs.root "/options/system/default.nix")
-            ./nixosHomeManager.nix
+            ../options/users.nix
             {
               config.system.stateVersion = state-version;
               options.device.flake-name = lib.mkOption {
