@@ -1,10 +1,5 @@
-{
-  lib,
-  libs,
-  osconfig,
-  ...
-}: {
-  programs.nixcord = lib.mkIf osconfig.device.programs.nixcord.enable {
+{libs, ...}: {
+  programs.nixcord = {
     enable = true;
     vesktop.enable = true;
     discord = {

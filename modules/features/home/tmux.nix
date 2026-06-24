@@ -29,7 +29,7 @@
     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
   '';
 in {
-  programs.tmux = lib.mkIf osconfig.device.programs.tmux.enable {
+  programs.tmux = {
     enable = true;
     keyMode = "vi";
     disableConfirmationPrompt = true;

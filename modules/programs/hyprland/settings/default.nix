@@ -10,7 +10,16 @@
       TouchpadName = nil
 
       -- Local Variables
-      local terminal = "${osconfig.device.programs.terminal.name}"
+      ${
+        let
+          cfg = config.programs;
+        in
+          if (cfg.ghostty.enable)
+          then "local terminal = \"ghostty\""
+          else if (cfg.kitty.enable)
+          then "local terminal = \"kitty\""
+          else ""
+      }
       local homeDir = "${config.home.homeDirectory}"
       local fileManager = "dolphin"
 

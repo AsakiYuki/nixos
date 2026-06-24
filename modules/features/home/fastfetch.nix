@@ -1,9 +1,5 @@
-{
-  lib,
-  osconfig,
-  ...
-}: {
-  programs.fastfetch = lib.mkIf osconfig.device.programs.fastfetch.enable {
+{...}: {
+  programs.fastfetch = {
     enable = true;
     settings = {
       logo = {

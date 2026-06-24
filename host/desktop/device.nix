@@ -18,16 +18,5 @@
 
     bluetooth.enable = true;
     flatpak.enable = true;
-
-    programs = {
-      terminal = {
-        enable = true;
-        name = "ghostty";
-      };
-      nixcord.enable = true;
-      tmux.enable = true;
-      starship.enable = true;
-      fastfetch.enable = true;
-    };
   };
 }

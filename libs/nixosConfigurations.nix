@@ -33,7 +33,14 @@ in
             (nixosModules "home-manager")
             (libs.root "/options/system/default.nix")
             {
-              config.system.stateVersion = state-version;
+              config = {
+                system.stateVersion = state-version;
+                home-manager = {
+                  useUserPackages = true;
+                  useGlobalPkgs = true;
+                  backupFileExtension = "bak";
+                };
+              };
               options.device.flake-name = lib.mkOption {
                 type = lib.types.str;
                 default = name;

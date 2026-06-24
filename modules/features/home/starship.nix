@@ -1,9 +1,5 @@
-{
-  lib,
-  osconfig,
-  ...
-}: {
-  programs.starship = lib.mkIf osconfig.device.programs.starship.enable {
+{...}: {
+  programs.starship = {
     enable = true;
     settings = {
       add_newline = true;
