@@ -2,9 +2,10 @@
   # inputs,
   # pkgs,
   # libs,
+  lib, config, 
   ...
 }: {
-  boot.loader = {
+  boot.loader = lib.mkIf (!(lib.attrByPath ["wsl" "enable"] false config)) {
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
