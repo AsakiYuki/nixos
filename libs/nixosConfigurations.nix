@@ -33,8 +33,11 @@ in
             (nixosModules "home-manager")
             (libs.root "/overlays/nixpkgs.nix")
             (libs.root "/options/system/default.nix")
+            ./gc.nix
+            ./settings.nix
             {
               config = {
+                time.timeZone = "Asia/Ho_Chi_Minh";
                 system.stateVersion = state-version;
                 home-manager = {
                   useUserPackages = true;
