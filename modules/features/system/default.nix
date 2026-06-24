@@ -3,9 +3,6 @@
     ./boot.nix
     ./cloudflare.nix
     ./dconf.nix
-    ./direnv.nix
-    ./docker.nix
-    ./flatpak.nix
     ./forgejo.nix
     ./gdm.nix
     ./gnome.nix
@@ -19,8 +16,6 @@
     ./sddm.nix
     ./stalwart.nix
     ./steam.nix
-    ./udisks2.nix
-    ./upower.nix
     ./waydroid.nix
   ];
 }

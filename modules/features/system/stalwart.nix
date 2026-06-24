@@ -1,6 +1,5 @@
 {config, ...}: {
   services.stalwart = {
-    enable = false;
     openFirewall = true;
     stateVersion = config.system.stateVersion;
 

@@ -9,7 +9,6 @@
   };
 in {
   services.displayManager.sddm = lib.mkIf config.device.dm.sddm.enable {
-    enable = true;
     wayland.enable = true;
     extraPackages = [
       custom-sddm-astronaut

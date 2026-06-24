@@ -5,8 +5,13 @@
   ...
 }: {
   imports = [inputs.aagl.nixosModules.default];
+  i18n.inputMethod.enable = true;
 
-  virtualisation.vmware.host.enable = true;
+  virtualisation = {
+    vmware.host.enable = true;
+    waydroid.enable = true;
+    docker.enable = false;
+  };
 
   programs = {
     hyprland = {
@@ -21,6 +26,7 @@
         Port 15523
     '';
 
+    dconf.enable = true;
     llvm.enable = true;
     ffmpeg.enable = true;
     nodejs.enable = true;
@@ -40,6 +46,8 @@
     gamescope.enable = true;
     quickshell.enable = true;
     hyprland-portals.enable = true;
+    direnv.enable = true;
+    steam.enable = true;
   };
 
   home-manager.users.asakiyuki.programs = {

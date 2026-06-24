@@ -1,6 +1,11 @@
 {pkgs, ...}: {
   services = {
     fail2ban.enable = true;
+    flatpak.enable = true;
+    displayManager.sddm.enable = true;
+    cloudflare-warp.enable = true;
+    udisks2.enable = true;
+    upower.enable = true;
 
     mysql = {
       enable = true;
