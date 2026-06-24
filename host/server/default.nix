@@ -14,7 +14,5 @@
 
     (libs.root "/users/asakiyuki/configuration.nix")
     (libs.root "/users/junko/configuration.nix")
-
-    (libs.root "/overlays/nixpkgs.nix")
   ];
 }

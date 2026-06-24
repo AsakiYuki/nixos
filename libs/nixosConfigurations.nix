@@ -31,6 +31,7 @@ in
           ++ [
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
+            (libs.root "/overlays/nixpkgs.nix")
             (libs.root "/options/system/default.nix")
             {
               config = {

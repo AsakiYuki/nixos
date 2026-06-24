@@ -38,8 +38,6 @@
     (libs.root "/modules/features/system/direnv.nix")
 
     (libs.root "/users/asakiyuki/configuration.nix")
-
-    (libs.root "/overlays/nixpkgs.nix")
   ];
 
   networking.firewall.allowedTCPPorts = [
