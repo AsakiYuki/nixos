@@ -8,7 +8,7 @@
   ...
 }: {
   root = path: ../. + path;
-  mkUsers = users:
+  mkUsers = osconfig: users:
     lib.mergeAttrsList (map ({
       name,
       value,
@@ -22,7 +22,7 @@
         then {
           "${name}" = lib.mergeAttrs home {
             _module.args = lib.mergeAttrs {
-              inherit inputs unstable custom libs;
+              inherit inputs unstable custom libs osconfig;
             } (lib.attrByPath ["_module" "args"] {} home);
 
             imports = lib.concatLists [
