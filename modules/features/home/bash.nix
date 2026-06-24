@@ -6,7 +6,6 @@
   ...
 }: {
   programs.bash = {
-    enable = true;
     shellAliases = lib.attrsets.mergeAttrsList (
       let
         attOpt = condition: key: value: (lib.optionalAttrs condition {

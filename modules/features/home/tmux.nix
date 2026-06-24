@@ -1,9 +1,4 @@
-{
-  lib,
-  osconfig,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   TOP_PANEL = ''
     set -g pane-border-status top
     set -g pane-border-lines single
@@ -30,7 +25,6 @@
   '';
 in {
   programs.tmux = {
-    enable = true;
     keyMode = "vi";
     disableConfirmationPrompt = true;
     prefix = "c-s";

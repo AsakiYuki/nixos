@@ -48,6 +48,17 @@
       datagrip.enable = true;
     };
 
+    nixvim.enable = true;
+    nixcord.discord.enable = true;
+    nixcord.discord.vencord.enable = true;
+    fzf.enable = true;
+    git.enable = true;
+    tmux.enable = true;
+    fastfetch.enable = true;
+    starship.enable = true;
+    bash.enable = true;
+    ghostty.enable = true;
+    kitty.enable = true;
     tor-browser.enable = true;
     yt-dlp.enable = true;
     poppler-utils.enable = true;

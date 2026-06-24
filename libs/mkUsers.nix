@@ -23,6 +23,7 @@ in {
     imports = lib.concatLists [
       [
         ../options/home/default.nix
+        ../modules/features/home/default.nix
         inputs.nixvim.homeModules.nixvim
         inputs.nixcord.homeModules.nixcord
         inputs.niri.homeModules.niri
