@@ -69,15 +69,17 @@ in {
     "d ${cfg.customDir}/public/assets/css 0755 forgejo forgejo -"
   ];
 
-  system.activationScripts.forgejoTheme.text = lib.mkIf config.services.forgejo.enable ''
-    mkdir -p ${config.services.forgejo.customDir}/public/assets/css
-    mkdir -p ${config.services.forgejo.customDir}/public/assets/img
+  system.activationScripts.forgejoTheme = lib.mkIf config.services.forgejo.enable {
+    text = ''
+      mkdir -p ${config.services.forgejo.customDir}/public/assets/css
+      mkdir -p ${config.services.forgejo.customDir}/public/assets/img
 
-    cp -r ${catppuccin}/* ${config.services.forgejo.customDir}/public/assets/css/
+      cp -r ${catppuccin}/* ${config.services.forgejo.customDir}/public/assets/css/
 
-    cp ${libs.root "/assets/forgejo/img/logo.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
-    cp ${libs.root "/assets/forgejo/img/favicon.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
-    cp ${libs.root "/assets/forgejo/img/logo.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
-    cp ${libs.root "/assets/forgejo/img/favicon.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
-  '';
+      cp ${libs.root "/assets/forgejo/img/logo.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
+      cp ${libs.root "/assets/forgejo/img/favicon.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
+      cp ${libs.root "/assets/forgejo/img/logo.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
+      cp ${libs.root "/assets/forgejo/img/favicon.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
+    '';
+  };
 }

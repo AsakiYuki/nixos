@@ -6,8 +6,6 @@
   imports = [
     ./nginx.nix
     ./acme.nix
-
-    (libs.root "/modules/features/system/forgejo.nix")
   ];
 
   services = {
