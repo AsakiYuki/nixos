@@ -56,9 +56,13 @@
       datagrip.enable = true;
     };
 
+    nixcord = {
+      enable = true;
+      discord.enable = true;
+      discord.vencord.enable = true;
+    };
+
     nixvim.enable = true;
-    nixcord.discord.enable = true;
-    nixcord.discord.vencord.enable = true;
     fzf.enable = true;
     git.enable = true;
     tmux.enable = true;
