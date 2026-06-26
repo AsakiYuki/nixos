@@ -8,32 +8,41 @@
   cfg = config.programs;
   getPkg = name: lib.mkIf cfg.${name}.enable cfg.${name}.package;
 in {
-  config.environment.systemPackages =
-    [
-      (lib.mkIf config.virtualisation.waydroid.enable (pkgs.callPackage (custom.cage-xtmapper {}) {}))
+  config = {
+    networking.firewall = lib.mkIf cfg.steam.enable {
+      allowedTCPPorts = lib.mkIf cfg.steam.allowSteamlinkPorts [27036 27037];
+      allowedUDPPorts =
+        (lib.optionalAttrs cfg.steam.allowSteamlinkPorts [27031 27032 27033 27034 27035 27036])
+        ++ (lib.optionalAttrs cfg.steam.allowMultiplayerPorts [4380 3478 4379]);
+    };
 
-      (getPkg "ffmpeg")
-      (getPkg "cava")
-      (getPkg "lsfg-vk")
-      (getPkg "lsfg-vk-ui")
-      (getPkg "nodejs")
-      (getPkg "bun")
-      (getPkg "brightnessctl")
-      (getPkg "ntfs3g")
-      (getPkg "python")
-      (getPkg "jdk")
+    environment.systemPackages =
+      [
+        (lib.mkIf config.virtualisation.waydroid.enable (pkgs.callPackage (custom.cage-xtmapper {}) {}))
 
-      (getPkg "quickshell")
-      (getPkg "papirus-icons")
-    ]
-    ++ lib.concatLists [
-      (lib.optionals cfg.gcc.enable cfg.gcc.packages)
-      (lib.optionals cfg.winepackages.enable cfg.winepackages.packages)
-      (lib.optionals cfg.kde-packages.enable cfg.kde-packages.packages)
-      (lib.optionals cfg.r-tensorflow.enable [cfg.r-tensorflow.package])
-      (lib.optionals (cfg.hyprland-portals.enable && config.device.wm.hyprland.enable) cfg.hyprland-portals.packages)
-      (lib.optionals cfg.llvm.enable cfg.llvm.packages)
-    ];
+        (getPkg "ffmpeg")
+        (getPkg "cava")
+        (getPkg "lsfg-vk")
+        (getPkg "lsfg-vk-ui")
+        (getPkg "nodejs")
+        (getPkg "bun")
+        (getPkg "brightnessctl")
+        (getPkg "ntfs3g")
+        (getPkg "python")
+        (getPkg "jdk")
+
+        (getPkg "quickshell")
+        (getPkg "papirus-icons")
+      ]
+      ++ lib.concatLists [
+        (lib.optionals cfg.gcc.enable cfg.gcc.packages)
+        (lib.optionals cfg.winepackages.enable cfg.winepackages.packages)
+        (lib.optionals cfg.kde-packages.enable cfg.kde-packages.packages)
+        (lib.optionals cfg.r-tensorflow.enable [cfg.r-tensorflow.package])
+        (lib.optionals (cfg.hyprland-portals.enable && config.device.wm.hyprland.enable) cfg.hyprland-portals.packages)
+        (lib.optionals cfg.llvm.enable cfg.llvm.packages)
+      ];
+  };
 
   options.programs = {
     llvm = {
@@ -42,6 +51,10 @@ in {
         type = lib.types.listOf lib.types.package;
         default = with pkgs.llvmPackages; [llvm clang lld];
       };
+    };
+    steam = {
+      allowSteamlinkPorts = lib.mkEnableOption "steam-link streaming ports";
+      allowMultiplayerPorts = lib.mkEnableOption "Steam multiplayer and voice ports";
     };
     cava = {
       enable = lib.mkEnableOption "cava";

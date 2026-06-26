@@ -26,6 +26,12 @@
         Port 15523
     '';
 
+    steam = {
+      enable = true;
+      allowSteamlinkPorts = true;
+      allowMultiplayerPorts = true;
+    };
+
     dconf.enable = true;
     llvm.enable = true;
     ffmpeg.enable = true;
@@ -47,7 +53,6 @@
     quickshell.enable = true;
     hyprland-portals.enable = true;
     direnv.enable = true;
-    steam.enable = true;
   };
 
   home-manager.users.asakiyuki.programs = {
