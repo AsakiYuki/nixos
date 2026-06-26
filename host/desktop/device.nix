@@ -4,9 +4,6 @@
   };
 
   device = {
-    flake-name = "ideapad-slim-5";
-    cursors = "aemeath";
-
     dm.sddm.enable = true;
     dm.gdm.enable = false;
 
@@ -19,4 +16,6 @@
     bluetooth.enable = true;
     flatpak.enable = true;
   };
+
+  home-manager.users.asakiyuki.theme.cursors = "aemeath";
 }

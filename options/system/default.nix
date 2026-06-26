@@ -8,10 +8,5 @@
 
   options.device = {
     flatpak.enable = lib.mkEnableOption "flatpak";
-    cursors = lib.mkOption {
-      type = lib.types.str;
-      default = "aemeath";
-      description = "Cursor theme to use for the desktop";
-    };
   };
 }
