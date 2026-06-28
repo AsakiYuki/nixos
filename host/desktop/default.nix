@@ -10,7 +10,6 @@
     ./services
     ./home
 
-    (libs.root "/modules/hardware")
     (libs.root "/modules/fonts.nix")
     (libs.root "/users/asakiyuki/configuration.nix")
 
