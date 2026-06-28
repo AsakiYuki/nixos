@@ -1,8 +1,4 @@
-{
-  libs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./nginx.nix
     ./acme.nix
