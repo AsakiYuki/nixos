@@ -1,4 +1,4 @@
-TouchpadName = "gxtp5100:00-27c6:01e0-touchpad"
+
 
 -- monitors
 hl.monitor({
