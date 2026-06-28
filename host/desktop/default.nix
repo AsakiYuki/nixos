@@ -4,17 +4,19 @@
   ...
 }: {
   imports = [
-    ./programs.nix
+    ./programs
+    ./virtualisation.nix
     ./device.nix
-    ./users.nix
-    ./services.nix
-    ./ssh.nix
+    ./services
+    ./home
 
     (libs.root "/modules/hardware")
     (libs.root "/modules/fonts.nix")
     (libs.root "/users/asakiyuki/configuration.nix")
-  ];
 
+    inputs.aagl.nixosModules.default
+  ];
+  i18n.inputMethod.enable = true;
   boot.kernelParams = ["usbcore.autosuspend=-1"];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   xdg.menus.enable = true;

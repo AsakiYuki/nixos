@@ -1,6 +1,5 @@
 {pkgs, ...}: {
-  home-manager.useGlobalPkgs = true;
-  home-manager.users.asakiyuki.files = {
+  files = {
     force = {};
 
     # mkForce = {

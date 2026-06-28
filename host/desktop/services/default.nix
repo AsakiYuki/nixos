@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./openssh.nix
+  ];
+
   services = {
     fail2ban.enable = true;
     flatpak.enable = true;
