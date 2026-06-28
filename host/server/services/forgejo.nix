@@ -14,6 +14,7 @@
   cfg = config.services.forgejo;
 in {
   services.forgejo = {
+    enable = true;
     database.type = "mysql";
 
     settings = {

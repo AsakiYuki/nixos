@@ -1,6 +1,6 @@
 {
-  custom,
   pkgs,
+  custom,
   ...
 }: {
   programs = {
@@ -12,13 +12,6 @@
     bun = {
       enable = true;
       package = pkgs.callPackage custom.bun {};
-    };
-  };
-
-  home-manager.users.asakiyuki.programs = {
-    yt-dlp = {
-      enable = true;
-      output.directory = "PUBLIC/yt-dlp";
     };
   };
 }

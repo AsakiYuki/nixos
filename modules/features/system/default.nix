@@ -17,5 +17,6 @@
     ./stalwart.nix
     ./steam.nix
     ./waydroid.nix
+    ./fail2ban.nix
   ];
 }
