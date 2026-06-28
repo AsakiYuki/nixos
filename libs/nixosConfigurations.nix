@@ -53,7 +53,7 @@ in
                     options = "--delete-older-than 30d";
                   };
                 };
-                networking.hostName = "nixosz";
+                networking.hostName = "nixos";
                 home-manager = {
                   useUserPackages = true;
                   useGlobalPkgs = true;
