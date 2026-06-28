@@ -12,12 +12,12 @@
   options = {
     theme.cursors = lib.mkOption {
       type = lib.types.str;
-      default = null;
+      default = "";
       description = "Cursor theme to use for the desktop";
     };
   };
 
-  config = lib.mkIf (config.theme.cursors != null) {
+  config = lib.mkIf (config.theme.cursors != "") {
     home.pointerCursor =
       (custom.cursors {
         name = config.theme.cursors;
