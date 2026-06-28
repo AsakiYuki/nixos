@@ -9,8 +9,8 @@
   getPkg = name: lib.mkIf cfg.${name}.enable cfg.${name}.package;
 in {
   imports = [
-    ./programs/dolphin/imports.nix
-    ./programs/kde/imports.nix
+    ./programs/dolphin
+    ./programs/kde
   ];
 
   config.home.packages =
