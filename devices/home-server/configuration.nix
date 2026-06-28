@@ -1,8 +1,8 @@
 {libs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ./network.nix
-    ./boot.nix
+    ./network
+    ./boot
     (libs.root "/host/server")
   ];
 }

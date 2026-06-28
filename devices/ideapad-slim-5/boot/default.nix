@@ -5,10 +5,15 @@
   ...
 }: {
   boot = {
-    kernelParams = ["amd_pstate=active" "nowatchdog" "modprobe.blacklist=sp5100_tco"];
     supportedFilesystems = ["ntfs"];
     kernelPackages = pkgs.linuxPackages_zen;
     extraModulePackages = [config.boot.kernelPackages.zenpower];
+
+    boot.kernelParams = [
+      "amd_pstate=active"
+      "nowatchdog"
+      "modprobe.blacklist=sp5100_tco"
+    ];
 
     loader = {
       systemd-boot.configurationLimit = 5;

@@ -1,36 +1,16 @@
-{
-  libs,
-  pkgs,
-  ...
-}: {
+{libs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ./hardware.nix
-    ./systemd.nix
-    ./mount.nix
-    ./network.nix
-    ./boot.nix
-    ./environment.nix
+    ./hardware
+    ./systemd
+    ./mount
+    ./network
+    ./boot
+    ./environment
+    ./device
+    ./services
+    ./packages
 
     (libs.root "/host/desktop")
   ];
-
-  services = {
-    power-profiles-daemon.enable = true;
-    xserver.videoDrivers = ["amdgpu"];
-  };
-
-  environment.systemPackages = with pkgs; [
-    # php btw
-    php85
-    php85Packages.composer
-    intelephense
-
-    lm_sensors
-    ryzenadj
-    sbctl
-    rsync
-  ];
-
-  device.wm.hyprland.extraConfig = builtins.readFile ./hyprland.lua;
 }
