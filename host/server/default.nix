@@ -5,6 +5,7 @@
     ./programs.nix
     ./users.nix
     ./ssh.nix
+    ./acme.nix
 
     (libs.root "/modules/programs/minecraft")
 
