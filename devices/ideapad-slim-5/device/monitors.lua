@@ -1,5 +1,3 @@
-
-
 -- monitors
 hl.monitor({
     output = "eDP-1",
