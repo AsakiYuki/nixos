@@ -1,43 +1,41 @@
 {...}: {
   programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
+    # Hyprland
+    hyprland.enable = true;
+    hyprland.xwayland.enable = true;
+    hyprland-portals.enable = true;
+    quickshell.enable = true;
 
-    ssh.extraConfig = ''
-      Host server
-        HostName asakiyuki.com
-        User asakiyuki
-        Port 15523
-    '';
+    # Gaming
+    steam.enable = true;
+    steam.allowSteamlinkPorts = true;
+    steam.allowMultiplayerPorts = true;
+    lsfg-vk-ui.enable = true;
+    gamemode.enable = true;
+    gamescope.enable = true;
 
-    steam = {
-      enable = true;
-      allowSteamlinkPorts = true;
-      allowMultiplayerPorts = true;
-    };
-
+    # General
     dconf.enable = true;
+    ntfs3g.enable = true;
+
+    # CLI
     llvm.enable = true;
     ffmpeg.enable = true;
     nodejs.enable = true;
     bun.enable = true;
     brightnessctl.enable = true;
-    ntfs3g.enable = true;
     python.enable = true;
-    jdk.enable = true;
     winepackages.enable = true;
-    papirus-icons.enable = true;
-    kde-packages.enable = true;
-    r-tensorflow.enable = true;
+    jdk.enable = true;
     lsfg-vk.enable = true;
-    lsfg-vk-ui.enable = true;
+    r-tensorflow.enable = true;
     cava.enable = true;
-    gamemode.enable = true;
-    gamescope.enable = true;
-    quickshell.enable = true;
-    hyprland-portals.enable = true;
     direnv.enable = true;
+    
+    # Themes
+    papirus-icons.enable = true;
+    
+    # KDE
+    kde-packages.enable = true;
   };
 }
