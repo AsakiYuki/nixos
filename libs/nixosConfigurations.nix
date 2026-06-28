@@ -12,12 +12,12 @@ in
       value,
     }: let
       sys = value.system or "x86_64-linux";
-      custom = import ../packages/default.nix inputs;
+      custom = import ../packages inputs;
       unstable = import inputs.unstablepkgs {
         localSystem = sys;
         config.allowUnfree = true;
       };
-      libs = import ../libs/default.nix (lib.mergeAttrs args {inherit custom unstable libs;});
+      libs = import ../libs (lib.mergeAttrs args {inherit custom unstable libs;});
     in {
       "${name}" = lib.nixosSystem {
         system = sys;
@@ -31,9 +31,9 @@ in
           ++ [
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
-            (libs.root "/modules/features/system/default.nix")
+            (libs.root "/modules/features/system")
             (libs.root "/overlays/nixpkgs.nix")
-            (libs.root "/options/system/default.nix")
+            (libs.root "/options/system")
             {
               config = {
                 nixpkgs.config.allowUnfree = true;

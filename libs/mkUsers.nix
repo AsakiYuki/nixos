@@ -22,12 +22,12 @@ in {
 
     imports = lib.concatLists [
       [
-        ../options/home/default.nix
-        ../modules/features/home/default.nix
+        ../options/home
+        ../modules/features/home
 
-        (libs.root "/modules/programs/hyprland/default.nix")
-        (libs.root "/modules/programs/nixcord/default.nix")
-        (libs.root "/modules/programs/nixvim/_nixvim.nix")
+        (libs.root "/modules/programs/hyprland")
+        (libs.root "/modules/programs/nixcord")
+        (libs.root "/modules/programs/nixvim")
 
         inputs.nixvim.homeModules.nixvim
         inputs.nixcord.homeModules.nixcord

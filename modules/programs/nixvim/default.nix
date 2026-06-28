@@ -1,17 +1,15 @@
-{...}: {
-  vimdiffAlias = true;
-  colorschemes.catppuccin.enable = true;
+{pkgs, ...}: {
+  programs.nixvim = {
+    nixpkgs.source = pkgs.path;
+    imports = [
+      ./extra-packages.nix
 
-  opts = {
-    number = true;
-    relativenumber = true;
+      ./keymaps/_keymaps.nix
 
-    tabstop = 2;
-    shiftwidth = 2;
-    softtabstop = 2;
-    smartindent = true;
-    expandtab = true;
+      ./plugins/_plugins.nix
+      ./plugins/_extraPlugins.nix
 
-    clipboard = "unnamedplus";
+      ./lua/_lua.nix
+    ];
   };
 }

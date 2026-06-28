@@ -3,6 +3,6 @@
     ./hardware-configuration.nix
     ./network.nix
     ./boot.nix
-    (libs.root "/host/server/default.nix")
+    (libs.root "/host/server")
   ];
 }

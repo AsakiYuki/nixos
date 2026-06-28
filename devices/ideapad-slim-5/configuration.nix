@@ -2,8 +2,7 @@
   libs,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ./hardware.nix
@@ -13,12 +12,12 @@
     ./boot.nix
     ./environment.nix
 
-    (libs.root "/host/desktop/default.nix")
+    (libs.root "/host/desktop")
   ];
 
   services = {
     power-profiles-daemon.enable = true;
-    xserver.videoDrivers = [ "amdgpu" ];
+    xserver.videoDrivers = ["amdgpu"];
   };
 
   environment.systemPackages = with pkgs; [

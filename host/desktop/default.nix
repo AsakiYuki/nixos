@@ -10,7 +10,7 @@
     ./services.nix
     ./ssh.nix
 
-    (libs.root "/modules/hardware/default.nix")
+    (libs.root "/modules/hardware")
     (libs.root "/modules/fonts.nix")
     (libs.root "/users/asakiyuki/configuration.nix")
   ];
