@@ -2,7 +2,7 @@
   imports = [
     ./services
 
-    ./programs.nix
+    ./programs
     ./users.nix
     ./acme.nix
 
