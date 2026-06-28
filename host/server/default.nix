@@ -1,10 +1,9 @@
 {libs, ...}: {
   imports = [
     ./services
-
+    ./security
     ./programs
     ./users.nix
-    ./acme.nix
 
     (libs.root "/modules/programs/minecraft")
 
