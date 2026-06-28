@@ -15,6 +15,4 @@
 
     flatpak.enable = true;
   };
-
-  home-manager.users.asakiyuki.theme.cursors = "aemeath";
 }

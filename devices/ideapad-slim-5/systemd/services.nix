@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  system.services = {
+  systemd.services = {
     sync-windows-bootloader = {
       description = "Sync Windows bootloader to Linux ESP";
       serviceConfig = {
