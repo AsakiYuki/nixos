@@ -1,6 +1,7 @@
 {libs, ...}: {
   imports = [
     ./programs
+    ./services
     ./users.nix
 
     (libs.root "/modules/programs/minecraft")

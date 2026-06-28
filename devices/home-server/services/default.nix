@@ -3,7 +3,6 @@
     ./nginx.nix
     ./adguardhome.nix
     ./cloudflare-dyndns.nix
-    ./logrorate.nix
     ./mysql.nix
     ./nginx.nix
     ./openssh.nix
