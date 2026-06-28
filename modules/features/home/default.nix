@@ -16,5 +16,6 @@
     ./tmux.nix
     ./xdg.nix
     ./yt-dlp.nix
+    ./btop.nix
   ];
 }
