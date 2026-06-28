@@ -1,7 +1,5 @@
 {libs, ...}: {
   imports = [
-    ./services
-    ./security
     ./programs
     ./users.nix
 
