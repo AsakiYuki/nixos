@@ -3,7 +3,6 @@
     ./boot.nix
     ./cloudflare.nix
     ./dconf.nix
-    ./forgejo.nix
     ./gdm.nix
     ./gnome.nix
     ./hyprland.nix
