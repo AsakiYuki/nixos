@@ -3,7 +3,6 @@
     ./programs.nix
     ./environment.nix
     ./programs.nix
-    ./hardware.nix
   ];
 
   options.device = {

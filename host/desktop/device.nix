@@ -13,7 +13,6 @@
     wm.niri.enable = false;
     wm.hyprland.enable = true;
 
-    bluetooth.enable = true;
     flatpak.enable = true;
   };
 
