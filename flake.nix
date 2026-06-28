@@ -11,10 +11,10 @@
     hytale-launcher.url = "github:zarilion/hytale-launcher-nix";
     niri.url = "github:sodiboo/niri-flake";
     nixcord.url = "github:FlameFlag/nixcord";
-    winegdk.url = "github:fmbearmf/winegdk-nix";
     catppuccin.url = "github:catppuccin/nix";
     dolphin-overlay.url = "github:asakiyuki/dolphin-overlay";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    # winegdk.url = "github:fmbearmf/winegdk-nix";
     # hyprland.url = "github:hyprwm/Hyprland";
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
