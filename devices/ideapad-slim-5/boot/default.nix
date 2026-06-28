@@ -9,7 +9,7 @@
     kernelPackages = pkgs.linuxPackages_zen;
     extraModulePackages = [config.boot.kernelPackages.zenpower];
 
-    boot.kernelParams = [
+    kernelParams = [
       "amd_pstate=active"
       "nowatchdog"
       "modprobe.blacklist=sp5100_tco"
