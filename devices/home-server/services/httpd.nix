@@ -1,6 +1,7 @@
 {...}: {
   services.httpd = {
     enable = true;
+    enablePHP = true;
     adminAddr = "vantrong2007vn@gmail.com";
 
     user = "static";
