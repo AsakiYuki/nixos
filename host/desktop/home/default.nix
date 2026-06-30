@@ -5,4 +5,6 @@
       asakiyuki.imports = [./asakiyuki];
     };
   };
+
+  users.users.asakiyuki.extraGroups = ["docker"];;
 }
