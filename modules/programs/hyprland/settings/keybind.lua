@@ -32,21 +32,30 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
+local function moveWindow(direction)
+   local window = hl.get_active_window()
+   if (window == nil) then return end
+
+   if (window.floating) then
+      
+   else hl.dispatch(hl.dsp.window.move({ direction = direction })) end
+end
+
 hl.bind("SUPER + left", hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + right", hl.dsp.focus({ direction = "right" }))
 hl.bind("SUPER + up", hl.dsp.focus({ direction = "up" }))
 hl.bind("SUPER + down", hl.dsp.focus({ direction = "down" }))
 
-hl.bind("SUPER  + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
-hl.bind("SUPER  + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
-hl.bind("SUPER  + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
-hl.bind("SUPER  + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
+hl.bind("SUPER  + SHIFT + left", function () moveWindow("left") end)
+hl.bind("SUPER  + SHIFT + right", function () moveWindow("right") end)
+hl.bind("SUPER  + SHIFT + up", function () moveWindow("up") end)
+hl.bind("SUPER  + SHIFT + down", function () moveWindow("down") end)
 
 hl.bind("SUPER + mouse_down", hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + mouse_up", hl.dsp.focus({ direction = "right" }))
 
-hl.bind("SUPER + mouse:275", hl.dsp.window.move({ direction = "left" }))
-hl.bind("SUPER + mouse:276", hl.dsp.window.move({ direction = "right" }))
+hl.bind("SUPER + mouse:275", function () moveWindow("left") end)
+hl.bind("SUPER + mouse:276", function () moveWindow("right") end)
 
 hl.bind("Caps_Lock", hl.dsp.global("asakiyuki:capslock"), { ignore_mods = true })
 hl.bind("XF86TouchpadToggle", hl.dsp.global("asakiyuki:touchpadtoggle"), { ignore_mods = true })
