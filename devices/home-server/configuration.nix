@@ -4,6 +4,7 @@
     ./network
     ./security
     ./services
+    ./users
     ./boot
 
     (libs.root "/host/server")
