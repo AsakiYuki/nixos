@@ -7,26 +7,15 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    niri.url = "github:sodiboo/niri-flake";
-    catppuccin.url = "github:catppuccin/nix";
-
-    nixcord.url = "github:FlameFlag/nixcord";
-    nixcord.inputs.nixpkgs.follows = "nixpkgs";
-
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     hytale-launcher.url = "github:zarilion/hytale-launcher-nix";
-    hytale-launcher.inputs.nixpkgs.follows = "nixpkgs";
-
+    niri.url = "github:sodiboo/niri-flake";
+    nixcord.url = "github:FlameFlag/nixcord";
+    catppuccin.url = "github:catppuccin/nix";
     dolphin-overlay.url = "github:asakiyuki/dolphin-overlay";
-    dolphin-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    millennium.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
