@@ -46,7 +46,6 @@ in {
       (getPkg "nwg-look")
       (getPkg "tldr")
 
-      (getPkg "hytale-launcher")
       (getPkg "cider")
     ]
     ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
