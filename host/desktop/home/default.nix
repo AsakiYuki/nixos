@@ -6,5 +6,5 @@
     };
   };
 
-  users.users.asakiyuki.extraGroups = ["docker"];;
+  users.users.asakiyuki.extraGroups = ["docker"];
 }
