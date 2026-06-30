@@ -232,13 +232,6 @@ in {
       enable = lib.mkEnableOption "davinci-resolve";
       package = lib.mkPackageOption pkgs "davinci-resolve" {};
     };
-    hytale-launcher = {
-      enable = lib.mkEnableOption "hytale-launcher";
-      package = lib.mkOption {
-        type = lib.types.package;
-        default = inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      };
-    };
     cider = {
       enable = lib.mkEnableOption "cider-2";
       package = lib.mkPackageOption pkgs "cider-2" {};

@@ -8,7 +8,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
-    hytale-launcher.url = "github:zarilion/hytale-launcher-nix";
     niri.url = "github:sodiboo/niri-flake";
     nixcord.url = "github:FlameFlag/nixcord";
     catppuccin.url = "github:catppuccin/nix";

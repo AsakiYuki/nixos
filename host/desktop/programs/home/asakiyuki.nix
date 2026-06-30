@@ -57,7 +57,6 @@
     lutris.enable = true;
     proton-ge.enable = true;
     prismlauncher.enable = true;
-    hytale-launcher.enable = true;
 
     # Downloader
     qbittorrent.enable = true;
