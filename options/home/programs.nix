@@ -15,6 +15,7 @@ in {
 
   config.home.packages =
     [
+      (getPkg "winboat")
       (getPkg "catppuccin")
       (getPkg "poppler-utils")
       (getPkg "tor-browser")
@@ -69,6 +70,11 @@ in {
           default = "%(title)s.%(ext)s";
         };
       };
+    };
+
+    winboat = {
+      enable = lib.mkEnableOption "winboat";
+      package = lib.mkPackageOption pkgs "winboat" {};
     };
 
     qbittorrent = {
