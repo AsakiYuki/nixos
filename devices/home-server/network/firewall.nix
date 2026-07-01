@@ -18,7 +18,7 @@
 
       53 # DNS
       3306 # MySQL
-      (lib.optional (config.services.searx.enable) 65530) # Searx
+      (lib.optional config.services.searx.enable config.services.searx.settings.port) # Searx
     ];
   };
 }
