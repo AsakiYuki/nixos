@@ -25,6 +25,14 @@
         };
       };
 
+      "search.asakiyuki.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://localhost:39212";
+        };
+      };
+
       "adguard.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;

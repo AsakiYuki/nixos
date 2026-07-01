@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{...}: {
   networking.firewall = {
     enable = true;
 
@@ -10,16 +6,14 @@
       53
     ];
 
-    allowedTCPPorts =
-      [
-        15523 # SSH
+    allowedTCPPorts = [
+      15523 # SSH
 
-        80
-        443
+      80
+      443
 
-        53 # DNS
-        3306 # MySQL
-      ]
-      ++ (lib.optional config.services.searx.enable (lib.attrByPath ["settings" "server" "port"] 8080 config.services.searx)); # Searx
+      53 # DNS
+      3306 # MySQL
+    ];
   };
 }
