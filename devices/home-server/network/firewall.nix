@@ -10,15 +10,16 @@
       53
     ];
 
-    allowedTCPPorts = [
-      15523 # SSH
+    allowedTCPPorts =
+      [
+        15523 # SSH
 
-      80
-      443
+        80
+        443
 
-      53 # DNS
-      3306 # MySQL
-      (lib.optional config.services.searx.enable config.services.searx.settings.server.port) # Searx
-    ];
+        53 # DNS
+        3306 # MySQL
+      ]
+      ++ (lib.optional config.services.searx.enable (lib.attrByPath ["settings" "server" "port"] config.services.searx)); # Searx
   };
 }
