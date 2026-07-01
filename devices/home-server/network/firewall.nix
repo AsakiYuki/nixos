@@ -20,6 +20,6 @@
         53 # DNS
         3306 # MySQL
       ]
-      ++ (lib.optional config.services.searx.enable (lib.attrByPath ["settings" "server" "port"] config.services.searx)); # Searx
+      ++ (lib.optional config.services.searx.enable (lib.attrByPath ["settings" "server" "port"] 8080 config.services.searx)); # Searx
   };
 }
