@@ -1,4 +1,8 @@
-{...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   networking.firewall = {
     enable = true;
 
@@ -14,6 +18,7 @@
 
       53 # DNS
       3306 # MySQL
+      (lib.optional (config.services.searx.enable) 65530) # Searx
     ];
   };
 }
