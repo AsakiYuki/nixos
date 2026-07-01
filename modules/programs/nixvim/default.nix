@@ -1,6 +1,5 @@
-{pkgs, ...}: {
+{...}: {
   programs.nixvim = {
-    nixpkgs.source = pkgs.path;
     imports = [
       ./extra-packages.nix
 
