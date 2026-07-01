@@ -7,7 +7,7 @@
     ./nginx.nix
     ./openssh.nix
     ./forgejo.nix
+    ./searx.nix
+    ./fail2ban.nix
   ];
-
-  services.fail2ban.enable = true;
 }
