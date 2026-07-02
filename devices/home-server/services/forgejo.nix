@@ -42,6 +42,9 @@ in {
         SSH_CREATE_AUTHORIZED_KEYS_FILE = true;
         SSH_DOMAIN = "asakiyuki.com";
         ROOT_URL = "https://git.asakiyuki.com/";
+      };
+
+      repository = {
         DISABLE_HTTP_GIT = true;
       };
     };
