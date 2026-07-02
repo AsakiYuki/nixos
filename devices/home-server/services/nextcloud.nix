@@ -15,5 +15,9 @@
       adminpassFile = "/etc/nextcloud-admin-pass";
       dbtype = "mysql";
     };
+
+    settings = {
+      "localstorage.allowsymlinks" = true;
+    };
   };
 }
