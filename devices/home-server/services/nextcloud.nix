@@ -4,10 +4,7 @@
     hostName = "drive.asakiyuki.com";
 
     database.createLocally = false;
-    extraAppsEnable = true;
-    # extraApps = {
-    #   inherit (pkgs.nextcloud33Packages.apps.) external;
-    # };
+    datadir = "/home/PUBLIC";
     package = pkgs.nextcloud33;
 
     config = {
