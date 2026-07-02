@@ -5,9 +5,9 @@
 
     database.createLocally = false;
     extraAppsEnable = true;
-    extraApps = {
-      inherit (pkgs.nextcloud33Packages.apps) external;
-    };
+    # extraApps = {
+    #   inherit (pkgs.nextcloud33Packages.apps.) external;
+    # };
     package = pkgs.nextcloud33;
 
     config = {
