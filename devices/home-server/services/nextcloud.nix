@@ -4,7 +4,6 @@
     hostName = "drive.asakiyuki.com";
 
     database.createLocally = false;
-    datadir = "/home/PUBLIC";
     package = pkgs.nextcloud33;
 
     config = {
