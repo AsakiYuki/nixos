@@ -54,8 +54,11 @@
         enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:39212";
-          basicAuth = builtins.fromJSON (builtins.readFile (libs.rootPath "/secrets/nginx.auth.json"));
+          basicAuth = builtins.fromJSON (builtins.readFile (libs.root "/secrets/nginx.auth.json"));
           extraConfig = ''
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
             auth_basic "Please login to use SearXNG";
           '';
         };
