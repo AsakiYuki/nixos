@@ -1,7 +1,7 @@
-{...}: {
+{libs, ...}: {
   services.searx = {
     enable = true;
-    environmentFile = "/etc/nixos/secrets/searx.env";
+    environmentFile = libs.rootPath "/secrets/searx.env";
     settings = {
       general = {
         debug = false;
