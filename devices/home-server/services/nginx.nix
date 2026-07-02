@@ -45,17 +45,6 @@
       "drive.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
-
-        root = "${config.services.nextcloud.package}";
-
-        locations."/" = {
-          fastcgiPass = "127.0.0.1:9000";
-
-          extraConfig = ''
-            include ${config.services.nginx.package}/conf/fastcgi.conf;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-          '';
-        };
       };
 
       "static.asakiyuki.com" = {

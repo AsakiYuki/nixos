@@ -14,9 +14,5 @@
       adminpassFile = "/etc/nextcloud-admin-pass";
       dbtype = "mysql";
     };
-
-    poolSettings = {
-      "listen" = "127.0.0.1:9000";
-    };
   };
 }
