@@ -22,17 +22,30 @@ in {
         APP_NAME = "Asa's git";
       };
 
+      cors = {
+        ENABLED = true;
+        ALLOW_DOMAIN = "https://*.asakiyuki.com";
+        METHODS = "GET ,HEAD ,POST ,PUT ,PATCH ,DELETE ,OPTIONS";
+        MAX_AGE = 86400;
+      };
+
+      ui = {
+        THEMES = "catppuccin-mocha-lavender";
+        DEFAULT_THEME = "catppuccin-mocha-lavender";
+      };
+
+      "ui.meta" = {
+        AUTHOR = "Asaki Yuki";
+        DESCRIPTION = "Asaki Yuki's git forge";
+        KEYWORDS = "git ,forge ,asakiyuki";
+      };
+
       service = {
         DISABLE_REGISTRATION = true;
       };
 
       actions = {
         ENABLED = true;
-      };
-
-      ui = {
-        THEMES = "catppuccin-mocha-lavender";
-        DEFAULT_THEME = "catppuccin-mocha-lavender";
       };
 
       server = {

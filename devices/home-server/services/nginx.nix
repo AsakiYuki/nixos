@@ -41,6 +41,14 @@
         globalRedirect = "www.asakiyuki.com";
       };
 
+      "drive.asakiyuki.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://localhost:9000";
+        };
+      };
+
       "static.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;

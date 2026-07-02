@@ -9,5 +9,6 @@
     ./forgejo.nix
     ./searx.nix
     ./fail2ban.nix
+    ./nextcloud.nix
   ];
 }
