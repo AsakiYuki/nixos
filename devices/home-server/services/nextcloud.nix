@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   services.nextcloud = {
     enable = true;
     hostName = "drive.asakiyuki.com";
@@ -10,7 +6,7 @@
     database.createLocally = false;
     extraAppsEnable = true;
     extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps) external;
+      inherit (pkgs.nextcloud31Packages.apps) external;
     };
 
     config = {
