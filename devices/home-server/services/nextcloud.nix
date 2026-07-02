@@ -1,8 +1,7 @@
-{pkgs, ...}: {
+{...}: {
   services.nextcloud = {
     enable = true;
     hostName = "drive.asakiyuki.com";
-    package = pkgs.nextcloud30;
 
     database.createLocally = false;
 
