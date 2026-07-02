@@ -12,6 +12,7 @@
       dbpassFile = "/etc/nextcloud-db-pass";
       adminuser = "root";
       adminpassFile = "/etc/nextcloud-admin-pass";
+      dbtype = "mysql";
     };
 
     poolSettings = {
