@@ -50,6 +50,10 @@
         enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:39212";
+          basicAuth.asakiyuki = "Dev@Az19823367";
+          extraConfig = ''
+            auth_basic "Please login to use SearXNG";
+          '';
         };
       };
 

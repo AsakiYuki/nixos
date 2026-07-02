@@ -1,7 +1,7 @@
-{...}: {
+{libs, ...}: {
   services.searx = {
     enable = true;
-    environmentFile = "/home/asakiyuki/SECRET/SEARX.env";
+    environmentFile = libs.root "/secrets/SEARX.env";
     settings = {
       general = {
         debug = false;
