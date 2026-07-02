@@ -17,4 +17,9 @@
       dbtype = "mysql";
     };
   };
+
+  systemd.services.phpfpm-nextcloud.serviceConfig = {
+    ProtectHome = "false";
+    ReadWritePaths = ["/home/PUBLIC"];
+  };
 }
