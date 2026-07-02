@@ -1,22 +1,42 @@
-{...}: {
+{
+  libs,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  age.secrets = lib.mkIf config.services.nextcloud.enable {
+    "nextcloud-admin-pass" = {
+      file = libs.root "/secrets/nextcloud/admin.pass.secret";
+      owner = "nextcloud";
+      group = "nextcloud";
+      mode = "0400";
+    };
+
+    "nextcloud-db-pass" = {
+      file = libs.root "/secrets/nextcloud/database.pass.secret";
+      owner = "nextcloud";
+      group = "nextcloud";
+      mode = "0400";
+    };
+  };
+
   services.nextcloud = {
     enable = true;
+    hostName = "cloud.example.com";
+    package = pkgs.nextcloud30;
 
-    database = {
-      type = "mysql";
-      host = "localhost";
-      name = "nextcloud";
-      user = "nextcloud";
-      passwordFile = "/var/lib/nextcloud/mysql-password";
-    };
-
-    poolSettings = {
-      listen = "localhost:9000";
-    };
+    database.createLocally = false;
+    database.type = "mysql";
 
     config = {
+      dbhost = "127.0.0.1";
+      dbname = "nextcloud";
+      dbuser = "nextcloud";
+      dbpassFile = config.age.secrets."nextcloud-db-pass".path;
+
       adminuser = "root";
-      adminpassFile = "/etc/nextcloud-admin-pass";
+      adminpassFile = config.age.secrets."nextcloud-admin-pass".path;
     };
   };
 }
