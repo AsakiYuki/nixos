@@ -6,8 +6,9 @@
     database.createLocally = false;
     extraAppsEnable = true;
     extraApps = {
-      inherit (pkgs.nextcloud31Packages.apps) external;
+      inherit (pkgs.nextcloud33Packages.apps) external;
     };
+    package = pkgs.nextcloud33;
 
     config = {
       dbhost = "127.0.0.1";
