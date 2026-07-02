@@ -2,7 +2,6 @@
   libs,
   config,
   lib,
-  pkgs,
   ...
 }: {
   age.secrets = lib.mkIf config.services.nextcloud.enable {
@@ -28,6 +27,7 @@
     database.createLocally = false;
 
     config = {
+      dbtype = "mysql";
       dbhost = "127.0.0.1";
       dbname = "nextcloud";
       dbuser = "nextcloud";
