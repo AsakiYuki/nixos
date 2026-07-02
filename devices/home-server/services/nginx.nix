@@ -41,11 +41,6 @@
         globalRedirect = "www.asakiyuki.com";
       };
 
-      "drive.asakiyuki.com" = {
-        forceSSL = true;
-        enableACME = true;
-      };
-
       "static.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
