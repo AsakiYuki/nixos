@@ -1,7 +1,6 @@
 {
   pkgs,
   libs,
-  config,
   ...
 }: {
   services.nginx = {
