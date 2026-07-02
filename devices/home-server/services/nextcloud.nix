@@ -24,7 +24,6 @@
   services.nextcloud = {
     enable = true;
     hostName = "drive.example.com";
-    package = pkgs.nextcloud30;
 
     database.createLocally = false;
 
