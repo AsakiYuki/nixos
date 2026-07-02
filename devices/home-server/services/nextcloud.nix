@@ -10,7 +10,7 @@
       dbname = "nextcloud";
       dbuser = "nextcloud";
       dbpassFile = "/etc/nextcloud-db-pass";
-      adminuser = "root";
+      adminuser = "admin";
       adminpassFile = "/etc/nextcloud-admin-pass";
       dbtype = "mysql";
     };
