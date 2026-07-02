@@ -27,7 +27,6 @@
     package = pkgs.nextcloud30;
 
     database.createLocally = false;
-    database.type = "mysql";
 
     config = {
       dbhost = "127.0.0.1";
