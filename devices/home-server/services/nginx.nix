@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  libs,
+  ...
+}: {
   services.nginx = {
     enable = true;
 
@@ -50,7 +54,7 @@
         enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:39212";
-          basicAuth.asakiyuki = "Dev@Az19823367";
+          basicAuth = builtins.fromJSON (builtins.readFile (libs.rootPath "/secrets/nginx.auth.json"));
           extraConfig = ''
             auth_basic "Please login to use SearXNG";
           '';
