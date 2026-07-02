@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   services.nextcloud = {
     enable = true;
     hostName = "drive.asakiyuki.com";
@@ -15,9 +11,9 @@
       dbhost = "127.0.0.1";
       dbname = "nextcloud";
       dbuser = "nextcloud";
-      dbpassFile = config.age.secrets."nextcloud-db-pass".path;
+      dbpassFile = "/etc/nextcloud-db-pass";
       adminuser = "root";
-      adminpassFile = config.age.secrets."nextcloud-admin-pass".path;
+      adminpassFile = "/etc/nextcloud-admin-pass";
     };
 
     poolSettings = {
