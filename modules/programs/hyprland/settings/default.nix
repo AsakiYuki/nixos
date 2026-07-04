@@ -41,6 +41,9 @@
       -- WORKSPACES RULES
       ${builtins.readFile ./workspace-rules.lua}
 
+      -- EVETNS
+      ${builtins.readFile ./events.lua}
+
       -- AUTOSTART
       hl.on("hyprland.start", function ()
         ${builtins.readFile ./autostart.lua}
