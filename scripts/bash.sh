@@ -16,3 +16,8 @@ function git-pull() {
 function get-hash() {
     nix hash to-sri --type sha256 $(nix-prefetch-url --unpack "$1")
 }
+
+function nixos-rollback() {
+    sudo nix-env --switch-generation $1 -p /nix/var/nix/profiles/system
+    sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
+}
