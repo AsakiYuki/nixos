@@ -1,0 +1,52 @@
+global {
+    # Đã đổi thành card mạng LAN thực tế của bạn
+    lan_interface: enp1s0
+    wan_interface: auto
+
+    log_level: info
+    dial_mode: domain
+}
+
+subscription {
+    # Điền link đăng ký gói proxy của bạn vào đây
+    my_sub: 'https://link-subscription-proxy-cua-ban.com'
+}
+
+dns {
+    upstream {
+        alidns: 'udp://dns.alidns.com:53'
+        googledns: 'tcp+udp://dns.google:53'
+    }
+    routing {
+        request {
+            qname(geosite:cn) -> alidns
+            fallback: googledns
+        }
+    }
+}
+
+group {
+    my_group {
+        filter: subtag(my_sub)
+        policy: min_moving_avg
+    }
+}
+
+routing {
+    pname(NetworkManager) -> direct
+    dip(224.0.0.0/3, 'ff00::/8') -> direct
+    
+    # Cho phép các thiết bị trong nhà (.1.0/24) nói chuyện trực tiếp với nhau không qua proxy
+    dip(192.168.1.0/24) -> direct
+    dip(geoip:private) -> direct
+
+    # Chặn kết nối QUIC (UDP 443) để tối ưu hóa proxy TCP
+    l4proto(udp) && dport(443) -> block
+    
+    # Các trang web/IP trong nước đi thẳng
+    dip(geoip:cn) -> direct
+    domain(geosite:cn) -> direct
+
+    # Còn lại tất cả các connection ra quốc tế (bao gồm web bậy bạ) đi qua proxy
+    fallback: my_group
+}
