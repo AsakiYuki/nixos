@@ -1,9 +1,8 @@
 {...}: {
   imports = [
-    ./browsers.nix
+    ./cli
+    ./browsers
+    ./terminals
     ./dolphin.nix
-    ./ghostty.nix
-    ./kitty.nix
-    ./neovide.nix
   ];
 }
