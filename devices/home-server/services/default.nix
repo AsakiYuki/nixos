@@ -2,7 +2,7 @@
   imports = [
     ./nginx.nix
     ./adguardhome.nix
-    ./cloudflare-dyndns.nix
+    ./cloudflare.nix
     ./mysql.nix
     ./nginx.nix
     ./openssh.nix
