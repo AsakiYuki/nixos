@@ -45,14 +45,18 @@ group {
 }
 
 routing {
+    # 🌟 DÒNG QUAN TRỌNG NHẤT: Thả xích cho AdGuard Home đi thẳng ra internet để lấy IP đúng
+    pname(AdGuardHome, aghome) -> direct
+
+    # Các rule hệ thống khác giữ nguyên
     pname(NetworkManager) -> direct
     dip(224.0.0.0/3, 'ff00::/8') -> direct
     dip(geoip:private) -> direct
 
-    # Chặn QUIC (để AdGuard và Proxy chạy mượt hơn, tránh leak qua UDP)
+    # Chặn QUIC
     l4proto(udp) && dport(443) -> block
     
-    # Định tuyến IP/Domain nội bộ (Ví dụ: chặn quảng cáo từ Adguard xong, cái nào đi tiếp sang VN/Trung Quốc thì đi thẳng)
+    # Định tuyến IP/Domain nội bộ đi thẳng
     dip(geoip:cn) -> direct
     domain(geosite:cn) -> direct
 
