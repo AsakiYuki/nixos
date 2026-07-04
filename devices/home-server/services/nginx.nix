@@ -1,8 +1,4 @@
-{
-  pkgs,
-  libs,
-  ...
-}: {
+{pkgs, ...}: {
   services.nginx = {
     enable = true;
 
