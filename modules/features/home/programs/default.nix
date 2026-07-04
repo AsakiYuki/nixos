@@ -4,5 +4,6 @@
     ./browsers
     ./terminals
     ./dolphin.nix
+    ./niri.nix
   ];
 }
