@@ -1,6 +1,6 @@
 {...}: {
   networking.firewall = {
-    enable = false;
+    enable = true;
 
     allowedUDPPorts = [
       53
