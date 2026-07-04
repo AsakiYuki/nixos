@@ -21,3 +21,7 @@ function nixos-rollback() {
     sudo nix-env --switch-generation $1 -p /nix/var/nix/profiles/system
     sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
 }
+
+function nixos-list-generations() {
+    sudo nix-env --list-generations -p /nix/var/nix/profiles/system
+}
