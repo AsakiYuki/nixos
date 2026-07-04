@@ -1,33 +1,45 @@
 global {
-    lan_interface: enp1s0
-    wan_interface: auto
-
+    tproxy_port: 12345
+    tproxy_port_protect: true
     log_level: info
+    wan_interface: auto
+    auto_config_kernel_parameter: true
+
+    tcp_check_url: 'http://cp.cloudflare.com,1.1.1.1,2606:4700:4700::1111'
+    tcp_check_http_method: HEAD
+    udp_check_dns: 'dns.google:53,8.8.8.8,2001:4860:4860::8888'
+    check_interval: 30s
+    check_tolerance: 50ms
+
     dial_mode: domain
+    allow_insecure: false
+    sniffing_timeout: 30ms
+    tls_implementation: tls
 }
 
 subscription {
-    my_sub: 'https://link-subscription-proxy-cua-ban.com'
+    # Link sub của bạn (nếu có)
+}
+
+node {
+    # Node đơn lẻ của bạn (nếu có)
 }
 
 dns {
-    bind: '127.0.0.1:5353'
-
     upstream {
-        alidns: 'udp://223.5.5.5:53'
-        googledns: 'tcp://8.8.8.8:53' 
+        # Trỏ DNS về AdGuard Home local
+        adguard: 'udp://127.0.0.1:53'
     }
+    
     routing {
         request {
-            qname(geosite:cn) -> alidns
-            fallback: googledns
+            fallback: adguard
         }
     }
 }
 
 group {
     my_group {
-        filter: subtag(my_sub)
         policy: min_moving_avg
     }
 }
@@ -35,14 +47,15 @@ group {
 routing {
     pname(NetworkManager) -> direct
     dip(224.0.0.0/3, 'ff00::/8') -> direct
-    
-    dip(192.168.1.0/24) -> direct
     dip(geoip:private) -> direct
 
+    # Chặn QUIC (để AdGuard và Proxy chạy mượt hơn, tránh leak qua UDP)
     l4proto(udp) && dport(443) -> block
     
+    # Định tuyến IP/Domain nội bộ (Ví dụ: chặn quảng cáo từ Adguard xong, cái nào đi tiếp sang VN/Trung Quốc thì đi thẳng)
     dip(geoip:cn) -> direct
     domain(geosite:cn) -> direct
 
+    # Còn lại đi qua Proxy
     fallback: my_group
 }
