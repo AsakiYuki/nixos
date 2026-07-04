@@ -10,5 +10,6 @@
     ./searx.nix
     ./fail2ban.nix
     ./httpd.nix
+    ./dae.nix
   ];
 }
