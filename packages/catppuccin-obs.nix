@@ -4,7 +4,7 @@ pkgs.stdenv.mkDerivation {
   version = "main";
 
   src = pkgs.fetchzip {
-    url = "https://static.asakiyuki.com/nixos/catppuccin-obs.zip";
+    url = "https://static.asakiyuki.com/packages/nixos/catppuccin-obs.zip";
     sha256 = "sha256-Uk4a0HKaeyQilgBiPsuAWQubk1yZdyirNcfhYJEL+lQ=";
   };
 
