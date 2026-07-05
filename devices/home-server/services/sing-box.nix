@@ -17,9 +17,10 @@ in {
           tag = "vless-in";
           listen = "::";
           listen_port = proxyPort;
+          network = "tcp";
           users = [
             {
-              id = myUUID;
+              uuid = myUUID;
               flow = "xtls-rprx-vision";
             }
           ];
