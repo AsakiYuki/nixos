@@ -1,48 +1,43 @@
 global {
-    wan_interface: wlo1 
-    log_level: info
-    allow_insecure: false
-    auto_config_kernel_parameter: true
+  wan_interface: auto
+  dial_mode: domain
+  log_level: info
+  allow_insecure: false
+  auto_config_kernel_parameter: true
+  disable_waiting_network: true
 }
-
-subscription {
-    my_home_server: 'vless://b810b42c-2c93-41a4-96f3-cfb2a657e283@asakiyuki.com:9443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.microsoft.com&fp=chrome&pbk=iT5idmqFOqTN76-wgakZ9rDiB9hvjzCT5rL9nMhc4xo&sid=30376c6d&type=tcp#HomeServer'
+node {
+  HomeServer: 'vless://b810b42c-2c93-41a4-96f3-cfb2a657e283@asakiyuki.com:9443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.microsoft.com&fp=chrome&pbk=iT5idmqFOqTN76-wgakZ9rDiB9hvjzCT5rL9nMhc4xo&sid=30376c6d&type=tcp#HomeServer'
 }
-
 dns {
-    upstream {
-        googledns: 'tcp+udp://8.8.8.8:53'
-        localedns: 'udp://1.1.1.1:53' 
+  upstream {
+    googledns: 'tls://8.8.8.8:853'
+    alidns: 'tls://1.1.1.1:853'
+  }
+  routing {
+    request {
+      qtype(https) -> reject
+      fallback: alidns
     }
-    routing {
-        request {
-            qtype(https) -> reject
-            qname(geosite:vn) -> localdns
-            fallback: googledns
-        }
-        response {
-            upstream(googledns) -> accept
-            ip(geoip:vn, geoip:private) -> accept
-            fallback: googledns
-        }
+    response {
+      upstream(googledns) -> accept
+      ip(geoip:private) && !qname(suffix: vn) -> googledns
+      fallback: accept
     }
+  }
 }
-
 group {
-    proxy {
-        policy: min_moving_avg
-    }
+  proxy {
+    policy: min_moving_avg
+  }
 }
-
 routing {
-    pname(NetworkManager) -> direct
-    dip(224.0.0.0/3, 'ff00::/8') -> direct
-
-    l4proto(udp) && dport(443) -> block
-    
-    dip(geoip:private) -> direct
-    dip(geoip:vn) -> direct
-    geosite(vn) -> direct
-
-    fallback: proxy
+  pname(NetworkManager) -> must_direct
+  dip(224.0.0.0/3, 'ff00::/8') -> direct
+  domain(keyword: asakiyuki.com) -> direct
+  l4proto(udp) && dport(443) -> block
+  dip(geoip:private) -> direct
+  dip(geoip:vn) -> direct
+  domain(suffix: vn) -> direct
+  fallback: proxy
 }
