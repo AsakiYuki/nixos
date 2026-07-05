@@ -1,2 +1,5 @@
 {...}: {
+  services.dae = {
+    enable = true;
+  };
 }

@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./paths.nix
-    ./services.nix
+    ./paths
+    ./services
   ];
 }
