@@ -1,18 +1,20 @@
 global {
-    # Bind to LAN and/or WAN as you want. Replace the interface name to your own.
     lan_interface: enp1s0
-    wan_interface: auto # Use "auto" to auto detect WAN interface.
+    wan_interface: auto
 
     log_level: info
     allow_insecure: false
-    auto_config_kernel_parameter: true
+
+    # TẮT auto config kernel parameter — đây nhiều khả năng là nguyên nhân
+    # làm gitea crash lúc rebuild (dae đổi sysctl toàn hệ thống lúc start).
+    # Bật lại sau khi đã xác nhận ổn định nếu thật sự cần.
+    auto_config_kernel_parameter: false
 }
 
-subscription {x
+subscription {
     ebrasha_free: 'https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/refs/heads/main/V2Ray-Config-By-EbraSha-All-Type.txt'
 }
 
-# See https://github.com/daeuniverse/dae/blob/main/docs/en/configuration/dns.md for full examples.
 dns {
     upstream {
         googledns: 'tcp+udp://dns.google:53'
@@ -20,38 +22,46 @@ dns {
     }
     routing {
         request {
-        qtype(https) -> reject
-        fallback: alidns
+            qtype(https) -> reject
+            fallback: alidns
         }
         response {
-        upstream(googledns) -> accept
-        ip(geoip:private) && !qname(geosite:cn) -> googledns
-        fallback: accept
+            upstream(googledns) -> accept
+            ip(geoip:private) && !qname(geosite:cn) -> googledns
+            fallback: accept
         }
     }
 }
 
 group {
     proxy {
-        # Gom toàn bộ node tải về từ link 'ebrasha_free' vào nhóm proxy này
         filter: subtag(ebrasha_free)
-        
-        # Tự động đo ping và chọn node phản hồi nhanh nhất (rất hợp với list free nhiều node thế này)
         policy: min_moving_avg
     }
 }
 
-    # See https://github.com/daeuniverse/dae/blob/main/docs/en/configuration/routing.md for full examples.
 routing {
+    # --- Loại trừ traffic nội bộ / service local trước tiên ---
+    # Không proxy loopback và mạng LAN riêng của máy
+    dip(127.0.0.0/8, ::1/128) -> direct
+    dip(224.0.0.0/3, 'ff00::/8') -> direct
+    dip(geoip:private) -> direct
+
+    # Các process hệ thống quan trọng luôn đi direct
     pname(NetworkManager) -> direct
     pname(AdGuardHome) -> direct
-    dip(224.0.0.0/3, 'ff00::/8') -> direct
+    pname(gitea) -> direct
+    pname(postgres) -> direct
+    pname(sshd) -> direct
 
-    ### Write your rules below.
+    # Loại trừ port của gitea (đổi 3000/22 theo port thật bạn config trong services.gitea)
+    dport(3000) -> direct
+    dport(22) -> direct
 
-    # Disable h3 because it usually consumes too much cpu/mem resources.
+    # QUIC/HTTP3 UDP tốn tài nguyên -> chặn để ép fallback về TCP
     l4proto(udp) && dport(443) -> block
-    dip(geoip:private) -> direct
+
+    # Nội địa Việt Nam / Trung Quốc đi thẳng
     dip(geoip:cn) -> direct
     domain(geosite:cn) -> direct
 
