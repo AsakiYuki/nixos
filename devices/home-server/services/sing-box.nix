@@ -17,7 +17,6 @@ in {
           tag = "vless-in";
           listen = "::";
           listen_port = proxyPort;
-          network = "tcp";
           users = [
             {
               uuid = myUUID;
