@@ -8,7 +8,7 @@ in {
   networking.firewall.allowedUDPPorts = [proxyPort];
 
   services.sing-box = {
-    enable = false;
+    enable = true;
     settings = {
       log = {level = "info";};
       inbounds = [
