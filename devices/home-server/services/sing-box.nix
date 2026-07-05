@@ -16,7 +16,7 @@ in {
           type = "vless";
           tag = "vless-in";
           listen = "::";
-          port = proxyPort;
+          listen_port = proxyPort;
           users = [
             {
               id = myUUID;
