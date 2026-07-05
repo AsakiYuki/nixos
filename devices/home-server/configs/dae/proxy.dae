@@ -1,13 +1,8 @@
 global {
     lan_interface: enp1s0
     wan_interface: auto
-
     log_level: info
     allow_insecure: false
-
-    # TẮT auto config kernel parameter — đây nhiều khả năng là nguyên nhân
-    # làm gitea crash lúc rebuild (dae đổi sysctl toàn hệ thống lúc start).
-    # Bật lại sau khi đã xác nhận ổn định nếu thật sự cần.
     auto_config_kernel_parameter: false
 }
 
@@ -41,27 +36,21 @@ group {
 }
 
 routing {
-    # --- Loại trừ traffic nội bộ / service local trước tiên ---
-    # Không proxy loopback và mạng LAN riêng của máy
     dip(127.0.0.0/8, ::1/128) -> direct
     dip(224.0.0.0/3, 'ff00::/8') -> direct
     dip(geoip:private) -> direct
 
-    # Các process hệ thống quan trọng luôn đi direct
     pname(NetworkManager) -> direct
     pname(AdGuardHome) -> direct
     pname(gitea) -> direct
     pname(postgres) -> direct
     pname(sshd) -> direct
 
-    # Loại trừ port của gitea (đổi 3000/22 theo port thật bạn config trong services.gitea)
     dport(3000) -> direct
     dport(22) -> direct
 
-    # QUIC/HTTP3 UDP tốn tài nguyên -> chặn để ép fallback về TCP
     l4proto(udp) && dport(443) -> block
 
-    # Nội địa Việt Nam / Trung Quốc đi thẳng
     dip(geoip:cn) -> direct
     domain(geosite:cn) -> direct
 
