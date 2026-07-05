@@ -1,6 +1,6 @@
 {...}: {
   services.dae = {
-    enable = false;
+    enable = true;
     configFile = ../configs/proxy.dae;
   };
 }
