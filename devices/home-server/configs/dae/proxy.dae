@@ -3,7 +3,7 @@ global {
     wan_interface: auto
     log_level: info
     allow_insecure: false
-    auto_config_kernel_parameter: false
+    auto_config_kernel_parameter: true
 }
 
 subscription {
