@@ -1,6 +1,7 @@
 {...}: {
-  services = {
-    power-profiles-daemon.enable = true;
-    xserver.videoDrivers = ["amdgpu"];
-  };
+  imports = [
+    ./dae.nix
+    ./power-profiles-daemon.nix
+    ./xserver.nix
+  ];
 }
