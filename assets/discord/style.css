@@ -5,3 +5,12 @@
 .trailing_c38106 {
 	padding-right: 10px;
 }
+
+.layoutContainer__9c3be.editingPanelExpanded__9c3be {
+	--custom-modal-v2-width: calc(962px);
+	grid-template-columns: 0 1fr;
+}
+
+.outer_c0bea0.user-profile-modal-v2.outer_b92f52.profileContentOuter__9c3be {
+	border-radius: 10px;
+}
