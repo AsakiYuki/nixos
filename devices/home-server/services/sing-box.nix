@@ -24,7 +24,7 @@ in {
             }
           ];
           tls = {
-            enable = true;
+            enabled = true;
             server_name = "www.microsoft.com";
             reality = {
               enable = true;
