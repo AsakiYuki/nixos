@@ -11,7 +11,7 @@
 }
 
 .layoutContainer__9c3be.editingPanelExpanded__9c3be {
-	--custom-modal-v2-width: calc(962px);
+	--custom-modal-v2-width: 962px;
 	grid-template-columns: 0 1fr;
 }
 
