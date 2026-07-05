@@ -12,8 +12,8 @@ subscription {
 
 dns {
     upstream {
-        googledns: 'tcp+udp://dns.google:53'
-        alidns: 'udp://dns.alidns.com:53'
+        googledns: "tcp+udp://dns.google:53"
+        alidns: "udp://dns.alidns.com:53"
     }
     routing {
         request {
@@ -37,13 +37,12 @@ group {
 
 routing {
     dip(127.0.0.0/8, ::1/128) -> direct
-    dip(224.0.0.0/3, 'ff00::/8') -> direct
+    dip(224.0.0.0/3, "ff00::/8") -> direct
     dip(geoip:private) -> direct
 
     pname(NetworkManager) -> direct
     pname(AdGuardHome) -> direct
     pname(gitea) -> direct
-    pname(postgres) -> direct
     pname(sshd) -> direct
 
     dport(3000) -> direct
