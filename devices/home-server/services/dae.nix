@@ -1,6 +1,6 @@
 {...}: {
   services.dae = {
     enable = true;
-    configFile = ../configs/dae/proxy.dae;
+    config = builtins.readFile ../configs/dae/proxy.dae;
   };
 }
