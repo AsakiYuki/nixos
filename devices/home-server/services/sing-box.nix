@@ -27,7 +27,7 @@ in {
             enabled = true;
             server_name = "www.microsoft.com";
             reality = {
-              enable = true;
+              enabled = true;
               handshake = {
                 server = "www.microsoft.com";
                 server_port = 443;
