@@ -6,5 +6,6 @@
     ./openssh.nix
     ./sddm.nix
     ./stalwart.nix
+    ./tailscale.nix
   ];
 }
