@@ -1,5 +1,6 @@
 {...}: {
   hardware = {
+    enableAllFirmware = true;
     amdgpu.initrd.enable = true;
     bluetooth.enable = true;
     graphics = {
