@@ -1,8 +1,4 @@
-{
-  pkgs,
-  libs,
-  ...
-}: {
+{pkgs, ...}: {
   files = {
     force = {};
 
@@ -14,7 +10,6 @@
       ".config/qt5ct/colors/Catppuccin-Mocha.conf" = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/catppuccin-mocha-sapphire.conf";
       ".config/qt6ct/colors/Catppuccin-Mocha.conf" = "${pkgs.catppuccin-qt5ct}/share/qt6ct/colors/catppuccin-mocha-sapphire.conf";
       ".config/menus/applications.menu" = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
-      ".ssh/id_ed25519" = libs.root "/secrets/asakiyuki.ssh.private.key";
     };
 
     symlink = {
