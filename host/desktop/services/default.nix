@@ -3,6 +3,8 @@
     ./openssh.nix
   ];
 
+  security.rtkit.enable = true;
+
   services = {
     fail2ban.enable = true;
     flatpak.enable = true;
@@ -21,6 +23,20 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+
+      # Disable broken DMIC (acp-pdm-mach), use analog Stereo Mic instead
+      wireplumber.extraConfig."50-disable-dmic" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              {"node.name" = "alsa_input.pci-0000_05_00.6.HiFi__Mic1__source";}
+            ];
+            actions.update-props = {
+              "node.disabled" = true;
+            };
+          }
+        ];
+      };
     };
   };
 
