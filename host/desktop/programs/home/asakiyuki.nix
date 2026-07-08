@@ -64,7 +64,6 @@
     # General
     pavucontrol.enable = true;
     dolphin.enable = true;
-    easyeffects.enable = true;
     proton-apps.enable = true;
     winboat.enable = true;
 
