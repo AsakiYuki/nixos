@@ -4,6 +4,9 @@
 
     allowedUDPPorts = [
       53
+
+      19132 # Minecraft Bedrock
+      19133 # Minecraft Bedrock
     ];
 
     allowedTCPPorts = [
