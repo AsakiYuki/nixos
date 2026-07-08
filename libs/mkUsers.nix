@@ -15,6 +15,7 @@ lib.mergeAttrsList (map ({
   home = value.home or {};
 in {
   users.users.${name} = lib.mergeAttrs {isNormalUser = true;} root;
+
   home-manager.users.${name} = lib.mergeAttrs home {
     _module.args = lib.mergeAttrs {
       inherit inputs unstable custom libs osconfig;
@@ -28,12 +29,13 @@ in {
         (libs.root "/modules/programs/hyprland")
         (libs.root "/modules/programs/nixcord")
         (libs.root "/modules/programs/nixvim")
-
-        inputs.nixvim.homeModules.nixvim
-        inputs.nixcord.homeModules.nixcord
-        inputs.agenix.homeManagerModules.default
-        inputs.niri.homeModules.niri
       ]
+
+      (lib.optional (inputs ? nixvim) inputs.nixvim.homeModules.nixvim)
+      (lib.optional (inputs ? nixcord) inputs.nixcord.homeModules.nixcord)
+      (lib.optional (inputs ? agenix) inputs.agenix.homeManagerModules.default)
+      (lib.optional (inputs ? niri) inputs.niri.homeModules.niri)
+
       (home.imports or [])
     ];
 

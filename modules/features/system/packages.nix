@@ -1,17 +1,24 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-    tree
-    screen
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
+  environment.systemPackages = with pkgs;
+    [
+      git
+      vim
+      wget
+      tree
+      screen
 
-    nixd
-    alejandra
+      nixd
+      alejandra
 
-    p7zip-rar
+      p7zip-rar
 
-    kdePackages.kio-extras
-    kdePackages.kio-fuse
-  ];
+      kdePackages.kio-extras
+      kdePackages.kio-fuse
+    ]
+    ++ (lib.optional (inputs ? agenix) inputs.agenix.packages.${pkgs.system}.default);
 }

@@ -4,7 +4,10 @@
   state-version,
   lib,
 } @ args: let
-  nixosModules = name: inputs.${name}.nixosModules.default;
+  nixosModules = name:
+    if (inputs ? "${name}")
+    then inputs.${name}.nixosModules.default
+    else null;
 in
   cfg: {
     nixosConfigurations = lib.mergeAttrsList (map ({
