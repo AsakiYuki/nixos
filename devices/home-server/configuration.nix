@@ -4,6 +4,7 @@
     ./network
     ./security
     ./services
+    ./systemd
     ./users
     ./boot
 
