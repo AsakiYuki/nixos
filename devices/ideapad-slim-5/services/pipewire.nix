@@ -1,0 +1,14 @@
+{...}: {
+  services.pipewire.wireplumber.extraConfig."50-disable-dmic" = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [
+          {"node.name" = "alsa_input.pci-0000_05_00.6.HiFi__Mic1__source";}
+        ];
+        actions.update-props = {
+          "node.disabled" = true;
+        };
+      }
+    ];
+  };
+}
