@@ -14,7 +14,16 @@
     };
 
     "50-default-source" = {
-      "wireplumber.settings"."default.audio.source.node-name" = "alsa_input.pci-0000_05_00.6.HiFi__Mic2__source";
+      "monitor.alsa.rules" = [
+        {
+          matches = [
+            {"node.name" = "alsa_input.pci-0000_05_00.6.HiFi__Mic2__source";}
+          ];
+          actions.update-props = {
+            "priority.session" = 3000;
+          };
+        }
+      ];
     };
   };
 }

@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./programs
+    ./security
     ./services
     ./boot.nix
     ./dconf.nix
