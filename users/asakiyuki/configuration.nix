@@ -14,8 +14,10 @@ libs.mkUsers config {
 
     home = {
       programs.btop.enable = true;
-      files.source.".ssh/id_ed25519" = libs.root "/secrets/ssh/asakiyuki.private.key";
-      files.source.".ssh/id_ed25519.pub" = libs.root "/secrets/ssh/asakiyuki.public.key";
+      files.source = {
+        ".ssh/id_ed25519" = libs.root "/secrets/ssh/asakiyuki.private.key";
+        ".ssh/id_ed25519.pub" = libs.root "/secrets/ssh/asakiyuki.public.key";
+      };
     };
   };
 }
