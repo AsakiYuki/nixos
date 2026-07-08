@@ -3,8 +3,11 @@
     enable = true;
     execWheelOnly = true;
     wheelNeedsPassword = true;
-    extraConfig = "
+    extraConfig = ''
       Defaults env_reset,pwfeedback
-    ";
+      Defaults lecture = never
+      Defaults insults
+      Defaults !tty_tickets
+    '';
   };
 }
