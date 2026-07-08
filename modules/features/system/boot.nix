@@ -19,7 +19,7 @@
   };
 }
 # let
-#   background = libs.root "/assets/programsgrub/background.png";
+#   background = libs.root "/assets/programs/grub/background.png";
 #   baseTheme = inputs.honkai-railway-grub-theme.packages.${pkgs.stdenv.hostPlatform.system}.cyrene-grub-theme;
 # in {
 #   boot = {
