@@ -1,17 +1,17 @@
 {
   libs,
-  lib,
   config,
   ...
 }:
 libs.mkUsers config {
   junko = {
     root = {
-      openssh.authorizedKeys.keys =
-        (lib.attrByPath ["users" "users" "asakiyuki" "openssh" "authorizedKeys" "keys"] [] config)
-        ++ (libs.readRootFiles [
-          "/assets/public/ssh/junko/windows/hp-victus.pub"
-        ]);
+      openssh.authorizedKeys.keys = libs.readRootFiles [
+        "/assets/public/ssh/asakiyuki/nixos/home-server.pub"
+        "/assets/public/ssh/asakiyuki/nixos/ideapad.pub"
+        "/assets/public/ssh/asakiyuki/nixos/ideapad.wsl.pub"
+        "/assets/public/ssh/junko/windows/hp-victus.pub"
+      ];
     };
   };
 }
