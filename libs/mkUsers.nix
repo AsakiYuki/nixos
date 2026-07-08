@@ -31,6 +31,7 @@ in {
 
         inputs.nixvim.homeModules.nixvim
         inputs.nixcord.homeModules.nixcord
+        inputs.agenix.homeManagerModules.default
         inputs.niri.homeModules.niri
       ]
       (home.imports or [])
