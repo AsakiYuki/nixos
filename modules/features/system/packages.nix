@@ -20,5 +20,5 @@
       kdePackages.kio-extras
       kdePackages.kio-fuse
     ]
-    ++ (lib.optional (inputs ? agenix) inputs.agenix.packages.${pkgs.system}.default);
+    ++ (lib.optional (inputs ? agenix) inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default);
 }

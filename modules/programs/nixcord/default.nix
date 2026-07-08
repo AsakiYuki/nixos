@@ -1,6 +1,6 @@
 {libs, ...}: {
   programs.nixcord = {
-    quickCss = builtins.readFile (libs.root "/assets/discord/style.css");
+    quickCss = builtins.readFile (libs.root "/assets/programsdiscord/style.css");
 
     config = {
       useQuickCss = true;

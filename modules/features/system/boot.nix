@@ -2,7 +2,8 @@
   # inputs,
   # pkgs,
   # libs,
-  lib, config, 
+  lib,
+  config,
   ...
 }: {
   boot.loader = lib.mkIf (!(lib.attrByPath ["wsl" "enable"] false config)) {
@@ -18,7 +19,7 @@
   };
 }
 # let
-#   background = libs.root "/assets/grub/background.png";
+#   background = libs.root "/assets/programsgrub/background.png";
 #   baseTheme = inputs.honkai-railway-grub-theme.packages.${pkgs.stdenv.hostPlatform.system}.cyrene-grub-theme;
 # in {
 #   boot = {

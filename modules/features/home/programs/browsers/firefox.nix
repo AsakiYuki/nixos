@@ -162,7 +162,7 @@
       };
     };
 
-    userChrome = builtins.readFile (libs.root "/assets/firefox/userChrome.css");
-    userContent = builtins.readFile (libs.root "/assets/firefox/userContent.css");
+    userChrome = builtins.readFile (libs.root "/assets/programsfirefox/userChrome.css");
+    userContent = builtins.readFile (libs.root "/assets/programsfirefox/userContent.css");
   };
 }
