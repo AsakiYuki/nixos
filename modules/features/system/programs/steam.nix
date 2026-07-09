@@ -4,7 +4,7 @@
   inputs,
   ...
 }: {
-  programs.steam = lib.mkIf (inputs ? millennium) {
+  programs.steam = {
     package = pkgs.millennium-steam;
   };
 }

@@ -31,10 +31,12 @@ in {
         (libs.root "/modules/programs/nixvim")
       ]
 
-      (lib.optional (inputs ? nixvim) inputs.nixvim.homeModules.nixvim)
-      (lib.optional (inputs ? nixcord) inputs.nixcord.homeModules.nixcord)
-      (lib.optional (inputs ? agenix) inputs.agenix.homeManagerModules.default)
-      (lib.optional (inputs ? niri) inputs.niri.homeModules.niri)
+      [
+        inputs.nixvim.homeModules.nixvim
+        inputs.nixcord.homeModules.nixcord
+        inputs.agenix.homeManagerModules.default
+        inputs.niri.homeModules.niri
+      ]
 
       (home.imports or [])
     ];
