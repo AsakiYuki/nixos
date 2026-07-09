@@ -1,9 +1,10 @@
 {pkgs, ...}: {
+  device.pipewire.enable = true;
+
   imports = [
     ./openssh.nix
+    ./fcitx5-lotus.nix
   ];
-
-  device.pipewire.enable = true;
 
   services = {
     fail2ban.enable = true;
