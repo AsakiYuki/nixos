@@ -5,5 +5,7 @@
     ./programs
     ./security
     ./services
+
+    ./wsl.nix
   ];
 }
