@@ -1,2 +1,9 @@
 #!/bin/sh
-agenix -i "$(dirname "$0")/secret.key" "$@"
+KEY_PATH="$(dirname "$0")/secret.key"
+
+if [ ! -f "$KEY_PATH" ]; then
+    echo "Lỗi: Không tìm thấy file key tại: $KEY_PATH" >&2
+    exit 1
+fi
+
+agenix -i "$KEY_PATH" "$@"
