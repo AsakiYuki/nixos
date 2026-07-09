@@ -3,10 +3,13 @@
   config,
   pkgs,
   custom,
+  libs,
   ...
 }: let
   cfg = config.programs;
   getPkg = name: lib.mkIf cfg.${name}.enable cfg.${name}.package;
+  mkOpt = libs.mkProgramOption;
+  mkOpts = libs.mkProgramsOption;
 in {
   config = {
     networking.firewall = lib.mkIf cfg.steam.enable {
@@ -45,99 +48,22 @@ in {
   };
 
   options.programs = {
-    llvm = {
-      enable = lib.mkEnableOption "llvm";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs.llvmPackages; [llvm clang lld];
-      };
-    };
+    cava = mkOpt pkgs "cava" {};
+    ffmpeg = mkOpt pkgs "ffmpeg-full" {name = "ffmpeg";};
+    lsfg-vk = mkOpt pkgs "lsfg-vk" {};
+    lsfg-vk-ui = mkOpt pkgs "lsfg-vk-ui" {};
+    nodejs = mkOpt pkgs "nodejs" {};
+    bun = mkOpt pkgs "bun" {};
+    brightnessctl = mkOpt pkgs "brightnessctl" {};
+    ntfs3g = mkOpt pkgs "ntfs3g" {};
+    python = mkOpt pkgs "python3" {name = "python";};
+    jdk = mkOpt pkgs "jdk25" {name = "jdk-25";};
+    quickshell = mkOpt pkgs "quickshell" {};
+    papirus-icons = mkOpt pkgs "papirus-icon-theme" {name = "papirus-icon-theme";};
+
     steam = {
       allowSteamlinkPorts = lib.mkEnableOption "steam-link streaming ports";
       allowMultiplayerPorts = lib.mkEnableOption "Steam multiplayer and voice ports";
-    };
-    cava = {
-      enable = lib.mkEnableOption "cava";
-      package = lib.mkPackageOption pkgs "cava" {};
-    };
-    ffmpeg = {
-      enable = lib.mkEnableOption "ffmpeg";
-      package = lib.mkPackageOption pkgs "ffmpeg-full" {};
-    };
-    lsfg-vk = {
-      enable = lib.mkEnableOption "lsfg-vk";
-      package = lib.mkPackageOption pkgs "lsfg-vk" {};
-    };
-    lsfg-vk-ui = {
-      enable = lib.mkEnableOption "lsfg-vk-ui";
-      package = lib.mkPackageOption pkgs "lsfg-vk-ui" {};
-    };
-    nodejs = {
-      enable = lib.mkEnableOption "nodejs";
-      package = lib.mkPackageOption pkgs "nodejs" {};
-    };
-    bun = {
-      enable = lib.mkEnableOption "bun";
-      package = lib.mkPackageOption pkgs "bun" {};
-    };
-    brightnessctl = {
-      enable = lib.mkEnableOption "brightnessctl";
-      package = lib.mkPackageOption pkgs "brightnessctl" {};
-    };
-    ntfs3g = {
-      enable = lib.mkEnableOption "ntfs3g";
-      package = lib.mkPackageOption pkgs "ntfs3g" {};
-    };
-    python = {
-      enable = lib.mkEnableOption "python";
-      package = lib.mkPackageOption pkgs "python3" {};
-    };
-    jdk = {
-      enable = lib.mkEnableOption "jdk-25";
-      package = lib.mkPackageOption pkgs "jdk25" {};
-    };
-    winepackages = {
-      enable = lib.mkEnableOption "Wine and Proton utilities";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs; [
-          wine
-          wine64
-          winetricks
-          protontricks
-        ];
-      };
-    };
-    quickshell = {
-      enable = lib.mkEnableOption "quickshell";
-      package = lib.mkPackageOption pkgs "quickshell" {};
-    };
-    papirus-icons = {
-      enable = lib.mkEnableOption "papirus-icon-theme";
-      package = lib.mkPackageOption pkgs "papirus-icon-theme" {};
-    };
-    kde-packages = {
-      enable = lib.mkEnableOption "KDE utility packages";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs.kdePackages; [
-          kservice
-          kate
-          gwenview
-          qt5compat
-          qtdeclarative
-          qtimageformats
-          qtsvg
-          qtmultimedia
-          kde-gtk-config
-          kirigami
-          ksvg
-          qtbase
-          plasma5support
-          qttools
-          plasma-sdk
-        ];
-      };
     };
     r-tensorflow = {
       enable = lib.mkEnableOption "R tensorflow";
@@ -146,25 +72,31 @@ in {
         default = pkgs.rPackages.tensorflow;
       };
     };
-    gcc = {
-      enable = lib.mkEnableOption "c";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs; [
-          gcc
-        ];
-      };
-    };
-    hyprland-portals = {
-      enable = lib.mkEnableOption "XDGP for hyprland";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs; [
-          xdg-desktop-portal
-          xdg-desktop-portal-gtk
-          xdg-desktop-portal-hyprland
-        ];
-      };
-    };
+
+    llvm = mkOpts "llvm" (with pkgs.llvmPackages; [llvm clang lld]);
+    gcc = mkOpts "c" (with pkgs; [gcc]);
+    winepackages = mkOpts "Wine and Proton utilities" (with pkgs; [wine wine64 winetricks protontricks]);
+    kde-packages = mkOpts "KDE utility packages" (with pkgs.kdePackages; [
+      kservice
+      kate
+      gwenview
+      qt5compat
+      qtdeclarative
+      qtimageformats
+      qtsvg
+      qtmultimedia
+      kde-gtk-config
+      kirigami
+      ksvg
+      qtbase
+      plasma5support
+      qttools
+      plasma-sdk
+    ]);
+    hyprland-portals = mkOpts "XDGP for hyprland" (with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ]);
   };
 }

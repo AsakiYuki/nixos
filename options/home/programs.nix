@@ -3,10 +3,13 @@
   pkgs,
   inputs,
   config,
+  libs,
   ...
 }: let
   cfg = config.programs;
   getPkg = name: lib.mkIf cfg.${name}.enable cfg.${name}.package;
+  mkOpt = libs.mkProgramOption;
+  mkOpts = libs.mkProgramsOption;
 in {
   imports = [
     ./programs/dolphin
@@ -60,77 +63,51 @@ in {
   '';
 
   options.programs = {
-    yt-dlp = {
-      output = {
-        directory = lib.mkOption {
-          type = lib.types.str;
-          default = "Downloads/yt-dlp";
-        };
-        format = lib.mkOption {
-          type = lib.types.str;
-          default = "%(title)s.%(ext)s";
-        };
+    yt-dlp.output = {
+      directory = lib.mkOption {
+        type = lib.types.str;
+        default = "Downloads/yt-dlp";
+      };
+      format = lib.mkOption {
+        type = lib.types.str;
+        default = "%(title)s.%(ext)s";
       };
     };
 
-    winboat = {
-      enable = lib.mkEnableOption "winboat";
-      package = lib.mkPackageOption pkgs "winboat" {};
-    };
+    winboat = mkOpt pkgs "winboat" {};
+    file = mkOpt pkgs "file" {};
+    qbittorrent = mkOpt pkgs "qbittorrent" {};
+    tor-browser = mkOpt pkgs "tor-browser" {};
+    qpdf = mkOpt pkgs "qpdf" {};
+    ladybird = mkOpt pkgs "ladybird" {};
+    poppler-utils = mkOpt pkgs "poppler-utils" {};
+    img2pdf = mkOpt pkgs "img2pdf" {};
+    android-tools = mkOpt pkgs "android-tools" {};
+    android-studio = mkOpt pkgs "android-studio" {};
+    rustup = mkOpt pkgs "rustup" {};
+    ghidra = mkOpt pkgs "ghidra" {};
+    tldr = mkOpt pkgs "tldr" {};
+    vlc = mkOpt pkgs "vlc" {};
+    gimp = mkOpt pkgs "gimp" {};
+    lmstudio = mkOpt pkgs "lmstudio" {};
+    wl-clipboard = mkOpt pkgs "wl-clipboard" {};
+    blender = mkOpt pkgs "blender" {};
+    xprop = mkOpt pkgs "xprop" {};
+    nwg-look = mkOpt pkgs "nwg-look" {};
+    davinci-resolve = mkOpt pkgs "davinci-resolve" {};
+    mangohud = mkOpt pkgs "mangohud" {};
 
-    file = {
-      enable = lib.mkEnableOption "file";
-      package = lib.mkPackageOption pkgs "file" {};
-    };
+    easyeffects = mkOpt pkgs "easyeffects" {name = "Easy Effects";};
+    libreoffice = mkOpt pkgs "libreoffice-qt-fresh" {name = "libreoffice";};
+    osu = mkOpt pkgs "osu-lazer-bin" {name = "osu-lazer";};
+    telegram = mkOpt pkgs "telegram-desktop" {name = "telegram-desktop";};
+    pavucontrol = mkOpt pkgs.lxqt "pavucontrol-qt" {name = "pavucontrol-qt";};
+    cider = mkOpt pkgs "cider-2" {name = "cider-2";};
+    zen-browser = mkOpt inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system} "default" {name = "zen-browser";};
 
-    qbittorrent = {
-      enable = lib.mkEnableOption "qbittorrent";
-      package = lib.mkPackageOption pkgs "qbittorrent" {};
-    };
-
-    tor-browser = {
-      enable = lib.mkEnableOption "tor-browser";
-      package = lib.mkPackageOption pkgs "tor-browser" {};
-    };
-
-    qpdf = {
-      enable = lib.mkEnableOption "qpdf";
-      package = lib.mkPackageOption pkgs "qpdf" {};
-    };
-
-    ladybird = {
-      enable = lib.mkEnableOption "ladybird";
-      package = lib.mkPackageOption pkgs "ladybird" {};
-    };
-
-    poppler-utils = {
-      enable = lib.mkEnableOption "poppler-utils";
-      package = lib.mkPackageOption pkgs "poppler-utils" {};
-    };
-
-    img2pdf = {
-      enable = lib.mkEnableOption "img2pdf";
-      package = lib.mkPackageOption pkgs "img2pdf" {};
-    };
-
-    android-tools = {
-      enable = lib.mkEnableOption "android-tools";
-      package = lib.mkPackageOption pkgs "android-tools" {};
-    };
-
-    android-studio = {
-      enable = lib.mkEnableOption "android-studio";
-      package = lib.mkPackageOption pkgs "android-studio" {};
-    };
-
-    rustup = {
-      enable = lib.mkEnableOption "rustup";
-      package = lib.mkPackageOption pkgs "rustup" {};
-    };
-
-    ghidra = {
-      enable = lib.mkEnableOption "ghidra";
-      package = lib.mkPackageOption pkgs "ghidra" {};
+    jetbrains = {
+      datagrip = mkOpt pkgs.jetbrains "datagrip" {};
+      idea = mkOpt pkgs.jetbrains "idea" {};
     };
 
     catppuccin = {
@@ -153,99 +130,8 @@ in {
         description = "Catppuccin KDE package";
       };
     };
-    jetbrains = {
-      datagrip = {
-        enable = lib.mkEnableOption "datagrip";
-        package = lib.mkPackageOption pkgs.jetbrains "datagrip" {};
-      };
-      idea = {
-        enable = lib.mkEnableOption "idea";
-        package = lib.mkPackageOption pkgs.jetbrains "idea" {};
-      };
-    };
-    zen-browser = {
-      enable = lib.mkEnableOption "zen-browser";
-      package = lib.mkPackageOption inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system} "default" {};
-    };
-    proton-ge = {
-      enable = lib.mkEnableOption "proton-ge utils";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs; [
-          protonup-qt
-          protonplus
-        ];
-      };
-    };
-    tldr = {
-      enable = lib.mkEnableOption "tldr";
-      package = lib.mkPackageOption pkgs "tldr" {};
-    };
-    vlc = {
-      enable = lib.mkEnableOption "vlc";
-      package = lib.mkPackageOption pkgs "vlc" {};
-    };
-    easyeffects = {
-      enable = lib.mkEnableOption "Easy Effects";
-      package = lib.mkPackageOption pkgs "easyeffects" {};
-    };
-    gimp = {
-      enable = lib.mkEnableOption "gimp";
-      package = lib.mkPackageOption pkgs "gimp" {};
-    };
-    libreoffice = {
-      enable = lib.mkEnableOption "libreoffice";
-      package = lib.mkPackageOption pkgs "libreoffice-qt-fresh" {};
-    };
-    osu = {
-      enable = lib.mkEnableOption "osu-lazer";
-      package = lib.mkPackageOption pkgs "osu-lazer-bin" {};
-    };
-    telegram = {
-      enable = lib.mkEnableOption "telegram-desktop";
-      package = lib.mkPackageOption pkgs "telegram-desktop" {};
-    };
-    lmstudio = {
-      enable = lib.mkEnableOption "lmstudio";
-      package = lib.mkPackageOption pkgs "lmstudio" {};
-    };
-    wl-clipboard = {
-      enable = lib.mkEnableOption "wl-clipboard";
-      package = lib.mkPackageOption pkgs "wl-clipboard" {};
-    };
-    blender = {
-      enable = lib.mkEnableOption "blender";
-      package = lib.mkPackageOption pkgs "blender" {};
-    };
-    xprop = {
-      enable = lib.mkEnableOption "xprop";
-      package = lib.mkPackageOption pkgs "xprop" {};
-    };
-    pavucontrol = {
-      enable = lib.mkEnableOption "pavucontrol-qt";
-      package = lib.mkPackageOption pkgs.lxqt "pavucontrol-qt" {};
-    };
-    nwg-look = {
-      enable = lib.mkEnableOption "nwg-look";
-      package = lib.mkPackageOption pkgs "nwg-look" {};
-    };
-    proton-apps = {
-      enable = lib.mkEnableOption "proton-pass and proton-authenticator";
-      packages = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs; [
-          proton-pass
-          proton-authenticator
-        ];
-      };
-    };
-    davinci-resolve = {
-      enable = lib.mkEnableOption "davinci-resolve";
-      package = lib.mkPackageOption pkgs "davinci-resolve" {};
-    };
-    cider = {
-      enable = lib.mkEnableOption "cider-2";
-      package = lib.mkPackageOption pkgs "cider-2" {};
-    };
+
+    proton-ge = mkOpts "proton-ge utils" (with pkgs; [protonup-qt protonplus]);
+    proton-apps = mkOpts "proton-pass and proton-authenticator" (with pkgs; [proton-pass proton-authenticator]);
   };
 }
