@@ -8,5 +8,6 @@
     ./input-method.nix
     ./packages.nix
     ./waydroid.nix
+    ./agenix.nix
   ];
 }
