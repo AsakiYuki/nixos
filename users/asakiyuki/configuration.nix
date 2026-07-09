@@ -12,7 +12,6 @@ lib.mergeAttrs {
     asakiyuki = {
       root = {
         extraGroups = ["wheel"];
-        openssh.authorizedKeys.keys = import ./authorizedKeys.nix;
         hashedPasswordFile = config.age.secrets.asakiyukipwd.path;
       };
 
