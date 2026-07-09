@@ -19,9 +19,6 @@
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-26.05";
-    aagl.inputs.nixpkgs.follows = "nixpkgs";
-
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 

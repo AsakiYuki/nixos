@@ -12,8 +12,6 @@
 
     (libs.root "/modules/fonts.nix")
     (libs.root "/users/asakiyuki/configuration.nix")
-
-    inputs.aagl.nixosModules.default
   ];
   i18n.inputMethod.enable = true;
   boot.kernelParams = ["usbcore.autosuspend=-1"];
