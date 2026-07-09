@@ -11,7 +11,6 @@
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     niri.url = "github:sodiboo/niri-flake";
     nixcord.url = "github:FlameFlag/nixcord";
-    catppuccin.url = "github:catppuccin/nix";
     dolphin-overlay.url = "github:asakiyuki/dolphin-overlay";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
