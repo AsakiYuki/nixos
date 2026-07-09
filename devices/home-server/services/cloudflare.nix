@@ -1,10 +1,16 @@
-{libs, ...}: {
+{
+  libs,
+  config,
+  ...
+}: {
+  age.secrets.cloudflare.file = libs.root "/assets/secrets/cloudflare.secret";
+
   services = {
     cloudflare-warp.enable = true;
 
     cloudflare-dyndns = {
       enable = true;
-      apiTokenFile = libs.rootPath "/secrets/cloudflare.secret";
+      apiTokenFile = config.age.secrets.cloudflare.paths;
       frequency = "*:0/5";
       proxied = false;
       ipv6 = false;
