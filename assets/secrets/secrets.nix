@@ -1,3 +1,3 @@
 let
-  libs = import ./libs/default.nix {};
+  libs = import ../../libs {};
 in {}
