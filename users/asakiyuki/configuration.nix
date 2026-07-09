@@ -7,7 +7,7 @@ libs.mkUsers config {
   asakiyuki = {
     root = {
       extraGroups = ["wheel"];
-      openssh.authorizedKeys.keys = libs.readRootFiles (import ./authorizedKeys.nix);
+      openssh.authorizedKeys.keys = import ./authorizedKeys.nix;
     };
 
     home = {

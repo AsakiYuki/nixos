@@ -1,4 +1,3 @@
-(import ../asakiyuki/authorizedKeys.nix)
-++ [
+import ../mkAuthorizedKeys ({...}: [
   "/assets/public/ssh/hp-victus/junko.windows.pub"
-]
+])
