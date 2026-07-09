@@ -2,7 +2,7 @@ let
   fs = import ./libs/fileSystem.nix;
   sshPubKey = file: fs.readRootFile "/assets/public/ssh/${file}";
 
-  prefix = "assets/secrets/services";
+  prefix = "assets/secrets";
   svcPrefix = "${prefix}/services";
   usrPrefix = "${prefix}/users";
 
@@ -15,5 +15,8 @@ in {
   "${svcPrefix}/nginx.auth.json.age".publicKeys = [system.home-server];
   "${svcPrefix}/searx.env.age".publicKeys = [system.home-server];
   "${svcPrefix}/tailscale.secret.age".publicKeys = [system.home-server system.ideapad-slim-5-14apk10];
-  "${usrPrefix}/asakiyuki.pwd.age".publicKeys = [system.home-server system.ideapad-slim-5-14apk10];
+  "${usrPrefix}/asakiyuki.pwd.sha256.age" = {
+    publicKeys = [system.home-server system.ideapad-slim-5-14apk10];
+    armor = true;
+  };
 }
