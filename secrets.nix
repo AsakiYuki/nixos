@@ -15,7 +15,7 @@ let
 
   systems = [system.home-server system.ideapad-slim-5-14apk10 system.ideapad-slim-5-14apk10-wsl];
 in
-  builtins.mapAttrs (_: keys: [root] ++ keys) {
+  builtins.mapAttrs (_: value: value // {publicKeys = value.publicKeys ++ [root];}) {
     "${svcPrefix}/cloudflare.secret.age".publicKeys = [system.home-server];
     "${svcPrefix}/nginx.auth.json.age".publicKeys = [system.home-server];
     "${svcPrefix}/searx.env.age".publicKeys = [system.home-server];
