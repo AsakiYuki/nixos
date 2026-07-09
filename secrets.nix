@@ -9,4 +9,6 @@ let
 in {
   "assets/secrets/cloudflare.secret.age".publicKeys = [system.home-server];
   "assets/secrets/tailscale.secret.age".publicKeys = [system.home-server system.ideapad-slim-5-14apk10];
+  "assets/secrets/nginx.auth.json.age".publicKeys = [system.home-server];
+  "assets/secrets/searx.env.age".publicKeys = [system.home-server];
 }
