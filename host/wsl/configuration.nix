@@ -7,6 +7,7 @@
   wsl.defaultUser = "asakiyuki";
 
   security.sudo.wheelNeedsPassword = lib.mkForce false;
+  services.tailscale.enable = true;
 
   home-manager.users.asakiyuki.programs = {
     bash.enable = true;
