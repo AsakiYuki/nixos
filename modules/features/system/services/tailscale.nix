@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  age.secrets.tailscale.file = libs.root "/assets/secrets/tailscale.secret.age";
+  age.secrets.tailscale.file = libs.root "/assets/secrets/services/tailscale.secret.age";
 
   services.tailscale = {
     authKeyFile = config.age.secrets.tailscale.path;
