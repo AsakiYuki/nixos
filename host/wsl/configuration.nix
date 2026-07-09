@@ -1,14 +1,12 @@
-{pkgs, libs, ...}: {
+{pkgs, libs, lib, ...}: {
   imports = [
     (libs.root "/users/asakiyuki/configuration.nix")
   ];
 
   wsl.enable = true;
   wsl.defaultUser = "asakiyuki";
-  
-  environment.systemPackages = with pkgs; [
-    git
-  ];
+
+  security.sudo.wheelNeedsPassword = lib.mkForce false;
 
   home-manager.users.asakiyuki.programs = {
     bash.enable = true;
