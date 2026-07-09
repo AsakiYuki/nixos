@@ -3,7 +3,7 @@
     enable = true;
     ports = [15523];
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
       AllowUsers = [
         "asakiyuki"
         "junko"
