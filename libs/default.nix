@@ -1,5 +1,7 @@
-{...} @ args:
-{
-  mkUsers = import ./mkUsers.nix args;
-}
-// (import ./fileSystem.nix)
+{...} @ args: let
+  fs = import ./fileSystem.nix;
+in
+  fs
+  // {
+    mkUsers = import ./mkUsers.nix args;
+  }
