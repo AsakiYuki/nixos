@@ -1,5 +1,11 @@
-{libs, ...}: {
+{
+  libs,
+  config,
+  ...
+}: {
+  age.secrets.tailscale.file = libs.root "/assets/secrets/tailscale.secret.age";
+
   services.tailscale = {
-    authKeyFile = libs.root "/secrets/tailscale.secret";
+    authKeyFile = config.age.secrets.tailscale.path;
   };
 }
