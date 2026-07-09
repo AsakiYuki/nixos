@@ -95,7 +95,6 @@ in {
     xprop = mkOpt pkgs "xprop" {};
     nwg-look = mkOpt pkgs "nwg-look" {};
     davinci-resolve = mkOpt pkgs "davinci-resolve" {};
-    mangohud = mkOpt pkgs "mangohud" {};
 
     easyeffects = mkOpt pkgs "easyeffects" {name = "Easy Effects";};
     libreoffice = mkOpt pkgs "libreoffice-qt-fresh" {name = "libreoffice";};
