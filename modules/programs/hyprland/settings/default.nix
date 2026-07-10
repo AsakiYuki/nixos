@@ -41,7 +41,7 @@
       -- WORKSPACES RULES
       ${builtins.readFile ./workspace-rules.lua}
 
-      -- EVETNS
+      -- EVENTS
       ${builtins.readFile ./events.lua}
 
       -- AUTOSTART
