@@ -8,9 +8,6 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd(fileManager))
 
 hl.bind("SUPER + C", hl.dsp.window.close())
 
-hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("SUPER + ALT + TAB", hl.dsp.focus({ workspace = "e-1" }))
-
 hl.bind("ALT + SPACE", hl.dsp.global("asakiyuki:launcher"))
 hl.bind("META + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 
