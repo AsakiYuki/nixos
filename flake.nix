@@ -57,7 +57,7 @@
       wsl = {
         modules = [
           inputs.nixos-wsl.nixosModules.default
-          (root "/host/wsl/configuration.nix")
+          (root "/devices/wsl/configuration.nix")
         ];
       };
     };
