@@ -6,5 +6,6 @@
     ./xserver.nix
     ./v2raya.nix
     ./tailscale.nix
+    ./openssh.nix
   ];
 }
