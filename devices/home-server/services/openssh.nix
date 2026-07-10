@@ -7,6 +7,7 @@
       AllowUsers = [
         "asakiyuki"
         "junko"
+        "hieze"
         "forgejo"
       ];
     };
