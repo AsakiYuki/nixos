@@ -2,7 +2,6 @@
   config.services.openssh = {
     enable = true;
     authorizedKeysInHomedir = true;
-    authorizedKeysFiles = ["/home/asakiyuki/.ssh/authorized_keys"];
     settings = {
       PasswordAuthentication = true;
       KbdInteractiveAuthentication = false;
