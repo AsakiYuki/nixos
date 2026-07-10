@@ -9,5 +9,7 @@
     ./boot
 
     (libs.root "/host/server")
+    (libs.root "/users/junko/configuration.nix")
+    (libs.root "/users/hieze/configuration.nix")
   ];
 }
