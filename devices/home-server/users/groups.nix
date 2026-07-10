@@ -5,6 +5,9 @@
       members = ["nextcloud"];
     };
     forgejo = {};
+    host = {
+      members = ["asakiyuki" "hieze"];
+    };
     mc-bedrock = {
       members = ["asakiyuki" "hieze"];
     };
