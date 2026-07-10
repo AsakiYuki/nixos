@@ -14,6 +14,8 @@ hl.bind("SUPER + ALT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("ALT + SPACE", hl.dsp.global("asakiyuki:launcher"))
 hl.bind("META + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 
+hl.bind("SUPER + code:49", hl.dsp.workspace.toggle_special("magic"))
+hl.bind("SUPER + SHIFT + code:49", hl.dsp.window.move({ workspace = "special:magic" }))
 for i = 1, 10 do
    local key = i % 10
    hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i}))
