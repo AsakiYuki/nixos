@@ -1,9 +1,9 @@
-{lib, ...}: {
+{...}: {
   services.openssh = {
     enable = true;
     ports = [15523];
     settings = {
-      PasswordAuthentication = lib.mkForce false;
+      PasswordAuthentication = false;
       AllowUsers = [
         "asakiyuki"
         "junko"
