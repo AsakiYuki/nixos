@@ -3,7 +3,7 @@
   config,
   lib,
   ...
-}: {
+} @ args: {
   wayland.windowManager.hyprland = {
     extraConfig = ''
       -- Global Variables
@@ -33,7 +33,7 @@
       ${builtins.readFile ./hyprland.lua}
 
       -- KEYBIND
-      ${builtins.readFile ./keybind.lua}
+      ${import ./bind args}
 
       -- WINDOW RULES
       ${builtins.readFile ./window-rules.lua}
