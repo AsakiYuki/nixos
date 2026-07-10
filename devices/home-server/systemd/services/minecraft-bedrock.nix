@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   systemd.services.minecraft-bedrock = {
+    enable = false;
     description = "Minecraft Bedrock Server";
     wantedBy = ["multi-user.target"];
     after = ["network.target"];
