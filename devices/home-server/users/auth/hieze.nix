@@ -1,5 +1,7 @@
 {libs, ...}: {
   users.users.hieze.openssh.authorizedKeys.keys = libs.mkAuthorizedKeys [
+    "/unknown/hieze.windows.pub"
+
     "/home-server/asakiyuki.nixos.pub"
     "/ideapad-slim-5-14apk10/asakiyuki.nixos.pub"
     "/ideapad-slim-5-14apk10/asakiyuki.nixos.wsl.pub"
