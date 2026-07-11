@@ -1,5 +1,9 @@
 {...}: {
   services.logind = {
-    powerKey = "ignore";
+    settings = {
+      Login = {
+        HandlePowerKey = "ignore";
+      };
+    };
   };
 }
