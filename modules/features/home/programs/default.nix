@@ -3,7 +3,7 @@
     ./cli
     ./browsers
     ./terminals
-    ./dolphin.nix
+    ./file-manager
     ./niri.nix
   ];
 }
