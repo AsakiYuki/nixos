@@ -11,6 +11,8 @@
         Type = "Service";
         ServiceTypes = "KonqPopupMenu/Plugin";
         MimeType = "inode/directory";
+        "X-KDE-Submenu" = "Open with...";
+        "X-KDE-Priority" = "TopLevel";
         Actions = lib.join ";" [
           (lib.optionalString cfg.vscode.enable "RunCodeDir")
           (lib.optionalString cfg.ghostty.enable "RunGhosttyDir")

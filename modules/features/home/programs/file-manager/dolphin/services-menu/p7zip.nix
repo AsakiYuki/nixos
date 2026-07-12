@@ -2,13 +2,38 @@
   services-menu.p7zip-extract = {
     "Desktop Entry" = {
       Type = "Service";
-      MimeType = "application/zip";
-      Actions = "ExtractFile";
+      MimeType = "application/zip;application/x-7z-compressed;application/vnd.rar;application/x-tar;application/x-compressed-tar;";
+      Actions = "ExtractHere;ExtractToFolder;";
+      "X-KDE-Submenu" = "7zip";
+      "X-KDE-Priority" = "TopLevel";
     };
 
-    "Desktop Action ExtractFile" = {
+    "Desktop Action ExtractHere" = {
       Name = "Extract here";
-      Exec = "${pkgs.p7zip}/bin/7z x \"%F\" -o*";
+      Icon = "xarchiver";
+      Exec = "${pkgs.p7zip-rar}/bin/7z x \"%f\"";
+    };
+
+    "Desktop Action ExtractToFolder" = {
+      Name = "Extract to folder";
+      Icon = "xarchiver";
+      Exec = "${pkgs.p7zip-rar}/bin/7z x \"%f\" -o*";
+    };
+  };
+
+  services-menu.p7zip-compress = {
+    "Desktop Entry" = {
+      Type = "Service";
+      MimeType = "inode/directory;";
+      Actions = "CompressToZip;";
+      "X-KDE-Submenu" = "7zip";
+      "X-KDE-Priority" = "TopLevel";
+    };
+
+    "Desktop Action CompressToZip" = {
+      Name = "Compress to Zip";
+      Icon = "xarchiver";
+      Exec = "${pkgs.p7zip-rar}/bin/7z a \"%f.zip\" \"%f\"";
     };
   };
 }
