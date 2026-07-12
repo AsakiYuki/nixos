@@ -3,6 +3,6 @@
     ./dolphin.nix
     ./build.nix
     ./services-menu.nix
-    ./config.nix
+    ./options.nix
   ];
 }

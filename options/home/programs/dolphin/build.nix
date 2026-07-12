@@ -19,7 +19,7 @@ in {
       {
         # generate dolphinrc file
         ".config/dolphinrc" = {
-          text = lib.generators.toINI {} (sanitize config.programs.dolphin.configs);
+          text = lib.generators.toINI {} (sanitize config.programs.dolphin.settings);
           force = true;
         };
       }

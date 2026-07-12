@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.programs.dolphin.configs = {
+  options.programs.dolphin.settings = {
     General = {
       DoubleClickViewAction = lib.mkOption {
         type = lib.types.str;
