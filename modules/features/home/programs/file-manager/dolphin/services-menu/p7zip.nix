@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   services-menu.p7zip-extract = {
     "Desktop Entry" = {
       Type = "Service";
@@ -21,19 +25,30 @@
     };
   };
 
-  services-menu.p7zip-compress = {
-    "Desktop Entry" = {
-      Type = "Service";
-      MimeType = "inode/directory;";
-      Actions = "CompressToZip;";
-      "X-KDE-Submenu" = "7zip";
-      "X-KDE-Priority" = "TopLevel";
-    };
-
-    "Desktop Action CompressToZip" = {
-      Name = "Compress to Zip";
-      Icon = "xarchiver";
-      Exec = "${pkgs.p7zip-rar}/bin/7z a \"%f.zip\" \"%f\"";
-    };
-  };
+  services-menu.p7zip-compress = let
+    compressTypes = ["zip" "7z"];
+  in
+    lib.mergeAttrs {
+      "Desktop Entry" = {
+        Type = "Service";
+        MimeType = "inode/directory;";
+        Actions = lib.strings.join ";" (map (type: "compressto${type}") compressTypes);
+        "X-KDE-Submenu" = "7zip";
+        "X-KDE-Priority" = "TopLevel";
+      };
+    }
+    (
+      builtins.listToAttrs
+      (
+        map (type: {
+          name = "Desktop Action compressto${type}";
+          value = {
+            Name = "Compress to ${type}";
+            Icon = "xarchiver";
+            Exec = "${pkgs.p7zip-rar}/bin/7z a \"%f.${type}\" \"%f\"";
+          };
+        })
+        compressTypes
+      )
+    );
 }
