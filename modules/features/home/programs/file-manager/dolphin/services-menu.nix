@@ -4,7 +4,7 @@
   osconfig,
   ...
 }: {
-  programs.dolphin = {
+  programs.dolphin = {...}: {
     _module.args = {
       inherit osconfig libs;
       hmconfig = config;
