@@ -1,8 +1,7 @@
 {...}: {
   imports = [
-    ./fail2ban.nix
-    ./hyprland.nix
-    ./niri.nix
+    ./cli
+    ./wm
     ./nix-dl.nix
     ./steam.nix
   ];

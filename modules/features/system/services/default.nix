@@ -7,5 +7,6 @@
     ./sddm.nix
     ./stalwart.nix
     ./tailscale.nix
+    ./fail2ban.nix
   ];
 }
