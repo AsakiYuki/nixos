@@ -18,13 +18,16 @@
       gnome.enable = lib.mkEnableOption "gnome";
     };
 
-    wm.hyprland = {
-      enable = lib.mkEnableOption "hyprland";
+    wm = {
+      niri.enable = lib.mkEnableOption "niri";
+      hyprland = {
+        enable = lib.mkEnableOption "hyprland";
 
-      extraConfig = lib.mkOption {
-        type = lib.types.str;
-        default = "";
-        description = "Extra Hyprland configuration to be appended to the generated config.";
+        extraConfig = lib.mkOption {
+          type = lib.types.str;
+          default = "";
+          description = "Extra Hyprland configuration to be appended to the generated config.";
+        };
       };
     };
   };
