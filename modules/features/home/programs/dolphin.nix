@@ -70,7 +70,7 @@
         })
       ]);
     };
-    configs = {
+    settings = {
       General = {
         RememberOpenedTabs = false;
         ModifiedStartupSettings = true;
