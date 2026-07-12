@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     git
     vim
+    file
     wget
     tree
     screen
