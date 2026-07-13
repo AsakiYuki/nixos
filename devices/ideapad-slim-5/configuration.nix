@@ -12,6 +12,5 @@
     ./packages
 
     (libs.root "/host/desktop")
-    # (libs.root "/users/hao1337/configuration.nix")
   ];
 }
