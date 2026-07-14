@@ -11,6 +11,9 @@
     android-studio.enable = true;
     antigravity.enable = true;
     zed-editor.enable = true;
+    slack.enable = true;
+    obsidian.enable = true;
+    notion.enable = true;
 
     # Socials
     nixcord.enable = true;
