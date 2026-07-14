@@ -78,7 +78,6 @@ in {
     };
 
     slack = mkOpt pkgs "slack" {};
-    obsidian = mkOpt pkgs "obsidian" {};
     notion = mkOpt pkgs "notion" {};
     winboat = mkOpt pkgs "winboat" {};
     file = mkOpt pkgs "file" {};
