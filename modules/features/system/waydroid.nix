@@ -8,7 +8,6 @@
   cfg = config.virtualisation.waydroid;
 in {
   virtualisation.waydroid = {
-    enable = true;
     package = pkgs.waydroid-nftables;
   };
 
