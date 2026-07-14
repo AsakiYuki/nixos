@@ -19,7 +19,6 @@ in {
   config.home.packages =
     [
       (getPkg "slack")
-      (getPkg "obsidian")
       (getPkg "notion")
       (getPkg "winboat")
       (getPkg "file")
@@ -78,7 +77,7 @@ in {
     };
 
     slack = mkOpt pkgs "slack" {};
-    notion = mkOpt pkgs "notion" {};
+    notion = mkOpt pkgs "notion-app-enhanced" {name = "notion";};
     winboat = mkOpt pkgs "winboat" {};
     file = mkOpt pkgs "file" {};
     qbittorrent = mkOpt pkgs "qbittorrent" {};
