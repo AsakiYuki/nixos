@@ -50,7 +50,18 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    match = { initial_class = "windowkill", initial_title = "Godot" },
+    match = { initial_class = "$(windowkill)", initial_title = "^(Godot)$" },
+    no_blur = true,
+    no_anim = true,
+    border_size = 0,
+    rounding = 0,
+    rounding_power = 1,
+    decorate = false,
+    no_shadow = true,
+})
+
+hl.window_rule({
+    match = { initial_class="steam_app_default", initial_title = "^(BlueArchive_JP_Gamelauncher|StellaSora_EN_Gamelauncher)$" };
     no_blur = true,
     no_anim = true,
     border_size = 0,
