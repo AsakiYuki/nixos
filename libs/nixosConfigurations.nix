@@ -29,6 +29,9 @@ in
         modules =
           (value.modules or [])
           ++ [
+            inputs.chaotic.nixosModules.nyx-cache
+            inputs.chaotic.nixosModules.nyx-overlay
+            inputs.chaotic.nixosModules.nyx-registry
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
             (nixosModules "agenix")

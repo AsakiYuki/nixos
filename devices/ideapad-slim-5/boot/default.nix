@@ -6,7 +6,7 @@
 }: {
   boot = {
     supportedFilesystems = ["ntfs"];
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     extraModulePackages = [config.boot.kernelPackages.zenpower];
 
     kernelParams = [
@@ -14,6 +14,17 @@
       "nowatchdog"
       "modprobe.blacklist=sp5100_tco"
     ];
+
+    # kernelPatches = [
+    #   {
+    #     name = "waydroid-add-dmabuf";
+    #     patch = null;
+    #     structuredExtraConfig = with lib.kernel; {
+    #       DMABUF_HEAPS = yes;
+    #       DMABUF_HEAPS_SYSTEM = yes;
+    #     };
+    #   }
+    # ];
 
     loader = {
       systemd-boot.configurationLimit = 5;

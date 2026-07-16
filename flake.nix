@@ -7,6 +7,7 @@
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     niri.url = "github:sodiboo/niri-flake";

@@ -32,6 +32,7 @@ in {
       ]
 
       [
+        inputs.chaotic.homeModules.default
         inputs.nixvim.homeModules.nixvim
         inputs.nixcord.homeModules.nixcord
         inputs.agenix.homeManagerModules.default
