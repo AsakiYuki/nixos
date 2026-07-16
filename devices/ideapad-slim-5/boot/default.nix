@@ -6,9 +6,7 @@
 }: {
   boot = {
     supportedFilesystems = ["ntfs"];
-
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-
     extraModulePackages = [config.boot.kernelPackages.zenpower];
 
     kernelParams = [
