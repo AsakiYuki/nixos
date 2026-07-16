@@ -6,7 +6,9 @@
 }: {
   boot = {
     supportedFilesystems = ["ntfs"];
+
     kernelPackages = pkgs.linuxPackages_zen;
+
     extraModulePackages = [config.boot.kernelPackages.zenpower];
 
     kernelParams = [
