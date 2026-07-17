@@ -1,13 +1,15 @@
 {
   pkgs,
   lib,
-  inputs,
+  config,
+  # inputs,
   ...
 }: {
   boot = {
     supportedFilesystems = ["ntfs"];
-    kernelPackages = pkgs.linuxPackagesFor inputs.chaotic.packages.${pkgs.stdenv.hostPlatform.system}.linux_cachyos;
-    # extraModulePackages = [config.boot.kernelPackages.zenpower];
+    # kernelPackages = pkgs.linuxPackagesFor inputs.chaotic.packages.${pkgs.stdenv.hostPlatform.system}.linux_cachyos;
+    kernelPackages = pkgs.linuxPackages_zen;
+    extraModulePackages = [config.boot.kernelPackages.zenpower];
 
     kernelParams = [
       "amd_pstate=active"
