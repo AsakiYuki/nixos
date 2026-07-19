@@ -28,7 +28,6 @@
     fastfetch.enable = true;
     starship.enable = true;
     bash.enable = true;
-    yt-dlp.enable = true;
     poppler-utils.enable = true;
     img2pdf.enable = true;
     qpdf.enable = true;
@@ -39,6 +38,10 @@
     wl-clipboard.enable = true;
     gcc.enable = true;
     tldr.enable = true;
+    yt-dlp = {
+      enable = true;
+      settings.cookies-from-browser = "firefox";
+    };
 
     # RE Tools
     ghidra.enable = true;
