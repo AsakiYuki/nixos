@@ -7,6 +7,5 @@
     ./git.nix
     ./starship.nix
     ./tmux.nix
-    ./yt-dlp.nix
   ];
 }
