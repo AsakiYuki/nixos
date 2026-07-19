@@ -1,11 +1,4 @@
-{
-  pkgs,
-  libs,
-  config,
-  ...
-}: {
-  age.secrets.nginxAuth.file = libs.root "/assets/secrets/services/nginx.auth.json.age";
-
+{pkgs, ...}: {
   services.nginx = {
     enable = true;
 

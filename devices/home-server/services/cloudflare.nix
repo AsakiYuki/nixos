@@ -1,10 +1,4 @@
-{
-  libs,
-  config,
-  ...
-}: {
-  age.secrets.cloudflare.file = libs.root "/assets/secrets/services/cloudflare.secret.age";
-
+{config, ...}: {
   services = {
     cloudflare-warp.enable = true;
 

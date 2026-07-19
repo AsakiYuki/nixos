@@ -1,10 +1,4 @@
-{
-  libs,
-  config,
-  ...
-}: {
-  age.secrets.searxenv.file = libs.root "/assets/secrets/services/searx.env.age";
-
+{config, ...}: {
   services.searx = {
     enable = true;
     environmentFile = config.age.secrets.searxenv.path;
