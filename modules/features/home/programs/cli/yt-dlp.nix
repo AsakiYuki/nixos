@@ -9,7 +9,7 @@ in {
 
   config.programs.yt-dlp = {
     extraConfig = ''
-      -o ${config.home.homeDirectory}/${cfg.directory}/${cfg.format} --cookies
+      -o ${config.home.homeDirectory}/${cfg.directory}/${cfg.format} --cookies ${config.age.secrets.yt-dlp-cookies.path}
     '';
   };
 }
