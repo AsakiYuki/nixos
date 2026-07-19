@@ -5,9 +5,8 @@
   ...
 }: {
   age.secrets = let
-    mkSecretIf = condition: file: (lib.mkIf condition {file = libs.root file;});
+    mkSecretIf = condition: file: extraOpts: (lib.mkIf condition ({file = libs.root file;} // extraOpts));
     cfgPg = config.programs;
   in {
-    yt-dlp-cookies = mkSecretIf cfgPg.yt-dlp.enable "/assets/secrets/programs/yt-dlp.cookies.age";
   };
 }

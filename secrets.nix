@@ -20,9 +20,6 @@ let
   systems = [system.home-server system.ideapad-slim-5-14apk10 system.ideapad-slim-5-14apk10-wsl];
 in
   builtins.mapAttrs (_: value: value // {publicKeys = value.publicKeys ++ [root];}) {
-    # Program secrets
-    "assets/secrets/program/yt-dlp.cookies.age".publicKeys = [users.asakiyuki.ideapad-slim-5-14apk10.nixos];
-
     # Service secrets
     "assets/secrets/services/cloudflare.secret.age".publicKeys = [system.home-server];
     "assets/secrets/services/nginx.auth.json.age".publicKeys = [system.home-server];
