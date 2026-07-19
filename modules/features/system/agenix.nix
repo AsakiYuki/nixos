@@ -6,7 +6,7 @@
   config,
   ...
 }: {
-  config.age.secrets = let
+  age.secrets = let
     mkSecretIf = condition: file: (lib.mkIf condition {file = libs.root file;});
     cfgSvc = config.services;
   in {
