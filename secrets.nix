@@ -9,9 +9,18 @@ let
     ideapad-slim-5-14apk10-wsl = sshPubKey "ideapad-slim-5-14apk10/system.nixos.wsl.pub";
   };
 
+  users = {
+    asakiyuki = {
+      ideapad-slim-5-14apk10 = {
+        nixos = sshPubKey "ideapad-slim-5-14apk10/asakiyuki.nixos.pub";
+      };
+    };
+  };
+
   systems = [system.home-server system.ideapad-slim-5-14apk10 system.ideapad-slim-5-14apk10-wsl];
 in
   builtins.mapAttrs (_: value: value // {publicKeys = value.publicKeys ++ [root];}) {
+    "assets/secrets/services/yt-dlp.cookies.age".publicKeys = [users.asakiyuki.ideapad-slim-5-14apk10.nixos];
     "assets/secrets/services/cloudflare.secret.age".publicKeys = [system.home-server];
     "assets/secrets/services/nginx.auth.json.age".publicKeys = [system.home-server];
     "assets/secrets/services/searx.env.age".publicKeys = [system.home-server];
