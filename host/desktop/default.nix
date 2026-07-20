@@ -8,6 +8,7 @@
     ./virtualisation.nix
     ./device.nix
     ./services
+    ./nixpkgs
     ./home
 
     (libs.root "/modules/fonts.nix")
