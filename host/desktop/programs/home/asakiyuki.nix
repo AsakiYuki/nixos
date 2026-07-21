@@ -18,7 +18,7 @@
     # Socials
     nixcord.enable = true;
     nixcord.discord.enable = true;
-    nixcord.discord.vencord.enable = true;
+    nixcord.vesktop.enable = true;
     telegram.enable = true;
 
     # CLI Tools
