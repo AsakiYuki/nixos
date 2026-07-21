@@ -6,7 +6,6 @@
       KbdInteractiveAuthentication = false;
       AllowAgentForwarding = false;
       AllowStreamLocalForwarding = false;
-      X11Forwarding = false;
       PermitRootLogin = "no";
     };
   };
