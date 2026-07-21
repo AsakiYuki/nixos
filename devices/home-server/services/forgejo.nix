@@ -63,25 +63,25 @@ in {
     };
   };
 
-  services.gitea-actions-runner.instances.asa = lib.mkIf cfg.enable {
-    enable = true;
-    name = "Asa runner";
-    url = cfg.settings.server.ROOT_URL;
-    tokenFile = "/var/lib/gitea-runner/asa/token";
+  # services.gitea-actions-runner.instances.asa = lib.mkIf cfg.enable {
+  #   enable = true;
+  #   name = "Asa runner";
+  #   url = cfg.settings.server.ROOT_URL;
+  #   tokenFile = "/var/lib/gitea-runner/asa/token";
 
-    labels = [
-      "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
-      "ubuntu-22.04:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
-      "ubuntu-20.04:docker://ghcr.io/catthehacker/ubuntu:act-20.04"
-      "self-hosted:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
-    ];
+  #   labels = [
+  #     "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
+  #     "ubuntu-22.04:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
+  #     "ubuntu-20.04:docker://ghcr.io/catthehacker/ubuntu:act-20.04"
+  #     "self-hosted:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
+  #   ];
 
-    settings = {
-      container.network = "host";
-    };
+  #   settings = {
+  #     container.network = "host";
+  #   };
 
-    hostPackages = [];
-  };
+  #   hostPackages = [];
+  # };
 
   systemd.tmpfiles.rules = lib.mkIf cfg.enable [
     "d ${cfg.customDir}/public/assets/css 0755 forgejo forgejo -"
