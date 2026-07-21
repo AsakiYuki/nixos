@@ -45,6 +45,14 @@
         };
       };
 
+      "api.asakiyuki.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://localhost:5482";
+        };
+      };
+
       "search.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
