@@ -11,7 +11,7 @@
       // _q "aemeath" "sha256-0eEsUks5MwW4g5Xau24SgchX+LD9Ra3azAH0KL9JzQw="
       // _q "elysia" "sha256-mjDHklWrX5Pp/vejRQiMk0VA6afY04HXGyGD0PcopdI="
       // _q "cartethyia" "sha256-jYIDoX+rfUjw6LXrqE4y8j5IL0vByrrRkgRuz08Zy6U="
-      // _q "denia" "sha256-WZg3xy0jV1no6V0i+Z3tbxODTKNvR4p5jXjOdnYbMek="
+      // _q "denia" "sha256-oNWGhsr0/ZkKroJkl7W0feZ6FV3Uzn71y/qf/GLDPdc="
     ).${
       cursors
     };
