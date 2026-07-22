@@ -2,5 +2,5 @@
   imports = [
     ./files.nix
   ];
-  theme.cursors = "aemeath";
+  theme.cursors = "denia";
 }
