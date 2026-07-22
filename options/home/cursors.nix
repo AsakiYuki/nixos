@@ -33,8 +33,7 @@ in {
       };
     in (pkgs.runCommand "moveUp" {} ''
       mkdir -p $out/share/icons
-      ln -s ${packages}
-      $out/share/icons/${cursors-theme}
+      ln -s ${packages} $out/share/icons/${cursors-theme}
     '');
   };
 }
