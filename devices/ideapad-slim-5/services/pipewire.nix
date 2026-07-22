@@ -3,9 +3,7 @@
     "50-disable-dmic" = {
       "monitor.alsa.rules" = [
         {
-          matches = [
-            {"node.name" = "alsa_input.pci-0000_05_00.6.HiFi__Mic1__source";}
-          ];
+          matches = [{"node.name" = "~alsa_input.*Mic1.*";}];
           actions.update-props = {
             "node.disabled" = true;
           };
@@ -13,14 +11,19 @@
       ];
     };
 
-    "50-default-source" = {
+    "51-force-mic2-plugged" = {
       "monitor.alsa.rules" = [
         {
           matches = [
-            {"node.name" = "alsa_input.pci-0000_05_00.6.HiFi__Mic2__source";}
+            {"node.name" = "~alsa_input.*Mic2.*";}
           ];
           actions.update-props = {
-            "priority.session" = 3000;
+            "node.description" = "Internal Microphone";
+            "device.icon-name" = "audio-input-microphone";
+            "card.profile.device" = "0";
+            "priority.driver" = 9999;
+            "priority.session" = 9999;
+            "api.alsa.use-acp" = true;
           };
         }
       ];
@@ -29,8 +32,8 @@
 
   systemd.services.unmute-mic = {
     description = "Unmute Analog Microphone on Boot";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "sound.target" ];
+    wantedBy = ["multi-user.target"];
+    after = ["sound.target"];
     script = ''
       ${pkgs.alsa-utils}/bin/amixer -c 1 set Capture cap || true
       ${pkgs.alsa-utils}/bin/amixer -c 1 set Capture 100% || true
