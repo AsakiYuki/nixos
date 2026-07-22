@@ -11,7 +11,7 @@ in {
   options = {
     theme.cursors = lib.mkOption {
       type = lib.types.enum ([null] ++ (lib.attrNames cursors));
-      default = "";
+      default = null;
       description = "Cursor theme to use for the desktop";
     };
   };
