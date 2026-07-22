@@ -11,11 +11,6 @@
   mkOpt = libs.mkProgramOption;
   mkOpts = libs.mkProgramsOption;
 in {
-  imports = [
-    ./programs/dolphin
-    ./programs/kde
-  ];
-
   config.home.packages =
     [
       (getPkg "slack")
