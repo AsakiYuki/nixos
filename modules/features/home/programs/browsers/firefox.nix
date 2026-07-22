@@ -5,9 +5,11 @@
   config,
   ...
 }: {
-  home.file = lib.mkIf config.programs.firefox.enable {
-    ".mozilla/firefox".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/mozilla/firefox";
+  files = lib.mkIf config.programs.firefox.enable {
+    symlink.".mozilla/firefox" = "${config.home.homeDirectory}/.config/mozilla/firefox";
+    mkForce.".config/mozilla/firefox/default/search.json.mozlz4" = true;
   };
+
   programs.firefox = {
     profiles.default = {
       settings = {
