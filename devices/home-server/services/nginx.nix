@@ -53,6 +53,12 @@
         };
       };
 
+      "api.asakiyuki.id.vn" = {
+        enableACME = true;
+        forceSSL = true;
+        globalRedirect = "api.asakiyuki.com";
+      };
+
       "search.asakiyuki.com" = {
         forceSSL = true;
         enableACME = true;
