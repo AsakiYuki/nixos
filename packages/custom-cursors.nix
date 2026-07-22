@@ -3,7 +3,7 @@
   size ? 48,
 }: let
   _b = name: url: hash: {inherit name url hash;};
-  _q = name: hash: {${name} = _b name "https://static.asakiyuki.com/cursors/linux/${name}.tar.gz" hash;};
+  _q = name: hash: {${name} = _b name "https://static.asakiyuki.com/packages/cursors/linux/${name}.tar.gz" hash;};
 
   cursors-data =
     (
