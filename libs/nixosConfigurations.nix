@@ -35,7 +35,7 @@ in
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
             (nixosModules "agenix")
-            (libs.root "/modules/features/system")
+            (libs.root "/modules/system")
             (libs.root "/overlays/nixpkgs.nix")
             (libs.root "/options/system")
             {

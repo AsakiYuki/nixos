@@ -24,7 +24,7 @@ in {
     imports = lib.concatLists [
       [
         ../options/home
-        ../modules/features/home
+        ../modules/home
       ]
 
       [
