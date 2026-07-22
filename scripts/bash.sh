@@ -14,7 +14,7 @@ function git-pull() {
 }
 
 function get-hash() {
-    nix hash to-sri --type sha256 $(nix-prefetch-url --unpack "$1")
+    nix hash convert --hash-algo sha256 --from nix32 $(nix-prefetch-url --unpack "$1")
 }
 
 function nixos-rollback() {
