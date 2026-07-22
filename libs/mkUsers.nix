@@ -25,10 +25,6 @@ in {
       [
         ../options/home
         ../modules/features/home
-
-        (libs.root "/modules/programs/hyprland")
-        (libs.root "/modules/programs/nixcord")
-        (libs.root "/modules/programs/nixvim")
       ]
 
       [

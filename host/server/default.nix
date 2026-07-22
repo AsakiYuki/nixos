@@ -3,8 +3,6 @@
     ./programs
     ./services
 
-    (libs.root "/modules/programs/minecraft")
-
     (libs.root "/users/asakiyuki/configuration.nix")
   ];
 

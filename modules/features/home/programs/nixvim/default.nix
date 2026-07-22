@@ -1,0 +1,14 @@
+{...}: {
+  programs.nixvim = {
+    imports = [
+      ./extra-packages.nix
+
+      ./keymaps/_keymaps.nix
+
+      ./plugins/_plugins.nix
+      ./plugins/_extraPlugins.nix
+
+      ./lua/_lua.nix
+    ];
+  };
+}

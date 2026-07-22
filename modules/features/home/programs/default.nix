@@ -4,6 +4,9 @@
     ./browsers
     ./terminals
     ./file-manager
+    ./nixcord
+    ./nixvim
+    ./hyprland
     ./niri.nix
   ];
 }
