@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     git
     vim
@@ -7,7 +7,9 @@
     tree
     screen
 
+    nixfmt
     nixd
+
     alejandra
 
     p7zip-rar
