@@ -1,6 +1,4 @@
 {...}: {
-  imports = [
-    ./files.nix
-  ];
+  imports = [./files.nix];
   theme.cursors = "denia";
 }
