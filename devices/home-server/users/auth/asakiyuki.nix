@@ -5,4 +5,11 @@
     "/ideapad-slim-5-14apk10/asakiyuki.nixos.wsl.pub"
     "/ideapad-slim-5-14apk10/asakiyuki.windows.pub"
   ] "/assets/public/ssh";
+
+  home-manager.users.asakiyuki.programs.bash.initExtra = ''
+    function fix-ssl() {
+      sudo systemctl restart "acme-$1.service"
+      sudo systemctl reload nginx
+    }
+  '';
 }
