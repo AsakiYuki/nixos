@@ -56,7 +56,9 @@
       "api.asakiyuki.id.vn" = {
         enableACME = true;
         forceSSL = true;
-        globalRedirect = "api.asakiyuki.com";
+        locations."/" = {
+          proxyPass = "http://localhost:5482";
+        };
       };
 
       "search.asakiyuki.com" = {
