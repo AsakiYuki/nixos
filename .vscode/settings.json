@@ -5,9 +5,22 @@
 	"Lua.diagnostics.globals": [
 		"hl"
 	],
+	"Lua.diagnostics.disable": [
+		"undefined-global"
+	],
 	"nixEnvSelector.suggestion": false,
+	"nix.enableLanguageServer": true,
 	"nix.serverSettings": {
-		"nil": {},
+		"nil": {
+			// "diagnostics": {
+			//  "ignored": ["unused_binding", "unused_with"],
+			// },
+			"formatting": {
+				"command": [
+					"nixfmt"
+				],
+			},
+		},
 		"nixd": {
 			"formatting": {
 				"command": [
@@ -16,12 +29,9 @@
 			},
 			"options": {
 				"nixos": {
-					"expr": "(builtins.getFlake \"/home/asakiyuki/nixos\").nixosConfigurations.ideapad-slim-5.options"
+					"expr": "(builtins.getFlake (toString /home/asakiyuki/nixos)).nixosConfigurations.ideapad-slim-5.options"
 				}
 			}
 		}
-	},
-	"Lua.diagnostics.disable": [
-		"undefined-global"
-	]
+	}
 }

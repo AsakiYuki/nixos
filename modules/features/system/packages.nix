@@ -9,6 +9,7 @@
 
     nixfmt
     nixd
+    nil
 
     alejandra
 

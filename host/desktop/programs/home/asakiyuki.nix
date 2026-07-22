@@ -1,8 +1,10 @@
 {
   pkgs,
+  unstable,
   custom,
   ...
-}: {
+}:
+{
   programs = {
     # Code editors
     nixvim.enable = true;
@@ -92,7 +94,7 @@
 
     cider = {
       enable = true;
-      package = pkgs.callPackage custom.cider-2 {};
+      package = pkgs.callPackage custom.cider-2 { };
     };
 
     lmstudio = {
@@ -102,7 +104,7 @@
 
     vscode = {
       enable = true;
-      package = pkgs.vscode;
+      package = unstable.vscode;
     };
   };
 }
