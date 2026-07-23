@@ -4,14 +4,16 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   catppuccin-gtk = pkgs.catppuccin-gtk.override {
     variant = "mocha";
-    accents = ["sapphire"];
+    accents = [ "sapphire" ];
     size = "compact";
   };
-in {
-  home.activation.copyGtkTheme = lib.hm.dag.entryAfter ["writeBoundary"] ''
+in
+{
+  home.activation.copyGtkTheme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p "$HOME/.themes/"
 
     if [ ! -d "$HOME/.themes/catppuccin-mocha-sapphire-compact" ]; then
@@ -31,9 +33,7 @@ in {
   qt = {
     enable = true;
     platformTheme.name =
-      if (lib.attrByPath ["device" "de" "kdePlasma" "enable"] false osconfig)
-      then "kde"
-      else "qtct";
+      if (lib.attrByPath [ "device" "de" "kdePlasma" "enable" ] false osconfig) then "kde" else "qtct";
     style = {
       package = with pkgs; [
         catppuccin-qt5ct
@@ -46,39 +46,41 @@ in {
   # GTK
   gtk.theme.name = "catppuccin-mocha-sapphire-compact";
 
-  programs.kde.kdeglobals = let
-    isTilingWindowsManager =
-      (lib.attrByPath ["device" "wm" "hyprland" "enable"] false osconfig)
-      || (lib.attrByPath ["device" "wm" "niri" "enable"] false osconfig);
-  in {
-    initExtra = lib.optionalString isTilingWindowsManager (
-      builtins.readFile (
+  programs.kde.kdeglobals =
+    let
+      isTilingWindowsManager =
+        (lib.attrByPath [ "device" "wm" "hyprland" "enable" ] false osconfig)
+        || (lib.attrByPath [ "device" "wm" "niri" "enable" ] false osconfig);
+    in
+    {
+      initExtra = builtins.readFile (
         (pkgs.catppuccin-kde.override {
-          flavour = ["mocha"];
-          accents = ["sapphire"];
+          flavour = [ "mocha" ];
+          accents = [ "sapphire" ];
         })
         + "/share/color-schemes/CatppuccinMochaSapphire.colors"
-      )
-    );
-    config = lib.optionalAttrs isTilingWindowsManager {
-      UiSettings = {
-        ColorScheme = "qt6ct";
-      };
+      );
+      config = lib.optionalAttrs isTilingWindowsManager {
+        UiSettings = {
+          ColorScheme = "qt6ct";
+        };
 
-      General = {
-        TerminalApplication = let
-          cfg = config.programs;
-        in
-          if (cfg.ghostty.enable)
-          then "ghostty"
-          else if (cfg.kitty.enable)
-          then "kitty"
-          else "";
-      };
+        General = {
+          TerminalApplication =
+            let
+              cfg = config.programs;
+            in
+            if (cfg.ghostty.enable) then
+              "ghostty"
+            else if (cfg.kitty.enable) then
+              "kitty"
+            else
+              "";
+        };
 
-      Icons = {
-        Theme = "Papirus";
+        Icons = {
+          Theme = "Papirus";
+        };
       };
     };
-  };
 }
