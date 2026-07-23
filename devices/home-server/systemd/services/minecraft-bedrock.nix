@@ -13,8 +13,9 @@
         "LD_LIBRARY_PATH=."
       ];
 
-      ExecStart = "${pkgs.screen}/bin/screen -dmS mc-bedrock ./bedrock_server";
-      ExecStop = "${pkgs.screen}/bin/screen -S mc-bedrock -X stuff 'stop^M'";
+      ExecStart = "./bedrock_server";
+      # ExecStart = "${pkgs.screen}/bin/screen -dmS mc-bedrock ./bedrock_server";
+      # ExecStop = "${pkgs.screen}/bin/screen -S mc-bedrock -X stuff 'stop^M'";
 
       Restart = "on-failure";
       RestartSec = "10s";
