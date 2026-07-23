@@ -1,5 +1,4 @@
 {...}: {
   chaotic = {
-    hdr.enable = true;
   };
 }
