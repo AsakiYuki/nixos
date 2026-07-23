@@ -16,17 +16,6 @@
       "modprobe.blacklist=sp5100_tco"
     ];
 
-    # kernelPatches = [
-    #   {
-    #     name = "waydroid-add-dmabuf";
-    #     patch = null;
-    #     structuredExtraConfig = with lib.kernel; {
-    #       DMABUF_HEAPS = yes;
-    #       DMABUF_HEAPS_SYSTEM = yes;
-    #     };
-    #   }
-    # ];
-
     loader = {
       systemd-boot.configurationLimit = 5;
       systemd-boot.enable = lib.mkForce false;
