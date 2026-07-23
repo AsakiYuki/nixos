@@ -1,6 +1,8 @@
 {libs, ...}: {
   imports = [
     ./hardware-configuration.nix
+    ./chaotic.nix
+
     ./hardware
     ./systemd
     ./mount
