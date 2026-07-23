@@ -13,7 +13,7 @@
         "LD_LIBRARY_PATH=/mnt/HOST/bedrockserver"
       ];
 
-      ExecStart = "./bedrock_server";
+      ExecStart = "/mnt/HOST/bedrockserver/bedrock_server";
       # ExecStart = "${pkgs.screen}/bin/screen -dmS mc-bedrock ./bedrock_server";
       # ExecStop = "${pkgs.screen}/bin/screen -S mc-bedrock -X stuff 'stop^M'";
 
