@@ -1,5 +1,5 @@
 -- monitors
-local isHDR = true
+local isHDR = false
 
 local function updateHDR()
     hl.monitor({
@@ -11,12 +11,13 @@ local function updateHDR()
         sdr_eotf = "gamma22",
         bitdepth = 10,
         supports_wide_color = true,
-        supports_hdr = true,
+        supports_hdr = isHDR and 1 or -1,
         sdr_min_luminance = 0.0,
         min_luminance = 0.0,
         sdr_max_luminance = 220, 
         max_luminance = 500,
         max_avg_luminance = 300,
+        icc = isHDR and HDRIccProfile or DCIP3IccProfile,
     })
 end
 
