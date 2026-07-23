@@ -11,6 +11,7 @@
     ./environment
     ./device
     ./services
+    ./security
     ./packages
 
     (libs.root "/host/desktop")
