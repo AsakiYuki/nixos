@@ -1,7 +1,7 @@
 -- monitors
 local isHDR = false
 
-local function updateHDR()
+function updateHDR()
     hl.monitor({
         output = "eDP-1",
         mode = "1920x1200@60",
@@ -19,7 +19,7 @@ local function updateHDR()
     })
 end
 
-local function toggleHDR()
+function ToggleHDR()
     isHDR = not isHDR;
     updateHDR()
 end

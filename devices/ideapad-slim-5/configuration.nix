@@ -13,6 +13,7 @@
     ./services
     ./security
     ./packages
+    ./programs
 
     (libs.root "/host/desktop")
   ];
