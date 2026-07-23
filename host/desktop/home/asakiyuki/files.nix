@@ -21,9 +21,10 @@
       "Games/zalo/drive_c/users/Public/Downloads" = "Downloads";
       "Games/zalo/drive_c/users/Public/Documents" = "Documents";
 
-      # "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
-      # "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
-      # "Development/DesktopEffects" = ".local/share/kwin/effects";
+      # KDE Symlinks
+      "Development/KDE-Widget" = ".local/share/plasma/plasmoids";
+      "Development/SplashScreen" = ".local/share/plasma/look-and-feel";
+      "Development/DesktopEffects" = ".local/share/kwin/effects";
     };
   };
 }

@@ -44,7 +44,18 @@ in
   };
 
   # GTK
-  gtk.theme.name = "catppuccin-mocha-sapphire-compact";
+  gtk = {
+    enable = true;
+    theme.name = "catppuccin-mocha-sapphire-compact";
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
   programs.kde.kdeglobals =
     let
