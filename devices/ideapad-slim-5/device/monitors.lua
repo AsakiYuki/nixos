@@ -1,7 +1,7 @@
 -- monitors
-local isHDR = false
+local isHDR = true
 
-local function updateHDR()
+local function updateMonitor()
     hl.monitor({
         output = "eDP-1",
         mode = "1920x1200@60",
@@ -10,23 +10,24 @@ local function updateHDR()
         cm = isHDR and "hdr" or "dcip3",
         sdr_eotf = "gamma22",
         bitdepth = 10,
-        supports_wide_color = true,
+        -- supports_wide_color = true,
         supports_hdr = isHDR and 1 or -1,
         sdr_min_luminance = 0.0,
-        min_luminance = 0.0,
-        sdr_max_luminance = 220, 
+        min_luminance = -1,
+        sdr_max_luminance = 200, 
         max_luminance = 500,
+        -- max_luminance = -1,
+        -- max_avg_luminance = -1,
         max_avg_luminance = 300,
-        icc = isHDR and HDRIccProfile or DCIP3IccProfile,
     })
 end
 
 function ToggleHDR()
     isHDR = not isHDR;
-    updateHDR()
+    updateMonitor()
 end
 
-updateHDR()
+updateMonitor()
 
 hl.monitor({
     output = "HDMI-A-1",
