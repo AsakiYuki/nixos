@@ -50,6 +50,63 @@
 
   combinedActionNames = map (type: "compressto${sanitizeName type}") compressTypes;
   eachActionNames = map (type: "compressto${sanitizeName type}Each") compressTypes;
+
+  extractHereScript = pkgs.writeShellScript "p7zip-extract-here" ''
+    set -euo pipefail
+    fix() {
+      local base="$1"
+      while IFS= read -r x; do
+        rel="''${x//\\//}"
+        mkdir -p "$(dirname "$rel")"
+        mv "$x" "$rel"
+      done < <(find "$base" -depth -name '*\\*')
+    }
+    for f in "$@"; do
+      d=$(dirname "$f")
+      b=$(basename "$f")
+      case "$b" in
+        *.tar.gz|*.tar.bz2|*.tar.xz) n="''${b%.*.*}" ;;
+        *) n="''${b%.*}" ;;
+      esac
+      cd "$d"
+      top=$(${sevenZip} l -ba -slt "$b" | awk -F' = ' '/^Path/{print $2}' | grep -v "^$b\$" | tr '\\' '/' | cut -d/ -f1 | sort -u)
+      count=$(printf '%s\n' "$top" | grep -c .)
+      if [ "$count" -eq 1 ]; then
+        ${sevenZip} x -y "$b"
+        fix "$d"
+      else
+        mkdir -p "$n"
+        ${sevenZip} x -y "$b" -o"$n"
+        fix "$n"
+      fi
+      cd - >/dev/null
+    done
+  '';
+
+  extractToFolderScript = pkgs.writeShellScript "p7zip-extract-to-folder" ''
+    set -euo pipefail
+    fix() {
+      local base="$1"
+      while IFS= read -r x; do
+        rel="''${x//\\//}"
+        mkdir -p "$(dirname "$rel")"
+        mv "$x" "$rel"
+      done < <(find "$base" -depth -name '*\\*')
+    }
+    for f in "$@"; do
+      d=$(dirname "$f")
+      b=$(basename "$f")
+      case "$b" in
+        *.tar.gz|*.tar.bz2|*.tar.xz) n="''${b%.*.*}" ;;
+        *) n="''${b%.*}" ;;
+      esac
+      cd "$d"
+      mkdir -p "$n"
+      ${sevenZip} x -y "$b" -o"$n"
+      fix "$n"
+      cd - >/dev/null
+    done
+  '';
 in {
   services-menu = {
     p7zip-extract = {
@@ -64,13 +121,13 @@ in {
       "Desktop Action ExtractHere" = {
         Name = "Extract here";
         Icon = "xarchiver";
-        Exec = ''sh -c 'for f in "$@"; do d=$(dirname "$f"); (cd "$d" && ${sevenZip} x -y "$f"); done' -- %F'';
+        Exec = "${extractHereScript} %F";
       };
 
       "Desktop Action ExtractToFolder" = {
         Name = "Extract to folder";
         Icon = "xarchiver";
-        Exec = ''sh -c 'for f in "$@"; do d=$(dirname "$f"); b=$(basename "$f"); n="''${b%.*}"; (cd "$d" && mkdir -p "$n" && ${sevenZip} x -y "$f" -o"$n"); done' -- %F'';
+        Exec = "${extractToFolderScript} %F";
       };
 
       "Desktop Action TestArchive" = {
