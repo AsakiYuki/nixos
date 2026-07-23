@@ -1,7 +1,7 @@
-{...}: {
+{ config, ... }: {
   programs = {
     # Hyprland
-    hyprland.enable = true;
+    hyprland.enable = false;
     hyprland.xwayland.enable = true;
     hyprland-portals.enable = true;
     quickshell.enable = true;
@@ -31,10 +31,10 @@
     r-tensorflow.enable = true;
     cava.enable = true;
     direnv.enable = true;
-    
+
     # Themes
     papirus-icons.enable = true;
-    
+
     # KDE
     kde-packages.enable = true;
   };

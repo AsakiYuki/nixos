@@ -30,7 +30,10 @@ in {
   # QT
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme.name =
+      if (lib.attrByPath ["device" "de" "kdePlasma" "enable"] false osconfig)
+      then "kde"
+      else "qtct";
     style = {
       package = with pkgs; [
         catppuccin-qt5ct

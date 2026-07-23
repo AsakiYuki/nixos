@@ -19,7 +19,7 @@
 
           logout = "pkill -KILL -u $USER";
 
-          nrs = "sudo nixos-rebuild switch --flake /etc/nixos#${osconfig.device.flake-name}";
+          nrs = "sudo nixos-rebuild switch --flake /etc/nixos#${osconfig.device.flake-name} --option warn-dirty false";
           flake-upgrade = "nix flake update";
         }
         (attOpt config.programs.superfile.enable "spf" "superfile")

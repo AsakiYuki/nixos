@@ -1,6 +1,6 @@
-{...}: {
+{ ... }: {
   services.displayManager = {
-    defaultSession = "hyprland";
+    defaultSession = "plasma";
     autoLogin = {
       enable = true;
       user = "asakiyuki";

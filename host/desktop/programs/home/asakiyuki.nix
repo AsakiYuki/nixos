@@ -1,5 +1,6 @@
 {
   pkgs,
+  unstable,
   custom,
   ...
 }: {
@@ -10,6 +11,7 @@
     jetbrains.datagrip.enable = true;
     android-studio.enable = true;
     antigravity.enable = true;
+    antigravity.package = unstable.antigravity;
     zed-editor.enable = true;
     slack.enable = true;
     obsidian.enable = true;
