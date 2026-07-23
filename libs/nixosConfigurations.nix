@@ -28,9 +28,10 @@ in
 
         modules =
           (value.modules or [])
-          ++ [
-            # inputs.chaotic.nixosModules.nyx-cache
-            # inputs.chaotic.nixosModules.nyx-registry
+          ++ (with inputs; [
+            chaotic.nixosModules.nyx-cache
+            chaotic.nixosModules.nyx-overlay
+            chaotic.nixosModules.nyx-registry
 
             (nixosModules "nix-index-database")
             (nixosModules "home-manager")
@@ -70,7 +71,7 @@ in
                 description = "Flake name for quick rebuild";
               };
             }
-          ];
+          ]);
       };
     }) (lib.attrsToList cfg));
   }
