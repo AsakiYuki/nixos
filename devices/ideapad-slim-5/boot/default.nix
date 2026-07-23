@@ -10,10 +10,6 @@
     kernelPackages = pkgs.linuxPackages_cachyos;
     # extraModulePackages = [config.boot.kernelPackages.zenpower];
 
-    kernelModules = [
-      "kernelsu"
-    ];
-
     kernelParams = [
       "amd_pstate=active"
       "nowatchdog"
