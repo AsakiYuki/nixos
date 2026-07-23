@@ -1,7 +1,7 @@
 {...}: {
   programs = {
     bash.shellAliases = {
-      togglehdr = ''hyprctl eval "toggleHDR()"'';
+      togglehdr = ''hyprctl eval "ToggleHDR()"'';
     };
   };
 }
