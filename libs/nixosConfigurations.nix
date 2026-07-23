@@ -28,50 +28,57 @@ in
 
         modules =
           (value.modules or [])
-          ++ (with inputs; [
-            chaotic.nixosModules.nyx-cache
-            chaotic.nixosModules.nyx-overlay
-            chaotic.nixosModules.nyx-registry
+          ++ (
+            lib.concatLists [
+              (with inputs; [
+                chaotic.nixosModules.default
+              ])
 
-            (nixosModules "nix-index-database")
-            (nixosModules "home-manager")
-            (nixosModules "agenix")
-            (libs.root "/modules/system")
-            (libs.root "/overlays/nixpkgs.nix")
-            (libs.root "/options/system")
-            {
-              config = {
-                nixpkgs.config.allowUnfree = true;
-                time.timeZone = "Asia/Ho_Chi_Minh";
-                system.stateVersion = state-version;
-                nix = {
-                  settings = {
-                    auto-optimise-store = true;
-                    experimental-features = [
-                      "nix-command"
-                      "flakes"
-                    ];
+              [
+                (nixosModules "nix-index-database")
+                (nixosModules "home-manager")
+                (nixosModules "agenix")
+                (libs.root "/modules/system")
+                (libs.root "/overlays/nixpkgs.nix")
+                (libs.root "/options/system")
+              ]
+
+              [
+                {
+                  config = {
+                    nixpkgs.config.allowUnfree = true;
+                    time.timeZone = "Asia/Ho_Chi_Minh";
+                    system.stateVersion = state-version;
+                    nix = {
+                      settings = {
+                        auto-optimise-store = true;
+                        experimental-features = [
+                          "nix-command"
+                          "flakes"
+                        ];
+                      };
+                      gc = {
+                        automatic = true;
+                        dates = "weekly";
+                        options = "--delete-older-than 30d";
+                      };
+                    };
+                    networking.hostName = "nixos";
+                    home-manager = {
+                      useUserPackages = true;
+                      useGlobalPkgs = true;
+                      backupFileExtension = "bak";
+                    };
                   };
-                  gc = {
-                    automatic = true;
-                    dates = "weekly";
-                    options = "--delete-older-than 30d";
+                  options.device.flake-name = lib.mkOption {
+                    type = lib.types.str;
+                    default = name;
+                    description = "Flake name for quick rebuild";
                   };
-                };
-                networking.hostName = "nixos";
-                home-manager = {
-                  useUserPackages = true;
-                  useGlobalPkgs = true;
-                  backupFileExtension = "bak";
-                };
-              };
-              options.device.flake-name = lib.mkOption {
-                type = lib.types.str;
-                default = name;
-                description = "Flake name for quick rebuild";
-              };
-            }
-          ]);
+                }
+              ]
+            ]
+          );
       };
     }) (lib.attrsToList cfg));
   }

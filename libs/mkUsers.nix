@@ -27,6 +27,10 @@ in {
         ../modules/home
       ]
 
+      (with inputs; [
+        chaotic.homeModules.default
+      ])
+
       [
         inputs.nixvim.homeModules.nixvim
         inputs.nixcord.homeModules.nixcord
