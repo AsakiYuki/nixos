@@ -1,5 +1,5 @@
 {...}: {
   chaotic = {
-    hdr.enable = false;
+    hdr.enable = true;
   };
 }
