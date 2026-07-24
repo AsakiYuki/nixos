@@ -11,7 +11,7 @@
     jetbrains.datagrip.enable = true;
     android-studio.enable = true;
     antigravity.enable = true;
-    antigravity.package = unstable.antigravity;
+    antigravity.package = unstable.antigravity-ide;
     zed-editor.enable = true;
     slack.enable = true;
     obsidian.enable = true;
