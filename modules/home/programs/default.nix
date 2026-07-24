@@ -8,5 +8,6 @@
     ./nixvim
     ./hyprland
     ./niri.nix
+    ./obs-studio.nix
   ];
 }
