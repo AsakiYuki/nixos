@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   sevenZip = "${pkgs.p7zip-rar}/bin/7z";
   tar = "${pkgs.gnutar}/bin/tar";
   zip = "${pkgs.zip}/bin/zip";
