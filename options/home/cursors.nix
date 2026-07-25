@@ -19,7 +19,7 @@ in {
   config.home.pointerCursor = lib.mkIf (cursors-theme != null) {
     enable = true;
     name = cursors-theme;
-    size = 48;
+    size = 98;
     gtk.enable = true;
     x11.enable = true;
     hyprcursor.enable = true;
