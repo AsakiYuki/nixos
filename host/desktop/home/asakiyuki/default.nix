@@ -1,4 +1,4 @@
 {...}: {
   imports = [./files.nix];
-  theme.cursors = "denia";
+  theme.cursors = "yangyang";
 }
