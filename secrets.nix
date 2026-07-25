@@ -27,8 +27,5 @@ in
     "assets/secrets/services/tailscale.secret.age".publicKeys = systems;
 
     # User passwords
-    "assets/secrets/users/asakiyuki.pwd.sha256.age" = {
-      publicKeys = systems;
-      armor = true;
-    };
+    "assets/secrets/users/asakiyuki.pwd.sha256.age".publicKeys = systems;
   }
