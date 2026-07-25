@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
     description = "Command-line utilities for working w/ geode";
     homepage = "https://geode-sdk.org/";
     license = with licenses; [
-      bsl10
+      bsl11
     ];
   };
 }
