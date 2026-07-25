@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   sevenZip = "${pkgs.p7zip-rar}/bin/7z";
   tar = "${pkgs.gnutar}/bin/tar";
   zip = "${pkgs.zip}/bin/zip";
@@ -6,7 +10,7 @@
   unrar = "${pkgs.unrar}/bin/unrar";
   gzip = "${pkgs.gzip}/bin/gzip";
   bzip2 = "${pkgs.bzip2}/bin/bzip2";
-  unace = "${pkgs.unace}/bin/unace";
+  unace = "${pkgs.ace}/bin/unace";
   kdialog = "${pkgs.kdePackages.kdialog}/bin/kdialog";
 
   compressScript = pkgs.writeShellScript "dolphin-compress-action" ''
@@ -24,7 +28,7 @@
       files+=("$(basename "$f")")
     done
 
-    if [ "$
+    if [ "$#" -gt 1 ]; then
       name=$(${kdialog} --title "Name of archive" --inputbox "Please enter a name for this archive:" "archive" || true)
       if [ -z "$name" ]; then
         ${kdialog} --title "Compress" --error "Compression aborted!"
@@ -34,49 +38,64 @@
       name=$(basename "$first_file")
     fi
 
-    case "$type" in
-      rar)      ext="rar";     cmd=(${rar} a -o+) ;;
-      tar)      ext="tar";     cmd=(${tar} -cf) ;;
-      tar.gz)   ext="tar.gz";  cmd=(${tar} -czf) ;;
-      tgz)      ext="tgz";     cmd=(${tar} -czf) ;;
-      zip)      ext="zip";     cmd=(${zip} -r) ;;
-      7z)       ext="7z";      cmd=(${sevenZip} a -aoa) ;;
-      tar.7z)   ext="tar.7z";  cmd=() ;;
-      tar.bz2)  ext="tar.bz2"; cmd=(${tar} -cf - --bzip2) ;;
-      gz)       ext="gz";      cmd=(${gzip} -r -f) ;;
-      bz2)      ext="bz2";     cmd=(${bzip2} -z -f) ;;
-      *)        echo "Unsupported type: $type"; exit 1 ;;
-    esac
-
+    ext="$type"
     archname="''${name}.''${ext}"
 
     if [ -e "$archname" ]; then
-      if ! ${kdialog} --warningyesno "This folder already includes an archive with the same name ($archname). Do you want to overwrite it?"; then
+      if ${kdialog} --warningyesno "This folder already includes an archive with the same name ($archname). Do you want to overwrite it?"; then
+        :
+      else
         ${kdialog} --title "Compress" --error "Compression aborted!"
         exit 0
       fi
     fi
 
-    if [ "$type" = "tar.7z" ]; then
-      tmp_tar="''${name}.tmp.tar"
-      ${tar} -cf "$tmp_tar" "''${files[@]}" --overwrite
-      ${sevenZip} a -aoa "$archname" "$tmp_tar"
-      rm -f "$tmp_tar"
-    elif [ "$type" = "gz" ] || [ "$type" = "bz2" ]; then
-      if [ "$
-
-        archname="''${name}.tar.''${ext}"
-        if [ "$type" = "gz" ]; then
+    case "$type" in
+      rar)
+        ${rar} a -o+ "$archname" "''${files[@]}"
+        ;;
+      tar)
+        ${tar} -cf "$archname" "''${files[@]}" --overwrite
+        ;;
+      tar.gz|tgz)
+        ${tar} -czf "$archname" "''${files[@]}" --overwrite
+        ;;
+      zip)
+        ${zip} -r "$archname" "''${files[@]}"
+        ;;
+      7z)
+        ${sevenZip} a -aoa "$archname" "''${files[@]}"
+        ;;
+      tar.7z)
+        tmp_tar="''${name}.tmp.tar"
+        ${tar} -cf "$tmp_tar" "''${files[@]}" --overwrite
+        ${sevenZip} a -aoa "$archname" "$tmp_tar"
+        rm -f "$tmp_tar"
+        ;;
+      tar.bz2)
+        ${tar} -cf "$archname" --bzip2 "''${files[@]}" --overwrite
+        ;;
+      gz)
+        if [ "$#" -gt 1 ]; then
+          archname="''${name}.tar.gz"
           ${tar} -czf "$archname" "''${files[@]}" --overwrite
         else
-          ${tar} -cf "$archname" --bzip2 "''${files[@]}" --overwrite
+          ${gzip} -r -f "''${files[@]}"
         fi
-      else
-        "''${cmd[@]}" "''${files[@]}"
-      fi
-    else
-      "''${cmd[@]}" "$archname" "''${files[@]}"
-    fi
+        ;;
+      bz2)
+        if [ "$#" -gt 1 ]; then
+          archname="''${name}.tar.bz2"
+          ${tar} -cf "$archname" --bzip2 "''${files[@]}" --overwrite
+        else
+          ${bzip2} -z -f "''${files[@]}"
+        fi
+        ;;
+      *)
+        echo "Unsupported type: $type"
+        exit 1
+        ;;
+    esac
 
     ${kdialog} --title "Compress" --msgbox "Compression done!"
   '';
@@ -116,7 +135,9 @@
     fi
 
     if [ -e "$target_dir" ] && [ "$mode" != "here" ]; then
-      if ! ${kdialog} --warningyesno "Destination '$target_dir' already exists. Do you want to overwrite contents?"; then
+      if ${kdialog} --warningyesno "Destination '$target_dir' already exists. Do you want to overwrite contents?"; then
+        :
+      else
         ${kdialog} --title "Extract" --error "Extraction aborted!"
         exit 0
       fi
@@ -124,11 +145,12 @@
 
     cd "$d"
 
-
     case "$tool" in
       7z)
         opts=(-aoa -y)
-        [ -n "$password" ] && opts+=("-p$password")
+        if [ -n "$password" ]; then
+          opts+=("-p$password")
+        fi
         if [ "$mode" = "here" ]; then
           ${sevenZip} x "''${opts[@]}" "$b"
         else
@@ -138,7 +160,9 @@
         ;;
       rar)
         opts=(-o+)
-        [ -n "$password" ] && opts+=("-p$password")
+        if [ -n "$password" ]; then
+          opts+=("-p$password")
+        fi
         mkdir -p "$target_dir"
         ${unrar} x "''${opts[@]}" "$b" "$target_dir"
         ;;
@@ -160,7 +184,9 @@
         mkdir -p "$target_dir"
         cp "$b" "$target_dir/"
         opts=(-o -y)
-        [ -n "$password" ] && opts+=("-p$password")
+        if [ -n "$password" ]; then
+          opts+=("-p$password")
+        fi
         (cd "$target_dir" && ${unace} x "''${opts[@]}" "$b" && rm -f "$b")
         ;;
     esac
@@ -174,7 +200,7 @@ in {
         Type = "Service";
         MimeType = "inode/directory;all/allfiles;";
         Actions = "compress_7ZIP;compress_RAR;compress_TAR;compress_TAR7ZIP;compress_TARBZIP;compress_TARGZ;compress_TGZ;compress_ZIP;compress_GZIP;compress_BZIP;";
-        "X-KDE-Submenu" = "Compress (Intika)";
+        "X-KDE-Submenu" = "Archive Compress";
         "X-KDE-Priority" = "TopLevel";
       };
 
@@ -235,7 +261,7 @@ in {
         Type = "Service";
         MimeType = "application/x-7z-compressed;application/x-rar;application/zip;application/x-tar;application/x-compressed-tar;application/x-bzip-compressed-tar;application/x-gzip;application/x-bzip;application/x-ace;";
         Actions = "extract_here;extract_to_folder;extract_to;extract_pw_here;extract_pw_to_folder;extract_pw_to;";
-        "X-KDE-Submenu" = "Extract (Intika)";
+        "X-KDE-Submenu" = "Archive Extract";
         "X-KDE-Priority" = "TopLevel";
       };
 
