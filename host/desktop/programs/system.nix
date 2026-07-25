@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   programs = {
     # Hyprland
     hyprland.enable = false;
@@ -7,10 +7,13 @@
     quickshell.enable = true;
 
     # Gaming
-    steam.enable = true;
-    steam.allowSteamlinkPorts = true;
-    steam.allowMultiplayerPorts = true;
-    steam.gamescopeSession.enable = true;
+    steam = {
+      enable = true;
+      allowSteamlinkPorts = true;
+      allowMultiplayerPorts = true;
+      gamescopeSession.enable = true;
+    };
+
     lsfg-vk-ui.enable = true;
     gamemode.enable = true;
     gamescope.enable = true;
