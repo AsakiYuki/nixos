@@ -6,6 +6,9 @@
       bun-baseline = pkgs.callPackage (import ./bun-baseline.nix) {};
       geode-cli = pkgs.callPackage (import ./geode-cli.nix) {};
       wine-discord-ipc-bridge = pkgs.callPackage (import ./wine-discord-ipc-bridge.nix) {};
+      lsfg-vk = pkgs.callPackage (import ./lsfg-vk.nix) {};
     })
   ];
+
+  environment.systemPackages = [pkgs.lsfg-vk];
 }
