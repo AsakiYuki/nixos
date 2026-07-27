@@ -17,7 +17,7 @@ pkgs.stdenv.mkDerivation rec {
   '';
 
   meta = with pkgs.lib; {
-    description = "Incredibly fast JavaScript runtime, bundler, transpiler and package manager – all in one";
+    description = "Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one";
     homepage = "https://bun.sh";
     license = with licenses; [
       mit
