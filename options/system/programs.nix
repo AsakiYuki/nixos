@@ -25,7 +25,6 @@ in {
         (getPkg "ffmpeg")
         (getPkg "cava")
         (getPkg "lsfg-vk")
-        (getPkg "lsfg-vk-ui")
         (getPkg "nodejs")
         (getPkg "bun")
         (getPkg "brightnessctl")
@@ -50,7 +49,6 @@ in {
     cava = mkOpt pkgs "cava" {};
     ffmpeg = mkOpt pkgs "ffmpeg-full" {name = "ffmpeg";};
     lsfg-vk = mkOpt pkgs "lsfg-vk" {};
-    lsfg-vk-ui = mkOpt pkgs "lsfg-vk-ui" {};
     nodejs = mkOpt pkgs "nodejs" {};
     bun = mkOpt pkgs "bun" {};
     brightnessctl = mkOpt pkgs "brightnessctl" {};

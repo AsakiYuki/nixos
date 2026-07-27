@@ -14,7 +14,6 @@
       gamescopeSession.enable = true;
     };
 
-    lsfg-vk-ui.enable = false;
     gamemode.enable = true;
     gamescope.enable = true;
 
@@ -31,7 +30,7 @@
     python.enable = true;
     winepackages.enable = true;
     jdk.enable = true;
-    lsfg-vk.enable = false;
+    lsfg-vk.enable = true;
     r-tensorflow.enable = true;
     cava.enable = true;
     direnv.enable = true;

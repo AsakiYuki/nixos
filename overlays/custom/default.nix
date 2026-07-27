@@ -9,6 +9,4 @@
       lsfg-vk = pkgs.callPackage (import ./lsfg-vk.nix) {};
     })
   ];
-
-  environment.systemPackages = [pkgs.lsfg-vk];
 }
