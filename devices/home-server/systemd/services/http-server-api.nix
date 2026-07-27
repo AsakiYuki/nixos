@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  bunPkg = pkgs.bun-baseline {};
+  bunPkg = pkgs.bun-baseline;
 in {
   systemd.services.http-server-api = {
     description = "ElysiaJS HTTP API Server";
