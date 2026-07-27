@@ -2,6 +2,7 @@
   state-version,
   lib,
   name,
+  pkgs,
   ...
 }: {
   config = {
@@ -32,6 +33,7 @@
       useUserPackages = true;
       useGlobalPkgs = true;
       backupFileExtension = "bak";
+      backupCommand = "${pkgs.trash-cli}/bin/trash";
     };
   };
   options.device.flake-name = lib.mkOption {
