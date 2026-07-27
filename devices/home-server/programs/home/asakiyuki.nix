@@ -1,12 +1,8 @@
-{
-  pkgs,
-  custom,
-  ...
-}: {
+{pkgs, ...}: {
   programs = {
     cider = {
       enable = true;
-      package = pkgs.callPackage custom.cider-2 {};
+      package = pkgs.cider-2;
     };
   };
 }

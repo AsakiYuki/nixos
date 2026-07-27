@@ -1,6 +1,5 @@
 {
   pkgs,
-  custom,
   lib,
   config,
   ...
@@ -10,6 +9,6 @@
   };
 
   environment.systemPackages = lib.mkIf config.programs.steam.enable [
-    (pkgs.callPackage custom.wine-discord-ipc-bridge {})
+    pkgs.wine-discord-ipc-bridge
   ];
 }

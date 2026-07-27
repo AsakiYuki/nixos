@@ -1,8 +1,4 @@
-{
-  pkgs,
-  custom,
-  ...
-}: {
+{pkgs, ...}: {
   programs = {
     ffmpeg.enable = true;
     nodejs.enable = true;
@@ -11,7 +7,7 @@
     jdk.enable = true;
     bun = {
       enable = true;
-      package = pkgs.callPackage custom.bun {};
+      package = pkgs.bun-baseline;
     };
   };
 }

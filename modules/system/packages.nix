@@ -1,8 +1,4 @@
-{
-  pkgs,
-  custom,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     git
     vim
@@ -22,6 +18,6 @@
     kdePackages.kio-extras
     kdePackages.kio-fuse
 
-    (pkgs.callPackage custom.geode-cli {})
+    geode-cli
   ];
 }
