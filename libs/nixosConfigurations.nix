@@ -45,10 +45,10 @@ in
                   (nixosModules "nix-index-database")
                   (nixosModules "home-manager")
                   (nixosModules "agenix")
+                  (libs.root "/modules/nixos-default.nix")
                   (libs.root "/overlays")
                   (libs.root "/modules/system")
                   (libs.root "/options/system")
-                  (libs.root "/modules/nixos-default-config")
                 ]
               ]);
           };
