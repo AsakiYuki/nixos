@@ -78,7 +78,6 @@ in
                         useUserPackages = true;
                         useGlobalPkgs = true;
                         backupFileExtension = "bak";
-                        backupCommand = ''mv "$1" "$1.bak.$(date +%Y%m%d_%H%M%S)"'';
                       };
                     };
                     options.device.flake-name = lib.mkOption {
