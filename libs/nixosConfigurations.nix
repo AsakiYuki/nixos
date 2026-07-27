@@ -45,8 +45,8 @@ in
                   (nixosModules "nix-index-database")
                   (nixosModules "home-manager")
                   (nixosModules "agenix")
+                  (libs.root "/overlays")
                   (libs.root "/modules/system")
-                  (libs.root "/overlays/nixpkgs.nix")
                   (libs.root "/options/system")
                 ]
 
