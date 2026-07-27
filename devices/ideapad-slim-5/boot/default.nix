@@ -10,6 +10,8 @@
     kernelPackages = pkgs.linuxPackages_cachyos;
     # extraModulePackages = [config.boot.kernelPackages.zenpower];
 
+    kernelModules = ["ntsync"];
+
     kernelParams = [
       "amd_pstate=active"
       "nowatchdog"

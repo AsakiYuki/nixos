@@ -9,5 +9,6 @@
     ./tailscale.nix
     ./openssh.nix
     ./logind.nix
+    ./udev.nix
   ];
 }
