@@ -21,7 +21,7 @@ in {
 
     environment.systemPackages =
       [
-        (lib.mkIf config.virtualisation.waydroid.enable (pkgs.callPackage (custom.cage-xtmapper {}) {}))
+        (lib.mkIf config.virtualisation.waydroid.enable pkgs.cage-xtmapper)
 
         (getPkg "ffmpeg")
         (getPkg "cava")
