@@ -3,7 +3,6 @@
   inputs,
   state-version,
   unstable,
-  custom,
   libs,
   ...
 }: osconfig: users:
@@ -18,7 +17,7 @@ in {
 
   home-manager.users.${name} = lib.mergeAttrs home {
     _module.args = lib.mergeAttrs {
-      inherit inputs unstable custom libs osconfig;
+      inherit inputs unstable libs osconfig;
     } (lib.attrByPath ["_module" "args"] {} home);
 
     imports = lib.concatLists [
