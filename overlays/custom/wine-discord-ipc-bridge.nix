@@ -1,13 +1,9 @@
-{
-  stdenv,
-  fetchzip,
-  lib,
-}:
-stdenv.mkDerivation {
+{pkgs, ...}:
+pkgs.stdenv.mkDerivation {
   pname = "wine-discord-ipc-bridge";
   version = "0.0.3";
 
-  src = fetchzip {
+  src = pkgs.fetchzip {
     url = "https://static.asakiyuki.com/packages/nixos/wine-discord-ipc-bridge.tar.gz";
     hash = "sha256-psh5fopcgq1cB+OGlqpDdeBMEOClNS40HzWACM6Ur5Q=";
     stripRoot = false;
@@ -22,7 +18,7 @@ stdenv.mkDerivation {
     chmod +x $out/bin/wine-discord-ipc-bridge.sh
   '';
 
-  meta = with lib; {
+  meta = with pkgs.lib; {
     description = "Enable games running under Wine to use Discord Rich Presence";
     homepage = "https://github.com/0e4ef622/wine-discord-ipc-bridge/";
     license = licenses.mit;

@@ -1,5 +1,9 @@
-{pkgs, ...}:
-pkgs.cider-2.overrideAttrs (prevAtts: rec {
+{
+  pkgs,
+  prev,
+  ...
+}:
+prev.cider-2.overrideAttrs (prevAtts: rec {
   version = "4.0.0";
 
   src = pkgs.fetchurl {

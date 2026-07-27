@@ -14,12 +14,11 @@ in
           value,
         }: let
           sys = value.system or "x86_64-linux";
-          custom = import ../packages inputs;
           unstable = import inputs.unstablepkgs {
             localSystem = sys;
             config.allowUnfree = true;
           };
-          libs = import ../libs (lib.mergeAttrs args {inherit custom unstable libs;});
+          libs = import ../libs (lib.mergeAttrs args {inherit unstable libs;});
         in {
           "${name}" = lib.nixosSystem {
             system = sys;
@@ -29,7 +28,6 @@ in
                 self
                 libs
                 inputs
-                custom
                 unstable
                 ;
             } (value.specialArgs or {});
