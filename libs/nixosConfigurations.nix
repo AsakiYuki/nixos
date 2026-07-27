@@ -48,7 +48,7 @@ in
                   (libs.root "/overlays")
                   (libs.root "/modules/system")
                   (libs.root "/options/system")
-                  (libs.root "/modules/nixos-default-config.nix")
+                  (libs.root "/modules/nixos-default-config")
                 ]
               ]);
           };
