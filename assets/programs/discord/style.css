@@ -7,7 +7,11 @@
 }
 
 #profile-modal-editing-panel {
-	display: none;
+	display: none !important;
+}
+
+.container_a62383.purple_a62383.popoverGradientWrapper_d6f39b {
+	display: none !important;
 }
 
 .layoutContainer__9c3be.editingPanelExpanded__9c3be {
