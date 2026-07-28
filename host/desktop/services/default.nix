@@ -1,7 +1,13 @@
-{pkgs, config, lib, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   device.pipewire.enable = true;
 
   imports = [
+    ./home
     ./openssh.nix
     ./fcitx5-lotus.nix
   ];
