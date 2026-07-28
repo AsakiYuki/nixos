@@ -25,3 +25,7 @@ function nixos-rollback() {
 function nixos-list-generations() {
     sudo nix-env --list-generations -p /nix/var/nix/profiles/system
 }
+
+function get-process-env-vars() {
+    xargs -0 -L1 -a /proc/$1/environ
+}
