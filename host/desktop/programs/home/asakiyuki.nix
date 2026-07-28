@@ -39,6 +39,7 @@
     wl-clipboard.enable = true;
     gcc.enable = true;
     tldr.enable = true;
+    translate-shell.enable = true;
     yt-dlp = {
       enable = true;
       settings.cookies-from-browser = "firefox";
