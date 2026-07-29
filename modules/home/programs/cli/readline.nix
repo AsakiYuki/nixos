@@ -17,8 +17,8 @@
       editing-mode = "vi";
 
       show-mode-in-prompt = "on";
-      vi-cmd-mode-string = "\\1\\e[1;32m\\2[CMD] \\1\\e[0m\\2 ";
-      vi-ins-mode-string = "\\1\\e[1;34m\\2[INS] \\1\\e[0m\\2 ";
+      vi-cmd-mode-string = "\\1\\e[1;32m\\2[CMD]\\1\\e[0m\\2 ";
+      vi-ins-mode-string = "\\1\\e[1;34m\\2[INS]\\1\\e[0m\\2 ";
       horizontal-scroll-mode = "off";
       enable-bracketed-paste = "on";
       skip-completed-text = "on";
