@@ -7,7 +7,7 @@
 }: {
   programs.bash = {
     iris = {
-      enable = false;
+      enable = true;
       config = {
         core = {
           mode = "spec";

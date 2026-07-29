@@ -23,12 +23,14 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.bash.initExtra = ''
-      if [[ -z "$IRIS_SESSION" && $- == *i* ]]; then
-        export IRIS_SESSION=1
-        exec iris
-      fi
-    '';
+    # programs.bash.initExtra = ''
+    #   if [[ -z "$IRIS_SESSION" && $- == *i* ]]; then
+    #     export IRIS_SESSION=1
+    #     exec iris
+    #   fi
+    # '';
+
+    programs.bash.shellAliases.i = "iris";
 
     home.packages = [cfg.package];
     home.file.".config/iris/config.toml" = lib.mkIf (cfg.config != {}) {
