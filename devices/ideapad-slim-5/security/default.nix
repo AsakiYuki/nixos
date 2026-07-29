@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./lsm.nix];
+  imports = [./lsm.nix ./pam.nix];
 }
