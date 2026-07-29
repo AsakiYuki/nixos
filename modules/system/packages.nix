@@ -18,6 +18,7 @@
     kdePackages.kio-extras
     kdePackages.kio-fuse
 
+    lftp
     geode-cli
   ];
 }

@@ -41,6 +41,7 @@
       cfg = config.programs;
     in ''
       ${builtins.readFile (libs.root "/scripts/bash.sh")}
+      ${builtins.readFile (libs.root "/scripts/truonglon.sh")}
       ${strOpt cfg.qpdf.enable "/scripts/qpdf.sh"}
       ${strOpt cfg.tmux.enable "/scripts/tmux.sh"}
     '';
