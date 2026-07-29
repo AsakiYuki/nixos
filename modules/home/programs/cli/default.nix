@@ -8,5 +8,6 @@
     ./starship.nix
     ./tmux.nix
     ./yt-dlp.nix
+    ./readline.nix
   ];
 }
