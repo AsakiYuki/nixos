@@ -17,7 +17,12 @@
     cfg = config.programs.bash.iris;
   in
     lib.mkIf cfg.enable {
-      programs.bash.initExtra = "iris";
+      programs.bash.initExtra = ''
+        if [[ -z "$IRIS_SESSION" && $- == *i* ]]; then
+          export IRIS_SESSION=1
+          exec iris
+        fi
+      '';
       home.packages = [cfg.package];
     };
 }
