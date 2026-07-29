@@ -6,7 +6,4 @@
     mkUsers = import ./mkUsers.nix args;
   };
 in
-  fs
-  // mkAuthKeys
-  // mkProgOpt
-  // attrs
+  fs // mkAuthKeys // mkProgOpt // attrs

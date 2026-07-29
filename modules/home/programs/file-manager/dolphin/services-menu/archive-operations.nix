@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   sevenZip = "${pkgs.p7zip-rar}/bin/7z";
   tar = "${pkgs.gnutar}/bin/tar";
   zip = "${pkgs.zip}/bin/zip";
@@ -189,7 +190,8 @@
 
     ${kdialog} --title "Extract" --msgbox "Extraction done!"
   '';
-in {
+in
+{
   services-menu = {
     intika-compress = {
       "Desktop Entry" = {
