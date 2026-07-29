@@ -9,6 +9,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
+    iris.url = "github:versenilvis/IRIS";
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     niri.url = "github:sodiboo/niri-flake";
     nixcord.url = "github:FlameFlag/nixcord";
