@@ -3,6 +3,6 @@
     ./dolphin
     ./kde
     ./bash.nix
-    ./programs-opts.nix
+    ./options.nix
   ];
 }
