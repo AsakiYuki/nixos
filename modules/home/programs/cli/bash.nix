@@ -6,7 +6,15 @@
   ...
 }: {
   programs.bash = {
-    iris.enable = true;
+    iris = {
+      enable = false;
+      config = {
+        core = {
+          mode = "spec";
+        };
+      };
+    };
+
     shellAliases = lib.attrsets.mergeAttrsList (
       let
         attOpt = condition: key: value: (lib.optionalAttrs condition {
