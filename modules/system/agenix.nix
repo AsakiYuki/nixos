@@ -7,7 +7,7 @@
   ...
 }: {
   age.secrets = let
-    mkSecretIf = condition: file: extraOpts: (lib.mkIf condition ({file = libs.root file;} // extraOpts));
+    mkSecretIf = condition: file: extraOpts: (lib.mkIf condition ({file = libs.rootString file;} // extraOpts));
     cfgSvc = config.services;
     hasUser = user: builtins.hasAttr user config.users.users;
   in {
