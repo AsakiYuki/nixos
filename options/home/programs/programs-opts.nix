@@ -49,7 +49,6 @@ in {
       (getPkg "tldr")
 
       (getPkg "cider")
-      (getPkg "translate-shell")
     ]
     ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
     ++ (lib.optionals cfg.proton-apps.enable cfg.proton-apps.packages);
@@ -89,7 +88,6 @@ in {
     xprop = mkOpt pkgs "xprop" {};
     nwg-look = mkOpt pkgs "nwg-look" {};
     davinci-resolve = mkOpt pkgs "davinci-resolve" {};
-    translate-shell = mkOpt pkgs "translate-shell" {};
 
     easyeffects = mkOpt pkgs "easyeffects" {name = "Easy Effects";};
     libreoffice = mkOpt pkgs "libreoffice-qt-fresh" {name = "libreoffice";};

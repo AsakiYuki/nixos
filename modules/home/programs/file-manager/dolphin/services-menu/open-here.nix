@@ -3,11 +3,13 @@
   hmconfig,
   osconfig,
   ...
-}: {
+}:
+{
   services-menu.open-here = lib.mergeAttrsList (
     let
       cfg = hmconfig.programs;
-    in [
+    in
+    [
       {
         "Desktop Entry" = {
           Type = "Service";
@@ -20,6 +22,7 @@
             (lib.optionalString (cfg.ghostty.enable && (!osconfig.device.de.kdePlasma.enable)) "RunGhosttyDir")
             (lib.optionalString cfg.nixvim.enable "RunNvimDir")
             (lib.optionalString cfg.antigravity.enable "RunAntigravityDir")
+            (lib.optionalString (cfg.zed-editor.enable) "RunZedDir")
           ];
         };
       }
@@ -37,6 +40,14 @@
           Name = "Open Ghostty here";
           Icon = "com.mitchellh.ghostty";
           Exec = "ghostty +new-window --working-directory=\"%F\"";
+        };
+      })
+
+      (lib.optionalAttrs (cfg.zed-editor.enable) {
+        "Desktop Action RunZedDir" = {
+          Name = "Open with Zed";
+          Icon = "zed";
+          Exec = "zeditor \"%F\"";
         };
       })
 
