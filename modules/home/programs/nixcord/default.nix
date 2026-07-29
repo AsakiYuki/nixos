@@ -1,6 +1,6 @@
 {libs, ...}: {
   programs.nixcord = {
-    quickCss = builtins.readFile (libs.root "/assets/programs/discord/style.css");
+    quickCss = libs.readRootFile "/assets/programs/discord/style.css";
     discord.vencord.enable = true;
 
     config = {

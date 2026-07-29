@@ -4,5 +4,5 @@
   libs,
   ...
 }: {
-  programs.bash.interactiveShellInit = lib.mkIf config.programs.brightnessctl.enable (builtins.readFile (libs.root "/scripts/completions/brightnessctl.sh"));
+  programs.bash.interactiveShellInit = lib.mkIf config.programs.brightnessctl.enable (libs.readRootFile "/scripts/completions/brightnessctl.sh");
 }
