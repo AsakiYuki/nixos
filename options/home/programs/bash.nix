@@ -17,7 +17,7 @@
     cfg = config.programs.bash.iris;
   in
     lib.mkIf cfg.enable {
-      programs.bash.shellInit = "iris";
+      programs.bash.initExtra = "iris";
       home.packages = [cfg.package];
     };
 }
