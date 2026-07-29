@@ -24,7 +24,6 @@
       "\\e[1;5C" = "forward-word";
       "\\e[1;5D" = "backward-word";
 
-      # --- Xóa từ ---
       "\\e[3;5~" = "kill-word";
     };
   };
