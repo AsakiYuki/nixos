@@ -8,7 +8,7 @@
       completion-map-case = "on";
       colored-stats = "on";
       visible-stats = "on";
-      mark-symlinked-directories = "on";
+      mark-symlinked-directories = "off";
 
       expand-tilde = "on";
       history-preserve-point = "on";
