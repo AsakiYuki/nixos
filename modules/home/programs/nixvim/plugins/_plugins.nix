@@ -1,4 +1,4 @@
-{ ... }@inputs:
+{ unstable, ... }@inputs:
 {
   plugins = {
     nvim-tree = import ./nvimtree.nix inputs;
@@ -9,6 +9,11 @@
     lint = import ./lint.nix inputs;
     telescope = import ./telescope.nix inputs;
 
+    barbar = {
+      enable = true;
+      package = unstable.vimPlugins.barbar-nvim;
+    };
+
     cmp = import ./cmp.nix inputs;
     cmp-nvim-lsp.enable = true;
     cmp-buffer.enable = true;
@@ -17,7 +22,6 @@
 
     web-devicons.enable = true;
     lz-n.enable = true;
-    # barbar.enable = true;
     treesitter.enable = true;
     lualine.enable = true;
     neoscroll.enable = true;
