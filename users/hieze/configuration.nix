@@ -4,5 +4,5 @@
   ...
 }:
 libs.mkUsers config {
-  hieze = {};
+  hieze = { };
 }
