@@ -15,7 +15,6 @@
     nixcord.url = "github:FlameFlag/nixcord";
     dolphin-overlay.url = "github:asakiyuki/dolphin-overlay";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
