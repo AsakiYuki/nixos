@@ -1,4 +1,5 @@
-{...} @ inputs: {
+{ ... }@inputs:
+{
   plugins = {
     nvim-tree = import ./nvimtree.nix inputs;
     lsp = import ./lsp.nix inputs;
@@ -6,6 +7,7 @@
     conform-nvim = import ./conform-nvim.nix inputs;
     which-key = import ./which-key.nix inputs;
     lint = import ./lint.nix inputs;
+    telescope = import ./telescope.nix inputs;
 
     cmp = import ./cmp.nix inputs;
     cmp-nvim-lsp.enable = true;
