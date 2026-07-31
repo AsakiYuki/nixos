@@ -20,6 +20,7 @@
     cmp-path.enable = true;
     cmp_luasnip.enable = true;
 
+    wakatime.enable = true;
     web-devicons.enable = true;
     lz-n.enable = true;
     treesitter.enable = true;
