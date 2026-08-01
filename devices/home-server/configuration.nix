@@ -1,4 +1,4 @@
-{libs, ...}: {
+{lib, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./network
@@ -9,8 +9,8 @@
     ./users
     ./boot
 
-    (libs.root "/host/server")
-    (libs.root "/users/junko/configuration.nix")
-    (libs.root "/users/hieze/configuration.nix")
+    (lib.root "/host/server")
+    (lib.root "/users/junko/configuration.nix")
+    (lib.root "/users/hieze/configuration.nix")
   ];
 }
