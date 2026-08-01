@@ -1,5 +1,5 @@
-{libs, ...}: {
-  users.users.hieze.openssh.authorizedKeys.keys = libs.mkAuthorizedKeys [
+{lib, ...}: {
+  users.users.hieze.openssh.authorizedKeys.keys = lib.mkAuthorizedKeys [
     "/unknown/hieze.windows.pub"
 
     "/home-server/asakiyuki.nixos.pub"

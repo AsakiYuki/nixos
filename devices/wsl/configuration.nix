@@ -1,6 +1,6 @@
-{libs, ...}: {
+{lib, ...}: {
   imports = [
-    (libs.root "/users/asakiyuki/configuration.nix")
+    (lib.root "/users/asakiyuki/configuration.nix")
 
     ./programs
     ./security

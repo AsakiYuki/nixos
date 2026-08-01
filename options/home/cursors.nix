@@ -1,11 +1,10 @@
 {
   lib,
-  libs,
   config,
   pkgs,
   ...
 }: let
-  cursors = lib.importJSON (libs.root "/assets/cursors.json");
+  cursors = lib.importJSON (lib.root "/assets/cursors.json");
   cursors-theme = config.theme.cursors;
 in {
   options = {

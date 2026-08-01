@@ -1,5 +1,5 @@
 {
-  libs,
+  lib,
   inputs,
   ...
 }: {
@@ -11,8 +11,8 @@
     ./nixpkgs
     ./home
 
-    (libs.root "/modules/fonts.nix")
-    (libs.root "/users/asakiyuki/configuration.nix")
+    (lib.root "/modules/fonts.nix")
+    (lib.root "/users/asakiyuki/configuration.nix")
   ];
   i18n.inputMethod.enable = true;
   boot.kernelParams = ["usbcore.autosuspend=-1"];

@@ -1,5 +1,5 @@
-{libs, ...}: {
-  users.users.asakiyuki.openssh.authorizedKeys.keys = libs.mkAuthorizedKeys [
+{lib, ...}: {
+  users.users.asakiyuki.openssh.authorizedKeys.keys = lib.mkAuthorizedKeys [
     "/home-server/asakiyuki.nixos.pub"
     "/ideapad-slim-5-14apk10/asakiyuki.nixos.pub"
     "/ideapad-slim-5-14apk10/asakiyuki.nixos.wsl.pub"

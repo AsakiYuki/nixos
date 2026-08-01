@@ -1,13 +1,12 @@
 {
   lib,
-  libs,
   inputs,
   pkgs,
   config,
   ...
 }: {
   age.secrets = let
-    mkSecretIf = condition: file: extraOpts: (lib.mkIf condition ({file = libs.rootString file;} // extraOpts));
+    mkSecretIf = condition: file: extraOpts: (lib.mkIf condition ({file = lib.rootString file;} // extraOpts));
     cfgSvc = config.services;
     hasUser = user: builtins.hasAttr user config.users.users;
   in {
@@ -22,5 +21,5 @@
   };
 
   environment.systemPackages = [inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default];
-  programs.bash.interactiveShellInit = libs.readRootFile "/scripts/completions/agenix.sh";
+  programs.bash.interactiveShellInit = lib.readRootFile "/scripts/completions/agenix.sh";
 }

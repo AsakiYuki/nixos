@@ -1,9 +1,9 @@
-{libs, ...}: {
+{lib, ...}: {
   imports = [
     ./programs
     ./services
 
-    (libs.root "/users/asakiyuki/configuration.nix")
+    (lib.root "/users/asakiyuki/configuration.nix")
   ];
 
   virtualisation.docker.enable = true;

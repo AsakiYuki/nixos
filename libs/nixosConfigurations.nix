@@ -3,7 +3,7 @@
   self,
   state-version,
   lib,
-} @ args: let
+}: let
   nixosModules = name: inputs.${name}.nixosModules.default;
 in
   cfg: {
@@ -18,25 +18,30 @@ in
             localSystem = sys;
             config.allowUnfree = true;
           };
-          libs = import ../libs (lib.mergeAttrs args {inherit unstable libs;});
+          extendedLib = lib.extend (final: prev:
+            import ../libs {
+              inherit inputs self state-version unstable name;
+              lib = final;
+            });
         in {
-          "${name}" = lib.nixosSystem {
+          "${name}" = extendedLib.nixosSystem {
             system = sys;
 
-            specialArgs = lib.mergeAttrs {
+            specialArgs = extendedLib.mergeAttrs {
               inherit
                 self
-                libs
                 inputs
                 unstable
                 state-version
                 name
                 ;
+
+              lib = extendedLib;
             } (value.specialArgs or {});
 
             modules =
               (value.modules or [])
-              ++ (lib.concatLists [
+              ++ (extendedLib.concatLists [
                 (with inputs; [
                   chaotic.nixosModules.default
                 ])
@@ -45,10 +50,10 @@ in
                   (nixosModules "nix-index-database")
                   (nixosModules "home-manager")
                   (nixosModules "agenix")
-                  (libs.root "/modules/nixos-default.nix")
-                  (libs.root "/overlays")
-                  (libs.root "/modules/system")
-                  (libs.root "/options/system")
+                  (extendedLib.root "/modules/nixos-default.nix")
+                  (extendedLib.root "/overlays")
+                  (extendedLib.root "/modules/system")
+                  (extendedLib.root "/options/system")
                 ]
               ]);
           };

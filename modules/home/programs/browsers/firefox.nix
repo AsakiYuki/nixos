@@ -1,6 +1,5 @@
 {
   lib,
-  libs,
   pkgs,
   config,
   ...
@@ -170,8 +169,8 @@
         };
       };
 
-      userChrome = libs.readRootFile "/assets/programs/firefox/userChrome.css";
-      userContent = libs.readRootFile "/assets/programs/firefox/userContent.css";
+      userChrome = lib.readRootFile "/assets/programs/firefox/userChrome.css";
+      userContent = lib.readRootFile "/assets/programs/firefox/userContent.css";
     };
   };
 }

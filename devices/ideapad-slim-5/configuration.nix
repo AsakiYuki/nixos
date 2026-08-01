@@ -1,4 +1,4 @@
-{libs, ...}: {
+{lib, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./chaotic.nix
@@ -15,6 +15,6 @@
     ./packages
     ./programs
 
-    (libs.root "/host/desktop")
+    (lib.root "/host/desktop")
   ];
 }

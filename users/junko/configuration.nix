@@ -1,8 +1,8 @@
 {
-  libs,
+  lib,
   config,
   ...
 }:
-libs.mkUsers config {
+lib.mkUsers config {
   junko = {};
 }

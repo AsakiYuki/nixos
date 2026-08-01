@@ -1,4 +1,4 @@
-{libs, ...}: {
+{lib, ...}: {
   services-menu.copy-server-public-url = {
     "Desktop Entry" = {
       Type = "Service";
@@ -9,7 +9,7 @@
     "Desktop Action CopyPublicURL" = {
       Name = "Copy location as URL";
       Icon = "org.kde.plasma.clipboard";
-      Exec = "${libs.root "/scripts/copy-public-url.sh"} \"%F\"";
+      Exec = "${lib.root "/scripts/copy-public-url.sh"} \"%F\"";
     };
   };
 }

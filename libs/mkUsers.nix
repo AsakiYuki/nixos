@@ -3,7 +3,6 @@
   inputs,
   state-version,
   unstable,
-  libs,
   ...
 }: osconfig: users:
 lib.mergeAttrsList (
@@ -22,7 +21,6 @@ lib.mergeAttrsList (
           inherit
             inputs
             unstable
-            libs
             osconfig
             ;
         } (lib.attrByPath ["_module" "args"] {} home);

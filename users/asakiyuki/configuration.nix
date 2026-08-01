@@ -1,12 +1,11 @@
 {
-  libs,
+  lib,
   config,
   ...
-}:
-(libs.mkUsers config {
+}: (lib.mkUsers config {
   asakiyuki = {
     root = {
-      extraGroups = [ "wheel" ];
+      extraGroups = ["wheel"];
       hashedPasswordFile = config.age.secrets.asakiyukipwd.path;
     };
 

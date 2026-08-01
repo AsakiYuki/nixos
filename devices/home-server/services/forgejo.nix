@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  libs,
   ...
 }: let
   catppuccin = pkgs.fetchzip {
@@ -94,10 +93,10 @@ in {
 
       cp -r ${catppuccin}/* ${config.services.forgejo.customDir}/public/assets/css/
 
-      cp ${libs.root "/assets/programs/forgejo/img/logo.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
-      cp ${libs.root "/assets/programs/forgejo/img/favicon.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
-      cp ${libs.root "/assets/programs/forgejo/img/logo.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
-      cp ${libs.root "/assets/programs/forgejo/img/favicon.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
+      cp ${lib.root "/assets/programs/forgejo/img/logo.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
+      cp ${lib.root "/assets/programs/forgejo/img/favicon.png"} ${config.services.forgejo.customDir}/public/assets/img/logo.png
+      cp ${lib.root "/assets/programs/forgejo/img/logo.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
+      cp ${lib.root "/assets/programs/forgejo/img/favicon.svg"} ${config.services.forgejo.customDir}/public/assets/img/logo.svg
     '';
   };
 }

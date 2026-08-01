@@ -1,6 +1,5 @@
 {
   lib,
-  libs,
   config,
   osconfig,
   ...
@@ -46,11 +45,11 @@
     ];
 
     initExtra = let
-      strOpt = condition: filePath: (lib.optionalString condition (libs.readRootFile filePath));
+      strOpt = condition: filePath: (lib.optionalString condition (lib.readRootFile filePath));
       cfg = config.programs;
     in ''
-      ${libs.readRootFile "/scripts/bash.sh"}
-      ${libs.readRootFile "/scripts/truonglon.sh"}
+      ${lib.readRootFile "/scripts/bash.sh"}
+      ${lib.readRootFile "/scripts/truonglon.sh"}
       ${strOpt cfg.qpdf.enable "/scripts/qpdf.sh"}
       ${strOpt cfg.tmux.enable "/scripts/tmux.sh"}
     '';

@@ -2,13 +2,12 @@
   lib,
   config,
   pkgs,
-  libs,
   ...
 }: let
   cfg = config.programs;
   getPkg = name: lib.mkIf cfg.${name}.enable cfg.${name}.package;
-  mkOpt = libs.mkProgramOption;
-  mkOpts = libs.mkProgramsOption;
+  mkOpt = lib.mkProgramOption;
+  mkOpts = lib.mkProgramsOption;
 in {
   config = {
     networking.firewall = lib.mkIf cfg.steam.enable {

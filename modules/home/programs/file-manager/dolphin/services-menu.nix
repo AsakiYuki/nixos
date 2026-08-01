@@ -1,13 +1,13 @@
 {
   pkgs,
-  libs,
+  lib,
   config,
   osconfig,
   ...
 }: {
   programs.dolphin = {...}: {
     _module.args = {
-      inherit osconfig libs pkgs;
+      inherit osconfig lib pkgs;
       hmconfig = config;
     };
 
