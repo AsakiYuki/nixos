@@ -42,7 +42,7 @@
     lib = nixpkgs.lib;
     root = path: ./. + path;
   in
-    import ./libs/nixosConfigurations.nix {inherit inputs self state-version lib;} {
+    import ./helpers/nixosConfigurations.nix {inherit inputs self state-version lib;} {
       ideapad-slim-5 = {
         modules = [
           inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5

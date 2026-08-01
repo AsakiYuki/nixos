@@ -1,5 +1,5 @@
 let
-  fs = import ./libs/fileSystem.nix;
+  fs = import ./helpers/fileSystem.nix;
   sshPubKey = file: fs.readRootFile "/assets/public/ssh/${file}";
 
   root = sshPubKey "root.key.pub";
