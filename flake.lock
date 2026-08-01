@@ -21,6 +21,26 @@
         "type": "github"
       }
     },
+    "asa-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785569020,
+        "narHash": "sha256-uyWGDEF+AHr7wiWmMGq43KYu6ceqzNzQRhov93bqZ9c=",
+        "owner": "AsakiYuki",
+        "repo": "nixos-overlay",
+        "rev": "2d19432efda3343d1fe95fdfa7ab37260f724b6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AsakiYuki",
+        "repo": "nixos-overlay",
+        "type": "github"
+      }
+    },
     "chaotic": {
       "inputs": {
         "flake-schemas": "flake-schemas",
@@ -910,6 +930,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "asa-overlay": "asa-overlay",
         "chaotic": "chaotic",
         "dolphin-overlay": "dolphin-overlay",
         "fcitx5-lotus": "fcitx5-lotus",

@@ -18,6 +18,7 @@
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     asa-overlay.url = "github:AsakiYuki/nixos-overlay";
+    asa-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
