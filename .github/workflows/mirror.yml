@@ -1,0 +1,31 @@
+name: Mirror to Self-Hosted
+
+on:
+  push:
+    branches: ["*"]
+    tags: ["*"]
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to Self-Hosted Git
+        env:
+          SSH_KEY: ${{ secrets.MIRROR_SSH_KEY }}
+          TARGET_URL: ${{ secrets.MIRROR_TARGET_URL }}
+        run: |
+          mkdir -p ~/.ssh
+
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          HOST=$(echo "$TARGET_URL" | sed -E 's/.*@([^:/]+).*/\1/')
+
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+          git push --mirror "$TARGET_URL"
