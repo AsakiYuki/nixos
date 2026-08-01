@@ -10,9 +10,9 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     iris.url = "github:versenilvis/IRIS";
-    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     niri.url = "github:sodiboo/niri-flake";
     nixcord.url = "github:FlameFlag/nixcord";
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     dolphin-overlay.url = "github:asakiyuki/dolphin-overlay";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
