@@ -1,4 +1,4 @@
-name: Mirror to Self-Hosted
+name: Mirror to Home Server
 
 on:
   push:
