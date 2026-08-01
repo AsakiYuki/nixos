@@ -44,7 +44,7 @@ in {
       };
 
       actions = {
-        ENABLED = true;
+        ENABLED = false;
       };
 
       server = {
