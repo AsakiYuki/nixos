@@ -20,12 +20,10 @@ jobs:
           TARGET_URL: ${{ secrets.MIRROR_TARGET_URL }}
         run: |
           mkdir -p ~/.ssh
-
           echo "$SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-
           HOST=$(echo "$TARGET_URL" | sed -E 's/.*@([^:/]+).*/\1/')
-
-          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
-
+          PORT=$(echo "$TARGET_URL" | grep -oE ':[0-9]+' | tr -d ':' || echo "22")
+          ssh-keyscan -p "$PORT" -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new"
           git push --mirror "$TARGET_URL"
