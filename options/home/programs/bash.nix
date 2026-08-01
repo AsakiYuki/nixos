@@ -1,6 +1,5 @@
 {
   lib,
-  inputs,
   pkgs,
   config,
   ...
@@ -18,7 +17,7 @@ in {
 
     package = mkOption {
       type = types.package;
-      default = inputs.iris.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      default = pkgs.iris;
     };
   };
 
