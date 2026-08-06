@@ -61,19 +61,19 @@
         };
       };
 
-      "search.asakiyuki.com" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://localhost:39212";
-          # basicAuth = builtins.fromJSON (builtins.readFile (config.age.secrets.nginxAuth.path));
-          # extraConfig = ''
-          #   proxy_set_header Host $host;
-          #   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          #   proxy_set_header X-Forwarded-Proto $scheme;
-          # '';
-        };
-      };
+      # "search.asakiyuki.com" = {
+      #   forceSSL = true;
+      #   enableACME = true;
+      #   locations."/" = {
+      #     proxyPass = "http://localhost:39212";
+      #     # basicAuth = builtins.fromJSON (builtins.readFile (config.age.secrets.nginxAuth.path));
+      #     # extraConfig = ''
+      #     #   proxy_set_header Host $host;
+      #     #   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      #     #   proxy_set_header X-Forwarded-Proto $scheme;
+      #     # '';
+      #   };
+      # };
 
       "adguard.asakiyuki.com" = {
         forceSSL = true;

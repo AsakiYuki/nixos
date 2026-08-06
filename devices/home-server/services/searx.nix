@@ -1,6 +1,6 @@
 {config, ...}: {
   services.searx = {
-    enable = true;
+    enable = false;
     environmentFile = config.age.secrets.searxenv.path;
     settings = {
       general = {
