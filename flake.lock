@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785569020,
-        "narHash": "sha256-uyWGDEF+AHr7wiWmMGq43KYu6ceqzNzQRhov93bqZ9c=",
+        "lastModified": 1786011341,
+        "narHash": "sha256-lGHtT9TFcZyU4B2czV/wGshPOfrg1Kaz0BU4eb+9cJw=",
         "owner": "AsakiYuki",
         "repo": "nixos-overlay",
-        "rev": "2d19432efda3343d1fe95fdfa7ab37260f724b6f",
+        "rev": "c714d2da50286e25104ffb163600f167b47360e4",
         "type": "github"
       },
       "original": {
