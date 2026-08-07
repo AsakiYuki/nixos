@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "path": "./flake/asa-overlays",
+        "path": "./flakes/asa-overlays",
         "type": "path"
       },
       "original": {
-        "path": "./flake/asa-overlays",
+        "path": "./flakes/asa-overlays",
         "type": "path"
       },
       "parent": []

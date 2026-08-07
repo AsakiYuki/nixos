@@ -32,8 +32,8 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    asa-overlay.url = "path:./flakes/asa-overlays";
-    asa-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    overlays.url = "path:./flakes/overlays";
+    overlays.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {

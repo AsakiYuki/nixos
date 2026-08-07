@@ -13,7 +13,7 @@
 in {
   nixpkgs.overlays =
     [
-      inputs.asa-overlay.overlays.default
+      inputs.overlays.overlays.default
       inputs.millennium.overlays.default
       iris-overlays
     ]
