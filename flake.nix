@@ -17,9 +17,6 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
-    asa-overlay.url = "path:./flake/asa-overlays";
-    asa-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -34,6 +31,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    asa-overlay.url = "path:./flakes/asa-overlays";
+    asa-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
