@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  rawScript = lib.readRootFile "/scripts/completions/cloudflare.sh";
+  rawScript = lib.readRootFile "/scripts/bash/completions/cloudflare.sh";
   finalScript = lib.replaceStrings ["@warpCli@"] ["${pkgs.cloudflare-warp}/bin/warp-cli"] rawScript;
 in {
   programs.bash.interactiveShellInit =
