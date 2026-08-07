@@ -1,9 +1,13 @@
-name: Update lock files
+name: update flake inputs lock files
 
 on:
   schedule:
     - cron: "0 17 * * *"
   workflow_dispatch:
+  workflow_run:
+    workflows: ["update flake inputs lock files"]
+    types:
+      - completed
 
 permissions:
   contents: write
