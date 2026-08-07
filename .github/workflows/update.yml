@@ -31,8 +31,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          nix flake update
           cd flakes/overlays && nix flake update && cd ../..
+          nix flake update
 
           git add flake.lock flakes/overlays/flake.lock
 
