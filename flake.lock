@@ -105,11 +105,11 @@
         "snowfall-lib": "snowfall-lib"
       },
       "locked": {
-        "lastModified": 1785867466,
-        "narHash": "sha256-D2eTsp3iim6ej1ZIiIiPgH1VWOv+SoQTAZhadygQPyc=",
+        "lastModified": 1786111089,
+        "narHash": "sha256-meU+E4aEGT9aUD03no1fu0r641qGvWgCLdlfREvm4yA=",
         "owner": "LotusInputMethod",
         "repo": "fcitx5-lotus",
-        "rev": "48fb9be15ef12de2feb39b73fd4f1094aaae1122",
+        "rev": "90ee8fcf7bc48b55a855a42151bd47323f81db0e",
         "type": "github"
       },
       "original": {
@@ -561,11 +561,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1786090628,
-        "narHash": "sha256-kGtaHxXzKJQ2U9L0Ve9vvy21QsPhdyFxrivnjhQfi7Y=",
+        "lastModified": 1786112194,
+        "narHash": "sha256-Ky7/BaJRItGp0WI8lLaHQybn2F2sPFt3BSxYOAbBXhA=",
         "owner": "FlameFlag",
         "repo": "nixcord",
-        "rev": "d36517d116ae80fcfdaffaf5ada937f506e300e0",
+        "rev": "811379fc5e8ec99970b893150c02bd3fec9b53be",
         "type": "github"
       },
       "original": {
