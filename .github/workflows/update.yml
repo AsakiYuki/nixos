@@ -3,8 +3,10 @@ name: Update lock files
 on:
   schedule:
     - cron: "0 17 * * *"
-
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update:
@@ -12,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check flake inputs
         uses: DeterminateSystems/flake-checker-action@v4
@@ -21,12 +25,20 @@ jobs:
 
       - name: Check for update and perform update
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          # Cập nhật lockfiles
           nix flake update
           cd flakes/overlays && nix flake update && cd ../..
 
+          # Stage các file lock cụ thể
           git add flake.lock flakes/overlays/flake.lock
-          git diff --cached --exit-code || git commit -m "Update lock files"
-          git push origin HEAD:main
+
+          # Kiểm tra xem có thay đổi không, nếu có mới commit và push
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update flake lockfiles"
+            git push origin HEAD:${{ github.ref_name }}
+          else
+            echo "No changes in lock files to commit."
+          fi
