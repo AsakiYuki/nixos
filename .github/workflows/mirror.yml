@@ -4,6 +4,10 @@ on:
   push:
     branches: ["*"]
     tags: ["*"]
+  workflow_run:
+    workflows: ["update flake inputs lock files"]
+    types:
+      - completed
 
 jobs:
   mirror:
