@@ -21,22 +21,6 @@
         "type": "github"
       }
     },
-    "asa-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "path": "./flakes/asa-overlays",
-        "type": "path"
-      },
-      "original": {
-        "path": "./flakes/asa-overlays",
-        "type": "path"
-      },
-      "parent": []
-    },
     "chaotic": {
       "inputs": {
         "flake-schemas": "flake-schemas",
@@ -900,6 +884,22 @@
         "type": "github"
       }
     },
+    "overlays": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./flakes/overlays",
+        "type": "path"
+      },
+      "original": {
+        "path": "./flakes/overlays",
+        "type": "path"
+      },
+      "parent": []
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -926,7 +926,6 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "asa-overlay": "asa-overlay",
         "chaotic": "chaotic",
         "dolphin-overlay": "dolphin-overlay",
         "fcitx5-lotus": "fcitx5-lotus",
@@ -942,6 +941,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_11",
         "nixvim": "nixvim",
+        "overlays": "overlays",
         "unstablepkgs": "unstablepkgs",
         "zen-browser": "zen-browser"
       }
