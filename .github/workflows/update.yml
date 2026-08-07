@@ -1,0 +1,26 @@
+name: Update lock files
+
+on:
+  schedule:
+    - cron: "0 17 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check flake inputs
+        uses: DeterminateSystems/flake-checker-action@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Check for update and perform update
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          nix flake update
+          cd flakes/overlays && nix flake update && cd ../..
