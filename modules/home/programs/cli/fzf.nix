@@ -4,6 +4,7 @@
   ...
 }: {
   programs.fzf = {
+    enable = true;
     defaultCommand = null;
     enableBashIntegration = true;
 

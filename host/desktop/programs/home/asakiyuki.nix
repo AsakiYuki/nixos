@@ -23,7 +23,6 @@
     telegram.enable = true;
 
     # CLI Tools
-    fzf.enable = true;
     tmux.enable = true;
     fastfetch.enable = true;
     starship.enable = true;
