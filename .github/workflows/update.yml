@@ -28,16 +28,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Cập nhật lockfiles
           nix flake update
           cd flakes/overlays && nix flake update && cd ../..
 
-          # Stage các file lock cụ thể
           git add flake.lock flakes/overlays/flake.lock
 
-          # Kiểm tra xem có thay đổi không, nếu có mới commit và push
           if ! git diff --cached --quiet; then
-            git commit -m "chore: update flake lockfiles"
+            git commit -m "chore(flake.lock): update flake inputs $(date "+%H:%M:%S %d-%m-%Y")"
             git push origin HEAD:${{ github.ref_name }}
           else
             echo "No changes in lock files to commit."
