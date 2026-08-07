@@ -17,5 +17,5 @@ in {
       inputs.millennium.overlays.default
       iris-overlays
     ]
-    ++ (lib.optional (!config.device.de.kdePlasma.enable) [inputs.dolphin-overlay.overlays.default]);
+    ++ (lib.optional (!config.device.de.kdePlasma.enable) inputs.dolphin-overlay.overlays.default);
 }
