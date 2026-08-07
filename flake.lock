@@ -21,6 +21,22 @@
         "type": "github"
       }
     },
+    "asa-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./flake/asa-overlays",
+        "type": "path"
+      },
+      "original": {
+        "path": "./flake/asa-overlays",
+        "type": "path"
+      },
+      "parent": []
+    },
     "chaotic": {
       "inputs": {
         "flake-schemas": "flake-schemas",
@@ -910,6 +926,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "asa-overlay": "asa-overlay",
         "chaotic": "chaotic",
         "dolphin-overlay": "dolphin-overlay",
         "fcitx5-lotus": "fcitx5-lotus",
