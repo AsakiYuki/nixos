@@ -1,6 +1,9 @@
 {...}: {
+  nixpkgs.overlays = [
+    (import ./custom)
+  ];
+
   imports = [
-    ./custom
     ./iris.nix
     ./dolphin.nix
     ./millennium.nix
