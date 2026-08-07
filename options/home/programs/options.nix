@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   config,
   ...
 }: let
@@ -27,8 +26,6 @@ in {
       (getPkg "rustup")
       (getPkg "ghidra")
       (getPkg "qbittorrent")
-      (lib.mkIf cfg.jetbrains.idea.enable cfg.jetbrains.idea.package)
-      (lib.mkIf cfg.jetbrains.datagrip.enable cfg.jetbrains.datagrip.package)
       (getPkg "zen-browser")
       (getPkg "mangohud")
       (getPkg "telegram")
@@ -48,6 +45,9 @@ in {
       (getPkg "tldr")
 
       (getPkg "cider")
+
+      (lib.mkIf cfg.jetbrains.idea.enable cfg.jetbrains.idea.package)
+      (lib.mkIf cfg.jetbrains.datagrip.enable cfg.jetbrains.datagrip.package)
     ]
     ++ (lib.optionals cfg.proton-ge.enable cfg.proton-ge.packages)
     ++ (lib.optionals cfg.proton-apps.enable cfg.proton-apps.packages);
@@ -94,7 +94,7 @@ in {
     telegram = mkOpt pkgs "telegram-desktop" {name = "telegram-desktop";};
     pavucontrol = mkOpt pkgs.lxqt "pavucontrol-qt" {name = "pavucontrol-qt";};
     cider = mkOpt pkgs "cider-2" {name = "cider-2";};
-    zen-browser = mkOpt inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system} "default" {name = "zen-browser";};
+    zen-browser = mkOpt pkgs "zen-browser" {name = "zen-browser";};
 
     jetbrains = {
       datagrip = mkOpt pkgs.jetbrains "datagrip" {};
