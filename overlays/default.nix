@@ -5,7 +5,11 @@
   config,
   ...
 }: let
-  iris-overlays = final: prev: {iris = inputs.iris.packages.${pkgs.stdenv.hostPlatform.system}.default;};
+  iris-overlays = final: prev: {
+    iris = inputs.iris.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (final: prev: {
+      vendorHash = "sha256-q1szUQkhdKq2VhMuWYYWTahmDxGeVjvHLmjciZu3cBU=";
+    });
+  };
 in {
   nixpkgs.overlays =
     [
