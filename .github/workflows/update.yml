@@ -34,7 +34,7 @@ jobs:
           git add flake.lock flakes/overlays/flake.lock
 
           if ! git diff --cached --quiet; then
-            git commit -m "chore(flake.lock): update flake inputs $(date "+%H:%M:%S %d-%m-%Y")"
+            git commit -m "ci(flake.lock): update flake inputs $(date "+%H:%M:%S %d-%m-%Y")"
             git push origin HEAD:${{ github.ref_name }}
           else
             echo "No changes in lock files to commit."
