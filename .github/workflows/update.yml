@@ -26,3 +26,7 @@ jobs:
 
           nix flake update
           cd flakes/overlays && nix flake update && cd ../..
+
+          git add flake.lock flakes/overlays/flake.lock
+          git diff --cached --exit-code || git commit -m "Update lock files"
+          git push origin HEAD:main
