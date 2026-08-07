@@ -12,6 +12,10 @@
         defaultBranch = "main";
       };
 
+      alias = {
+        add-commit = "!git add . && git commit -m ";
+      };
+
       # pull = {
       #     rebase = "";
       # };
