@@ -24,7 +24,6 @@
 
     # CLI Tools
     fzf.enable = true;
-    git.enable = true;
     tmux.enable = true;
     fastfetch.enable = true;
     starship.enable = true;
