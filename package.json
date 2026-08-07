@@ -1,6 +1,6 @@
 {
   "name": "NixOS",
-  "dependencies": {},
+  "type": "module",
   "devDependencies": {
     "@types/node": "^26.1.2"
   }
