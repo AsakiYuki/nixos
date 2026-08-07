@@ -12,7 +12,7 @@
   };
 in {
   nixpkgs.overlays =
-    [
+    lib.flatten [
       inputs.overlays.overlays.default
       inputs.millennium.overlays.default
       iris-overlays
