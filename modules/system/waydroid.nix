@@ -10,6 +10,6 @@ in {
     package = pkgs.waydroid-nftables;
   };
 
-  programs.bash.interactiveShellInit = lib.mkIf cfg.enable (lib.readRootFile "/scripts/bash/completions/waydroid.sh");
+  programs.bash.interactiveShellInit = lib.mkIf cfg.enable (lib.readRootFile "/scripts/completions/waydroid.sh");
   environment.systemPackages = lib.optionals cfg.enable [pkgs.waydroid-helper];
 }

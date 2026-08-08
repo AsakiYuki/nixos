@@ -9,7 +9,7 @@
     "Desktop Action CopyPublicURL" = {
       Name = "Copy location as URL";
       Icon = "org.kde.plasma.clipboard";
-      Exec = "${lib.root "/scripts/bash/copy-public-url.sh"} \"%F\"";
+      Exec = "${lib.root "/scripts/copy-public-url.sh"} \"%F\"";
     };
   };
 }

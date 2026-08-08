@@ -21,5 +21,5 @@
   };
 
   environment.systemPackages = [inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default];
-  programs.bash.interactiveShellInit = lib.readRootFile "/scripts/bash/completions/agenix.sh";
+  programs.bash.interactiveShellInit = lib.readRootFile "/scripts/completions/agenix.sh";
 }
