@@ -25,74 +25,11 @@
 
 ---
 
-## 📂 Structure
-
-```
-.
-├── flake.nix              # Entrypoint
-├── devices/               # Per-device configs (hardware, boot, services)
-├── host/                  # Shared presets (desktop / server)
-├── users/                 # Per-user declarations (asakiyuki, hieze, junko)
-├── modules/               # Reusable NixOS & Home Manager modules
-├── options/               # Custom option declarations (device.dm.*, device.de.*, etc.)
-├── helpers/               # Lib extensions (mkUsers, mkProgramOption, etc.)
-├── overlays/              # Nixpkgs overlays
-├── flakes/                # Internal sub-flakes (cursors, custom packages)
-├── assets/                # Static assets, public keys, encrypted secrets
-├── secrets.nix            # Agenix secret declarations
-├── build.sh               # Quick rebuild
-├── install.sh             # Fresh install
-└── agenix.sh              # Secret management helper
-```
-
----
-
-## 🚀 Usage
-
-### Build & Switch
-
-```bash
-# Clone to /etc/nixos, then:
-./build.sh <target>
-
-# Examples:
-./build.sh ideapad-slim-5
-./build.sh home-server
-./build.sh wsl
-```
-
-### Fresh Install
-
-```bash
-./install.sh <target>
-```
-
-### Flake Commands
-
-```bash
-nix build .#nixosConfigurations.<target>.config.system.build.toplevel
-nix flake check
-nix flake update
-nix flake show
-```
-
-### Secrets (Agenix)
-
-```bash
-# Edit a secret
-./agenix.sh -e assets/secrets/services/cloudflare.secret.age
-
-# Re-key all secrets
-./agenix.sh -r
-```
-
-> `secret.key` must be present locally (git-ignored).
-
-### Sub-flakes
+## 📎 Sub-flakes
 
 This repo ships two standalone sub-flakes you can use independently in your own config:
 
-#### 🖱️ Custom Cursors (`flakes/cursors`)
+### 🖱️ Custom Cursors (`flakes/cursors`)
 
 A Home Manager module providing anime-themed cursor packs (Honkai, Wuthering Waves, etc.).
 
@@ -109,11 +46,13 @@ A Home Manager module providing anime-themed cursor packs (Honkai, Wuthering Wav
 ```nix
 # home.nix
 {
-  theme.cursors = "elysia"; # or: castorice, aemeath, denia, cartethyia, yangyang, hiyuki, lucilla
+  theme.cursors = "elysia";
 }
 ```
 
-#### 📦 Custom Packages Overlay (`flakes/overlays`)
+> Available themes are listed in [`assets/cursors.json`](./assets/cursors.json).
+
+### 📦 Custom Packages Overlay (`flakes/overlays`)
 
 Adds `cage-xtmapper`, `cider-2`, `bun-baseline`, `geode-cli`, `lsfg-vk` to nixpkgs.
 
@@ -137,34 +76,4 @@ Adds `cage-xtmapper`, `cider-2`, `bun-baseline`, `geode-cli`, `lsfg-vk` to nixpk
 }
 ```
 
----
-
-## 🧱 Architecture
-
-```mermaid
-graph TD
-    A["flake.nix"] --> B["helpers/nixosConfigurations.nix"]
-    B --> C["ideapad-slim-5"]
-    B --> D["home-server"]
-    B --> E["wsl"]
-
-    C --> F["host/desktop"]
-    D --> G["host/server"]
-    E --> H["NixOS-WSL"]
-
-    F --> I["modules/*"]
-    G --> I
-
-    style A fill:#5277c3,stroke:#333,color:#fff
-    style C fill:#7eb356,stroke:#333,color:#fff
-    style D fill:#e06c75,stroke:#333,color:#fff
-    style E fill:#d19a66,stroke:#333,color:#fff
-```
-
-`helpers/nixosConfigurations.nix` takes device definitions from `flake.nix` and wires up extended `lib`, unstable channel, Home Manager, agenix, Chaotic-Nyx, and all shared modules automatically.
-
----
-
-## 📄 License
-
-[GPL-3.0](./LICENSE)
+> Available packages are listed in [`flakes/overlays/flake.nix`](./flakes/overlays/flake.nix).
