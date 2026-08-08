@@ -6,5 +6,6 @@
   };
 
   outputs = {...}: {
+    homeModules.default = import ./home.nix;
   };
 }
