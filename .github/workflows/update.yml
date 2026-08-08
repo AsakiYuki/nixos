@@ -42,7 +42,7 @@ jobs:
             echo "No changes in lock files to commit."
           fi
 
-          bun run index.ts || true
+          bun run check-package-updates || true
 
           git add assets/packages.json
           if ! git diff --cached --quiet; then
