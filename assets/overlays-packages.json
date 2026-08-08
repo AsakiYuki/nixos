@@ -1,0 +1,24 @@
+{
+    "bun-baseline": {
+        "version": "1.3.14",
+        "hash": "sha256-vglDdJBMSzCC7+NrMg1CP+Dq052aWvDGGfdP6H23xf8="
+    },
+    "cage-xtmapper": {
+        "release": "20260208",
+        "version-0.2.0": "sha256-F1C3KnTzTO1vEouixqO1xnsGmufRyAk+BiRlypNq4kQ=",
+        "version-0.1.5": "sha256-ZmdltOQInGbCBpf/e8D2sB9Rjt4wqd8wwuSFvryHfFA="
+    },
+    "cider-2": {
+        "version": "4.0.9.1",
+        "hash": "sha256-MsA6lK3PsyOEx938FgJFx8l9oqwoM3FzIK5goF73lTs="
+    },
+    "geode-cli": {
+        "version": "3.8.0",
+        "hash": "sha256-iktrrg+/OeIsicIeOsgLxZUW9/ZQdqH57D6zqK4kb6c="
+    },
+    "lsfg-vk": {
+        "version": "2.0.0",
+        "dev-version": "28",
+        "hash": "sha256-JiATwEz6NEVsab11O0HNmFzM3S3aANT0YLWqYAwJVk0="
+    }
+}

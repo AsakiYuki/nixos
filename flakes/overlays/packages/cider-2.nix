@@ -1,15 +1,18 @@
 {
   pkgs,
+  lib,
   prev,
   ...
-}:
-prev.cider-2.overrideAttrs (prevAtts: rec {
-  version = "4.0.9.1";
+}: let
+  data = (lib.importJSON ../../../assets/overlays-packages.json).cider-2;
+in
+  prev.cider-2.overrideAttrs (prevAtts: rec {
+    version = data.version;
 
-  src = pkgs.fetchurl {
-    url = "https://static.asakiyuki.com/packages/nixos/cider-v${version}-linux-x64.deb";
-    hash = "sha256-MsA6lK3PsyOEx938FgJFx8l9oqwoM3FzIK5goF73lTs=";
-  };
+    src = pkgs.fetchurl {
+      url = "https://static.asakiyuki.com/packages/nixos/cider-v${version}-linux-x64.deb";
+      hash = data.hash;
+    };
 
-  postInstall = builtins.replaceStrings ["--replace-fail"] ["--replace-warn"] prevAtts.postInstall;
-})
+    postInstall = builtins.replaceStrings ["--replace-fail"] ["--replace-warn"] prevAtts.postInstall;
+  })

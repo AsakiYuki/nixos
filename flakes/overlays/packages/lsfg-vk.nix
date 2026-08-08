@@ -1,13 +1,17 @@
-{pkgs, ...}: let
-  dev-version = "28";
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  data = (lib.importJSON ../../../assets/overlays-packages.json).lsfg-vk;
 in
   pkgs.stdenv.mkDerivation rec {
     pname = "lsfg-vk";
-    version = "2.0.0";
+    version = data.version;
 
     src = pkgs.fetchzip {
-      url = "https://github.com/PancakeTAS/lsfg-vk/releases/download/v${version}-dev/lsfg-vk-${version}-dev${dev-version}-linux.tar.xz";
-      hash = "sha256-JiATwEz6NEVsab11O0HNmFzM3S3aANT0YLWqYAwJVk0=";
+      url = "https://github.com/PancakeTAS/lsfg-vk/releases/download/v${version}-dev/lsfg-vk-${version}-dev${data.dev-version}-linux.tar.xz";
+      hash = data.hash;
       stripRoot = false;
     };
 
