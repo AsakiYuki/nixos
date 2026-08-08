@@ -6,6 +6,7 @@ interface LatestReleaseData {
 		label: string
 		download_url: string
 		content_type: string
+		digest: string
 	}>
 }
 
@@ -27,10 +28,12 @@ export async function getGithubRepoLatestRelease(
 			label,
 			content_type,
 			browser_download_url,
+			digest,
 		}: {
 			name: string
 			label: string
 			content_type: string
+			digest: string
 			browser_download_url: string
 		}) {
 			return {
@@ -38,6 +41,7 @@ export async function getGithubRepoLatestRelease(
 				label,
 				content_type,
 				download_url: browser_download_url,
+				digest,
 			}
 		}),
 	}

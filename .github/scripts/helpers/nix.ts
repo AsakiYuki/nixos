@@ -1,3 +1,6 @@
-import { spawn } from "child_process"
+import { spawnStdout } from "./shell"
 
-async function fetchZipHash(file_url: string): Promise<string> {}
+export async function fetchZipHash(file_url: string): Promise<string> {
+	const nix32Hash = await spawnStdout("nix-prefetch-url", ["--unpack", file_url])
+	return spawnStdout("nix", ["hash", "convert", "--hash-algo", "sha256", "--from", "nix32", nix32Hash])
+}

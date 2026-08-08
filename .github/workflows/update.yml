@@ -40,7 +40,16 @@ jobs:
 
           if ! git diff --cached --quiet; then
             git commit -m "ci(flake.lock): update flake inputs $(date "+%H:%M:%S %d-%m-%Y")"
-            git push origin HEAD:${{ github.ref_name }}
           else
             echo "No changes in lock files to commit."
           fi
+
+          git add assets/packages.json
+
+          if ! git diff --cached --quiet; then
+            git commit -m "ci(assets/packages.json): update packages infos $(date "+%H:%M:%S %d-%m-%Y""
+          else
+            echo "No changed in packages files to commit"
+          fi
+
+          git push origin HEAD:${{ github.ref_name }}
