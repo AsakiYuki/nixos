@@ -57,6 +57,22 @@
         "type": "github"
       }
     },
+    "cursors": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./flakes/cursors",
+        "type": "path"
+      },
+      "original": {
+        "path": "./flakes/cursors",
+        "type": "path"
+      },
+      "parent": []
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -927,6 +943,7 @@
       "inputs": {
         "agenix": "agenix",
         "chaotic": "chaotic",
+        "cursors": "cursors",
         "dolphin-overlay": "dolphin-overlay",
         "fcitx5-lotus": "fcitx5-lotus",
         "home-manager": "home-manager_3",

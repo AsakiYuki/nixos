@@ -34,6 +34,9 @@
 
     overlays.url = "path:./flakes/overlays";
     overlays.inputs.nixpkgs.follows = "nixpkgs";
+
+    cursors.url = "path:./flakes/cursors";
+    cursors.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {

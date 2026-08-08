@@ -38,8 +38,9 @@ lib.mergeAttrsList (
           [
             inputs.nixvim.homeModules.nixvim
             inputs.nixcord.homeModules.nixcord
-            inputs.agenix.homeManagerModules.default
             inputs.niri.homeModules.niri
+            inputs.agenix.homeManagerModules.default
+            inputs.cursors.homeModules.default
           ]
 
           (home.imports or [])
