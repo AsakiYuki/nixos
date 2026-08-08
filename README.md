@@ -17,11 +17,11 @@
 
 ## 🖥️ Devices
 
-| Target | Description |
-|:---|:---|
+| Target           | Description                                                       |
+| :--------------- | :---------------------------------------------------------------- |
 | `ideapad-slim-5` | Lenovo IdeaPad Slim 5 — Full desktop (KDE Plasma, Hyprland, Niri) |
-| `home-server` | Headless server (Forgejo, Nginx, Nextcloud, SearX, AdGuard Home) |
-| `wsl` | WSL — Lightweight CLI environment |
+| `home-server`    | Headless server (Forgejo, Nginx, Nextcloud, SearX, AdGuard Home)  |
+| `wsl`            | WSL — Lightweight CLI environment                                 |
 
 ---
 
@@ -54,7 +54,7 @@ A Home Manager module providing anime-themed cursor packs (Honkai, Wuthering Wav
 
 ### 📦 Custom Packages Overlay (`flakes/overlays`)
 
-Adds `cage-xtmapper`, `cider-2`, `bun-baseline`, `geode-cli`, `lsfg-vk` to nixpkgs.
+Adds some packages to nixpkgs.
 
 ```nix
 # flake.nix
