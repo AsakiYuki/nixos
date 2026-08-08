@@ -1,0 +1,44 @@
+interface LatestReleaseData {
+	name: string
+	tag_name: string
+	assets: Array<{
+		name: string
+		label: string
+		download_url: string
+		content_type: string
+	}>
+}
+
+export async function getGithubRepoLatestRelease(
+	username: string,
+	repository: string,
+): Promise<LatestReleaseData | null> {
+	const response = await fetch(`https://api.github.com/repos/${username}/${repository}/releases/latest`)
+
+	if (response.status !== 200) return null
+
+	const { name, tag_name, assets } = await response.json()
+
+	return {
+		name,
+		tag_name,
+		assets: assets.map(function ({
+			name,
+			label,
+			content_type,
+			browser_download_url,
+		}: {
+			name: string
+			label: string
+			content_type: string
+			browser_download_url: string
+		}) {
+			return {
+				name,
+				label,
+				content_type,
+				download_url: browser_download_url,
+			}
+		}),
+	}
+}
