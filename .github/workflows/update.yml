@@ -31,11 +31,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          cd flakes/cursors && nix flake update && cd ../..
           cd flakes/overlays && nix flake update && cd ../..
+          rm flakes/cursors/flake.lock
+          cp flakes/overlays/flake.lock flakes/cursors/
           nix flake update
 
-          git add flake.lock flakes/overlays/flake.lock
+          git add flake.lock flakes/overlays/flake.lock flakes/cursors/flake.lock
 
           if ! git diff --cached --quiet; then
             git commit -m "ci(flake.lock): update flake inputs $(date "+%H:%M:%S %d-%m-%Y")"
