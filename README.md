@@ -76,4 +76,4 @@ Adds `cage-xtmapper`, `cider-2`, `bun-baseline`, `geode-cli`, `lsfg-vk` to nixpk
 }
 ```
 
-> Available packages are listed in [`flakes/overlays/flake.nix`](./flakes/overlays/flake.nix).
+> Available packages are listed in [`flakes/overlays/README.md`](./flakes/overlays/README.md).
