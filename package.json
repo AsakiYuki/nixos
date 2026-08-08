@@ -22,7 +22,7 @@
   ],
   "license": "GPL-3.0",
   "scripts": {
-    "check-package-updates": "bun run .github/scripts/check-package-updates.ts"
+    "check-package-updates": "bun run scripts/check-package-updates.ts"
   },
   "type": "module"
 }

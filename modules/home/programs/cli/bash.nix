@@ -48,10 +48,10 @@
       strOpt = condition: filePath: (lib.optionalString condition (lib.readRootFile filePath));
       cfg = config.programs;
     in ''
-      ${lib.readRootFile "/scripts/bash.sh"}
-      ${lib.readRootFile "/scripts/truonglon.sh"}
-      ${strOpt cfg.qpdf.enable "/scripts/qpdf.sh"}
-      ${strOpt cfg.tmux.enable "/scripts/tmux.sh"}
+      ${lib.readRootFile "/scripts/shell/bash.sh"}
+      ${lib.readRootFile "/scripts/shell/truonglon.sh"}
+      ${strOpt cfg.qpdf.enable "/scripts/shell/qpdf.sh"}
+      ${strOpt cfg.tmux.enable "/scripts/shell/tmux.sh"}
     '';
   };
 }
