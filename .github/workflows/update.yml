@@ -1,4 +1,4 @@
-name: update flake inputs lock files
+name: checking update
 
 on:
   schedule:
