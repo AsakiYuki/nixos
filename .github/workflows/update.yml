@@ -31,25 +31,25 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          cd flakes/overlays && nix flake update && cd ../..
-          rm flakes/cursors/flake.lock
-          cp flakes/overlays/flake.lock flakes/cursors/
+          nix flake update --flake ./flakes/overlays
+          cp flakes/overlays/flake.lock flakes/cursors/flake.lock
           nix flake update
 
           git add flake.lock flakes/overlays/flake.lock flakes/cursors/flake.lock
-
           if ! git diff --cached --quiet; then
-            git commit -m "ci(flake.lock): update flake inputs $(date "+%H:%M:%S %d-%m-%Y")"
+            git commit -m "ci(flake.lock): update flake inputs $(date '+%H:%M:%S %d-%m-%Y')"
           else
             echo "No changes in lock files to commit."
           fi
 
-          git add assets/packages.json
+          bun run index.ts || true
 
+          git add assets/packages.json
           if ! git diff --cached --quiet; then
-            git commit -m "ci(assets/packages.json): update packages infos $(date "+%H:%M:%S %d-%m-%Y""
+            git commit -m "ci(assets/packages.json): update packages infos $(date '+%H:%M:%S %d-%m-%Y')"
           else
-            echo "No changed in packages files to commit"
+            echo "No changes in packages files to commit."
           fi
 
+          git pull --rebase origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}
