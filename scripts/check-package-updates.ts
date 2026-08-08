@@ -41,11 +41,11 @@ async function fetchLastBunBaselinePackage() {
 }
 
 async function main() {
-	packages = JSON.parse(await fs.readFile(path.join(__dirname, "../../assets/packages.json"), "utf-8"))
+	packages = JSON.parse(await fs.readFile(path.join(__dirname, "../assets/packages.json"), "utf-8"))
 
 	await Promise.all([fetchLastBunBaselinePackage()])
 
-	await fs.writeFile(path.join(__dirname, "../../assets/packages.json"), JSON.stringify(packages, null, 4))
+	await fs.writeFile(path.join(__dirname, "../assets/packages.json"), JSON.stringify(packages, null, 4))
 	// if (!test) return
 	// console.log(test)
 	// fetchZipHash(test.assets[0].download_url).then(console.log)
