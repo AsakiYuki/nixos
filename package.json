@@ -1,10 +1,31 @@
 {
-  "name": "NixOS",
+  "name": "nixos",
+  "version": "1.0.0",
+  "description": "The Asa's nix configurations",
+  "keywords": [
+    "nix",
+    "nixos",
+    "nixos-config",
+    "nixos-configurations"
+  ],
+  "homepage": "https://github.com/AsakiYuki/nixos#readme",
+  "bugs": {
+    "url": "https://github.com/AsakiYuki/nixos/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsakiYuki/nixos.git"
+  },
+  "license": "GPL-3.0",
+  "author": "AsakiYuki",
   "type": "module",
-  "devDependencies": {
-    "@types/node": "^26.1.2"
+  "scripts": {
+    "check-package-updates": "bun run scripts/check-package-updates.ts"
   },
   "dependencies": {
     "octokit": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2"
   }
 }
